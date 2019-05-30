@@ -1,0 +1,88 @@
+baseURL = "https://youtube.tracking.exposed/"
+languageCode = "en-us"
+title = "YouTube Tracking Exposed"
+theme = "trex"
+enableRobotsTXT = true
+canonifyURLs = true
+[params]
+    subtitle = "YouTube"
+    subsite = "youtube"
+    description = "YouTube is not what it seems."
+    tagline = "The more you view, the more they know, earn and get about your."
+    background = "#FFF"
+    primary = "#3C5A96"
+    primary_light = ""
+    secondary = ""
+    tertiary_dark = ""
+    tertiary = ""
+
+[permalinks]
+    posts = "/:slug/"
+
+[menu]
+ [[menu.main]]
+    page = "The Peoples Tube"
+    identifier = "the-peoples-tube"
+    name= "The Peoples Tube"
+    url = "/the-peoples-tube/"
+    weight = -180
+ [[menu.main]]
+    page = "More"
+    identifier = "more"
+    name = "More"
+    url = "#"
+    weight = -100
+ [[menu.main]]
+    page = "About"
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    parent = "more"
+    weight = -110
+ [[menu.main]]
+    page = "API Documentation"
+    identifier = "api-documentation"
+    parent = "more"
+    name = "API Documentation"
+    url = "/api-documentation/"
+    weight = -130
+ [[menu.main]]
+    page = "Get Involved"
+    identifier = "get-involved"
+    name = "Get Involved"
+    parent = "more"
+    url = "/get-involved/"
+    weight = -140
+ [[menu.main]]
+    page = "What We Collect"
+    identifier = "what-we-collect"
+    name = "What We Collect"
+    parent = "more"
+    url = "/what-we-collect/"
+    weight = -150
+
+ [[menu.featured]]
+    page = "The Peoples Tube"
+    identifier = "the-peoples-tube"
+    name = "The Peoples Tube"
+    url = "/the-peoples-tube/"
+    weight = -180
+ [[menu.featured]]
+    page = "Without Goo"
+    identifier = "without-goo"
+    name= "Without Goo"
+    url = "/without-goo/"
+    weight = -170
+ [[menu.featured]]
+    page = "Analysis & Publications"
+    identifier = "analysis-and-publications"
+    name = "Analysis & Publications"
+    url = "/analysis-and-publications/"
+    weight = -160
+
+ [[menu.footer]]
+    page = "Background"
+    identifier = "background"
+    name = "Background"
+    url = "/background/"
+    weight = 100
