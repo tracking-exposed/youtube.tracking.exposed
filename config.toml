@@ -81,8 +81,9 @@ canonifyURLs = true
     weight = -160
 
  [[menu.footer]]
-    page = "Background"
+    page = "Project analysis"
     identifier = "background"
-    name = "Background"
+    name = "Project analysis"
     url = "/background/"
     weight = 100
+
