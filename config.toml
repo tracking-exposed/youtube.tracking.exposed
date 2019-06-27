@@ -9,12 +9,6 @@ canonifyURLs = true
     subsite = "youtube"
     description = "YouTube is not what it seems."
     tagline = "The more you view, the more they know, earn and get about your."
-    background = "#FFF"
-    primary = "#3C5A96"
-    primary_light = ""
-    secondary = ""
-    tertiary_dark = ""
-    tertiary = ""
 
 [permalinks]
     posts = "/:slug/"
@@ -67,17 +61,22 @@ canonifyURLs = true
     name = "The Peoples Tube"
     url = "/the-peoples-tube/"
     weight = -180
+    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
  [[menu.featured]]
     page = "Without Goo"
     identifier = "without-goo"
     name= "Without Goo"
     url = "/without-goo/"
+    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
+    post = "testo di commento"
     weight = -170
  [[menu.featured]]
     page = "Analysis & Publications"
     identifier = "analysis-and-publications"
     name = "Analysis & Publications"
     url = "/analysis-and-publications/"
+    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
+    post = "testo di commento"
     weight = -160
 
  [[menu.footer]]
