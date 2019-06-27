@@ -10,5 +10,4 @@ geckodriver.log
 archetypes/*
 data/*
 resources/
-themes/*
-!themes/trex/layouts/yttrex/
+themes/trex/*
