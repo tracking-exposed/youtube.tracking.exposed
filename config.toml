@@ -21,6 +21,12 @@ canonifyURLs = true
     url = "/the-peoples-tube/"
     weight = -180
  [[menu.main]]
+    page = "yttrex"
+    identifier = "yttrex"
+    name= "Youtube TRex"
+    url = "/yttrex/"
+    weight = -180
+ [[menu.main]]
     page = "More"
     identifier = "more"
     name = "More"
@@ -56,27 +62,28 @@ canonifyURLs = true
     weight = -150
 
  [[menu.featured]]
-    page = "The Peoples Tube"
-    identifier = "the-peoples-tube"
-    name = "The Peoples Tube"
-    url = "/the-peoples-tube/"
+    page = "compare"
+    identifier = "compare"
+    name = "Compare"
+    url = "/yttrex/compare/"
     weight = -180
-    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
+    pre = "/images/yttrex-compare.jpg"
+    post = "Compare how the same video get different reccomendations"
  [[menu.featured]]
-    page = "Without Goo"
-    identifier = "without-goo"
-    name= "Without Goo"
-    url = "/without-goo/"
-    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
-    post = "testo di commento"
+    page = "related"
+    identifier = "related"
+    name= "Related"
+    url = "/yttrex/related/"
+    pre = "/images/yttrex-search.jpg"
+    post = "Search if this video ever been as YT's recommended"
     weight = -170
  [[menu.featured]]
-    page = "Analysis & Publications"
-    identifier = "analysis-and-publications"
-    name = "Analysis & Publications"
-    url = "/analysis-and-publications/"
-    pre = "https://www.bitmat.it/wp-content/uploads/2018/04/Facebook.jpg"
-    post = "testo di commento"
+    page = "last"
+    identifier = "last"
+    name = "Last"
+    url = "/yttrex/last/"
+    pre = "/images/yttrex-last.jpg"
+    post = "The last videos collected"
     weight = -160
 
  [[menu.footer]]

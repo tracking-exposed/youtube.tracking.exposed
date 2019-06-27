@@ -1,0 +1,56 @@
+{{ define "main" -}}
+
+<header class="jumbotron">
+    <div class="container">
+        <div class="text-center">
+            <h1>{{ .Title }}</h1>
+            <time class="post-date d-none" datetime='{{ .Date.Format "2006-01-02T15:04:05Z0700" }}'>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    {{ .Content }}
+    <span class="clearfix"></span>
+
+    <p id="notes"></p>
+    <div id="recent"></div>
+</div>
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+        function unfoldRelated(memo, e) {
+            let add = `<span class="related">
+                    ${e.index} < <a href="/related/${e.videoId}">${e.title}</a>
+                    <a target=_blank href="https://www.youtube.com/watch?v=${e.videoId}">🞂</a>
+                </span>
+            `;
+            memo += add;
+            return memo;
+        }
+
+        function initLast() {
+            $.getJSON('https://youtube.tracking.exposed/api/v1/last', function(recent) {
+                _.each(recent.content, function(item) {
+                    let relates = _.reduce(item.related, unfoldRelated, "");
+                    let h = `
+                    <div class="last">
+                        <label>${item.timeago}</label>
+                        <a class="title" href="/yttrex/compare/#${item.videoId}">${item.title}</a>
+                        <a target=_blank href="https://www.youtube.com/watch?v=${item.videoId}">🞂</a>
+                        <div>${relates}</div>
+                    </div>
+                `;
+                    $('#recent').append(h);
+                });
+
+            });
+        }
+        initLast();
+
+
+    });
+</script>
+
+{{- end }}
