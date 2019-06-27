@@ -1,3 +1,14 @@
-resources/_gen/
-public/
+*~
+public
+.idea
+.sass-cache
+tests_output
+chromedriver.log
+node_modules/*
+chromedriver.log
+geckodriver.log
+archetypes/*
+data/*
+resources/
 themes/*
+!themes/trex/layouts/yttrex/
