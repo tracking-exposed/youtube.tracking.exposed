@@ -13,7 +13,6 @@
     {{ .Content }}
     <span class="clearfix"></span>
 
-    <p id="notes"></p>
     <div id="recent"></div>
 </div>
 
@@ -21,10 +20,13 @@
 
     $( document ).ready(function() {
         function unfoldRelated(memo, e) {
-            let add = `<span class="related">
-                    ${e.index} < <a href="/related/${e.videoId}">${e.title}</a>
-                    <a target=_blank href="https://www.youtube.com/watch?v=${e.videoId}">🞂</a>
-                </span>
+            let add = `
+                <small class="related">
+                    <b>${e.index}</b>:
+                    <span>${e.title}</span>
+                    <a href="/related/${e.videoId}">See related</a> |
+                    <a target=_blank href="https://www.youtube.com/watch?v=${e.videoId}">See video</a>
+                </small><br />
             `;
             memo += add;
             return memo;
@@ -35,12 +37,13 @@
                 _.each(recent.content, function(item) {
                     let relates = _.reduce(item.related, unfoldRelated, "");
                     let h = `
-                    <div class="last">
-                        <label>${item.timeago}</label>
-                        <a class="title" href="/yttrex/compare/#${item.videoId}">${item.title}</a>
-                        <a target=_blank href="https://www.youtube.com/watch?v=${item.videoId}">🞂</a>
-                        <div>${relates}</div>
-                    </div>
+                    <p class="last mt-5">
+                        <code>${item.timeago}</code>
+                        <b>${item.title}</b>
+                        <a class="title" href="/yttrex/compare/#${item.videoId}">See related</a>
+                    </p>
+                    ${relates}
+
                 `;
                     $('#recent').append(h);
                 });
