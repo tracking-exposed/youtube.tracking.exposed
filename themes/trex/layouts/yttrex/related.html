@@ -13,11 +13,25 @@
     {{ .Content }}
     <span class="clearfix"></span>
 
-    <input class="entry" type="text" id="search" placeholder="youtube.com/watch?v=...">
-    <input type="button" value="view" onclick="submit()">
+    <!--<form onsubmit="submit()" class="text-center pb-3">-->
+    <div class="text-center">
+        <h4>
+            <b>Search for a YouTube video's ID</b><br />
+            <!--<small><em>in e.:  https://www.youtube.com/watch?v=<b>VF6-J5BCxWM</b></em></small>-->
+        </h4>
+        <input type="text" id="search" placeholder="" class="p-2">
+        <input type="button" class="btn btn-dark" onclick="submit()" value="view"><br />
 
-    <p id="notes"></p>
-    <div id="related"></div>
+    </div>
+    <!--</form>-->
+
+    <div id="notes"></div>
+    <ul id="related"></ul>
+
+    <table class="table">
+        <thead id="related-list-head"></thead>
+        <tbody id="related-list"></tbody>
+    </table>
 </div>
 
 <script type="text/javascript">
@@ -31,9 +45,10 @@
             $.getJSON('https://youtube.tracking.exposed/api/v1/related/' + rId, function (results) {
                 if (_.size(results) === 0) {
                     const nope = `
-                        <p>Nope, a video with such id has been never found among the evidence collected</p>
-                        <p>Check if is a valid video, here is the composed link:
-                            <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${rId}</a>
+                        <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
+                        <p class="text-center">
+                           Check if is a valid video, here is the composed link:
+                           <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${rId}</a>
                         </p>
                     `;
                     $("#notes").append(nope);
@@ -42,41 +57,53 @@
 
                 const target = _.find(results[0].related, {videoId: rId});
                 const hdr = `
-                    <div class="centered protagonist">
-                        <div class="fullred">${_.size(results)} videos linked to this
-                            <a class="notclassiclink" href="/yttrex/compare/#${rId}">→  compare</a>
-                        </div>
-                        <div>${target.title}
-                            <a target=_blank href="https://www.youtube.com/watch?v=${results[0].videoId}">🞂</a>
-                        </div>
-                        ${target.source}
+                    <div class="text-center protagonist">
+                        <h3>
+                            ${target.title}
+                        </h3>
+                        <p class="strong">
+                            ${_.size(results)} videos linked to this
+                            <a class="notclassiclink" href="/yttrex/compare/#${rId}">→ compare</a>
+                        </p>
                     </div>
-                    <div class="centered fullred">Check the list below</div>
+
                 `;
                 $('#related').append(hdr);
 
                 _.each(results, function (watched) {
                     const index = _.find(watched.related, {videoId: rId}).index;
                     let videoEntry = `
-                        <div id="${watched.videoId}" class="step">
-                            <span class="video">
-                                <label>Primary video:</label><a class="primary" href="/yttrex/compare/#${watched.videoId}">${watched.title}</a>
-                                <a target=_blank href="https://www.youtube.com/watch?v=${watched.videoId}">🞂</a>
-                            </span>
-                            <span class="author">
-                                <label>Primary channel:</label>${watched.authorName}
-                            </span>
-                            <span class="position">
-                                <label>Position:</label>${index}
-                            </span>
-                            <span>
-                                <label>Saved on:</label>${watched.timeago} ago
-                            </span>
-                        </div>
+                        <tr id="${watched.videoId}" class="step">
+
+                                <td class="video">
+                                    <b>${watched.title}</b>
+                                    <a class="primary" href="/yttrex/compare/#${watched.videoId}">See related</a>
+                                </td>
+                                <td class="author">
+                                   ${watched.authorName}
+                                </td>
+                                <td class="position">
+                                   ${index}
+                                </td>
+                                <td>
+                                    ${watched.timeago} ago
+                                </td>
+
+                        </tr>
                     `;
-                    $('#related').append(videoEntry);
+                    $('#related-list').append(videoEntry);
                 });
 
+
+                const thead = `
+                        <tr>
+                            <th>Primary video</th>
+                            <th>Primary channel</th>
+                            <th>Position</th>
+                            <th>Saved on</th>
+                        </tr>
+                    `;
+                $('#related-list-head').append(thead);
             });
         }
 
