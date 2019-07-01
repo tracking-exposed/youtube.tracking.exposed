@@ -2,7 +2,112 @@
 title: Search if this video ever been as YT's recommended
 date: 2019-05-22T15:01:21+01:00
 draft: false
-layout: related
+description: Search if this video ever been as YT's recommended 
+type: app
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus a pellentesque sit amet porttitor eget. Purus gravida quis blandit turpis cursus in hac habitasse. Venenatis urna cursus eget nunc. Dui nunc mattis enim ut. In nulla posuere sollicitudin aliquam ultrices. Aliquam faucibus purus in massa tempor nec. Semper risus in hendrerit gravida rutrum. Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Mattis ullamcorper velit sed ullamcorper. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Iaculis urna id volutpat lacus laoreet. Tristique et egestas quis ipsum suspendisse ultrices.
+<div class="container">
+    <!--<form onsubmit="submit()" class="text-center pb-3">-->
+    <div class="text-center">
+        <h4>
+            <b>Search for a YouTube video's ID</b><br />
+            <!--<small><em>in e.:  https://www.youtube.com/watch?v=<b>VF6-J5BCxWM</b></em></small>-->
+        </h4>
+        <input type="text" id="search" placeholder="" class="p-2">
+        <input type="button" class="btn btn-dark" onclick="submit()" value="view"><br />
+
+    </div>
+    <!--</form>-->
+
+    <div id="notes"></div>
+    <ul id="related"></ul>
+
+    <table class="table">
+        <thead id="related-list-head"></thead>
+        <tbody id="related-list"></tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+
+        function initRelated() {
+            const rId = window.location.href.split('/#').pop();
+            if (rId == 'compare') return;
+            $("#search").val(rId);
+            $.getJSON('https://youtube.tracking.exposed/api/v1/related/' + rId, function (results) {
+                if (_.size(results) === 0) {
+                    const nope = `
+                        <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
+                        <p class="text-center">
+                           Check if is a valid video, here is the composed link:
+                           <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${rId}</a>
+                        </p>
+                    `;
+                    $("#notes").append(nope);
+                    return;
+                }
+
+                const target = _.find(results[0].related, {videoId: rId});
+                const hdr = `
+                    <div class="text-center protagonist">
+                        <h3>
+                            ${target.title}
+                        </h3>
+                        <p class="strong">
+                            ${_.size(results)} videos linked to this
+                            <a class="notclassiclink" href="/yttrex/compare/#${rId}">→ compare</a>
+                        </p>
+                    </div>
+
+                `;
+                $('#related').append(hdr);
+
+                _.each(results, function (watched) {
+                    const index = _.find(watched.related, {videoId: rId}).index;
+                    let videoEntry = `
+                        <tr id="${watched.videoId}" class="step">
+
+                                <td class="video">
+                                    <b>${watched.title}</b>
+                                    <a class="primary" href="/yttrex/compare/#${watched.videoId}">See related</a>
+                                </td>
+                                <td class="author">
+                                   ${watched.authorName}
+                                </td>
+                                <td class="position">
+                                   ${index}
+                                </td>
+                                <td>
+                                    ${watched.timeago} ago
+                                </td>
+
+                        </tr>
+                    `;
+                    $('#related-list').append(videoEntry);
+                });
+
+
+                const thead = `
+                        <tr>
+                            <th>Primary video</th>
+                            <th>Primary channel</th>
+                            <th>Position</th>
+                            <th>Saved on</th>
+                        </tr>
+                    `;
+                $('#related-list-head').append(thead);
+            });
+        }
+
+        initRelated();
+    });
+    function submit() {
+        const submitted = $("#search").val();
+        const videoId = submitted.replace(/.*v=/, '');
+        if (_.size(videoId) < 9 || _.size(videoId) > 12) return;
+        window.location.replace('/yttrex/related/#' + videoId);
+        location.reload();
+    }
+</script>
