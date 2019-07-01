@@ -15,16 +15,10 @@ canonifyURLs = true
 
 [menu]
  [[menu.main]]
-    page = "The Peoples Tube"
-    identifier = "the-peoples-tube"
-    name= "The Peoples Tube"
-    url = "/the-peoples-tube/"
-    weight = -180
- [[menu.main]]
-    page = "yttrex"
-    identifier = "yttrex"
-    name= "Youtube TRex"
-    url = "/yttrex/"
+    page = "SeeYou - Youtuber Labor union"
+    identifier = "SeeYou"
+    name = "SeeYou - the Youtuber Labor union"
+    url = "/seeyou/"
     weight = -180
  [[menu.main]]
     page = "More"
