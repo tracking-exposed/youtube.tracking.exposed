@@ -70,7 +70,7 @@ These data represent the unique picture of what YouTube suggested to the individ
 
 ### Roadmap
 
-1. ☑  Have a browser extension capable of copying the YouTube pages: it is implemented. We need help in providing better screenshots for [Chrome store,](https://chrome.google.com/webstore/detail/yttrex/kbbgjcgdcibilpahljnlejefcehbljnd)and [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/yttrex/). If you are a web-extension developer. [check the README on github](https://github.com/tracking-exposed/yttrex).
+1. ☑  Have a browser extension capable of copying the YouTube pages: it is implemented, we still need some help in maintainance [Chrome store,](https://chrome.google.com/webstore/detail/yttrex/kbbgjcgdcibilpahljnlejefcehbljnd) and [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/yttrex/). 
 2. ☐  Implement a decent statistics collection system 
 3. ☑  Release a simple API without any interface, to let researchers and developers experiment with the tool
 4. ☐  Develop an interface which permits an individual to delete their submission and control data retention policy
@@ -90,6 +90,6 @@ In this comparative analysis, the researcher can start to figure out how the alg
 
 ### Outreach
 
-1. Talk to the content producers (*"When I'm grow-up I want to be a youtuber!*): they are one of the first large category in the world which is vocal, it is sensible about algorithm discrimination (demonetization, unlisting, automated+human take down)
+1. Talk to the content producers - *"When grow-up I'll be a youtuber!* - they are one of the first large category in the world which is vocal, and sensible about algorithm discrimination (demonetization, unlisting, automated+human take down).
 2. YouTubers are trying to deduct the effect of algorithm, We can offer a tool which YouTubers may have an interest in promoting among their audiences. There is a list of functionalities meant for communities, and others meant for researchers.
 3. The website is a technical reference, is meant to describe technology. If the interest arise, other website might use our data and do their own analysis and communication.
