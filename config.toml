@@ -61,14 +61,14 @@ canonifyURLs = true
     name = "Compare"
     url = "/yttrex/compare/"
     weight = -180
-    pre = "/images/yttrex-compare.jpg"
+    pre = "/images/yt-compare.jpg"
     post = "Compare how the same video get different reccomendations"
  [[menu.featured]]
     page = "related"
     identifier = "related"
     name= "Related"
     url = "/yttrex/related/"
-    pre = "/images/yttrex-search.jpg"
+    pre = "/images/yt-search.jpg"
     post = "Search if this video ever been as YT's recommended"
     weight = -170
  [[menu.featured]]
@@ -76,7 +76,7 @@ canonifyURLs = true
     identifier = "last"
     name = "Last"
     url = "/yttrex/last/"
-    pre = "/images/yttrex-last.jpg"
+    pre = "/images/yt-last.jpg"
     post = "The last videos collected"
     weight = -160
 
