@@ -20,10 +20,8 @@ type: app
 <script type="text/javascript">
     $( document ).ready(function() {
         function getPubKey() {
-            let t = _.find(window.location.pathname.split('/'), function(e) {
-                return _.size(e) >= 40;
-            });
-            if(!t) console.log("Wrong token length in the URL");
+            const t = window.location.href.split('/#').pop();
+            if(t.length < 40 ) console.log("Wrong token length in the URL");
             return t;
         }
 
@@ -80,16 +78,16 @@ type: app
 
             $.getJSON(url, (data) => {
                 console.log(data);
-            let lastTimed = "";
+                let lastTimed = "";
 
-            _.each(data.metadata, function(video) {
-                if(lastTimed != video.relative) {
-                    addTimeHeader(video.relative);
-                    lastTimed = video.relative;
-                }
-                buildTable(video);
+                _.each(data.metadata, function(video) {
+                    if(lastTimed != video.relative) {
+                        addTimeHeader(video.relative);
+                        lastTimed = video.relative;
+                    }
+                    buildTable(video);
+                });
             });
-        });
         }
 
         function downloadCSV() {
