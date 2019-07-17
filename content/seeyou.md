@@ -5,9 +5,11 @@ draft: false
 layout: single
 ---
 
-YouTube algorithm is, according to Google itself, a regulation system of the platform. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence.
+YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page do not talk about the [social-impact](/social-impact) of Youtube algorithm, but to the ultimate asset of Google: **the network of content creators**.
 
-##### YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized.
+{{<colorblock color="secondary" text="The root of evil: business issue">}}
+{{<boxes color="secondary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
+ 
 The influence of advertisers is similar to that of a traditional content publisher, but how much they count, and who matters the most for Google, are unknown factors still to be decoded.
 Also, the very definition of “problematic” content raises several issues. The concept itself, _ça va sans dire_, is highly relative and variable depending on the perspective of those who make this classification. It is not even clear which criteria are adopted to reach such definition, nor the actors participating in this process. Human moderators? Ever-changing policies? Artificial intelligence? Or the brands that invest the most? How does the mainstream media affect this process and which are the newspapers and the TV channels that have more weight in this sense? And why?
 
@@ -17,8 +19,7 @@ In the digital economy - or at least in the dominant business model of the ICT m
 ### Even the most reasonable internal regulation established by Google translates into less profits.
 For example, stopping to associate ads with high economic value to potentially viral conspiracy videos means cutting a big slice of profit out.
 
-### That’s why we should not expect these concessions from companies themselves, if not as a result of campaigns, debates, analysis, and struggles.
-
+{{<colorblock color="secondary" text="That’s why we should not expect these concessions from companies themselves, if not as a result of campaigns, debates, analysis, and struggles.">}}
 
 ## How things can change, if many of us want it
 

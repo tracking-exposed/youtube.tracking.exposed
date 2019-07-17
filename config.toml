@@ -1,4 +1,4 @@
-baseURL = "https://youtube.tracking.exposed/"
+baseURL = "/"
 languageCode = "en-us"
 title = "YouTube Tracking Exposed"
 theme = "trex"
