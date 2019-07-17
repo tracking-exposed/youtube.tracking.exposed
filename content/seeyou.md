@@ -60,6 +60,15 @@ We must dismantle the justification of users’ profiling because, by its very n
 6. Technology stands as a "third party system, analyzing the algorithm, in the public interest". It is used by researchers, social scientists, and various types of analysts. The pirate party does what is called "ethical data reuse".
 7. In this first phase the purposes are education and aggregation. Make the problem visible, develop ways to talk about the algorithmic repression of knowledge.
 
+
+{{<colorblock color="secondary" text="How to do it?">}}
+
+1. Content creator should ask their audience to install the browser extension
+2. A community of analysts might use the anonymized data to understand how content producer are treat.
+
+{{< yt-extension >}}
+
+
 ## Problem analysis
 
 Youtubers are a category of people who produce culture and who feel the effects of algorithmic oppression. They are perhaps the only category that perceives the effects in a tangible way and knows how to explain it for its consequences (less monetization).
@@ -106,4 +115,6 @@ But to question this otherwise unstoppable trend, we must first understand it, j
 4. Youtuber should express technopolitical agenda because if the technology in their hands improve, their result would improve in impact and experience for consumers.
 5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of the strenght to defend them agains the Corporations absolute control. We should stop to justify they as *business entities* because they are shaping the public discourse, and this is one of the way the public might stood up.
 
-You can read this first write-up also as [.pdf](https://github.com/tracking-exposed/presentation/blob/master/ytrex_EN_0206.pdf).
+You can read this first write-up also as [.pdf](https://github.com/tracking-exposed/presentation/blob/master/ytrex_EN_0206.pdf), and please don't forget to:
+
+{{< yt-extension >}}

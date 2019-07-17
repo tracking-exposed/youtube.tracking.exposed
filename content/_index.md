@@ -44,6 +44,8 @@ This method includes asking the individual to install a web-extension, and we sh
 6.  A way to notify individuals in case of a data breach (which is weird because contributors are anonymous to us, but we might send a message using the browser extension).
       
 
+{{< yt-extension >}}
+
 ### Data Pipelines, Collection and Transformation
 
 The technology consists of a pipeline for data collection. Individual contributors have full access to and control over the data they send to us, and to any data attributed, inferred or associated with their contributions. The pipeline has different stages, which serve these functions:
