@@ -7,9 +7,9 @@ layout: single
 
 YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page do not talk about the [social-impact](/social-impact) of Youtube algorithm, but to the ultimate asset of Google: **the network of content creators**.
 
-{{<colorblock color="secondary" text="The root of evil: business issue">}}
-{{<boxes color="secondary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
- 
+{{<colorblock color="primary" text="The root of evil, a business issue">}}
+{{<boxes color="primary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
+
 The influence of advertisers is similar to that of a traditional content publisher, but how much they count, and who matters the most for Google, are unknown factors still to be decoded.
 Also, the very definition of “problematic” content raises several issues. The concept itself, _ça va sans dire_, is highly relative and variable depending on the perspective of those who make this classification. It is not even clear which criteria are adopted to reach such definition, nor the actors participating in this process. Human moderators? Ever-changing policies? Artificial intelligence? Or the brands that invest the most? How does the mainstream media affect this process and which are the newspapers and the TV channels that have more weight in this sense? And why?
 
@@ -19,13 +19,14 @@ In the digital economy - or at least in the dominant business model of the ICT m
 ### Even the most reasonable internal regulation established by Google translates into less profits.
 For example, stopping to associate ads with high economic value to potentially viral conspiracy videos means cutting a big slice of profit out.
 
-{{<colorblock color="secondary" text="That’s why we should not expect these concessions from companies themselves, if not as a result of campaigns, debates, analysis, and struggles.">}}
+{{<colorblock color="primary" text="That’s why we should not expect these concessions from companies themselves, if not as a result of campaigns, debates, analysis, and struggles.">}}
 
-## How things can change, if many of us want it
+# How things can change, if many of us want it
 
-This section should be written by a group of youtubers, not by me. Since these are technological rules that impact society (also called technopolitics), I compile a list that must serve as an inspiration, not as a list of requests.
+This section *should be written by a group of youtubers, not by me*. Since these are technological rules that impact society (also called techno-politics), I compiled a list that must serve as an inspiration, not as a frozen list of demands.
 
-## Content cannot be automatically moderated, never.
+{{<colorblock color="secondary" text="1. Content cannot be automatically moderated, never." >}}
+
 Content recognition algorithms might instead be used by the company, as long as the metadata assigned to the contents is accessible to both the content producer and consumer, and can be updated by the producer.
 
 For example:
@@ -33,10 +34,12 @@ For example:
 2. The platform analyzes the video and attributes to the content two metadata "violence" and "weapons". These metadata would then be used to exclude the video from being monetized and to consider it harmful to minors.
 3. Anna edits and removes these unjustified metadata and adds "self-defense" and “education”.
 
-## An automatic recognition system can only exist if it empowers.
+{{<colorblock color="secondary" text="2. An automatic recognition system can only exist if it empowers people." >}}
+
 It should not be an imposition over individuals’ autonomy. Anna will be responsible for her statements. If she deceived the users with false metadata, only in this case, she could be sanctioned.
 
-## The algorithms that manage notifications or any other kind of personalized suggestions must be under the control of consumers.
+{{<colorblock color="secondary" text="3. The algorithms that manage notifications or any other kind of personalized suggestions must be under the control of consumers." >}}
+
 Thanks to the aforementioned metadata, notification criteria can be much more structured than the simple "follow a channel", because it is clear that a channel can produce different content. For example:
 1. pewdipie is a channel with a large audience, famous for gaming videos.
 2. pewdipie goes from just gaming, to gaming and entertaining videos
@@ -47,7 +50,8 @@ If content producers can honestly describe what they have created, content filte
 
 (also: We don't need algorithms which learn from us and from social phenomenon. They are just an excuse to legitimize individual profiling).
 
-### Advertisers must be able to add their messages in relation to the metadata that describe the videos’ content.
+{{<colorblock color="secondary" text="4. Advertisers must be able to add their messages in relation to the metadata that describe the videos’ content." >}}
+
 We must dismantle the justification of users’ profiling because, by its very nature, it will lead to a segmentation of perception that will damage our connected society.
 
 # What the Youtuber Union (SeeYou) Wants to Do
@@ -60,15 +64,19 @@ We must dismantle the justification of users’ profiling because, by its very n
 6. Technology stands as a "third party system, analyzing the algorithm, in the public interest". It is used by researchers, social scientists, and various types of analysts. The pirate party does what is called "ethical data reuse".
 7. In this first phase the purposes are education and aggregation. Make the problem visible, develop ways to talk about the algorithmic repression of knowledge.
 
+# Want to join this challenge?
 
-{{<colorblock color="secondary" text="How to do it?">}}
-
-1. Content creator should ask their audience to install the browser extension
-2. A community of analysts might use the anonymized data to understand how content producer are treat.
+1. Youtuber should spread the web-extension among their audience
+2. Researcher should study how the communities are treated
+3. Organization should do strategic litigation
+4. Youtuber should express technopolitical agenda because if the technology in their hands improve, their result would improve in impact and experience for consumers.
+5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of the strenght to defend them agains the Corporations absolute control. We should stop to justify they as *business entities* because they are shaping the public discourse, and this is one of the way the public might stood up.
 
 {{< yt-extension >}}
 
+You can read this first write-up also as [.pdf](https://github.com/tracking-exposed/presentation/blob/master/ytrex_EN_0206.pdf), and please don't forget to:
 
+# Know more: secondary details
 ## Problem analysis
 
 Youtubers are a category of people who produce culture and who feel the effects of algorithmic oppression. They are perhaps the only category that perceives the effects in a tangible way and knows how to explain it for its consequences (less monetization).
@@ -102,19 +110,11 @@ In this debate and in the allocation of responsibilities, in my opinion platform
 
 This narrative of "doing better" was one of the levers that made platforms feel more responsible towards the open sewer that is the alt-right. It originates from American social networks, which due to the absolute protection of freedom of expression, has for years legitimized all kind of hate speech, coordinated or spontaneous.
 
-Following the massacre of Christ Church, in New Zealand, and references to social media culture of the alt-right that the terrorist repeated in his famous video, platforms have begun to treat the cultural references of these networks as problems to be banned.
+Following the massacre of ChristChurch, in New Zealand, and references to social media culture of the alt-right that the terrorist repeated in his famous video, platforms have begun to treat the cultural references of these networks as problems to be banned.
 And this, as well as electoral transparency, must not be seen as a victory for civil society. They are crumbs, partial and arbitrary concessions that do not affect either the business model, nor do they limit the power that these platforms have.
 The analogy is that of a dictator who, for once, did something that seemed reasonable to us, a legitimate use of power. Let us not be deceived: it’s us – the mass of users - who gave platforms their power, finding convenient to use an interface, and then ending up tangled in their networks. The value, for us, is the contents, the diversity of the information package, and there is no justification for a Corporation to exercise power over how this information is shared. It is even less legitimate than we are scrutinized in the process.
 But to question this otherwise unstoppable trend, we must first understand it, judge it, and imagine alternatives.
 
-# Conclusions
+# References and timeline
 
-1. Youtuber should spread the web-extension among their audience
-2. Researcher should study how the communities are treated 
-3. Organization should do strategic litigation
-4. Youtuber should express technopolitical agenda because if the technology in their hands improve, their result would improve in impact and experience for consumers.
-5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of the strenght to defend them agains the Corporations absolute control. We should stop to justify they as *business entities* because they are shaping the public discourse, and this is one of the way the public might stood up.
-
-You can read this first write-up also as [.pdf](https://github.com/tracking-exposed/presentation/blob/master/ytrex_EN_0206.pdf), and please don't forget to:
-
-{{< yt-extension >}}
+TODO

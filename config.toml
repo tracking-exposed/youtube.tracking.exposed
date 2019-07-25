@@ -8,7 +8,7 @@ canonifyURLs = true
     subtitle = "YouTube"
     subsite = "youtube"
     description = "YouTube is not what it seems."
-    tagline = "The more you view, the more they know, earn and get about your."
+    tagline = "youtube is one of the way information spread; Together, we can study its power.."
 
 [permalinks]
     posts = "/:slug/"
@@ -20,6 +20,7 @@ canonifyURLs = true
     name = "SeeYou - the Youtuber Labor union"
     url = "/seeyou/"
     weight = -180
+
  [[menu.main]]
     page = "More"
     identifier = "more"
@@ -48,12 +49,19 @@ canonifyURLs = true
     url = "/get-involved/"
     weight = -140
  [[menu.main]]
-    page = "What We Collect"
+    page = "What We Collect, how does it work"
     identifier = "what-we-collect"
     name = "What We Collect"
     parent = "more"
     url = "/what-we-collect/"
     weight = -150
+ [[menu.main]]
+    page = "first results"
+    identifier = "first-results"
+    name = "First results"
+    parent = "more"
+    url = "/results/"
+    weight = -160
 
  [[menu.featured]]
     page = "compare"
