@@ -1,13 +1,16 @@
 ---
-title: "First write up: a labor union for content creator"
+title: "(first write up) a labor union for content creator"
 date: 2019-05-31T10:00:00+01:00
 draft: false
 layout: single
 ---
 
+**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to enable youtuber and watcher in a collaborative analysis of algorithm. YouTube might or might not comply with requests, but only by analyzing how the platform control the videos we can keep them accountable.
+
+{{<colorblock color="primary" text="We address the algorithm">}}
+
 YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page do not talk about the [social-impact](/social-impact) of Youtube algorithm, but to the ultimate asset of Google: **the network of content creators**.
 
-{{<colorblock color="primary" text="The root of evil, a business issue">}}
 {{<boxes color="primary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
 
 The influence of advertisers is similar to that of a traditional content publisher, but how much they count, and who matters the most for Google, are unknown factors still to be decoded.
@@ -30,6 +33,7 @@ This section *should be written by a group of youtubers, not by me*. Since these
 Content recognition algorithms might instead be used by the company, as long as the metadata assigned to the contents is accessible to both the content producer and consumer, and can be updated by the producer.
 
 For example:
+
 1. Anna publishes a self-defense video in which a fake attacker uses a plastic gun
 2. The platform analyzes the video and attributes to the content two metadata "violence" and "weapons". These metadata would then be used to exclude the video from being monetized and to consider it harmful to minors.
 3. Anna edits and removes these unjustified metadata and adds "self-defense" and “education”.
@@ -41,6 +45,7 @@ It should not be an imposition over individuals’ autonomy. Anna will be respon
 {{<colorblock color="secondary" text="3. The algorithms that manage notifications or any other kind of personalized suggestions must be under the control of consumers." >}}
 
 Thanks to the aforementioned metadata, notification criteria can be much more structured than the simple "follow a channel", because it is clear that a channel can produce different content. For example:
+
 1. pewdipie is a channel with a large audience, famous for gaming videos.
 2. pewdipie goes from just gaming, to gaming and entertaining videos
 3. If you want to follow pewdipie, it's not a problem, it’s your choice

@@ -15,9 +15,9 @@ canonifyURLs = true
 
 [menu]
  [[menu.main]]
-    page = "SeeYou - Youtuber Labor union"
+    page = "Youtuber Labor union"
     identifier = "SeeYou"
-    name = "SeeYou - the Youtuber Labor union"
+    name = "the Youtuber Labor union"
     url = "/seeyou/"
     weight = -180
 
