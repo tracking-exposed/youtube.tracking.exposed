@@ -7,8 +7,9 @@ canonifyURLs = true
 [params]
     subtitle = "YouTube"
     subsite = "youtube"
-    description = "YouTube is not what it seems."
-    tagline = "youtube is one of the way information spread; Together, we can study its power.."
+    openGraphSiteName = "YouTube Tracking Exposed"
+    description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
+    tagline = "Youtube is one of the way information spread; Only together, we can study its power."
 
 [permalinks]
     posts = "/:slug/"
@@ -17,9 +18,15 @@ canonifyURLs = true
  [[menu.main]]
     page = "Youtuber Labor union"
     identifier = "SeeYou"
-    name = "the Youtuber Labor union"
+    name = "(concept) Youtuber Labor union"
     url = "/seeyou/"
     weight = -180
+ [[menu.main]]
+    page = "first results"
+    identifier = "first-results"
+    name = "First results"
+    url = "/results/"
+    weight = -170
 
  [[menu.main]]
     page = "More"
@@ -55,13 +62,6 @@ canonifyURLs = true
     parent = "more"
     url = "/what-we-collect/"
     weight = -150
- [[menu.main]]
-    page = "first results"
-    identifier = "first-results"
-    name = "First results"
-    parent = "more"
-    url = "/results/"
-    weight = -160
 
  [[menu.featured]]
     page = "compare"
@@ -90,8 +90,19 @@ canonifyURLs = true
 
  [[menu.footer]]
     page = "Project analysis"
-    identifier = "background"
+    identifier = "initial-analysis"
     name = "Project analysis"
-    url = "/background/"
+    url = "/initial-analysis/"
     weight = 100
-
+ [[menu.footer]]
+    page = "Tracking Exposed"
+    identifier = "trex"
+    name = "Umbrella project: Tracking Exposed"
+    url = "https://tracking.exposed"
+    weight = 90
+ [[menu.footer]]
+    page = "ALEX"
+    identifier = "alex"
+    name = "Sponsoring project: Algorithms Exposed"
+    url = "https://algorithms.exposed"
+    weight = 80
