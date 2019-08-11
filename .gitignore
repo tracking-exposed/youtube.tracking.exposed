@@ -10,4 +10,4 @@ geckodriver.log
 archetypes/*
 data/*
 resources/
-themes/trex/*
+themes*
