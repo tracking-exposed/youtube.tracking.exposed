@@ -9,23 +9,24 @@ youtube.tracking.exposed takes its inspiration, methods, experience, and code fr
 
 ### How this technology works
 
-* We do not rely on APIs because they can be blocked or limited by the platform, but instead rely on crowdsourced, voluntarily disclosed data.
+* We do not rely on YouTube APIs because they can be blocked or limited by the platform, but instead rely on crowdsourced, voluntarily disclosed data.
 * We enable individuals to understand how personalisation affects them, with the aim of mainstreaming the debate around algorithms. We want people to actively engage in the research process.
 * We don't (and shouldn't) rely on an individual point of observation to run tests. This is the approach used by [algotransparency.org](https://algotransparency.org), but we should acknowledge two of their important achievements:
-    *   The simplicity of their communication. Despite the fact that the issue of algorithms is personalisation, it is already an achievement to display the existance and impact of algorithms, especially to show how delicate topics, such as health, science, and politics, might suffer from these hidden logic because they can be exploited by disinformant.
-    *   Their visualisation is something we should learn from.
+    * The simplicity of their communication. Despite the fact that the issue of algorithms is personalisation, it is already an achievement to display the existance and impact of algorithms, especially to show how delicate topics, such as health, science, and politics, might suffer from these hidden logic because they can be exploited by disinformant.
+    * Their visualisation is something we should learn from.
 
-### How data are being used here
+### What we can do with this data, and who is "we" ?
 
-This is a method to **collect evidence about personalisation algorithms.** It is necessary to remind this, because our investigation subject is not on the yotubers, but on YouTube. With this evidence it is possible, for example:
+With the browser extension *ytTREX*, you **collect evidence on how YouTube is treating your individual profile**. full stop. nothing about algorithm, yet.
+The session YouTube gaves to the watcher is personalized, and with these data, you and your friend can, for example:
 
-1.  Individuals themselves, to understand how their experience is curated by the platform.  
+1. Individuals themselves, to understand how their experience is curated by the platform.  
 *By clicking on the browser extension, the adopter would reach their personal collection of videos*
-2.  People using our tools and analytics. To this end, a simple dashboard would be developed on top of a documented API, in order to enable other free software developers to extend the AGPL technology.  
+2. People using our tools and analytics. To this end, a simple dashboard would be developed on top of a documented API, and enable other free software developers in extending our [AGPL technology](https://github.com/tracking-exposed/yttrex/).
 *Check the 'play with data' section, it points at three basic functionalities*
-3.  Let communities play with this  
+3. Let communities play with this  
 *a consumer of Youtube video might want to mark their contribution as belonging to a certain channel or community. This would help communities to better understand themselves and how algorithms impacts them.*
-4.  Researchers (everyone is a researcher for us, just, they have raw data) might wants to explore in details the data. This project is inspired by the concept of ["European Data Commons"](https://diem25.org/wp-content/uploads/2019/03/Technological-Sovereignty-Green-Paper-No-3.pdf) (section 2.2.2), as long as we can ensure they are analyzing phenomenon and not individual behaviors.  
+4. Researchers (everyone is a researcher for us, just, they have raw data) might wants to explore in details the data. This project is inspired by the concept of ["European Data Commons"](https://diem25.org/wp-content/uploads/2019/03/Technological-Sovereignty-Green-Paper-No-3.pdf) (section 2.2.2), as long as we can ensure they are analyzing phenomenon and not individual behaviors.  
 *we can achieve this with anonymization and aggregation, but get in touch at -support at tracking dot exposed-*
 
 ### Approach
