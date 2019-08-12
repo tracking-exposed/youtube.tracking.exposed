@@ -76,13 +76,13 @@ The number of videos in the center diminish drastically. Most of the suggested v
 
 ## MORE DETAILS
 
-{{<entry text=""For you" reccomendations with an a-political video" picture="/images/yt-results/bubble-graph-not-political.svg" type="left" >}}
+{{<entry text=" "For you" reccomendations with an a-political video" picture="/images/yt-results/bubble-graph-not-political.svg" type="left" >}}
  
 The percentage of "For you" recommendations grows when we switch form "clean" to our personal accounts logged browser, that has much more data on us. In this case we have some explicitly “for you” related videos in the clean browser (7% in yellow), and the percentage grows watching the same video with more personalised browser.
 
 (Video used: “cutest cat compilation”)
 
-{{<entry text=""For you" reccomendations with a politica video" picture="/images/yt-results/bubble-graph-political.svg" type="right" >}}
+{{<entry text=" "For you" reccomendations with a politica video" picture="/images/yt-results/bubble-graph-political.svg" type="right" >}}
 
 Passing now to the second tial, watching a political video, the differences between the clean and the personal browser set up are much more evident. 
 In this case we have no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue, to be sure to do not make mistakes. 
