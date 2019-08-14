@@ -62,6 +62,13 @@ canonifyURLs = true
     parent = "more"
     url = "/what-we-collect/"
     weight = -150
+ [[menu.main]]
+    page = "Impact"
+    identifier = "impact"
+    name = "Impact"
+    parent = "more"
+    url = "/impact/"
+    weight = -160
 
  [[menu.featured]]
     page = "compare"
