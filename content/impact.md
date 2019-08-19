@@ -15,8 +15,8 @@ Statistics and OpenData enable network effects, data reuse, and collaborative re
 * The public stats below display how the system is performing how the people use it (no content-related analysis are here).
 
 <!-- the graphs are appended in the 'div'. the ID #impression-graph is referenced in hugo-theme-trex/layouts/c3app/single.html -->
-_supporters is the number of people installing the extension. In every day is counted the sum of new comers. There is not a total count yet_
-<div id="supporters-graph" class="c3graph"></div>
+_newcomers is the number of people installing the extension. In every day is counted the sum of new installation. They can be either in Firefox, Chrome, Brave, and we don't know if the user uninstall the extension few seconds later or not._
+<div id="newcomers-graph" class="c3graph"></div>
 
 _related reports the number of suggested videos. Normally we observe 20 related suggestion, but for technical reason we catch a different number. This stats is meant to help us in investigating how the collection is doing._
 <div id="related-graph" class="c3graph"></div>

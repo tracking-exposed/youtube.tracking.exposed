@@ -9,7 +9,7 @@ canonifyURLs = true
     subsite = "youtube"
     openGraphSiteName = "YouTube Tracking Exposed"
     description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
-    tagline = "Youtube is one of the way information spread; Only together, we can study its power."
+    tagline = "Youtube has an astonishing power in influence the public debate. Together, we can study its."
 
 [permalinks]
     posts = "/:slug/"
