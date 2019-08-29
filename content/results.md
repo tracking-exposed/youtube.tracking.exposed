@@ -67,34 +67,33 @@ You might have a *totally legitimate privacy concern*, this is why:
 
 {{<entry text="10 different profiles, access to the same video at the same time" picture="/images/yt-results/political-clean-browser-network-graph.svg" type="left" >}}
 
-Each violet bubble in the center represent one of the video suggested. They share many links, because most of the suggestion are shared among all the observer. The side is proportional to the occurencies.
+Each violet bubble in the center represent one of the video suggested. They share many links, because most of the suggestion are shared among all the observer. The side is proportional to the occurrences.
 
 {{<boxes text="Methodology: same people, same video, but with their personal YouTube account" >}}
-{{<entry text="In the common scenario, google/youtube have a lot of data points about your previous activites." picture="/images/yt-results/political-dirty-browser-network-graph.svg" type="right" >}}
+{{<entry text="In the common scenario, google/youtube have a lot of data points about your previous activities." picture="/images/yt-results/political-dirty-browser-network-graph.svg" type="right" >}}
 
 The number of videos in the center diminish drastically. Most of the suggested video are individual, represented by the green dots.
 
 ## MORE DETAILS
 
-{{<entry text=" "For you" reccomendations with an a-political video" picture="/images/yt-results/bubble-graph-not-political.svg" type="left" >}}
- 
-The percentage of "For you" recommendations grows when we switch form "clean" to our personal accounts logged browser, that has much more data on us. In this case we have some explicitly “for you” related videos in the clean browser (7% in yellow), and the percentage grows watching the same video with more personalised browser.
+{{<entry text="Explicitly recommendations “For you” while looking at a a-political (yep: cute cats) video" picture="/images/yt-results/bubble-graph-not-political.svg" type="left" >}}
+
+The percentage of "For you" recommendations grows when we switch form "clean" to our personal accounts logged browser, that has much more data on us. In this case we have some explicitly “for you” related videos in the clean browser (7% in yellow), and the percentage grows watching the same video with more personalized browser.
 
 (Video used: “cutest cat compilation”)
 
-{{<entry text=" "For you" reccomendations with a politica video" picture="/images/yt-results/bubble-graph-political.svg" type="right" >}}
+{{<entry text="Explicitly recommendations “For you” while looking at a political video" picture="/images/yt-results/bubble-graph-political.svg" type="right" >}}
 
-Passing now to the second tial, watching a political video, the differences between the clean and the personal browser set up are much more evident. 
-In this case we have no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue, to be sure to do not make mistakes. 
+Passing now to the second trial, watching a political video, the differences between the clean and the personal browser set up are much more evident.
+In this case we have no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue, to be sure to do not make mistakes.
 When we move to our personal accounts to see the same video, almost half of the contents are recommended “ for you”. The explanation could be that, when the platform has some data about the users, tries to personalized more the related video on political (an polarized) issue, than on the others.
 
-(Video used:“Philip Hammond - do deal Brexit”)
+(Video used: “Philip Hammond - do deal Brexit” )
 
 {{<entry text="Every second counts" picture="/images/yt-results/two-users-CNN-foxnews-edposure.svg" type="left" >}}
 
 First image: watching Fox and CNN for 20 second create just three common suggestions specific for CNN watchers (yellow spots) and no one for the other group (blue spots). In fact we can see a lot of videos suggested to both groups (grey spots) and some suggestions just or the single user (azur spots).
-  
-Second image, extending the watching time till 2 minutes, we can see eleven common suggestion to at least two CNN users, and six for Fox. 
-  
-We already know, by the admission of the developers, that the time watched per play is one of the most relevant factors used to create the suggested list. Actually, it is one of the best ways to understand the appreciation for a video and than to figure out if a suggestion has been effective or not. It’s important to discover how exactly YouTube records this data to be able to consider this variable in future studies. It’s possible that there are other types of interactions recorded by the plattform like mouse dynamics, but we need further research to ascertain it with certainty. 
 
+Second image, extending the watching time till 2 minutes, we can see eleven common suggestion to at least two CNN users, and six for Fox.
+
+We already know, by the admission of the developers, that the time watched per play is one of the most relevant factors used to create the suggested list. Actually, it is one of the best ways to understand the appreciation for a video and than to figure out if a suggestion has been effective or not. It’s important to discover how exactly YouTube records this data to be able to consider this variable in future studies. It’s possible that there are other types of interactions recorded by the plattform like mouse dynamics, but we need further research to ascertain it with certainty.
