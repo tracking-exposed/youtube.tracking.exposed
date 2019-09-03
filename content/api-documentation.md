@@ -870,12 +870,39 @@ Same as VideoId API, but as comma-separated-values file.
 ## <a name="stats"></a>Statistics
 
 #### URL
-`https://youtube.tracking.exposed/api/v2/statistics/`
+`https://youtube.tracking.exposed/api/v2/statistics/$name/$unit/$amount`
 <br>
 #### Description
 Provides statistics on the node given specific keys.
 
+Statistics API provide data to compile the [public statistics](https://youtube.tracking.exposed/impact).
+Statistics is an interface shared among other Tracking Exposed project, for example [facebook](https://facebook.tracking.exposed/impact).
 
+Required three mandatory parameters:
+  * **name**: is the name of the statistic we want, and the available names are configured in the backend configuration file `config/stats.json`.
+  * **unit**: and be _day_ or _hour_
+  * **amount** is the amount of day or amount of hours requested.
+
+<<<<<<< HEAD
+=======
+#### Sample Usage
+Request:
+    `https://youtube.tracking.exposed/api/v2/statistics/supporters/day/2`
+
+Response:
+  `[{
+      "dayId":"8d57e4881f8b661a57dfa38f657e529797260dbd",
+      "name":"supporters",
+      "day":"2019-09-01T22:00:00.000Z",
+      "newcomers":3
+    }, {
+      "dayId":"316d32d1f73132f3cc3ad2902d79ae605f1058d3",
+      "name":"supporters",
+      "day":"2019-09-02T22:00:00.000Z",
+      "newcomers":0
+    }]`
+
+>>>>>>> added statistis API doc
 ****
 
 ## <a name="last"></a>Last
