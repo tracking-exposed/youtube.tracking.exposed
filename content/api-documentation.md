@@ -7,6 +7,11 @@ The main URL to access the ytTrex API is:
 `videoToken` is the identifier used for each video by Youtube. You can retrieve any by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.<br><br>
 `Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
 
+As data unit, the video are always shared in one of these patterns: _video metadata_ or _related videos_.
+
+In _video metadata_, the unit is the watched video. Each 'id' represent an evidence collected by the watcher, and in the _video metadata_ exists often a field named _related_. Is a list of objects, each one of them describing the suggested video on the right column in the YouTube interface. The number of these video differs. We expect is always 20, but might not be.
+
+In _related videos_, the unit is a suggested video. When the data is served in CSV this is the case (not only in that case, this is why we specify the 'data unit').
 
 ## API Index
 <table>
@@ -82,13 +87,15 @@ The main URL to access the ytTrex API is:
 #### Description
 Retrieves personal information on your profile, the last videos you watched and the list of videos which were related (suggested) for those.
 
+**data unit**: _video metadata_.
+
 #### Sample Usage
 Request:
     `https://youtube.tracking.exposed/api/v1/personal/HIDDEN/1`
 
 <details>
   <summary>Response:</summary>
-  
+
 `{
   "profile": {
     "publicKey": "HIDDEN",
@@ -241,6 +248,8 @@ Request:
 <br>
 #### Description
 Extracts only the list of related videos for Personal API. Paging retrieves the entire list of suggested videos per unit.
+
+**data unit**: _related video_.
 
 #### Sample Usage
 Request:
@@ -617,6 +626,7 @@ Request:
 #### Description
 Same as personal, but data is retrieved as comma-separated-values.
 
+**data unit**: _related video_.
 ****
 
 ## <a name="research"></a>Research
@@ -627,6 +637,10 @@ Same as personal, but data is retrieved as comma-separated-values.
 #### Description
 Users can join research groups in order to be able to retrieve data for all of their "accounts" with a single token. Joins various "Personal API" together for research purposes.
 
+**STILL TO BE IMPLEMENTED PROPERLY**
+**STILL TO BE IMPLEMENTED PROPERLY**
+**STILL TO BE IMPLEMENTED PROPERLY**
+
 ****
 
 ## <a name="videoid"></a>VideoId
@@ -636,6 +650,8 @@ Users can join research groups in order to be able to retrieve data for all of t
 <br>
 #### Description
 Provides a list of unique observations of the video with metadata on the video itself, such as likes and dislikes at the time of watching, with the pseudo-username for the watcher and a list of videos which were suggested for that observation.
+
+**data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
@@ -726,6 +742,8 @@ Request:
 <br>
 #### Description
 Given a videoId, provides a list of videos for which the given videoId was suggested as recommended.
+
+**data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
@@ -865,6 +883,7 @@ Request:
 #### Description
 Same as VideoId API, but as comma-separated-values file.
 
+**data unit**: _related video_.
 ****
 
 ## <a name="stats"></a>Statistics
@@ -882,28 +901,6 @@ Required three mandatory parameters:
   * **name**: is the name of the statistic we want, and the available names are configured in the backend configuration file `config/stats.json`.
   * **unit**: and be _day_ or _hour_
   * **amount** is the amount of day or amount of hours requested.
-
-<<<<<<< HEAD
-=======
-#### Sample Usage
-Request:
-    `https://youtube.tracking.exposed/api/v2/statistics/supporters/day/2`
-
-Response:
-  `[{
-      "dayId":"8d57e4881f8b661a57dfa38f657e529797260dbd",
-      "name":"supporters",
-      "day":"2019-09-01T22:00:00.000Z",
-      "newcomers":3
-    }, {
-      "dayId":"316d32d1f73132f3cc3ad2902d79ae605f1058d3",
-      "name":"supporters",
-      "day":"2019-09-02T22:00:00.000Z",
-      "newcomers":0
-    }]`
-
->>>>>>> added statistis API doc
-****
 
 ## <a name="last"></a>Last
 
@@ -923,6 +920,8 @@ Provides a JSON with the last 20 global video observations including metadata on
 #### Description
 Provides a JSON with all the videos suggested after videos observed in a specific channel.
 
+**data unit**: _video metadata_.
+
 #### Sample Usage
 Request:
     `https://youtube.tracking.exposed/api/v1/author/John%20Malecki`
@@ -941,6 +940,5 @@ Request:
 <br>
 #### Description
 Special API for debugging, retrieves raw scraped HTML for specific saved HTML ids.
-
 
 ****
