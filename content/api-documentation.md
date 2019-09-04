@@ -7,11 +7,11 @@ The main URL to access the ytTrex API is:
 `videoToken` is the identifier used for each video by Youtube. You can retrieve any by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.<br><br>
 `Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
 
-As data unit, the video are always shared in one of these patterns: _video metadata_ or _related videos_.
+There are two fundamental `data units` through which entries (video observations) are shared: _video metadata_ and _related videos_.
 
-In _video metadata_, the unit is the watched video. Each 'id' represent an evidence collected by the watcher, and in the _video metadata_ exists often a field named _related_. Is a list of objects, each one of them describing the suggested video on the right column in the YouTube interface. The number of these video differs. We expect is always 20, but might not be.
+In _video metadata_, the unit is the watched video. Each 'id' represent an evidence collected by the watcher. Often you will see a field named _related_. It's a list of objects, each one of them describing a suggested video on the right column of the YouTube interface. The number of these videos differs. We expect it to be always 20, but might not be.
 
-In _related videos_, the unit is a suggested video. When the data is served in CSV this is the case (not only in that case, this is why we specify the 'data unit').
+In _related videos_, the unit is a suggested video. When the data is served in CSV this is the case (but not only in that case).
 
 ## API Index
 <table>
@@ -87,7 +87,7 @@ In _related videos_, the unit is a suggested video. When the data is served in C
 #### Description
 Retrieves personal information on your profile, the last videos you watched and the list of videos which were related (suggested) for those.
 
-**data unit**: _video metadata_.
+**Data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
@@ -249,7 +249,7 @@ Request:
 #### Description
 Extracts only the list of related videos for Personal API. Paging retrieves the entire list of suggested videos per unit.
 
-**data unit**: _related video_.
+**Data unit**: _related video_.
 
 #### Sample Usage
 Request:
@@ -626,7 +626,7 @@ Request:
 #### Description
 Same as personal, but data is retrieved as comma-separated-values.
 
-**data unit**: _related video_.
+**Data unit**: _related video_.
 ****
 
 ## <a name="research"></a>Research
@@ -651,7 +651,7 @@ Users can join research groups in order to be able to retrieve data for all of t
 #### Description
 Provides a list of unique observations of the video with metadata on the video itself, such as likes and dislikes at the time of watching, with the pseudo-username for the watcher and a list of videos which were suggested for that observation.
 
-**data unit**: _video metadata_.
+**Data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
@@ -743,7 +743,7 @@ Request:
 #### Description
 Given a videoId, provides a list of videos for which the given videoId was suggested as recommended.
 
-**data unit**: _video metadata_.
+**Data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
@@ -883,7 +883,7 @@ Request:
 #### Description
 Same as VideoId API, but as comma-separated-values file.
 
-**data unit**: _related video_.
+**Data unit**: _related video_.
 ****
 
 ## <a name="stats"></a>Statistics
@@ -920,7 +920,7 @@ Provides a JSON with the last 20 global video observations including metadata on
 #### Description
 Provides a JSON with all the videos suggested after videos observed in a specific channel.
 
-**data unit**: _video metadata_.
+**Data unit**: _video metadata_.
 
 #### Sample Usage
 Request:
