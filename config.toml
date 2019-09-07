@@ -9,7 +9,7 @@ canonifyURLs = true
     subsite = "youtube"
     openGraphSiteName = "YouTube Tracking Exposed"
     description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
-    tagline = "Youtube has an astonishing power in influence the public debate. Together, we can study its."
+    tagline = "YouTube has the power to influence a public debate - Let's expose it together!"
 
 [permalinks]
     posts = "/:slug/"
@@ -76,22 +76,22 @@ canonifyURLs = true
     name = "Compare"
     url = "/yttrex/compare/"
     weight = -180
-    pre = "/images/yt-compare.jpg"
+    pre = "/images/Icons-home-page_Compare.svg"
     post = "Compare how a video gets different reccomendations"
  [[menu.featured]]
     page = "related"
     identifier = "related"
     name= "Related"
     url = "/yttrex/related/"
-    pre = "/images/yt-search.jpg"
+    pre = "/images/Icons-home-page_Related.svg"
     post = "Search if a video has ever been recommended by YouTube"
     weight = -170
  [[menu.featured]]
-    page = "last"
-    identifier = "last"
-    name = "Last"
-    url = "/yttrex/last/"
-    pre = "/images/yt-last.jpg"
+    page = "data"
+    identifier = "data"
+    name = "Play with data"
+    url = "/yttrex/data/"
+    pre = "/images/Icons-home-page_Play%20with%20Data.svg"
     post = "The lastest videos we have collected with our monitoring tools"
     weight = -160
 
