@@ -1,0 +1,30 @@
+---
+title: Compare how the same video get different reccomendations
+date: 2019-05-22T15:01:21+01:00
+draft: false
+description: Compare how the same video get different reccomendations
+type: app
+---
+
+<div class="container">
+    <h2 class="text-center">Compare how the same video get different reccomendations</h2>
+    <div id="comparison"></div>
+    <table class="table">
+        <thead id="comparison-list-head"></thead>
+        <tbody id="comparison-list"></tbody>
+    </table>
+
+    <h2 class="text-center">Try in our recent collections</h2>
+    <ul id="recent"></ul>
+</div>
+
+<script src="/js/global.js"></script>
+<script src="/js/public.js"></script>
+
+<script type="text/javascript">
+
+  $( document ).ready(function() {
+    initCompare();
+  });
+
+</script>

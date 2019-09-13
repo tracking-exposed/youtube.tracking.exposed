@@ -1,0 +1,27 @@
+---
+title: yttrex, personal page
+date: 2019-05-22T15:01:21+01:00
+draft: false
+description: Personal interface, this link is only know by you; keep it private
+type: app
+---
+
+
+<div class="container">
+  <p>
+    Download the <a onclick="downloadCSV()" href="#"> CSV of your last activities</a>.
+    Please note, this is working prototype. If your data looks wrong get in touch with _support at tracking dot exposed_; From this interface you should see the recorded session you sent us, delete, filter, share them...
+  </p>
+  <div id="report"></div>
+</div>
+
+<script src="/js/global.js"></script>
+<script src="/js/personal.js"></script>
+
+<script type="text/javascript">
+
+  $( document ).ready(function() {
+    personal();
+  });
+  
+</script>
