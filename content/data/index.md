@@ -5,4 +5,5 @@ draft: false
 type: app
 ---
 
-We supports three basic applications to play with the data: [compare](/data/compare), [last](/data/last), and [related](/data/related).
+Three applications to play with the data: [compare](/data/compare), [authors](/data/authors), and [related](/data/related).
+Our code is [on github](https://github.com/tracking.exposed/yttrex), and if you want to pick some random video to test the app above, please check out the [last](/data/last) submitted data.
