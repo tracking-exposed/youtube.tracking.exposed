@@ -1,14 +1,8 @@
 ---
 title: What We Collect
-subtitle: considering we don't do business with data but only by comparing multiple evidences you can spot the algorithm hidden agenda?
+subtitle: and how ytTREX works 
 draft: false
 ---
-
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# Work in progress
-### Not everything here written is still in place
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 
 ## What the browser extension does
 

@@ -1,0 +1,54 @@
+---
+title: Use & Control data you sent
+date: 2019-05-22T15:01:21+01:00
+draft: false
+description: Personal interface, this link is only know by you; keep it private
+type: app
+---
+
+<div class="container">
+  <div class="row">
+    <p>
+      Please note, this is working prototype. If your data looks wrong get in touch with <b>support at tracking dot exposed</b>; From this interface you should see the recorded session you sent us, and then <i>delete</i>, <i>filter</i>, <i>share</i> them...
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <h2>CSV</h2>
+      <p>
+        Download the <a onclick="downloadCSV()" href="#"> CSV of your last activities</a>.
+      </p>
+
+    </div>
+    <div class="col">
+
+      <h2>Research groups</h2>
+      <div id="existingGroups"></div>
+      <p>If you tag your contributions, you can easily share subset of your evidence. This is handy for research teams<p>
+      <input type="text" id="group" placeholder="enter your group name..." class="p-2"><br />
+      <p>Once you tag your videos, people knowing the tag might find it. <b>tags are not public</b>, only by sharing them you can let others see the evidences.</p>
+      <input type="checkbox" onclick="checkBoxMandatory()" value="accepted"> accept this condition. You can control tag even individually. <br />
+      <input type="button" class="btn btn-dark" onclick="newGroup()" value="tag your videos"><br />
+
+    </div>
+  </div>
+
+  <div class="row">
+    <h2>Recent evidence</h2>
+    <div id="report"></div>
+  </div>
+
+</div>
+
+<script src="/js/global.js"></script>
+<script src="/js/personal.js"></script>
+
+<script type="text/javascript">
+
+  $( document ).ready(function() {
+    personal();
+  });
+
+</script>

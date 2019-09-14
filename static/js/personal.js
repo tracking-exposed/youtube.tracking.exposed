@@ -1,12 +1,17 @@
 /* functions used in 'personal' visualization */
 
+function getPubKey() {
+    const t = window.location.href.split('/#').pop();
+    if(t.length < 40 ) console.log("Wrong token length in the URL");
+    return t;
+}
+
 function personal() {
     const pk = getPubKey();
-    const url = `https://youtube.tracking.exposed/api/v1/personal/${pk}/`;
-    console.log("metadata collected, retrieved via: ", url);
+    const url = buildApiUrl(`/personal/${pk}/`);
 
     $.getJSON(url, (data) => {
-        console.log(data);
+        console.log("personal API, retrieved", _.size(data));
         let lastTimed = "";
 
         _.each(data.metadata, function(video) {
@@ -21,16 +26,11 @@ function personal() {
 
 function downloadCSV() {
     const pk = getPubKey();
-    const url = `https://youtube.tracking.exposed/api/v1/personal/${pk}/csv`;
-    console.log("downloadCSV from: ", url);
-    window.open(url);
+    const csvurl = `/api/v1/personal/${pk}/csv`;
+    console.log("downloadCSV from: ", csvurl);
+    window.open(csvurl);
 }
 
-function getPubKey() {
-    const t = window.location.href.split('/#').pop();
-    if(t.length < 40 ) console.log("Wrong token length in the URL");
-    return t;
-}
 
 function buildTable(video) {
     let tbody = "<tr>";

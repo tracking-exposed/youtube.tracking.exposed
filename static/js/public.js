@@ -10,12 +10,14 @@ function initRelated() {
     const rId = window.location.href.split('/#').pop();
     if (rId == 'compare') return;
     $("#search").val(rId);
-    $.getJSON('https://youtube.tracking.exposed/api/v1/related/' + rId, function (results) {
+
+    const url = buildApiUrl('/related/' + rId');
+    $.getJSON(url, function (results) {
         if (_.size(results) === 0) {
             const nope = `
                 <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
                 <p class="text-center">
-                   Check if is a valid video, here is the composed link:
+                   Check if is a valid video, here the YouTube link generated from the videoId you pasted:
                    <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${rId}</a>
                 </p>
             `;
@@ -111,7 +113,8 @@ function initCompare() {
     const cId = window.location.href.split('/#').pop();
 
     if (cId == 'compare') return;
-    $.getJSON('https://youtube.tracking.exposed/api/v1/videoId/' + cId, function (results) {
+    const url = buildApiUrl('videoId' + cId);
+    $.getJSON(url, function (results) {
 
         if (_.size(results) == 0) {
             const nope = `
@@ -191,7 +194,8 @@ function initCompare() {
         comparisonListHead.append(thead);
     });
 
-    $.getJSON('https://youtube.tracking.exposed/api/v1/last', function (recent) {
+    const url = buildApiUrl('/last')
+    $.getJSON(url, function (recent) {
         _.each(recent.content, fillRecentSlot);
 
     });
@@ -211,7 +215,8 @@ function unfoldRelated(memo, e) {
 }
 
 function initLast() {
-    $.getJSON('https://youtube.tracking.exposed/api/v1/last', function(recent) {
+    const url = buildApiUrl('/last')
+    $.getJSON(url, function(recent) {
         _.each(recent.content, function(item) {
             let relates = _.reduce(item.related, unfoldRelated, "");
             let h = `
