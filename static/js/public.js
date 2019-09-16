@@ -11,7 +11,7 @@ function initRelated() {
     if (rId == 'compare') return;
     $("#search").val(rId);
 
-    const url = buildApiUrl('/related/' + rId');
+    const url = buildApiUrl('related/' + rId');
     $.getJSON(url, function (results) {
         if (_.size(results) === 0) {
             const nope = `
@@ -194,7 +194,7 @@ function initCompare() {
         comparisonListHead.append(thead);
     });
 
-    const url = buildApiUrl('/last')
+    const url = buildApiUrl('last')
     $.getJSON(url, function (recent) {
         _.each(recent.content, fillRecentSlot);
 
@@ -215,7 +215,7 @@ function unfoldRelated(memo, e) {
 }
 
 function initLast() {
-    const url = buildApiUrl('/last')
+    const url = buildApiUrl('last')
     $.getJSON(url, function(recent) {
         _.each(recent.content, function(item) {
             let relates = _.reduce(item.related, unfoldRelated, "");
