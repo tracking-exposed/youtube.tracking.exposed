@@ -1,16 +1,28 @@
 ---
-title: "we should become a community"
-subtitle: "a global community of people capable in analyzing how YouTube algorithm impact on them"
+title: "who are we"
+subtitle: "and why this is happening?"
 draft: false
 ---
 
-## People
+## What
 
-* project leader: [Claudio Agosti](https://twitter.com/_vecna)
-* first analysis made by: Claudio Agosti, Davide Beraldo, Stefano Calzati, Zoé Charpentier, Seong In Choi, Luca Del Fabbro, Anja Groten, Concetta La Mattina, Salvatore Romano, Giovanni Rossetti, Laura Swietlicki, Jeroen de Vos.
-* analysis and outreach support: Barbara Gianessi, Salvatore Romano
+youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create [free (libre) software](https://github.com/tracking-exposed/yttrex), support a community of analysts and developers, and enable critical analysis of monopolist platforms.
 
-## About us
+This project belong to [ALEX](https://algorithms.exposed) research initiative.
 
-Join our [mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed), we are lucky guest of [securitywithoutborders](https://securitywithoutborders.org).
+## Who
+
+_coordination and technical development by_ Claudio Agosti,
+_review and revision by_ Barbara Gianessi,
+_outreach and analysis_ Salvatore Romano,
+_graphic and analysis_ Laura Swietlicki.
+
+## When
+
+The 1st of July 2018 the first commit on the [github repository](https://github.com/tracking-exposed/yttrex). The idea was to release the tool alongside an analysis on YouTube personalization algorithm before the midterm US elections.
+first lesson: *your partner might have difficulties in implementing methodologies*,
+
+## Where
+
+Join our [mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed), we are guest of [securitywithoutborders](https://securitywithoutborders.org).
 Or even, follow our (poorly maintained, non primary resource) Facebook page [Personalization Algorithms](https://www.facebook.com/personalizationalgorithm).

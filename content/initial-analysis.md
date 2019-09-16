@@ -1,24 +1,24 @@
 ---
 title: Initial project analysis
+subtitle: February 2019
 date: 2019-05-20T15:01:21+01:00
 draft: false
 layout: page
 ---
 
-youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create free (libre) software, support a community of analysts and developers, and enable critical analysis of monopolist platforms.
+youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create [free (libre) software](https://github.com/tracking-exposed/yttrex), support a community of analysts and developers, and enable critical analysis of monopolist platforms.
 
 ### How this technology works
 
 * We do not rely on YouTube APIs because they can be blocked or limited by the platform, but instead rely on crowdsourced, voluntarily disclosed data.
 * We enable individuals to understand how personalisation affects them, with the aim of mainstreaming the debate around algorithms. We want people to actively engage in the research process.
-* We don't (and shouldn't) rely on an individual point of observation to run tests. This is the approach used by [algotransparency.org](https://algotransparency.org), but we should acknowledge two of their important achievements:
-    * The simplicity of their communication. Despite the fact that the issue of algorithms is personalisation, it is already an achievement to display the existance and impact of algorithms, especially to show how delicate topics, such as health, science, and politics, might suffer from these hidden logic because they can be exploited by disinformant.
-    * Their visualisation is something we should learn from.
+* We don't (and shouldn't) rely on an individual point of observation to run tests.
+* We are different from great project such as [algotransparency.org](https://algotransparency.org) and [YouTube advertises big brands alongside fake cancer cure videos](https://www.bbc.com/news/blogs-trending-49483681). They are both great and helpful in talking about algorithm impact, but we don't relay on a single point of observation.
 
 ### What we can do with this data, and who is "we" ?
 
 With the browser extension *ytTREX*, you **collect evidence on how YouTube is treating your individual profile**. full stop. nothing about algorithm, yet.
-The session YouTube gaves to the watcher is personalized, and with these data, you and your friend can, for example:
+The session YouTube gives to the watcher is personalized, and with these data, you and your friend can, for example:
 
 1. Individuals themselves, to understand how their experience is curated by the platform.  
 *By clicking on the browser extension, the adopter would reach their personal collection of videos*
@@ -31,14 +31,14 @@ The session YouTube gaves to the watcher is personalized, and with these data, y
 
 ### Approach
 
-This method includes asking the individual to install a web-extension, and we should be as clear as possible on how their data would be processed. Despite not including personal data, the sequence of videos seen by an individual might permit us to attribute behavioural information; therefore, we should manage the dataset with the level of protection required by GDPR. This implies:
+This method includes asking the individual to install a web-extension, and we should be as clear as possible on how their data would be processed. Despite not including personal data, the sequence of videos seen by an individual might permit us to attribute behavioral information; therefore, we should manage the dataset with the level of protection required by GDPR. This implies:
 
-1.  think to our adopters as *people* and not as *users* =)
-2.  A clear opt-in, which is revocable and accessible.
-3.  A customizable data retention policy.
-4.  Full transparency on the data processed and stored (it is free software, but we should describe it before a person join the project).
-5.  Data protection impact assessment?
-6.  A way to notify individuals in case of a data breach (which is weird because contributors are anonymous to us, but we might send a message using the browser extension).
+1. think to our adopters as *people* and not as *users* =)
+2. A clear opt-in, which is revocable and accessible.
+3. A customizable data retention policy.
+4. Full transparency on the data processed and stored (it is free software, but we should describe it before a person join the project).
+5. Data protection impact assessment?
+6. A way to notify individuals in case of a data breach (which is weird because contributors are anonymous to us, but we might send a message using the browser extension).
 
 {{< yt-extension >}}
 
@@ -53,7 +53,7 @@ The technology consists of a pipeline for data collection. Individual contributo
 
 The pipeline parses the collected videos, and attributes metadata. They have some differences based on the kind of page acquired (different URL schema normally imply a different kind of page):
 
-* Home: shows the region from which the individual is accessing youtube, and contains a list of suggested videos.
+* Home: shows the region from which the individual is accessing YouTube, and contains a list of suggested videos.
 * Watch: it's an individual video page, which contains the metadata of the video at a specific moment, along with related videos selected for the individual. The metadata extracted includes the number of likes/dislikes, the number of views, comments, description, title, and author.
 * Search: displays results from a search query.
 * Channel: records what is displayed when a channel page is opened.
@@ -63,7 +63,7 @@ We will begin in *parsing* only the 'Watch' pages.
 #### Along with the metadata extracted from the page, there is some technical metadata generated by the recording system:
 
 * The geographic location attributed to the IP address
-* A pseudorandom identifier which links the contribution to the web-extension (and this is usually linkable to the individual). This is PII, and the use of this metadata might result in sensitive data, if not properly redacted/aggregated.  This data is also necessary to identify the legitimate owner of the data and let them exert their rights and authorise complete access.
+* A pseudorandom identifier which links the contribution to the web-extension (and this is usually linkable to the individual). This is PII, and the use of this metadata might result in sensitive data, if not properly redacted/aggregated.  This data is also necessary to identify the legitimate owner of the data and let them exert their rights and authorize complete access.
 * A timestamp of when the data was saved.
 * Optional metadata as decided by the adopter (for self-tagging the contributions, for example).
 
