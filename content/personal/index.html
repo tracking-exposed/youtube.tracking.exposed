@@ -8,9 +8,9 @@ type: app
 
 <div class="container">
   <div class="row">
-    <p>
-      Please note, this is working prototype. If your data looks wrong get in touch with <b>support at tracking dot exposed</b>; From this interface you should see the recorded session you sent us, and then <i>delete</i>, <i>filter</i>, <i>share</i> them...
-    </p>
+    <small>
+      Please note, this is working prototype. If your data looks wrong get in touch with <b>support at tracking dot exposed</b>;
+    </small>
   </div>
 
   <div class="row">
@@ -25,9 +25,11 @@ type: app
     <div class="col">
 
       <h2>Research groups</h2>
+        <!-- qui devono apparire i gruppi esistenti, il loro contenuto è nell'api 'personal' all'interno dell'oggetto 'profile' -->
       <div id="existingGroups"></div>
       <p>If you tag your contributions, you can easily share subset of your evidence. This is handy for research teams<p>
-      <input type="text" id="group" placeholder="enter your group name..." class="p-2"><br />
+        <!-- questo elemento input deve essere largo al massimo -->
+      <input type="text" id="group" placeholder="add a tag and share it with friends..." class="p-2"><br />
       <p>Once you tag your videos, people knowing the tag might find it. <b>tags are not public</b>, only by sharing them you can let others see the evidences.</p>
       <input type="checkbox" onclick="checkBoxMandatory()" value="accepted"> accept this condition. You can control tag even individually. <br />
       <input type="button" class="btn btn-dark" onclick="newGroup()" value="tag your videos"><br />

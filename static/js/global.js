@@ -1,13 +1,11 @@
 
-const dev = 1; // baaaad
-
 var buildApiUrl = function(end) {
   /* this buildApiUrl should work:
     - in production
     - with localhost:1313 and localhost:9000 (not yet supported)
     - while testing with fixtures because HUGO has them
    */
-  if (dev) {
+  if (window.location.origin.match(/localhost/)) {
     const l = window.location.href.replace(/:(\d+)/, '').split('/');
     const x = _.reduce(_.compact(l), function(memo, c) {
         const noise = ['http:', 'localhost', '#dummytoken'];

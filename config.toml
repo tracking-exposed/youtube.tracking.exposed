@@ -13,6 +13,7 @@ canonifyURLs = true
 
 [permalinks]
     posts = "/:slug/"
+    data = "/:filename/" # Questo non funziona
 
 [menu]
  [[menu.main]]
