@@ -14,11 +14,14 @@ With a dozen of students we played the same video in two different conditions: w
 In the experiments below, we reference them as the _clean browser_ and _Youtube account_. On the second one, we expected to observe the results of a more specific and targeted personalization.
 Our goal was to **compare the 20 related videos** for different profiles and observe the differences between them.
 
-{{<entry text="How often YouTube suggests videos as explicitly “Recommended for you”, while looking at a non-political video" picture="/images/yt-results/bubble-graph-not-political.svg" type="right" >}}
+{{< entry 
+    title="Watching an «a-political» video on a clean browser or with our personal Youtube account" 
+    text="How often YouTube suggests videos as explicitly “Recommended for you”, while looking at a non-political video" 
+    picture="/images/yt-results/bubble-graph-not-political.svg" 
+    type="right" 
+    legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
+>}}
 
-<div class="row col-sm-12 text-center">
-  <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-1,2.svg" />
-</div>
 
 The percentage of "For you" recommendations grows when we switch from the "clean" browser to our personal accounts logged browser, which has more data on us to make decisions. In this case we have some explicitly “for you” related videos in the clean browser (7% in yellow): the percentage grows when watching the same video with more personalized browser. The video used for this test was: “cutest cat compilation”.
 
@@ -26,11 +29,15 @@ The percentage of "For you" recommendations grows when we switch from the "clean
 
 **Unexpected insights**: Even with clean browsers we see four explicitly suggested videos. This happened to the students using a non-English system language. The browser communicates to YouTube this system setting, and Google decides to dedicate one of their 20 suggestions to offer a content in the native language of the watcher. This implies, even without cookies and at a first view, technical information is used to personalize suggestions.
 
-{{<entry text="It is visually clear that political videos triggers different rules. Explicitly recommendations “For you” while looking at a political video" picture="/images/yt-results/bubble-graph-political.svg" type="left" >}}
+{{< entry 
+    title="Watching a political video on a clean browser or with our personal Youtube account" 
+    text="It is visually clear that political videos triggers different rules. Explicitly recommendations “For you” while looking at a political video" 
+    picture="/images/yt-results/bubble-graph-political.svg" 
+    type="left"
+    legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
+>}}
 
-<div class="row col-sm-12 text-center">
-  <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-1,2.svg" />
-</div>
+
 
 Moving to the second part of the experiment - watching a political video - the differences between the clean and the personal browser set up were much more evident.
 In this case we had no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue (perhaps to make sure they do not make mistakes).
@@ -42,11 +49,13 @@ When we move to our personal accounts to play the same video, almost half of the
 
 We verified which videos YouTube declares as _related_ by using the official API, and then compared those with what is actually displayed on people interface.
 
-{{<entry text="Red circles represent the videos declared by YT as related. In yellow and green, the videos actually suggested to watchers." picture="/images/yt-results/youtube-API-vs-TREX-observations.svg" type="right" >}}
+{{< entry 
+    text="Red circles represent the videos declared by YT as related. In yellow and green, the videos actually suggested to watchers." 
+    picture="/images/yt-results/youtube-API-vs-TREX-observations.svg" 
+    type="right"
+    legend-image-url="/images/yt-results/fixed-legend-3.svg"
+>}}
 
-<div class="row col-sm-12 text-center">
-  <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-3.svg" />
-</div>
 
 This analysis mostly confirms why we should use only user-centric observation to perform algorithm analysis. The data released by YouTube related API say "", but by empirical measurement you can see only 14 (the overlapping area) videos are actually suggested to watchers. Also, we can't fully rely on analysis made by research for us, because the videos represented by Green - Yellow are part of the people personalized suggestions and a research would never have any chance to guess these, a researcher can at best find the yellow circle, when people are exposed to the green one. We did this test using one of the most visualized video of all time: “Gangnam style - PSY”.
 
@@ -67,7 +76,7 @@ This analysis mostly confirms why we should use only user-centric observation to
   </div>
 </div>
 
-<div class="row col-sm-12 text-center">
+<div class="row col-sm-12 mb-3 text-center">
   <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-4,5.svg" />
 </div>
 
@@ -111,11 +120,14 @@ We already know, by the admission of the developers, that the time watched per p
 
 ### Methodology: a freshly installed Brave browser, without any cookies or login on YouTube
 
-{{<entry text="10 different students using their computers, open the same video at the same time. Here we compare the 20 related videos suggested" picture="/images/yt-results/clean-browsers-pattern.svg" type="left" >}}
+{{< entry 
+    text="10 different students using their computers, open the same video at the same time. Here we compare the 20 related videos suggested" 
+    picture="/images/yt-results/clean-browsers-pattern.svg" 
+    type="left" 
+    legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
+>}}
 
-<div class="row col-sm-12 text-center">
-  <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-6,7.svg" />
-</div>
+
 
 Each violet bubble in the center represents one of the video suggested. They are few, but share many links, because most of the suggestions are the same among all the observers.
 This is a starting condition: how users gets treated when Google doesn't know anything about a profile. Of course, they always know something (location of the connection, operating system model, default language, browser version). We tried to reduce these differences, to have something similar to a *non-personalized* algorithm stage.
@@ -124,11 +136,12 @@ This is a starting condition: how users gets treated when Google doesn't know an
 
 ### Methodology: watch a video with the standard browser, full of cookies, and logged in YouTube
 
-{{<entry text="It is visually clear how the data points linked to the profiles cause personalized suggestions." picture="/images/yt-results/personalized-browsers-pattern.svg" type="right" >}}
-
-<div class="row col-sm-12 text-center">
-  <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-6,7.svg" />
-</div>
+{{< entry 
+    text="It is visually clear how the data points linked to the profiles cause personalized suggestions." 
+    picture="/images/yt-results/personalized-browsers-pattern.svg" 
+    type="right"
+    legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
+>}}
 
 The number of videos in the center diminishes drastically. Most of the suggested video are unique for the individual, and they are represented by the green dots.
 
