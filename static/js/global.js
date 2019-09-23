@@ -1,28 +1,31 @@
 
-var buildApiUrl = function(end) {
-  /* this buildApiUrl should work:
-    - in production
-    - with localhost:1313 and localhost:9000 (not yet supported)
-    - while testing with fixtures because HUGO has them
-   */
-  if (window.location.origin.match(/localhost/)) {
-    const l = window.location.href.replace(/:(\d+)/, '').split('/');
-    const x = _.reduce(_.compact(l), function(memo, c) {
-        const noise = ['http:', 'localhost', '#dummytoken'];
-        if(noise.indexOf(c) != -1)
-            return memo;
+function buildApiUrl(apiName, option) {
 
-        memo += "/" + c;
-        return memo;
-    }, "/fixtures");
+  let rv = null;
 
-    console.log(`Development mode, URL composed ${x}/${end}.json`);
-    return `${x}/${end}.json`;
-
+  /* option is optional, but if present need to have value */
+  if(!_.isUndefined(option) && !_.size(option)) {
+    console.log(`Problem: option is expected in ${apiName} but option is empty`);
+    return rv;
   } else {
-
-    const api_path = "/api/v1"
-    console.log(`(production) URL composed ${window.location.origin}${api_path}${end}`);
-    return `${window.location.origin}${api_path}${end}`
+    console.log(`(option is) ${option}`);
   }
+
+  if (window.location.origin.match(/localhost/)) {
+    const x = 'https://youtube.tracking.exposed/v1'
+
+    if(option) {
+        rv = `${x}/${apiName}/${option}`;
+    }
+    else {
+        rv = `${x}/${apiName}`;
+    }
+
+    console.log(`(in development) URL composed ${rv}`);
+  } else {
+    const api_path = "/api/v1/"
+    rv = `${window.location.origin}${api_path}${apiName}`;
+    console.log(`(in production) URL composed ${rv}`);
+  }
+  return rv;
 }

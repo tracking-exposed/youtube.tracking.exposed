@@ -3,15 +3,31 @@ it is named 'public.js' because implement the usage of public APIs */
 
 function newVideo(videoID) {
     window.location.assign('#' + videoID);
+    console.log("XXX newVideo has been called"); // I'm debugging when this should happen
     location.reload();
 }
 
 function initRelated() {
-    const rId = window.location.href.split('/#').pop();
-    if (rId == 'compare') return;
-    $("#search").val(rId);
+    let relatedId = null;
+    if(_.size(window.location.href.split('/#')) > 2) {
+        relatedId = window.location.href.split('/#').pop();
+        console.log(`Found an ID ${relatedId}`)
+        $("#search").val(realtedId);
+    } else {
+        console.log("Not found any ID (returning without action) rif:", window.location.href);
+        $("#search").val("Please write a youtube URL!");
+        // maybe highligh an error ?
+    }
 
-    const url = buildApiUrl('related/' + rId');
+    const url = buildApiUrl('related', relatedId);
+    if(_.isNull(url)) {
+        const nope = `
+            <h3 class="text-center error">you should select a video or write a video</h3>`;
+            //                     ^^^^^  error do not exist
+        $("#notes").append(nope);
+        return;
+    }
+
     $.getJSON(url, function (results) {
         if (_.size(results) === 0) {
             const nope = `
@@ -33,7 +49,7 @@ function initRelated() {
                 </h3>
                 <p class="strong">
                     ${_.size(results)} videos linked to this
-                    <a class="notclassiclink" href="/yttrex/compare/#${rId}">→ compare</a>
+                    <a class="notclassiclink" href="/compare/#${rId}">→ compare</a>
                 </p>
             </div>
 
@@ -47,7 +63,7 @@ function initRelated() {
 
                         <td class="video">
                             <b>${watched.title}</b>
-                            <a class="primary" href="/yttrex/compare/#${watched.videoId}">See related</a>
+                            <a class="primary" href="/compare/#${watched.videoId}">See related</a>
                         </td>
                         <td class="author">
                            ${watched.authorName}
@@ -81,8 +97,11 @@ function initRelated() {
 function submit() {
     const submitted = $("#search").val();
     const videoId = submitted.replace(/.*v=/, '');
-    if (_.size(videoId) < 8 || _.size(videoId) > 11) return;
-    window.location.replace('/yttrex/related/#' + videoId);
+    if (_.size(videoId) < 8 || _.size(videoId) > 11) {
+      console.log(`We are excluding ${videoId} because size doens't fit`);
+      return;
+    }
+    window.location.replace('/related/#' + videoId);
     location.reload();
 }
 
@@ -92,7 +111,7 @@ function fillRecentSlot(item)
     let h = `
             <li>
                 <p>
-                    <a class="linked" onclick="newVideo('${item.videoId}');" href="/yttrex/compare/#${item.videoId}">${item.title}</a>
+                    <a class="linked" onclick="newVideo('${item.videoId}');" href="/compare/#${item.videoId}">${item.title}</a>
                     <br />
                     <small> <code>${item.timeago}</code> <code>Related: <b>${item.relatedN}</b></code> </small>
                 </p>
@@ -108,12 +127,25 @@ function initCompare() {
 
     var     comparison = $('#comparison'),
             comparisonList = $('#comparison-list'),
-            comparisonListHead = $('#comparison-list-head');
+            comparisonListHead = $('#comparison-list-head'),
+            compareId = null;
 
-    const cId = window.location.href.split('/#').pop();
+    if(_.size(window.location.href.split('/#')) > 2) {
+        compareId = window.location.href.split('/#').pop();
+        console.log(`Found an ID ${compareId}`)
+    } else {
+        console.log("Not found any ID (returning without action) rif:", window.location.href);
+    }
 
-    if (cId == 'compare') return;
-    const url = buildApiUrl('videoId' + cId);
+    const url = buildApiUrl('videoId', compareId);
+    if(_.isNull(url)) {
+        const nope = `
+            <div class="error"><h3 class="text-center">You should pick a video to compare</h3></div>
+        `;
+        $("#comparison").append(nope);
+        return;
+    }
+    console.log("Connecting to", url);
     $.getJSON(url, function (results) {
 
         if (_.size(results) == 0) {
@@ -121,7 +153,7 @@ function initCompare() {
                 <h3 class="text-center">Nope, this video has never been watched by someone with ytTREX extension</h3>
                 <p class="text-center">
                     Check if is a valid video, here is the composed link:
-                    <a href="https://youtube.com/watch?v=${cId}">https://youtube.com/watch?v=${cId}</a>
+                    <a href="https://youtube.com/watch?v=${compareId}">https://youtube.com/watch?v=${compareId}</a>
                 </p>
             `;
             $("#comparison").append(nope);
@@ -139,7 +171,7 @@ function initCompare() {
                 <p class="m-0">
                    <b>${_.size(results)} times</b> has been seen this video, and YouTube gave <b>${_.size(allrelated)} related videos</b>
                     <br />
-                   <a href="/yttrex/related/#${results[0].videoId}">See related</a> |
+                   <a href="/related/#${results[0].videoId}">See related</a> |
                    <a target=_blank href="https://www.youtube.com/watch?v=${results[0].videoId}">See video</a>
                 </p>
             </header>
@@ -170,7 +202,7 @@ function initCompare() {
                 <tr id="${relatedVideo.videoId}" class="step">
                      <td class="video">
                          <b>${relatedVideo.title}</b><br />
-                         <a class="linked" href="/yttrex/related/#${relatedVideo.videoId}">See related</a> |
+                         <a class="linked" href="/related/#${relatedVideo.videoId}">See related</a> |
                          <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">See video</a>
                     </td>
                     <td class="author">
@@ -194,8 +226,9 @@ function initCompare() {
         comparisonListHead.append(thead);
     });
 
-    const url = buildApiUrl('last')
-    $.getJSON(url, function (recent) {
+    const lastUrl = buildApiUrl('last')
+    console.log("Connecting to", lastUrl);
+    $.getJSON(lastUrl, function (recent) {
         _.each(recent.content, fillRecentSlot);
 
     });
@@ -206,7 +239,7 @@ function unfoldRelated(memo, e) {
         <small class="related">
             <b>${e.index}</b>:
             <span>${e.title}</span>
-            <a href="/yttrex/related/#${e.videoId}">See related</a> |
+            <a href="/related/#${e.videoId}">See related</a> |
             <a target=_blank href="https://www.youtube.com/watch?v=${e.videoId}">See video</a>
         </small><br />
     `;
@@ -223,7 +256,7 @@ function initLast() {
             <p class="last mt-5">
                 <code>${item.timeago}</code>
                 <b>${item.title}</b>
-                <a class="title" href="/yttrex/compare/#${item.videoId}">See related</a>
+                <a class="title" href="/compare/#${item.videoId}">See related</a>
             </p>
             ${relates}
 
