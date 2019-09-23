@@ -12,7 +12,7 @@ function buildApiUrl(apiName, option) {
   }
 
   if (window.location.origin.match(/localhost/)) {
-    const x = 'https://youtube.tracking.exposed/v1'
+    const x = 'https://youtube.tracking.exposed/api/v1'
 
     if(option) {
         rv = `${x}/${apiName}/${option}`;
