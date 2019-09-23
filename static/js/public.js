@@ -125,6 +125,12 @@ function fillRecentSlot(item)
 // with 'getVideoId' we get the videos, it is display the different comparison
 function initCompare() {
 
+    const lastUrl = buildApiUrl('last')
+    console.log("Connecting to", lastUrl);
+    $.getJSON(lastUrl, function (recent) {
+        _.each(recent.content, fillRecentSlot);
+    });
+
     var     comparison = $('#comparison'),
             comparisonList = $('#comparison-list'),
             comparisonListHead = $('#comparison-list-head'),
@@ -226,12 +232,6 @@ function initCompare() {
         comparisonListHead.append(thead);
     });
 
-    const lastUrl = buildApiUrl('last')
-    console.log("Connecting to", lastUrl);
-    $.getJSON(lastUrl, function (recent) {
-        _.each(recent.content, fillRecentSlot);
-
-    });
 }
 
 function unfoldRelated(memo, e) {
