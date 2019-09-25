@@ -9,10 +9,10 @@ function newVideo(videoID) {
 
 function initRelated() {
     let relatedId = null;
-    if(_.size(window.location.href.split('/#')) > 2) {
+    if(_.size(window.location.href.split('/#')) > 1) {
         relatedId = window.location.href.split('/#').pop();
         console.log(`Found an ID ${relatedId}`)
-        $("#search").val(realtedId);
+        $("#search").val(relatedId);
     } else {
         console.log("Not found any ID (returning without action) rif:", window.location.href);
         $("#search").val("Please write a youtube URL!");
@@ -136,7 +136,7 @@ function initCompare() {
             comparisonListHead = $('#comparison-list-head'),
             compareId = null;
 
-    if(_.size(window.location.href.split('/#')) > 2) {
+    if(_.size(window.location.href.split('/#')) > 1) {
         compareId = window.location.href.split('/#').pop();
         console.log(`Found an ID ${compareId}`)
     } else {
