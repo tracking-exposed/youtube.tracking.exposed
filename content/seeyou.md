@@ -5,11 +5,11 @@ draft: false
 layout: single
 ---
 
-**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to enable youtuber and watcher in a collaborative analysis of algorithm. YouTube might or might not comply with requests, but only by analyzing how the platform control the videos we can keep them accountable.
+**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to involve youtubers and watchers in a collaborative analysis of algorithms. YouTube might or might not comply with requests, but it is only by analyzing how the platform controls the videos that we can hold them accountable.
 
 {{<colorblock color="primary" text="We address the algorithm">}}
 
-YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page do not talk about the [social-impact](/social-impact) of Youtube algorithm, but to the ultimate asset of Google: **the network of content creators**.
+YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page does not deal with the [social-impact](/social-impact) of Youtube algorithm, but with the ultimate asset of Google: **the network of content creators**.
 
 {{<boxes color="primary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
 
@@ -71,11 +71,11 @@ We must dismantle the justification of users’ profiling because, by its very n
 
 # Want to join this challenge?
 
-1. Youtuber should spread the web-extension among their audience
-2. Researcher should study how the communities are treated
-3. Organization should do strategic litigation
-4. Youtuber should express technopolitical agenda because if the technology in their hands improve, their result would improve in impact and experience for consumers.
-5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of the strenght to defend them agains the Corporations absolute control. We should stop to justify they as *business entities* because they are shaping the public discourse, and this is one of the way the public might stood up.
+1. Youtubers should share the web-extension among their audience
+2. Researchers should study how communities are treated
+3. Organizations should do strategic litigation
+4. Youtuber should express technopolitical agenda because if the technology in their hands improves, the result will be an higher impact and improved experience for consumers.
+5. Demands should be made as a collective effort and Content creators should feel their peers' solidarity and support as one of their shields against the Corporations absolute control. We should stop justifying them as *business entities* because they are shaping the public discourse, and this is one of the ways the public might stand up.
 
 {{< yt-extension >}}
 
