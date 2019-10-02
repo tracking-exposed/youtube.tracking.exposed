@@ -8,7 +8,7 @@ function getPubKey() {
 
 function personal() {
     const pk = getPubKey();
-    const url = buildApiUrl('personal'); // `/personal/${pk}/`);
+    const url = buildApiUrl('personal', pk); // `/personal/${pk}/`);
 
     $.getJSON(url, (data) => {
         console.log("personal API, retrieved recent videos:", _.size(data.recent));
@@ -63,7 +63,7 @@ function buildTable(video) {
         <tr>
             <td>
                 ${video.title}
-                <a class="compareLink" href="/compare/${video.videoId}">
+                <a class="compareLink" href="/compare/#${video.videoId}">
                     compare
                 </a>
             </td>
