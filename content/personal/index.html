@@ -6,6 +6,15 @@ description: Personal interface, this link is only know by you; keep it private
 type: app
 ---
 
+  <!-- lo script di inizializzazione accede a
+      /api/v1/personal/:publicKey/:paging
+
+      che restituisce:
+        - profile (c'è una sola cosa che cambia, al momento i "gruppi" sono in una lista, invece ci sarà solo un elemento con un paio di flag in più)
+        - related (come prima)
+
+     -->
+
 <div class="container">
   <div class="row">
     <small>
@@ -13,34 +22,81 @@ type: app
     </small>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <!-- DESCRIZIONE SEZIONI
 
-      <h2>CSV</h2>
-      <p>
-        Download the <a onclick="downloadCSV()" href="#"> CSV of your last activities</a>.
-      </p>
+       1 tabella delle ultime registrazioni, cronologica (ti arriva così). 7 colonne
+          - tempo realtivo (es, 20min ago, mi curo di dartelo io dalle API)
+          - $titolo (clickabile va ad URl yt)
+          - compare (apre /compare/$videoId)
+          - relative (apre /relative/$videoId)
+          - author (apre /author/$authorName) (onmouseover mostra il nomde dell'autore?)
+          - vuoto, oppure, se è taggato come appartenente ad un gruppo (apre /tag/$groupId)
+          - icona con il cestino ($cancella questa evidenza) onclick parte una request http metodo DELETE su
+             /api/v2/pprofile/$publicKey/tag/$tagId da cancellare
+       2 csv / link alle API
+       3 tag esistente. Un profile può essere associato solo ad un gruppo.
+         Per questo motivo, questa sezione potrebbe essere vuota
+         Nel caso ci sia, una riga con:
+          - tempo relativo, ultima volta che il gruppo ha avuto attività
+          - $nome del gruppo (apre la pagina /tag/$tagId), se $tagId manca, per ora metti un link a "/tag/NULL"
+          - icona con il cestino ($cancellati dal gruppo) onclick parte una request http metodo DELETE su
+             /api/v2/pprofile/$publicKey/tag/$tagId da cancellare
+       4 crea nuovo gruppo
+   -->
 
-    </div>
-    <div class="col">
-
-      <h2>Research groups</h2>
-        <!-- qui devono apparire i gruppi esistenti, il loro contenuto è nell'api 'personal' all'interno dell'oggetto 'profile' -->
-      <div id="existingGroups"></div>
-      <p>If you tag your contributions, you can easily share subset of your evidence. This is handy for research teams<p>
-        <!-- questo elemento input deve essere largo al massimo -->
-      <input type="text" id="group" placeholder="add a tag and share it with friends..." class="p-2"><br />
-      <p>Once you tag your videos, people knowing the tag might find it. <b>tags are not public</b>, only by sharing them you can let others see the evidences.</p>
-      <input type="checkbox" onclick="checkBoxMandatory()" value="accepted"> accept this condition. You can control tag even individually. <br />
-      <input type="button" class="btn btn-dark" onclick="newGroup()" value="tag your videos"><br />
-
-    </div>
-  </div>
-
+   <!-- questa la tabella specificata sopra, in bootstrap mi sembra ci sono modi per fare il paging -->
   <div class="row">
     <h2>Recent evidence</h2>
     <div id="report"></div>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <h2>CSV</h2>
+      <p>
+        Download the <a onclick="downloadCSV()" href="#"> CSV of your last activities</a>.
+      </p>
+      <!-- uno spazio per un elenco puntato di tesrti, o una lista di API. questo sarà testo al quale penso io, quello che serve è semplicemente
+      un'area di testo -->
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h2>Research groups</h2>
+        <!-- qui devono apparire i gruppi esistenti, il loro contenuto è nell'api 'personal' all'interno dell'oggetto 'profile' -->
+      <div id="existingGroups"></div>
+    </div>
+  </div>
+
+  <input name="public" type="radio" />
+  <input name="private" type="radio" />
+<!-- quando è public la password scompare, quando è private viene chiesta due volte perchè sia sicura,
+è una funziona che si fa una volta sola (o se ci si cancella, anche di più ) -->
+
+
+<!-- qui inizia la parte tag -->
+  <p>If you tag your contributions, you can easily share subset of your evidence. This is handy for research teams<p>
+  <input name="password" type="password" />
+  <input name="tag" type="text" />
+  <p>Once you tag your videos, people knowing the tag might find it. <b>tags are not public</b>, only by sharing them you can let others see the evidences.</p>
+  <input type="button" class="btn btn-dark" onclick="newGroup()" value="tag your videos"><br />
+
+<!-- vedere su bootstrap come si fa l'equivalente di username/password.
+ le condizioni sono 2 :
+
+   * se l'utente seleziona nel radio box "public" allora:
+     - la checkbox che verifica siano state accettate le condizioni apparirà
+     - la doppia password sparisce
+     - un area di ritaglio per dire una frase ed un link
+
+   * se l'utente seleziona radio box "private":
+     - doppia password (nel senso, la seconda deve essere uguale alla prima)
+     - la checkbox non esiste
+     - un area di ritaglio per dire una frase ed un link
+-->
+
+  <input type="checkbox" onclick="checkBoxMandatory()" value="accepted"> accept this condition. You can control tag even individually. <br />
+
 
 </div>
 
