@@ -130,3 +130,8 @@ function addTimeHeader(timestring) {
 function removeEvidence(id) {
   console.log("todo removeEvidence", id);
 }
+
+function showPassword(status) {
+    if( status == 'private') $('#group-password-wrapper').show();
+    else $('#group-password-wrapper').hide();
+}

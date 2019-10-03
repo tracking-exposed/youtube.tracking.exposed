@@ -46,8 +46,48 @@ type: app
     <section>
         <h2>Welcome to your personal page</h2>
         <div id="user"></div>
+
+
+        <div class="row mb-5">
+            <div class="col-6">
+
+                <div class="card p-3">
+
+                    <h3>Join a research group</h3>
+                    <p class="mb-3 pb-3 border-bottom">An introduction text to group</p>
+                    <form>
+
+                        <div class="mb-4">
+                            <label for="group">Group name</label>
+                            <input name="group" class="form-control" id="group" type="text" value="" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label class="mr-2">Group type</label>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input onchange="showPassword('public')" type="radio" id="public" name="public-private" class="custom-control-input">
+                                <label class="group-type custom-control-label" for="public">public</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input onchange="showPassword('private')" type="radio" id="private" name="public-private" class="custom-control-input">
+                                <label class="group-type custom-control-label" for="private">private</label>
+                            </div>
+                        </div>
+                        <div id="group-password-wrapper" class="mb-4" style="display: none;">
+                            <label for="group-password">Set up a password for private group</label>
+                            <input type="password" class="form-control" id="group-password" placeholder="Password">
+                        </div>
+                        <button class="btn btn-lg float-right btn-primary" style="min-width: 120px" type="submit">Join</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
     </section>
-    
+
     <section>
         <h2>
             Recent evidence<br />
