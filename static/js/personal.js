@@ -44,59 +44,49 @@ function downloadCSV() {
 
 function addVideoRow(video) {
     var id = `${video.id}`;
-    let tbody = "<tbody id="+id+" style='display: none;'>";
+    //let tbody = "<tbody id="+id+" style='display: none;'>";
 
     // IL MIO USO di alt="" dentro agli <a> è scorretto. vorrei che quell'informazione
     // uscisse questa non dovrebbe essere una tabella, ma delle <div class="row"
 
     const h = `
-    <div class="row">
-      <div class="col-2 align-middle" scope="col">
-        <small> ${video.relative} </small>
+    <div class="row border-bottom p-2 mb-3 align-middle">
+      <div class="col-2">
+        <small class="badge badge-dark"> ${video.relative} </small>
       </div>
-      <div class="col-5 align-middle" scope="col">
-        <small>
-          <a class="icon-small" href="/compare/#${video.videoId}">${video.title}</a>
-        </small>
+      <div class="col-6">
+        <p class="mb-0">
+          <b>${video.title}</b>
+        </p>
       </div>
-      <div class="col-1 align-middle" scope="col">
-        <small class="mb-0">
+      <nav class="col-4">
           <a
-            class="compare icon-small"
-            alt="Compare all the evidences on ${video.title}"
-            href="/author/#${video.videoId}">
-              [ICONA]
+            class="compare icon-small mb-1"
+            title="Compare all the evidences on ${video.title}"
+            href="/compare/#${video.videoId}">
+              <small>Compare</small>
           </a>
-        </small>
-      </div>
-      <div class="col-1 align-middle" scope="col">
-        <small class="mb-0">
           <a
-            class="compareLink"
+            class="related icon-small mb-1"
+            alt="See all the related videos about ${video.title}"
+            href="/related/#${video.videoId}">
+              <small>Related</small>
+          </a>
+
+          <a
+            class="author icon-small mb-1"
             alt="Compare all the evidences from ${video.authorName}"
             href="/author/#${video.videoId}">
-              [ICONA]
+              <small>Channel</small>
             </a>
-        </small>
-      </div>
-      <div class="col-1 align-middle" scope="col">
-        <small class="mb-0">
-          <a
-            class="compareLink"
-            alt="Compare all the videos suggesting ${video.title}"
-            href="/related/#${video.videoId}">
-              [ICONA]
-          </a>
-        </small>
-      </div>
-      <div class="col-1 align-middle" scope="col">
-          <small>
-            <a
-              class="delete btn btn-sm icon-small delete"
+
+           <a
+              class="delete icon-small mb-1"
               onclick="removeEvidence('${video.videoId}')">
-            </a>
-          </small>
-      </div>
+                <small> Remove</small>
+           </a>
+      </nav>
+    </div>
     `;
 
     $("#report").append(h);
