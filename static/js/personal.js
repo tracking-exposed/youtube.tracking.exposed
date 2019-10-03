@@ -11,9 +11,8 @@ function personal() {
     const url = buildApiUrl('personal', pk); // `/personal/${pk}/`);
 
     $.getJSON(url, (data) => {
-        console.log(data);
-        console.log("personal API, retrieved recent videos:", _.size(data.recent));
-
+        //console.log(data);
+        //console.log("personal API, retrieved recent videos:", _.size(data.recent));
         /* usare il valore "total" per comporre o modificare la paginazione */
 
         let lastTimed = "";
@@ -32,6 +31,23 @@ function updateProfileInfo(profile) {
      AGGIUNGEREI -- 3 ) cancella il tuo tag (Se c'è), aggiungi un nuovo tag
      così si mescola un riquadro informativo alle uniche 2 attività consentite
      */
+    const userID = `${profile._id}`;
+    const publicKey = `${profile.publicKey}`;
+    const createdAt = new Date(`${profile.creationTime}`);
+    const lastActivity = new Date(`${profile.lastActivity}`);
+    const createdAtFormatted =createdAt.toUTCString();
+    const lastActivityFormatted =lastActivity.toUTCString();
+
+    const h = `
+    <p class="mb-1">Here you can find all data collected from your <b>Youtube activity</b> since <span class="badge badge-pill badge-light">${createdAtFormatted}</span></p>
+    <p class="mb-5">
+       <span class="mr-1">Your ID: <span class="badge badge-info align-middle">${userID}</span></span>
+       <span class="mr-1">Your key: <span class="badge badge-info align-middle"><i>${publicKey}</i></span></span>
+       <span class="mr-1">Last activity: <span class="badge badge-info align-middle">${lastActivityFormatted}</span></span>
+    </p>
+    `;
+
+    $("#user").append(h);
     console.log(profile);
 };
 
