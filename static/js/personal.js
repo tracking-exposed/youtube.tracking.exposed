@@ -82,23 +82,37 @@ function updateTags(e) {
         printError(error, 'Please, enter a tag name.');
         return;
     }
-    else data.tag = tagValue;
+    data.tag = tagValue;
 
     if(passwordCheck == 'private') {
         if(passwordValue == null || passwordValue == '') {
             printError(error, 'Password is mandatory for private tag.');
             return;
         }
-        else data.password = passwordValue;
+        data.password = passwordValue;
+        data.accessibility = 'private';
+    } else {
+        data.accessibility = 'public';
     }
 
-    console.log("Content sent in POST: ", data);
+    console.log("Content sent in POST: ", url, data);
 
-    fetch(url, {
-        method: "POST",
-        body: JSON.stringify(data)
-    }).then(res => {
-        console.log("Response:", res);
+    return fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrer: 'no-referrer', // no-referrer, *client
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(function(response) {
+        return response.json();
+    }).then(function(result) {
+        console.log(result);
+        return result;
     });
 }
 
