@@ -44,7 +44,7 @@ type: app
     <!-- 1 questa la tabella specificata sopra, in bootstrap mi sembra ci sono modi per fare il paging -->
 
     <section>
-        <h2>Welcome to your personal page</h2>
+        <h2>Welcome <i id="user-name"></i></h2>
         <div id="user"></div>
 
 
@@ -87,10 +87,6 @@ type: app
 
             </div>
         </div>
-
-
-
-
     </section>
 
     <section>
@@ -104,23 +100,20 @@ type: app
             </small>
         </p>
 
-        <div id="report"></div>
+        <div class="row align-middle mb-3">
+            <p id="total-evidence" class="m-0 mr-2" style="line-height: 36px;"></p>
 
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+            <nav id="pagination" aria-label="navigation">
+                <ul class="pagination centered"></ul>
+            </nav>
+        </div>
+
+        <div id="report" class="mb-5"></div>
     </section>
-
-
-
-
 </div>
+
+
+
 
 <div class="row">
     <div class="col">
@@ -199,7 +192,6 @@ type: app
 
 <script src="/js/global.js"></script>
 <script src="/js/personal.js"></script>
-
 <script type="text/javascript">
 
     $( document ).ready(function() {

@@ -6,20 +6,28 @@ function getPubKey() {
     return t;
 }
 
-function personal() {
-    const pk = getPubKey();
-    const url = buildApiUrl('personal', pk); // `/personal/${pk}/`);
+function personal(pages, profile) {
 
+    if(!pages) pages = '10-0';
+    else {
+        $("#report").empty();
+        pages = pages + '-' + (pages - 10);
+    }
+    const pk = getPubKey();
+    const url = buildApiUrl('personal', pk + '/' + pages); // `/personal/${pk}/`);
     $.getJSON(url, (data) => {
-        //console.log(data);
-        //console.log("personal API, retrieved recent videos:", _.size(data.recent));
-        /* usare il valore "total" per comporre o modificare la paginazione */
+        console.log(data);
 
         let lastTimed = "";
+
         _.each(data.recent, function(video) {
             addVideoRow(video);
         });
-        updateProfileInfo(data.supporter);
+
+        if(!profile) {
+            addPages(data.total);
+            updateProfileInfo(data.supporter);
+        }
     });
 }
 
@@ -33,6 +41,7 @@ function updateProfileInfo(profile) {
      */
     const userID = `${profile._id}`;
     const publicKey = `${profile.publicKey}`;
+    const userName = `${profile.p}`;
     const createdAt = new Date(`${profile.creationTime}`);
     const lastActivity = new Date(`${profile.lastActivity}`);
     const createdAtFormatted =createdAt.toUTCString();
@@ -46,8 +55,9 @@ function updateProfileInfo(profile) {
        <span class="mr-1">Last activity: <span class="badge badge-info align-middle">${lastActivityFormatted}</span></span>
     </p>
     `;
+    $('#user-name').text(userName);
     $("#user").append(h);
-    //console.log(profile);
+    console.log(profile);
 }
 
 
@@ -93,19 +103,32 @@ function updateTags(e) {
 }
 
 
-
-
-
-
 function downloadCSV() {
     const pk = getPubKey();
     const csvurl = `/api/v1/personal/${pk}/csv`;
     console.log("downloadCSV from: ", csvurl);
     window.open(csvurl);
 }
+function addPages(total) {
 
+    if(total > 10) {
+
+        var page;
+        const pagesNumber = total / 10;
+        const fixedPageNumber = Math.ceil(pagesNumber);
+        const description = `There are <b>${total}</b> evidences in <b>${fixedPageNumber}</b> pages: `;
+        $('#total-evidence').html(description);
+
+
+        for (page = 1; page < fixedPageNumber + 1; page++) {
+            let pageValue =  page + '0';
+            $('#pagination').find('ul').append('<li class="page-item"><a class="page-link" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
+        }
+    }
+
+}
 function addVideoRow(video) {
-    var id = `${video.id}`;
+    //var id = `${video.id}`;
     //let tbody = "<tbody id="+id+" style='display: none;'>";
 
     // IL MIO USO di alt="" dentro agli <a> è scorretto. vorrei che quell'informazione
@@ -113,15 +136,13 @@ function addVideoRow(video) {
 
     const h = `
     <div class="row border-bottom p-2 mb-3 align-middle">
-      <div class="col-2">
-        <small class="badge badge-dark"> ${video.relative} </small>
-      </div>
-      <div class="col-6">
+      <div class="col-7">
         <p class="mb-0">
+          <small> ${video.relative} </small><br />
           <b>${video.title}</b>
         </p>
       </div>
-      <nav class="col-4">
+      <nav class="col-5">
           <a
             class="compare icon-small mb-1"
             title="Compare all the evidences on ${video.title}"
@@ -130,20 +151,21 @@ function addVideoRow(video) {
           </a>
           <a
             class="related icon-small mb-1"
-            alt="See all the related videos about ${video.title}"
+            title="See all the related videos about ${video.title}"
             href="/related/#${video.videoId}">
               <small>Related</small>
           </a>
 
           <a
             class="author icon-small mb-1"
-            alt="Compare all the evidences from ${video.authorName}"
+            title="Compare all the evidences from ${video.authorName}"
             href="/author/#${video.videoId}">
               <small>Channel</small>
             </a>
 
            <a
               class="delete icon-small mb-1"
+              title="Remove the evidence: ${video.title}"
               onclick="removeEvidence('${video.videoId}')">
                 <small> Remove</small>
            </a>
@@ -152,20 +174,6 @@ function addVideoRow(video) {
     `;
 
     $("#report").append(h);
-};
-
-/*
-    <p class="mb-0">
-       <span class="toggle-related btn btn-sm icon-small arrow-down" onclick="toggleRelated('${video.id}', $(this));"> <b>${video.relatedN}</b> Related</span>
-    </p>
-*/
-
-function toggleRelated(id, $this) {
-  // non capisco a cosa serve
-   $('#'+id).toggle('fast','linear', function(){
-       if($this.hasClass('arrow-up')) $this.removeClass('arrow-up');
-       else  $this.addClass('arrow-up');
-   });
 }
 
 function addTimeHeader(timestring) {
@@ -178,11 +186,6 @@ function removeEvidence(id) {
 }
 
 function showPassword(status) {
-
-
-
-
-
     if( status == 'private') $('#group-password-wrapper').show();
     else $('#group-password-wrapper').hide();
 }
