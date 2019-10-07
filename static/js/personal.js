@@ -46,10 +46,56 @@ function updateProfileInfo(profile) {
        <span class="mr-1">Last activity: <span class="badge badge-info align-middle">${lastActivityFormatted}</span></span>
     </p>
     `;
-
     $("#user").append(h);
-    console.log(profile);
-};
+    //console.log(profile);
+}
+
+
+function printError(element, text) {
+    element.html('<p class="alert alert-warning mb-3">' + text + '</p>');
+}
+
+function updateTags(e) {
+    e.preventDefault();
+    const pk = getPubKey();
+    const form = $('#tag-form');
+    const error = form.find('.error');
+    error.empty();
+    const tagValue = $('#tag').val();
+    const passwordCheck = $('input[name=public-private]').filter(':checked').val();
+    const password = $('#password');
+    const passwordValue = password.val();
+    const url = 'https://youtube.tracking.exposed/api/v2/profile/' + pk + '/tag';
+    let data = {};
+
+    if(tagValue == null || tagValue == '') {
+        printError(error, 'Please, enter a tag name.');
+        return;
+    }
+    else data.tag = tagValue;
+
+    if(passwordCheck == 'private') {
+        if(passwordValue == null || passwordValue == '') {
+            printError(error, 'Password is mandatory for private tag.');
+            return;
+        }
+        else data.password = passwordValue;
+    }
+
+    console.log("Content sent in POST: ", data);
+
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data)
+    }).then(res => {
+        console.log("Response:", res);
+    });
+}
+
+
+
+
+
 
 function downloadCSV() {
     const pk = getPubKey();
@@ -132,6 +178,11 @@ function removeEvidence(id) {
 }
 
 function showPassword(status) {
+
+
+
+
+
     if( status == 'private') $('#group-password-wrapper').show();
     else $('#group-password-wrapper').hide();
 }
