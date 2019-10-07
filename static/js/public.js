@@ -12,7 +12,7 @@ function initRelated() {
     if(_.size(window.location.href.split('/#')) == 2) {
         relatedId = window.location.href.split('/#').pop();
         console.log(`Found an ID ${relatedId}`)
-        $("#search").val(realtedId);
+        $("#search").val(relatedId);
     } else {
         console.log("Not found any ID (returning without action) rif:", window.location.href);
         $("#search").val("Please write a youtube URL!");
@@ -135,6 +135,7 @@ function initCompare() {
             comparisonList = $('#comparison-list'),
             comparisonListHead = $('#comparison-list-head'),
             compareId = null;
+
 
     if(_.size(window.location.href.split('/#')) == 2) {
         compareId = window.location.href.split('/#').pop();
