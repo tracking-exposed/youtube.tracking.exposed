@@ -44,14 +44,18 @@ type: app
     <!-- 1 questa la tabella specificata sopra, in bootstrap mi sembra ci sono modi per fare il paging -->
 
     <section>
-        <h2>Welcome <i id="user-name"></i></h2>
-        <div id="user"></div>
-
-
         <div class="row mb-5">
             <div class="col-sm">
-                <div class="card p-3">
+                <h2>Welcome <i id="user-name"></i></h2>
+                <div id="user"></div>
 
+
+                <p class="mt-3">
+                    Download the <a onclick="downloadCSV()" href="#"> CSV of your last activities</a>.
+                </p>
+            </div>
+            <div class="col-sm">
+                <div class="card p-3">
                     <h3>Create or follow tags</h3>
                     <small class="mb-3 pb-3 border-bottom">
                         Tags are the best way to gather evidences from youtube users like you.
@@ -78,13 +82,10 @@ type: app
                             <label for="password">Set up a password for private tag</label>
                             <input type="password" class="form-control" id="password" placeholder="Password">
                         </div>
+                        <div class="result"></div>
                         <button class="btn btn-lg float-right btn-primary" style="min-width: 120px" type="submit">Join</button>
                     </form>
-
                 </div>
-            </div>
-            <div class="col-sm">
-
             </div>
         </div>
     </section>
@@ -115,7 +116,7 @@ type: app
 
 
 
-<div class="row">
+<div class="row" style="display: none;">
     <div class="col">
         <h2>CSV</h2>
         <p>
@@ -186,8 +187,6 @@ type: app
     -->
 
     <input type="checkbox" onclick="checkBoxMandatory()" value="accepted"> accept this condition. You can control tag even individually. <br />
-
-
 </div>
 
 <script src="/js/global.js"></script>

@@ -16,8 +16,8 @@ function personal(pages, profile) {
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/' + pages); // `/personal/${pk}/`);
     $.getJSON(url, (data) => {
-        console.log(data);
 
+        //console.log(data);
         let lastTimed = "";
 
         _.each(data.recent, function(video) {
@@ -39,6 +39,7 @@ function updateProfileInfo(profile) {
      AGGIUNGEREI -- 3 ) cancella il tuo tag (Se c'è), aggiungi un nuovo tag
      così si mescola un riquadro informativo alle uniche 2 attività consentite
      */
+    const userDiv = $("#user");
     const userID = `${profile._id}`;
     const publicKey = `${profile.publicKey}`;
     const userName = `${profile.p}`;
@@ -46,23 +47,31 @@ function updateProfileInfo(profile) {
     const lastActivity = new Date(`${profile.lastActivity}`);
     const createdAtFormatted =createdAt.toUTCString();
     const lastActivityFormatted =lastActivity.toUTCString();
+    const tags = `${profile.tag.name}`;
 
     const h = `
-    <p class="mb-1">Here you can find all data collected from your <b>Youtube activity</b> since <span class="badge badge-pill badge-light">${createdAtFormatted}</span></p>
-    <p class="mb-5">
-       <span class="mr-1">Your ID: <span class="badge badge-info align-middle">${userID}</span></span>
-       <span class="mr-1">Your key: <span class="badge badge-info align-middle"><i>${publicKey}</i></span></span>
-       <span class="mr-1">Last activity: <span class="badge badge-info align-middle">${lastActivityFormatted}</span></span>
-    </p>
+    <p class="mb-2">Here you can find all data collected from your <b>Youtube activity</b> since <span class="badge badge-pill badge-light">${createdAtFormatted}</span></p>
+    <ul class="mb-4">
+       <li class="mr-1"><p class="mb-0">Your ID: <span class="badge badge-light align-middle">${userID}</span></p></li>
+       <li class="mr-1"><p class="mb-0">Your key: <span class="badge badge-light align-middle"><i>${publicKey}</i></span></p></li>
+       <li class="mr-1"><p class="mb-0">Last activity: <span class="badge badge-light align-middle">${lastActivityFormatted}</span></p></li>
+    </ul>
+
     `;
+
     $('#user-name').text(userName);
-    $("#user").append(h);
+    userDiv.append(h);
+    if (tags) {
+        const tag = `<h5>Your contribution is tagged as: <span class="badge badge-info">${tags}</span></h5>`;
+        userDiv.append(tag);
+    }
     console.log(profile);
 }
 
 
-function printError(element, text) {
-    element.html('<p class="alert alert-warning mb-3">' + text + '</p>');
+function printMessage(element, text, type) {
+    if(!type) var type = 'danger';
+    element.html('<p class="alert alert-' + type + ' mb-3">' + text + '</p>');
 }
 
 function updateTags(e) {
@@ -70,7 +79,9 @@ function updateTags(e) {
     const pk = getPubKey();
     const form = $('#tag-form');
     const error = form.find('.error');
+    const resultDiv = form.find('.result');
     error.empty();
+    resultDiv.empty();
     const tagValue = $('#tag').val();
     const passwordCheck = $('input[name=public-private]').filter(':checked').val();
     const password = $('#password');
@@ -79,14 +90,14 @@ function updateTags(e) {
     let data = {};
 
     if(tagValue == null || tagValue == '') {
-        printError(error, 'Please, enter a tag name.');
+        printMessage(error, 'Please, enter a tag name.');
         return;
     }
     data.tag = tagValue;
 
     if(passwordCheck == 'private') {
         if(passwordValue == null || passwordValue == '') {
-            printError(error, 'Password is mandatory for private tag.');
+            printMessage(error, 'Password is mandatory for private tag.');
             return;
         }
         data.password = passwordValue;
@@ -95,7 +106,7 @@ function updateTags(e) {
         data.accessibility = 'public';
     }
 
-    console.log("Content sent in POST: ", url, data);
+    //console.log("Content sent in POST: ", url, data);
 
     return fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -111,7 +122,12 @@ function updateTags(e) {
     }).then(function(response) {
         return response.json();
     }).then(function(result) {
+
+        if(result.error == true) printMessage(resultDiv, result.message);
+        else printMessage(resultDiv, 'Tag "<b>' + result.group.name + '</b>" has been created', 'success');
+
         console.log(result);
+
         return result;
     });
 }
@@ -123,23 +139,19 @@ function downloadCSV() {
     console.log("downloadCSV from: ", csvurl);
     window.open(csvurl);
 }
+
 function addPages(total) {
-
     if(total > 10) {
-
         var page;
         const pagesNumber = total / 10;
         const fixedPageNumber = Math.ceil(pagesNumber);
         const description = `There are <b>${total}</b> evidences in <b>${fixedPageNumber}</b> pages: `;
         $('#total-evidence').html(description);
-
-
         for (page = 1; page < fixedPageNumber + 1; page++) {
             let pageValue =  page + '0';
             $('#pagination').find('ul').append('<li class="page-item"><a class="page-link" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
         }
     }
-
 }
 function addVideoRow(video) {
     //var id = `${video.id}`;
