@@ -16,6 +16,7 @@ function personal(pages, profile) {
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/' + pages); // `/personal/${pk}/`);
     $.getJSON(url, (data) => {
+        console.log(data.recent);
         _.each(data.recent, addVideoRow);
         if(!profile) {
             addPages(data.total);
@@ -102,12 +103,9 @@ function updateTags(e) {
     }).then(function(response) {
         return response.json();
     }).then(function(result) {
-
         if(result.error == true) printMessage(resultDiv, result.message);
         else printMessage(resultDiv, 'Tag "<b>' + result.group.name + '</b>" has been created', 'success');
-
         console.log(result);
-
         return result;
     });
 }
@@ -152,7 +150,7 @@ function addVideoRow(video) {
     $("#" + computedId + " .compare").attr('title', title);
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
-    $("#" + computedId + " .delete").attr('videoId', `${video.videoId}`);
+    $("#" + computedId + " .delete").attr('yttrex-id', `${video.id}`);
     title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";;
     $("#" + computedId + " .delete").attr('title', title);
 
@@ -162,13 +160,26 @@ function addVideoRow(video) {
     entry.removeAttr('hidden');
 }
 
-function addTimeHeader(timestring) {
-    const h =`<h5 class="timeheader light-font mb-3 mt-5">${timestring}</h5>`;
-    $("#report").append(h);
-}
-
 function removeEvidence(e) {
-  console.log("todo removeEvidence", e);
+    const id = $(this).attr('yttrex-id');
+    const pk = getPubKey();
+    const deleteURL = `https://youtube.tracking.exposed/api/v2/personal/${pk}/selector/id/${id}`;
+    console.log(deleteURL);
+    return fetch(deleteURL, {
+        method: 'DELETE',
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        redirect: 'follow', // manual, *follow, error
+        referrer: 'no-referrer', // no-referrer, *client
+    }).then(function(response) {
+        console.log(response);
+        return response.json();
+    }).then(function(result) {
+        const selectorId = `#video-${id}`;
+        $(selectorId).fadeOut(300);
+        console.log(result);
+    });
 }
 
 function showPassword(status) {
