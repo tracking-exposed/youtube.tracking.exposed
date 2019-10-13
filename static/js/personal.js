@@ -16,14 +16,7 @@ function personal(pages, profile) {
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/' + pages); // `/personal/${pk}/`);
     $.getJSON(url, (data) => {
-
-        //console.log(data);
-        let lastTimed = "";
-
-        _.each(data.recent, function(video) {
-            addVideoRow(video);
-        });
-
+        _.each(data.recent, addVideoRow);
         if(!profile) {
             addPages(data.total);
             updateProfileInfo(data.supporter);
@@ -32,40 +25,27 @@ function personal(pages, profile) {
 }
 
 function updateProfileInfo(profile) {
-    /* da qui devono essere estratti i gruppi ed eventualmente altri metadati,
-     per dire all'utente:
-     1) ti riconsociamo
-     2) ecco il tuo profilo
-     AGGIUNGEREI -- 3 ) cancella il tuo tag (Se c'è), aggiungi un nuovo tag
-     così si mescola un riquadro informativo alle uniche 2 attività consentite
-     */
-    const userDiv = $("#user");
-    const userID = `${profile._id}`;
     const publicKey = `${profile.publicKey}`;
     const userName = `${profile.p}`;
     const createdAt = new Date(`${profile.creationTime}`);
     const lastActivity = new Date(`${profile.lastActivity}`);
-    const createdAtFormatted =createdAt.toUTCString();
-    const lastActivityFormatted =lastActivity.toUTCString();
-    const tags = `${profile.tag.name}`;
+    const createdAtFormatted = createdAt.toUTCString();
+    const lastActivityFormatted = lastActivity.toUTCString();
 
-    const h = `
-    <p class="mb-2">Here you can find all data collected from your <b>Youtube activity</b> since <span class="badge badge-pill badge-light">${createdAtFormatted}</span></p>
-    <ul class="mb-4">
-       <li class="mr-1"><p class="mb-0">Your ID: <span class="badge badge-light align-middle">${userID}</span></p></li>
-       <li class="mr-1"><p class="mb-0">Your key: <span class="badge badge-light align-middle"><i>${publicKey}</i></span></p></li>
-       <li class="mr-1"><p class="mb-0">Last activity: <span class="badge badge-light align-middle">${lastActivityFormatted}</span></p></li>
-    </ul>
-
-    `;
-
+    $('#createdAtFormatted').text(createdAtFormatted);
+    $('#accessToken').text(publicKey);
+    $('#lastActivityFormatted').text(lastActivityFormatted);
     $('#user-name').text(userName);
-    userDiv.append(h);
-    if (tags) {
-        const tag = `<h5>Your contribution is tagged as: <span class="badge badge-info">${tags}</span></h5>`;
-        userDiv.append(tag);
+
+    if (profile.tag) {
+        $("#tag-name").text(profile.tag.name);
+        $("#tag-badge").removeAttr('hidden');
     }
-    console.log(profile);
+
+    /*     const tag = `<h5>Your contribution is tagged as: <span class="badge badge-info">${tags}</span></h5>`;
+        $('#userInfo').append(tag);
+        */
+    console.log("profile appended: ", profile);
 }
 
 
@@ -132,7 +112,6 @@ function updateTags(e) {
     });
 }
 
-
 function downloadCSV() {
     const pk = getPubKey();
     const csvurl = `/api/v1/personal/${pk}/csv`;
@@ -153,53 +132,34 @@ function addPages(total) {
         }
     }
 }
+
 function addVideoRow(video) {
-    //var id = `${video.id}`;
-    //let tbody = "<tbody id="+id+" style='display: none;'>";
+    const entry = $("#master").clone();
+    const computedId = `video-${video.id}`;
+    entry.attr("id", computedId);
+    $("#report").append(entry);
 
-    // IL MIO USO di alt="" dentro agli <a> è scorretto. vorrei che quell'informazione
-    // uscisse questa non dovrebbe essere una tabella, ma delle <div class="row"
+    $("#" + computedId + " .compare").attr('href', `/compare/#${video.videoId}`);
+    let title = $("#" + computedId + " .compare").attr('title') + "«" + video.title + "»";
+    $("#" + computedId + " .compare").attr('title', title);
 
-    const h = `
-    <div class="row border-bottom p-2 mb-3 align-middle">
-      <div class="col-7">
-        <p class="mb-0">
-          <small> ${video.relative} </small><br />
-          <b>${video.title}</b>
-        </p>
-      </div>
-      <nav class="col-5">
-          <a
-            class="compare icon-small mb-1"
-            title="Compare all the evidences on ${video.title}"
-            href="/compare/#${video.videoId}">
-              <small>Compare</small>
-          </a>
-          <a
-            class="related icon-small mb-1"
-            title="See all the related videos about ${video.title}"
-            href="/related/#${video.videoId}">
-              <small>Related</small>
-          </a>
+    $("#" + computedId + " .related").attr('href', `/related/#${video.videoId}`);
+    title = $("#" + computedId + " .related").attr('title')  + "«" + video.title + "»";;
+    $("#" + computedId + " .related").attr('title', title);
 
-          <a
-            class="author icon-small mb-1"
-            title="Compare all the evidences from ${video.authorName}"
-            href="/author/#${video.videoId}">
-              <small>Channel</small>
-            </a>
+    $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
+    title = $("#" + computedId + " .author").attr('title')  + "«" + video.authorName + "»";;
+    $("#" + computedId + " .compare").attr('title', title);
 
-           <a
-              class="delete icon-small mb-1"
-              title="Remove the evidence: ${video.title}"
-              onclick="removeEvidence('${video.videoId}')">
-                <small> Remove</small>
-           </a>
-      </nav>
-    </div>
-    `;
+    $("#" + computedId + " .delete").on('click', removeEvidence);
+    $("#" + computedId + " .delete").attr('videoId', `${video.videoId}`);
+    title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";;
+    $("#" + computedId + " .delete").attr('title', title);
 
-    $("#report").append(h);
+    $("#" + computedId + " .relative").text(video.relative);
+    $("#" + computedId + " .title").text(video.title);
+
+    entry.removeAttr('hidden');
 }
 
 function addTimeHeader(timestring) {
@@ -207,8 +167,8 @@ function addTimeHeader(timestring) {
     $("#report").append(h);
 }
 
-function removeEvidence(id) {
-  console.log("todo removeEvidence", id);
+function removeEvidence(e) {
+  console.log("todo removeEvidence", e);
 }
 
 function showPassword(status) {
