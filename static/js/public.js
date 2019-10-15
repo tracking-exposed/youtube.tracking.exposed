@@ -7,6 +7,22 @@ function newVideo(videoID) {
     location.reload();
 }
 
+function initAuthor() {
+
+    const videoId = window.location.href.split('/#').pop();
+    if(_.size(videoId) < 6) {
+        const nope = `
+            <h3 class="text-center error">The URL should contain a valid-look-alike YouTube VideoId</h3>`;
+            //                     ^^^^^  error do not exist
+        $("#notes").append(nope);
+        return;
+    }
+
+    const url = buildApiUrl('author', videoId);
+    console.log("using", videoId, "connecting to", url);
+
+}
+
 function initRelated() {
     let relatedId = null;
     if(_.size(window.location.href.split('/#')) == 2) {
