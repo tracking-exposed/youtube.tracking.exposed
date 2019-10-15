@@ -26,7 +26,7 @@ function buildApiUrl(apiName, option) {
         console.log(`Builing URL by hardcoded domains (development) URL composed ${rv}`);
     } else {
         const api_path = "/api/v1/"
-        rv = `${window.location.origin}${api_path}${apiName}`;
+        rv = `${window.location.origin}${api_path}${apiName}/${option}`;
         console.log(`Building URL by window...href (production) URL composed ${rv}`);
     }
     return rv;
