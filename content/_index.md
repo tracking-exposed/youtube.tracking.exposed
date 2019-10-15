@@ -5,13 +5,24 @@ draft: false
 layout: home
 ---
 
-### Work in progress: our Roadmap
+---
+# This project is in BETA phase
 
-1. ☑  Have a browser extension capable of copying the YouTube pages: it is implemented, we still need some help in maintainance [Chrome store,](https://chrome.google.com/webstore/detail/yttrex/kbbgjcgdcibilpahljnlejefcehbljnd) and [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/yttrex/).
-2. ☐  Implement a decent statistics collection system
-3. ☑  Release a simple API without any interface, to let researchers and developers experiment with the tool
-4. ☐  Develop an interface which permits an individual to delete their submission and control data retention policy
-5. ☑  Develop functionalities to let adopters play and compare their results.
-6. ☐  Develop the [author ](/author)page, to let people compare video selecting by their chosen source.
+### ☑  Completed components
+
+###### Working browser extension capable of copying the YouTube pages: it is implemented, we still need some help in maintainance [Chrome store,](https://chrome.google.com/webstore/detail/yttrex/kbbgjcgdcibilpahljnlejefcehbljnd) and [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/yttrex/).
+###### Release a simple API without any interface, to let researchers and developers experiment with the tool, check our [API documentation](/api-documentation)
+######  Released an example on how adopters and researcher can play and compare their results, check our [First results](/results)
+
+### ☒  To be improved 
+
+###### Our current [public stats](/impact).
+###### The "correlate by [publisher](/author)" page.
+
+### ☐  Still Work in progress
+
+###### Give control: we have low level API implemented, but we have to provide a proper interface which permits to individual to delete their submission and control data retention policy
+
+---
 
 {{< yt-extension >}}
