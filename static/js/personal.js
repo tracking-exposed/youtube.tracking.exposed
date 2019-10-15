@@ -18,10 +18,8 @@ function personal(pages, profile) {
     $.getJSON(url, (data) => {
         console.log(data.recent);
         _.each(data.recent, addVideoRow);
-        if(!profile) {
-            addPages(data.total);
-            updateProfileInfo(data.supporter);
-        }
+        addPages(data.total, pages);
+        if(!profile) updateProfileInfo(data.supporter);
     });
 }
 
@@ -117,16 +115,23 @@ function downloadCSV() {
     window.open(csvurl);
 }
 
-function addPages(total) {
+function addPages(total, pages) {
+    const ul = $('#pagination').find('ul');
+    const pageString = pages.split('-').shift();
+    const actualPage = pageString.slice(0, -1);
+
+    ul.empty();
     if(total > 10) {
         var page;
         const pagesNumber = total / 10;
         const fixedPageNumber = Math.ceil(pagesNumber);
-        const description = `There are <b>${total}</b> evidences in <b>${fixedPageNumber}</b> pages: `;
+        const description = `There are <b>${total}</b> evidences. Page <b>${actualPage}</b> of <b>${fixedPageNumber}</b>`;
         $('#total-evidence').html(description);
         for (page = 1; page < fixedPageNumber + 1; page++) {
+            let liStyle = '';
             let pageValue =  page + '0';
-            $('#pagination').find('ul').append('<li class="page-item"><a class="page-link" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
+            if (pageValue == actualPage + '0')  liStyle = ' red';
+            ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
         }
     }
 }
@@ -142,14 +147,14 @@ function addVideoRow(video) {
     $("#" + computedId + " .compare").attr('title', title);
 
     $("#" + computedId + " .related").attr('href', `/related/#${video.videoId}`);
-    title = $("#" + computedId + " .related").attr('title')  + "«" + video.title + "»";;
+    title = $("#" + computedId + " .related").attr('title')  + "«" + video.title + "»";
     $("#" + computedId + " .related").attr('title', title);
 
     $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
     $("#" + computedId + " .delete").attr('yttrex-id', `${video.id}`);
-    title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";;
+    title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";
     $("#" + computedId + " .delete").attr('title', title);
 
     $("#" + computedId + " .relative").text(video.relative);
@@ -169,7 +174,7 @@ function removeEvidence(e) {
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
+        referrer: 'no-referrer' // no-referrer, *client
     }).then(function(response) {
         console.log(response);
         return response.json();
