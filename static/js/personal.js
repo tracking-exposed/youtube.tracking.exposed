@@ -146,8 +146,6 @@ function addVideoRow(video) {
     $("#" + computedId + " .related").attr('title', title);
 
     $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
-    title = $("#" + computedId + " .author").attr('title')  + "«" + video.authorName + "»";;
-    $("#" + computedId + " .compare").attr('title', title);
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
     $("#" + computedId + " .delete").attr('yttrex-id', `${video.id}`);
