@@ -1,11 +1,11 @@
 ---
-title: "(first write up) a labor union for content creator"
+title: "(first write up) a labor union for content creators"
 date: 2019-05-31T10:00:00+01:00
 draft: false
 layout: single
 ---
 
-**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to enable youtuber and watcher in a collaborative analysis of algorithm. YouTube might or might not comply with requests, but only by analyzing how the platform control the videos we can keep them accountable.
+**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to enable youtubers and watchers in a collaborative analysis of algorithms. YouTube might or might not comply with requests, but only by analyzing how the platform controls the videos we can hold them accountable.
 
 {{<colorblock color="primary" text="We address the algorithm">}}
 
@@ -61,7 +61,7 @@ We must dismantle the justification of users’ profiling because, by its very n
 
 # What the Youtuber Union (SeeYou) Wants to Do
 
-1. We collectively analyze YouTube algorithm and collect evidence of algorithmic discrimination to ensure that the community of culture producers who rely on video platforms can be protected. Let's start with YouTube.
+1. We collectively analyze YouTube algorithm and collect evidence of algorithmic discrimination to ensure that the community of culture producers who relies on video platforms can be protected. Let's start with YouTube.
 2. The youtubers union, SeeYou, wants to organize a coalition of content producers and rely on it to elaborate, with this community, a series of requests to Google.
 3. The collection takes place through a browser extension, Chrome and Firefox, which could be promoted by youtubers to those who follow them. The collected data are not meant at profiling people, but instead at studying the platform.
 4. Three different entities must work: the youtubers community that wants to be part of the union (who must express their needs and solicit the adoption of the extension), the pirate party (who organizes requests to Google and explain algorithm problems) and tracking.exposed (which produces data that can be used by the pirate party, youtubers and researchers).
@@ -71,11 +71,11 @@ We must dismantle the justification of users’ profiling because, by its very n
 
 # Want to join this challenge?
 
-1. Youtuber should spread the web-extension among their audience
-2. Researcher should study how the communities are treated
-3. Organization should do strategic litigation
-4. Youtuber should express technopolitical agenda because if the technology in their hands improve, their result would improve in impact and experience for consumers.
-5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of the strenght to defend them agains the Corporations absolute control. We should stop to justify they as *business entities* because they are shaping the public discourse, and this is one of the way the public might stood up.
+1. Youtubers should spread the web-extension among their audience
+2. Researchers should study how the communities are treated
+3. Organizations should do strategic litigation
+4. Youtubers should express technopolitical agenda because if the technology in their hands improves, the result would be a higher impact and improved experience for consumers.
+5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of their shields  against the Corporations' absolute control. We should stop justifying them as *business entities* because they are shaping the public discourse, and this is one of the way the public might stand up.
 
 {{< yt-extension >}}
 
