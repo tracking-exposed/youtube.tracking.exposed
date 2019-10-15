@@ -1,5 +1,8 @@
 /* functions used in 'personal' visualization */
 
+// const SERVER = 'https://youtube.tracking.exposed';
+const SERVER = 'http://localhost:9000';
+
 function getPubKey() {
     const t = window.location.href.split('/#').pop();
     if(t.length < 40 ) console.log("Wrong token length in the URL");
@@ -67,7 +70,7 @@ function updateTags(e) {
     const passwordCheck = $('input[name=public-private]').filter(':checked').val();
     const password = $('#password');
     const passwordValue = password.val();
-    const url = 'https://youtube.tracking.exposed/api/v2/profile/' + pk + '/tag';
+    const url = `${SERVER}/api/v2/profile/${pk}/tag`;
     let data = {};
 
     if(tagValue == null || tagValue == '') {
@@ -161,7 +164,7 @@ function addVideoRow(video) {
 function removeEvidence(e) {
     const id = $(this).attr('yttrex-id');
     const pk = getPubKey();
-    const deleteURL = `https://youtube.tracking.exposed/api/v2/personal/${pk}/selector/id/${id}`;
+    const deleteURL = `${SERVER}/api/v2/personal/${pk}/selector/id/${id}`;
     console.log(deleteURL);
     return fetch(deleteURL, {
         method: 'DELETE',

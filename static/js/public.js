@@ -11,16 +11,63 @@ function initAuthor() {
 
     const videoId = window.location.href.split('/#').pop();
     if(_.size(videoId) < 6) {
-        const nope = `
-            <h3 class="text-center error">The URL should contain a valid-look-alike YouTube VideoId</h3>`;
-            //                     ^^^^^  error do not exist
-        $("#notes").append(nope);
-        return;
+        const nope = `<h3 class="text-center">Error: URL should contain a valid-look-alike YouTube VideoId</h3>`;
+        $("#notes").html(nope);
+        $("#boring").hide();
+        return console.log("error N#1 (validation)");
     }
 
     const url = buildApiUrl('author', videoId);
     console.log("using", videoId, "connecting to", url);
 
+    $.getJSON(url, function (results) {
+        if (_.size(results) === 0) {
+            const nope = `
+                <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
+                <p class="text-center">
+                   Check if is a valid video, here the YouTube link generated from the videoId you pasted:
+                   <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${videoId}</a>
+                </p>
+            `;
+            $("#notes").html(nope);
+            return console.log("error N#2 (API)");
+        }
+
+        /* if we reach here: good! we've data and now the page will be populated */
+        $("#boring").hide();
+        $("#title").removeAttr('hidden');
+        $(".info").removeAttr('hidden');
+
+        $(".name").text(results.authorName);
+        $("#amount").text(results.total);
+        $("#treasure-count").text(_.size(results.content.treasure));
+        $("#foryou-count").text(_.size(results.content.foryou));
+        $("#sameauthor-count").text(_.size(results.content.sameAuthor));
+
+        /* cards creation */
+        _.each(results.content.sameAuthor, _.partial(appendCard, "#sameauthor-cards"));
+        _.each(results.content.foryou, _.partial(appendCard, "#foryou-cards"));
+        _.each(results.content.treasure, _.partial(appendCard, "#treasure-cards"));
+    });
+}
+
+function appendCard(targetId, video) {
+
+    if(_.size(video) != 1)
+        content.log("Condition not properly tested!", video);
+
+    video = _.first(video);
+    // console.log(video);
+
+    const entry = $("#master").clone();
+    const computedId = `video-${video.id}`;
+    entry.attr("id", computedId);
+    $(targetId).append(entry);
+
+    $("#" + computedId + " .card-title").text(video.relatedTitle);
+    $("#" + computedId + " .card-text").text(video.relatedAuthorName);
+    $("#" + computedId + " .text-muted").text(video.savingTime);
+    $("#" + computedId).removeAttr('hidden');
 }
 
 function initRelated() {

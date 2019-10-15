@@ -10,19 +10,58 @@ description: mah mah mah
 
 <div class="container">
     <div id="c3-graph"></div>
+    <h3 id="title" hidden>What <i>YouTube</i> associate to the videos from <span class="name"></span> ?</h3>
+    <p id="boring">This interface should work by retrieving a videoId and then providing some analysis.
+        <br/>
+        It require Javascript and an URL with a videoId.
+        <br/>
+        This message should disappear when everything is ready; if persist, please reach out support at tracking dot exposed.
+    </p>
     <div id="notes"></div>
-    <h2><i>Suggested by YouTube</i> video analysis for <span id="name"></span></h2>
-    <div id
-    <div id="report"></div>
+    <div id="report">
+
+        <div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <span class="card-text"></span>
+            </div>
+            <div class="card-footer">
+                <span class="text-muted">test</span>
+            </div>
+        </div>
+
+        <p class="info" hidden>
+            We have <span class="counter" id="amount"></span> evidence collected by our supporters.
+        </p>
+        <hr>
+
+        <p class="info" hidden>
+            In the suggestions:<span class="counter" id="sameauthor-count"></span>from the same author <span class="name"></span>
+        </p>
+        <div class="card-group" id="sameauthor-cards"></div>
+
+        <p class="info" hidden>
+            In the suggestions:<span class="counter" id="foryou-count"></span><i>Recommended for you</i>
+        </p>
+
+        <div class="card-group" id="foryou-cards"></div>
+
+        <p class="info" hidden>
+            In the suggestions:<span class="counter" id="treasure-count"></span> it is what we call the treasure. It is personalized, but not explicitly.
+        </p>
+        <div class="card-deck" id="treasure-cards"></div>
+
+    </div>
 </div>
 
 <script src="/js/global.js"></script>
 <script src="/js/public.js"></script>
+<link rel="stylesheet" href="/css/author.css">
 
 <script type="text/javascript">
 
-  $( document ).ready(function() {
-    initAuthor();
-  });
+    $( document ).ready(function() {
+        initAuthor();
+    });
 
 </script>

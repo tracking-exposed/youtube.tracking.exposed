@@ -1,0 +1,14 @@
+.counter {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #f3e2e2;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+.name {
+    background-color: #f3e2e2;
+    margin: 1px;
+    padding: 1px;
+    border-radius: 5px;
+}
