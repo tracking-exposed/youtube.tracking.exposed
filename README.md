@@ -10,3 +10,4 @@ git clone git@github.com:tracking-exposed/hugo-theme-trex.git
 mv hugo-theme-trex/ trex
 ```
 
+
