@@ -4,14 +4,14 @@ The main URL to access the ytTrex API is:
 `https://youtube.tracking.exposed/api/`.
 
 <br>`userToken` is an unique identifier for you Facebook user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.<br><br>
-`videoToken` is the identifier used for each video by Youtube. You can retrieve any by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.<br><br>
+`videoToken` is the identifier used for each video by Youtube. You can retrieve it by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.<br><br>
 `Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
 
 There are two fundamental `data units` through which entries (video observations) are shared: _video metadata_ and _related videos_.
 
-In _video metadata_, the unit is the watched video. Each 'id' represent an evidence collected by the watcher. Often you will see a field named _related_. It's a list of objects, each one of them describing a suggested video on the right column of the YouTube interface. The number of these videos differs. We expect it to be always 20, but might not be.
+In _video metadata_, the unit is the watched video. Each 'id' represents an evidence collected by the watcher. Often you will see a field named _related_. It's a list of objects, each one describing a suggested video on the right column of the YouTube interface. The number of these videos differs. We expect it to be always 20, but it might not be.
 
-In _related videos_, the unit is a suggested video. When the data is served in CSV this is the case (but not only in that case).
+In _related videos_, the unit is a suggested video, when the data is served in CSV - but not only in that case.
 
 ## API Index
 <table>
@@ -85,7 +85,7 @@ In _related videos_, the unit is a suggested video. When the data is served in C
 `https://youtube.tracking.exposed/api/v1/personal/$token/$paging`
 <br>
 #### Description
-Retrieves personal information on your profile, the last videos you watched and the list of videos which were related (suggested) for those.
+Retrieves personal information on your profile, the last videos you watched and the list of related (suggested) videos.
 
 **Data unit**: _video metadata_.
 
@@ -741,7 +741,7 @@ Request:
 `https://youtube.tracking.exposed/api/v1/related/$videoId`
 <br>
 #### Description
-Given a videoId, provides a list of videos for which the given videoId was suggested as recommended.
+Given a videoId, it provides a list of videos for which the given videoId was suggested as recommended.
 
 **Data unit**: _video metadata_.
 
@@ -892,7 +892,7 @@ Same as VideoId API, but as comma-separated-values file.
 `https://youtube.tracking.exposed/api/v2/statistics/$name/$unit/$amount`
 <br>
 #### Description
-Provides statistics on the node given specific keys.
+It provides statistics on the node, given specific keys.
 
 Statistics API provide data to compile the [public statistics](https://youtube.tracking.exposed/impact).
 Statistics is an interface shared among other Tracking Exposed project, for example [facebook](https://facebook.tracking.exposed/impact).
@@ -939,6 +939,6 @@ Request:
 `https://youtube.tracking.exposed/api/v1/htmlId/$id`
 <br>
 #### Description
-Special API for debugging, retrieves raw scraped HTML for specific saved HTML ids.
+Special API for debugging, it retrieves raw scraped HTML for specific saved HTML ids.
 
 ****
