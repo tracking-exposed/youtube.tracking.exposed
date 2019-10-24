@@ -12,13 +12,13 @@ In July 2019, a group of students participating in the [DMI Summer School](https
 
 With a dozen of students we played the same video in two different conditions: with the browser they use every day (logged in trough Google) and with a freshly installed one.
 In the experiments below, we reference them as the _clean browser_ and _Youtube account_. On the second one, we expected to observe the results of a more specific and targeted personalization.
-Our goal was to **compare the 20 related videos** for different profiles and observe the differences between them.
+Our goal was to **compare the 20 related videos** for different profiles and observe the differences among them.
 
-{{< entry 
-    title="Watching an «a-political» video on a clean browser or with our personal Youtube account" 
-    text="How often YouTube suggests videos as explicitly “Recommended for you”, while looking at a non-political video" 
-    picture="/images/yt-results/bubble-graph-not-political.svg" 
-    type="right" 
+{{< entry
+    title="Watching an «a-political» video on a clean browser or with our personal Youtube account"
+    text="How often YouTube suggests videos as explicitly “Recommended for you”, while looking at a non-political video"
+    picture="/images/yt-results/bubble-graph-not-political.svg"
+    type="right"
     legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
 >}}
 
@@ -27,12 +27,12 @@ The percentage of "For you" recommendations grows when we switch from the "clean
 
 **Expected results**: The browsers logged in the _Youtube account_ inherits years of behavioral surveillance. We correctly expect a higher amount of yellow dots (explicitly personalized) and a larger number of dots (more diversity).
 
-**Unexpected insights**: Even with clean browsers we see four explicitly suggested videos. This happened to the students using a non-English system language. The browser communicates to YouTube this system setting, and Google decides to dedicate one of their 20 suggestions to offer a content in the native language of the watcher. This implies, even without cookies and at a first view, technical information is used to personalize suggestions.
+**Unexpected insights**: Even with clean browsers we see four explicitly suggested videos. This happened to the students using a non-English system language. The browser communicates to YouTube this system setting, and Google decides to dedicate one of their 20 suggestions to offer a content in the native language of the watcher. This implies that, even without cookies and at a first view, technical information is used to personalize suggestions.
 
-{{< entry 
-    title="Watching a political video on a clean browser or with our personal Youtube account" 
-    text="It is visually clear that political videos triggers different rules. Explicitly recommendations “For you” while looking at a political video" 
-    picture="/images/yt-results/bubble-graph-political.svg" 
+{{< entry
+    title="Watching a political video on a clean browser or with our personal Youtube account"
+    text="It is visually clear that political videos triggers different rules. Explicitly recommendations “For you” while looking at a political video"
+    picture="/images/yt-results/bubble-graph-political.svg"
     type="left"
     legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
 >}}
@@ -40,26 +40,26 @@ The percentage of "For you" recommendations grows when we switch from the "clean
 
 
 Moving to the second part of the experiment - watching a political video - the differences between the clean and the personal browser set up were much more evident.
-In this case we had no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue (perhaps to make sure they do not make mistakes).
-When we move to our personal accounts to play the same video, almost half of the contents are recommended “for you”. The explanation could be that, when the platform has some data about the users, tries to personalized more the related videos on political (and polarized) issues, than on the others. The video used was: “Philip Hammond - no deal Brexit”.
+In this case with the clean browser we had no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue (perhaps to make sure they do not make mistakes).
+When we move to our personal accounts to play the same video, almost half of the content is recommended “for you”. The explanation could be that, when the platform has some data about the users, it tries to personalize more the related videos on political (and polarized) issues, than on the others. The video used was: “Philip Hammond - no deal Brexit”.
 
-**Unexpected insights**: YouTube knows what is political and what is not; We wonder if this topic classification works well also in non-English languages.
+**Unexpected insights**: YouTube knows what is political and what is not; We wonder if this topic classification works as well also in languages different from English.
 
 {{<colorblock color="secondary" text="official APIs are unreliable for algorithm analysis" >}}
 
-We verified which videos YouTube declares as _related_ by using the official API, and then compared those with what is actually displayed on people interface.
+We verified which videos YouTube declares as _related_ by using the official API, and then compared those with what is actually displayed on people's interface.
 
-{{< entry 
-    text="Red circles represent the videos declared by YT as related. In yellow and green, the videos actually suggested to watchers." 
-    picture="/images/yt-results/youtube-API-vs-TREX-observations.svg" 
+{{< entry
+    text="Red circles represent the videos declared by YT as related. In yellow and green, the videos actually suggested to watchers."
+    picture="/images/yt-results/youtube-API-vs-TREX-observations.svg"
     type="right"
     legend-image-url="/images/yt-results/fixed-legend-3.svg"
 >}}
 
 
-This analysis mostly confirms why we should use only user-centric observation to perform algorithm analysis. The data released by YouTube related API say "", but by empirical measurement you can see only 14 (the overlapping area) videos are actually suggested to watchers. Also, we can't fully rely on analysis made by research for us, because the videos represented by Green - Yellow are part of the people personalized suggestions and a research would never have any chance to guess these, a researcher can at best find the yellow circle, when people are exposed to the green one. We did this test using one of the most visualized video of all time: “Gangnam style - PSY”.
+This analysis mostly confirms why we should use only user-centric observation to perform algorithm analysis. The data released by YouTube related API say "", but through empirical measurement you can see that only 14 (the overlapping area) videos are actually suggested to watchers. Also, we can't fully rely on analysis made by research for us, because the videos represented by Green - Yellow are part of the people personalized suggestions and a research would never have any chance to guess these. A researcher can at best find the yellow circle, when people are generally exposed to the green one. We did this test using one of the most visualized video of all time: “Gangnam style - PSY”.
 
-**Verification**: YouTube can't be trusted. No matter which promise of transparency, APIs for researchers, or whatever they might offer. Passive scraping and GDPR compliance management of data will let you see how algorithm _actually_ treats you.
+**Verification**: YouTube can't be trusted. No matter what their promise of transparency are, or APIs for researchers, or whatever they might offer. Passive scraping and GDPR compliance management of data will let you see how algorithm _actually_ treats you.
 
 {{<colorblock color="secondary" text="Every second and click counts as data point" >}}
 
@@ -80,11 +80,11 @@ This analysis mostly confirms why we should use only user-centric observation to
   <img width="100%" style="zoom:2.5;" src="/images/yt-results/fixed-legend-4,5.svg" />
 </div>
 
-First image: watching Fox and CNN for 20 second create just three common suggestions specific for CNN watchers (yellow spots) and no one for the other group (blue spots). In fact we can see a lot of videos suggested to both groups (grey spots) and some suggestions for the single user (light-blue spots).
+First image: watching Fox and CNN for 20 second creates just three common suggestions specific for CNN watchers (yellow spots) and no one for the other group (blue spots). In fact we can see a lot of videos suggested to both groups (grey spots) and some suggestions for the single user (light-blue spots).
 
 Second image, extending the watching time till 2 minutes, we can see eleven common suggestion to at least two CNN users, and six for Fox.
 
-We already know, by the admission of the developers, that the time watched per play is one of the most relevant factors used to create the suggested list. Actually, it is one of the best ways to understand the appreciation for a video and than to figure out if a suggestion has been effective or not. It’s important to discover how exactly YouTube records this data to be able to consider this variable in future studies. It’s possible that there are other types of interactions recorded by the platform (For example mouse movements, GPS location, address book.. It's Google, after all.) but we need further research to verify it.
+We already know, by the admission of the developers, that the time watched per play is one of the most relevant factors used to create the suggested list. Actually, it is one of the best ways to understand the appreciation for a video and then to figure out if a suggestion has been effective or not. It’s important to discover how exactly YouTube records this data to be able to consider this variable in future studies. It’s possible that there are other types of interactions recorded by the platform (For example mouse movements, GPS location, address book... It's Google, after all.) but we need further research to verify it.
 
 <!-- Report is complete, now presentation of us begin. The style changes:
    1) we use color="primary"
@@ -97,7 +97,7 @@ We already know, by the admission of the developers, that the time watched per p
 
 {{<halfentry title="We support a new platform: YouTube" picture="/images/yt-results/TrackingExposed_Main Logo - Positive payoff.svg" type="left" link="https://tracking.exposed" description="Our umbrella project">}}
 
-{{<halfentry title="Warning: personalization works differently for each one of us" content="we should be ready, as a society, to observe and think about how algorithms have an impact on our lives. You shouldn't relay on an expert report, but figure how things affects us in first person." picture="/images/yt-results/6-or-9.jpg" type="right" >}}
+{{<halfentry title="Warning: personalization works differently for each one of us" content="we should be ready, as a society, to observe and think about how algorithms have an impact on our lives. We shouldn't rely just on an expert report, but figure how things affect us first-hand." picture="/images/yt-results/6-or-9.jpg" type="right" >}}
 
 
 {{<colorblock text="What make us unique" color="primary">}}
@@ -108,22 +108,22 @@ We already know, by the admission of the developers, that the time watched per p
 
 ### Still, you might have *totally legitimate privacy concerns*, this is why:
 
-1. You have full control of your data (_TODO: we still lack of interface, only developers can fully delete their data at the moment_)
+1. You have full control of your data (_TODO: we still lack the interface, only developers can fully delete their data at the moment_)
 2. Our code is free and fully auditable.
-3. We are publicly funded, and it's not in our sustainability model to exploit people experience.
-4. Every user is anonymous: you can access to your data because of a cryptographic secret key generated locally in your browser.
-5. We are GDPR compliant, (_TODO: we are, but we lack of the proper description on how data are processed and why_).
-6. We don't use your data to run analysis: this tool is meant to let individuals or groups test how personalization algorithms affect them.
-7. You can use dedicated profiles with the tool, without using your. (_TODO: we have to document how you can refresh the cryptographic token and how to use a "clean browser"_)
+3. We are publicly funded, and it's not in our sustainability model to exploit people's experience.
+4. Every user is anonymous: you can access to your data because of a secret cryptographic key generated locally in your browser.
+5. We are GDPR compliant, (_TODO: we are, but we lack the proper description on how data are processed and why_).
+6. We don't use your data to run analysis: this tool is meant at letting individuals or groups test how personalization algorithms affect them.
+7. You can use dedicated profiles with the tool, without using yours. (_TODO: we have to document how you can refresh the cryptographic token and how to use a "clean browser"_)
 
 {{<colorblock text="Watch our small experiment: you can replicate it with your friends!" color="primary">}}
 
 ### Methodology: a freshly installed Brave browser, without any cookies or login on YouTube
 
-{{< entry 
-    text="10 different students using their computers, open the same video at the same time. Here we compare the 20 related videos suggested" 
-    picture="/images/yt-results/clean-browsers-pattern.svg" 
-    type="left" 
+{{< entry
+    text="10 different students using their computers, open the same video at the same time. Here we compare the 20 related videos suggested"
+    picture="/images/yt-results/clean-browsers-pattern.svg"
+    type="left"
     legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
 >}}
 
@@ -136,17 +136,17 @@ This is a starting condition: how users gets treated when Google doesn't know an
 
 ### Methodology: watch a video with the standard browser, full of cookies, and logged in YouTube
 
-{{< entry 
-    text="It is visually clear how the data points linked to the profiles cause personalized suggestions." 
-    picture="/images/yt-results/personalized-browsers-pattern.svg" 
+{{< entry
+    text="It is visually clear how the data points linked to the profiles cause personalized suggestions."
+    picture="/images/yt-results/personalized-browsers-pattern.svg"
     type="right"
     legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
 >}}
 
-The number of videos in the center diminishes drastically. Most of the suggested video are unique for the individual, and they are represented by the green dots.
+The number of videos in the center diminishes drastically. Most of the suggested videos are unique for the individual, and they are represented by the green dots.
 
 **Confirmed expectation**: The large majority of the suggestions are shared among the users, because the data points usable by Google to personalize the suggestions are reduced.
 
 ### ...and when we got this, our experiments begin
 
-Unfortunately our experiments had just a few hours, but if a team (your team, your class, friends, or whatever) can coordinate similar tests, you can reproduce and try with new variables. The research question is: **which, of the many data points observed by Google, makes the pattern shift from the initial situation to the personalized one?**
+Unfortunately our experiments had just a few hours, but if a team (your team, your class, friends, or whatever) can coordinate similar tests, you can replicate them and try with new variables. The research question is: **Of the many data points observed by Google, which one makes the pattern shift from the initial situation to the personalized one?**

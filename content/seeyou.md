@@ -1,15 +1,15 @@
 ---
-title: "(first write up) a labor union for content creator"
+title: "(first write up) a labor union for content creators"
 date: 2019-05-31T10:00:00+01:00
 draft: false
 layout: single
 ---
 
-**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to involve youtubers and watchers in a collaborative analysis of algorithms. YouTube might or might not comply with requests, but it is only by analyzing how the platform controls the videos that we can hold them accountable.
+**Update 27 July 2019**: The German/Global initiative [FairTube](https://fairtube.info/en/) has something in common with us. We want to enable youtubers and watchers in a collaborative analysis of algorithms. YouTube might or might not comply with requests, but only by analyzing how the platform controls the videos we can hold them accountable.
 
 {{<colorblock color="primary" text="We address the algorithm">}}
 
-YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page does not deal with the [social-impact](/social-impact) of Youtube algorithm, but with the ultimate asset of Google: **the network of content creators**.
+YouTube algorithm is, according to Google itself, a **regulation system of the platform**. It is used to increase profits in two ways, impacting both the information flow and the type of boosted content. A social, information, and therefore political influence. This page do not talk about the [social-impact](/social-impact) of Youtube algorithm, but to the ultimate asset of Google: **the network of content creators**.
 
 {{<boxes color="primary" text="YT wants to control how the platform is perceived by advertisers, who are not willing to pay to appear on problematic content, which must therefore be penalized." >}}
 
@@ -61,7 +61,7 @@ We must dismantle the justification of users’ profiling because, by its very n
 
 # What the Youtuber Union (SeeYou) Wants to Do
 
-1. We collectively analyze YouTube algorithm and collect evidence of algorithmic discrimination to ensure that the community of culture producers who rely on video platforms can be protected. Let's start with YouTube.
+1. We collectively analyze YouTube algorithm and collect evidence of algorithmic discrimination to ensure that the community of culture producers who relies on video platforms can be protected. Let's start with YouTube.
 2. The youtubers union, SeeYou, wants to organize a coalition of content producers and rely on it to elaborate, with this community, a series of requests to Google.
 3. The collection takes place through a browser extension, Chrome and Firefox, which could be promoted by youtubers to those who follow them. The collected data are not meant at profiling people, but instead at studying the platform.
 4. Three different entities must work: the youtubers community that wants to be part of the union (who must express their needs and solicit the adoption of the extension), the pirate party (who organizes requests to Google and explain algorithm problems) and tracking.exposed (which produces data that can be used by the pirate party, youtubers and researchers).
@@ -71,11 +71,11 @@ We must dismantle the justification of users’ profiling because, by its very n
 
 # Want to join this challenge?
 
-1. Youtubers should share the web-extension among their audience
-2. Researchers should study how communities are treated
+1. Youtubers should spread the web-extension among their audience
+2. Researchers should study how the communities are treated
 3. Organizations should do strategic litigation
-4. Youtuber should express technopolitical agenda because if the technology in their hands improves, the result will be an higher impact and improved experience for consumers.
-5. Demands should be made as a collective effort and Content creators should feel their peers' solidarity and support as one of their shields against the Corporations absolute control. We should stop justifying them as *business entities* because they are shaping the public discourse, and this is one of the ways the public might stand up.
+4. Youtubers should express technopolitical agenda because if the technology in their hands improves, the result would be a higher impact and improved experience for consumers.
+5. Demands should be done as a collective effort and Content creators should feel their peers solidarity and support as one of their shields  against the Corporations' absolute control. We should stop justifying them as *business entities* because they are shaping the public discourse, and this is one of the way the public might stand up.
 
 {{< yt-extension >}}
 

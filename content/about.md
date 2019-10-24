@@ -1,6 +1,6 @@
 ---
 title: "who are we"
-subtitle: "and why this is happening?"
+subtitle: "and why is this happening?"
 draft: false
 ---
 
