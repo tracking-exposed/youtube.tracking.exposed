@@ -11,14 +11,14 @@ Statistics and OpenData enable network effects, data reuse, and collaborative re
 
 * [Data can't be anonymized](https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds) easily, we aggregate them and we use only non-personal metadata to develop the aggregation.
 * We don't want to help in any way [social media intelligence](https://responsibledata.io/social-media-intelligence-the-wayward-child-of-open-source-intelligence/).
-* Is in our DNA [enable researchers](/data-activism), we described which are our [data usage policies](/what-we-collect).
-* The public stats below display how the system is performing how the people use it (no content-related analysis are here).
+* It is in our DNA [to enable researchers](/data-activism), we described our [data usage policies](/what-we-collect).
+* The public stats below display how the system is performing, how the people use it (no content-related analysis are here).
 
 <!-- the graphs are appended in the 'div'. the ID #impression-graph is referenced in hugo-theme-trex/layouts/c3app/single.html -->
-_newcomers is the number of people installing the extension. In every day is counted the sum of new installation. They can be either in Firefox, Chrome, Brave, and we don't know if the user uninstall the extension few seconds later or not._
+_newcomers is the number of people installing the extension. In every day the sum of new installations is counted. They can be either in Firefox, Chrome, Brave, and we don't know if the user uninstall the extension few seconds later or not._
 <div id="newcomers-graph" class="c3graph"></div>
 
-_related reports the number of suggested videos. Normally we observe 20 related suggestion, but for technical reason we catch a different number. This stats is meant to help us in investigating how the collection is doing._
+_related reports the number of suggested videos. Normally we observe 20 related suggestion, but for technical reason we catch a different number. This stats is meant at helping us in investigating how the collection is doing._
 <div id="related-graph" class="c3graph"></div>
 
 _below a graph on how our parsers are performing: how many HTMLs have been parsed successfully or not_
