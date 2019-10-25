@@ -17,17 +17,17 @@ canonifyURLs = true
 
 [menu]
  [[menu.main]]
-    page = "Youtuber Labor union"
-    identifier = "SeeYou"
-    name = "(concept) Youtuber Labor union"
-    url = "/seeyou/"
-    weight = -180
- [[menu.main]]
     page = "first results"
     identifier = "first-results"
     name = "First results"
     url = "/results/"
     weight = -170
+ [[menu.main]]
+    page = "About"
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = -110
 
  [[menu.main]]
     page = "More"
@@ -35,13 +35,6 @@ canonifyURLs = true
     name = "More"
     url = "#"
     weight = -100
- [[menu.main]]
-    page = "About"
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    parent = "more"
-    weight = -110
  [[menu.main]]
     page = "API Documentation"
     identifier = "api-documentation"
@@ -70,6 +63,13 @@ canonifyURLs = true
     parent = "more"
     url = "/impact/"
     weight = -160
+ [[menu.main]]
+    page = "Youtuber Labor union"
+    identifier = "SeeYou"
+    parent = "more"
+    name = "(concept) Youtuber Labor union"
+    url = "/seeyou/"
+    weight = -170
 
  [[menu.featured]]
     page = "compare"

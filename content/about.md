@@ -20,7 +20,12 @@ _graphic and analysis_ Laura Swietlicki.
 ## When
 
 The 1st of July 2018 the first commit on the [github repository](https://github.com/tracking-exposed/yttrex). The idea was to release the tool alongside an analysis on YouTube personalization algorithm before the midterm US elections.
-first lesson: *your partner might have difficulties in implementing methodologies*,
+first lesson: *your partner might have difficulties in implementing methodologies*. In 2019:
+
+  * With the Italian Pirate Party, we elaborate a way to address the current issue felt by the [YouTuber's community](/seeyou).
+  * In a Summer School from University of Amsterdam, we finally coordinate [our first test](/results).
+
+And around the end of October 2019 we had enough stable functionality to release our stable beta version.
 
 ## Where
 
