@@ -6,14 +6,6 @@ function buildApiUrl(apiName, option) {
     let rv = null;
     const api_path = "/api/v1/"
 
-    /* option is optional, but if present need to have value */
-    if(!option) {
-        console.log(`buildApiURL: ${apiName} & empty option`);
-        return rv;
-    } else {
-        console.log(`(option is) ${option}`);
-    }
-
     if (window.location.origin.match(/localhost/)) {
         const x = SERVER;
         rv = option ? `${x}${api_path}${apiName}/${option}` : `${x}${api_path}${apiName}`;

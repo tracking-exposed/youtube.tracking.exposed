@@ -83,31 +83,42 @@ type: app
                         By tagging your evidence, you can more easily compare with the other people tagging in the same way.
                         To allow only the people you want to use a tag, you should make it private, and the password will be mandatory to join.
                     </small>
-                    <form onsubmit="updateTags(event)" id="tag-form" method="post" action="">
-                        <div class="error"></div>
-                        <div class="mb-4">
-                            <label for="tag">Tag name</label>
-                            <input name="tag" class="form-control" id="tag" type="text" value="" placeholder="">
+                    <div>
+
+                    <div id="error"></div>
+                    <div class="mb-4">
+                        <label for="tag">Tag as: </label>
+                        <input name="tag" class="form-control" id="tag" type="text" value="" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label class="mr-2">Tag type: </label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input onchange="showPassword('public')" checked type="radio" id="public" name="public-private" class="custom-control-input">
+                            <label class="group-type custom-control-label" for="public">public</label>
                         </div>
-                        <div class="mb-3">
-                            <label class="mr-2">Tag type</label>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input onchange="showPassword('public')" checked type="radio" id="public" name="public-private" class="custom-control-input" value="public">
-                                <label class="group-type custom-control-label" for="public">public</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input onchange="showPassword('private')" type="radio" id="private" name="public-private" class="custom-control-input" value="private">
-                                <label class="group-type custom-control-label" for="private">private</label>
-                            </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input onchange="showPassword('private')" type="radio" id="private" name="public-private" class="custom-control-input">
+                            <label class="group-type custom-control-label" for="private">private</label>
                         </div>
-                        <div id="group-password-wrapper" class="mb-4" style="display: none;">
-                            <label for="password">Set up a password for private tag</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                        </div>
-                        <div class="result"></div>
-                        <button class="btn btn-lg float-left btn-primary" style="min-width: 120px" type="submit">Join</button>
-                        <a class="btn btn-lg float-right" style="min-width: 120px" href="">Create +</a>
-                    </form>
+                    </div>
+                    <div id="group-password-wrapper" class="mb-4" style="display: none;">
+                        <label>Set up a password for private tag</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="mb-4" id="description-block" style="display: none">
+                        <label for="description">Description</label>
+                        <input name="description" class="form-control" id="description" type="text" value="" placeholder="">
+                    </div>
+                    <div id="result"></div>
+                    <button 
+                        class="btn btn-lg float-left btn-primary" 
+                        style="min-width: 100px" 
+                        onclick="joinTag()">Join</button>
+
+                    <a class="btn btn-lg float-right" 
+                        style="min-width: 100px" onclick="createTag()"
+                        >Create +</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,6 +131,7 @@ type: app
 <script type="text/javascript">
 
     $( document ).ready(function() {
+        $("#description").val("");
         personal();
     });
 
