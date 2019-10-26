@@ -3,20 +3,48 @@ title: How the same video get different reccomendations?
 subtitle: only by comparing personalized experience we can judge how algorithm guide us
 date: 2019-05-22T15:01:21+01:00
 draft: false
-description: TODO longer description -- compare how the same video get different reccomendations
+description: Only by comparing how the same videos get different reccomendations you can grasp the  compare how the same video get different reccomendations
 type: app
 ---
 
 <div class="container">
-    <h5 class="text-center">(intro) might or might not be necessary</h5>
-    <div id="comparison"></div>
-    <table class="table">
-        <thead id="comparison-list-head"></thead>
-        <tbody id="comparison-list"></tbody>
-    </table>
 
-    <h5 class="text-center">Pick a video from the most recenly submitted</h5>
-    <ul id="recent"></ul>
+  <div id="error"></div>
+  <div id="ifVideoExists" style="display:none;">
+  <header
+    class="p-3 text-center alert badge-secondary"
+    style="background-color: #f7fbfa;border: 2px solid #d9230f;border-radius: .85rem;border-bottom: white;">
+    <h3 class="mt-0">
+      Now comparing: <span id="title"></span>
+    </h3>
+    <p class="m-0">
+      <b id="resultSize"></b>
+      times has been seen this video, and YouTube gave
+      <b id="relatedSize"></b>
+      related videos
+    </p>
+  </header>
+  <smaller>Extra:
+    Was this video among the <a href="" id="relatedLink"><i>reccomended<i>?</a> —
+    <a href="" id="authorLink"><i>What was suggested</i></a> 
+      next to <span id="author"></span> contents? — Watch the video
+    <a href="" target=_blank id="ytLink">on YT</a> — Download the 
+    <a href="" id="csvLink">CSV</a>.
+  </smaller>
+
+  <table id="master" class="table" style="display:none;">
+    <thead id="comparison-list-head"></thead>
+    <tbody id="comparison-list"></tbody>
+  </table>
+
+  <div id="comparison"><!-- here the tables get appended --></div> 
+  </div> <!-- #ifVideoExists -->
+
+  <div id="ifRandomVideos">
+    <hr>
+    <h2 class="text-center">Want to play more? Pick a random video</h2>
+    <div id="recent"></div>
+  </div> <!-- ifRandomVideos -->
 </div>
 
 <script src="/js/global.js"></script>

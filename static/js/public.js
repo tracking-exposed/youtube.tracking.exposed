@@ -188,90 +188,84 @@ function fillRecentSlot(item)
 // with 'getVideoId' we get the videos, it is display the different comparison
 function initCompare() {
 
-    const lastUrl = buildApiUrl('last')
-    console.log("Connecting to", lastUrl);
-    $.getJSON(lastUrl, function (recent) {
-        _.each(recent.content, fillRecentSlot);
-    });
-
     var     comparison = $('#comparison'),
             comparisonList = $('#comparison-list'),
             comparisonListHead = $('#comparison-list-head'),
             compareId = null;
 
-
     if(_.size(window.location.href.split('/#')) == 2) {
         compareId = window.location.href.split('/#').pop();
-        console.log(`Found an ID ${compareId}`)
-    } else {
-        console.log("Not found any ID (returning without action) rif:", window.location.href);
-    }
+    } 
 
-    const url = buildApiUrl('videoId', compareId);
-    if(_.isNull(url)) {
+    if(_.isNull(compareId)) {
+        console.log("Not found any ID (returning without action) rif:", window.location.href);
         const nope = `
             <div class="error"><h3 class="text-center">You should pick a video to compare</h3></div>
         `;
-        $("#comparison").append(nope);
+        $("#error").append(nope);
         return;
     }
-    console.log("Connecting to", url);
+
+    const url = buildApiUrl('videoId', compareId);
     $.getJSON(url, function (results) {
 
         if (_.size(results) == 0) {
             const nope = `
                 <h3 class="text-center">Nope, this video has never been watched by someone with ytTREX extension</h3>
                 <p class="text-center">
-                    Check if is a valid video, here is the composed link:
-                    <a href="https://youtube.com/watch?v=${compareId}">https://youtube.com/watch?v=${compareId}</a>
+                  Check if is a 
+                  <a href="https://youtube.com/watch?v=${compareId}">valid video</a>.
                 </p>
             `;
-            $("#comparison").append(nope);
+            $("#error").append(nope);
             return;
         }
 
         const allrelated = _.flatten(_.map(results, 'related'));
 
-        const hdr = `
-            <header class="p-3 text-center alert badge-secondary">
-                <em>Now comparing:</em><br />
-                <h3 class="mt-0">
-                    ${results[0].title}
-                </h3>
-                <p class="m-0">
-                   <b>${_.size(results)} times</b> has been seen this video, and YouTube gave <b>${_.size(allrelated)} related videos</b>
-                    <br />
-                   <a href="/related/#${results[0].videoId}">See related</a> |
-                   <a target=_blank href="https://www.youtube.com/watch?v=${results[0].videoId}">See video</a>
-                </p>
-            </header>
-        `;
-
-        comparison.append(hdr);
+        $("#ifVideoExists").show();
+        $("#title").text(results[0].title);
+        $("#relatedSize").text(_.size(allrelated));
+        $("#resultSize").text(_.size(results));
+        $("#relatedLink").attr('href', `/related/#${results[0].videoId}`);
+        $("#authorLink").attr('href', `/author/#${results[0].videoId}`);
+        $("#author").text(results[0].authorName);
+        $("#ytLink").attr('href', `https://www.youtube.com/watch?v=/author/#${results[0].videoId}`);
 
         const x = _.reverse(_.orderBy(_.groupBy(allrelated, 'videoId'), _.size));
 
         let lastH = null;
+        let tableBodyElement = null;
+        let tableElement = null;
         _.each(x, function (relatedList) {
 
-            if (_.size(relatedList) != lastH) {
-                lastH = _.size(relatedList);
-                let printed = lastH > 1 ? lastH + " times" : "once";
-                let sightenings = `
-                    <h4 class="seen text-center">
-                        Videos present among the "related list" ${printed}:
-                    </h4>
-                `;
-                $('#comparison').append(sightenings);
+            let currentRepetition = _.size(relatedList);
+            if (currentRepetition != lastH) {
+                tableElement = $("#master").clone();
+                let tableId = "table-" + currentRepetition;
+                tableElement.attr('id', tableId);
+                $('#comparison').append(tableElement);
+
+                tableBodyElement = $("#" + tableId + '> tbody');
+                let tableHeader = $("#" + tableId + '> thead');
+                let printed = "Reccomended " + (currentRepetition > 1 ? currentRepetition + " times" : "once");
+                tableHeader.html(`<tr>
+                    <th><h2>${printed}</h2></th>
+                    <th>Channel</th>
+                    <th>Position</th>
+                </tr>`);
+
+                $("#" + tableId).append(tableHeader);
+                $("#" + tableId).show();
             }
+            lastH = currentRepetition;
 
             const positions = _.join(_.map(relatedList, 'index'), ', ');
             const relatedVideo = _.first(relatedList);
-
-            let videoEntry = `
+            const videoEntry = `
                 <tr id="${relatedVideo.videoId}" class="step">
                      <td class="video">
-                         <b>${relatedVideo.title}</b><br />
+                         ${relatedVideo.title}<br />
                          <a class="linked" href="/related/#${relatedVideo.videoId}">See related</a> |
                          <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">See video</a>
                     </td>
@@ -281,19 +275,10 @@ function initCompare() {
                     <td class="position">
                          ${positions}
                     </td>
-
                </tr>
             `;
-            comparisonList.append(videoEntry);
+            tableBodyElement.append(videoEntry);
         });
-        const thead = `
-                <tr>
-                    <th>Video</th>
-                    <th>Channel</th>
-                    <th>Position</th>
-                </tr>
-            `;
-        comparisonListHead.append(thead);
     });
 
 }
