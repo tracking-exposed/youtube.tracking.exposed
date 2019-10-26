@@ -4,6 +4,12 @@ subtitle: A dozen of researchers play with our tool for two days; Below our find
 date: 2019-07-22T15:01:21+01:00
 draft: false
 description: A dozen of researchers analyzed the YouTube algorithm for two days; Here are our findings and how you can replicate the test.
+
+og_title: "ytTREX - how to use our data"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
+og_url: "https://youtube.tracking.exposed/data"
+og_description: "youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
 ---
 
 In July 2019, a group of students participating in the [DMI Summer School](https://wiki.digitalmethods.net/Dmi/SummerSchool2019) joined the project coordinated by [ALEX (algorithms exposed)](https://algorithms.exposed). Take a look at the results in this [slideshow](https://github.com/tracking-exposed/presentation/blob/master/ALEX%20-%20ytTREX%20-%20Summer%20School%2019.pdf), or read the [final report](https://github.com/tracking-exposed/presentation/blob/master/ytTREX%20-%20final%20report%20-%20Summer%20School%2019.pdf).

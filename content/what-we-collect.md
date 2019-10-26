@@ -2,6 +2,12 @@
 title: What We Collect
 subtitle: and how ytTREX works
 draft: false
+
+og_title: "ytTREX - what we collect"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
+og_url: "https://youtube.tracking.exposed/what-we-collect"
+og_description: "this is the privacy statement, data processing and consent for data subjects using youtube.tracking.exposed"
 ---
 
 ## What the browser extension does
@@ -19,6 +25,8 @@ draft: false
 3. **YES**: You have full control of your entries in the 'videos' and 'metadata' collection.
 
 ### How a 'metadata' entry looks like
+
+*todo update to v2, it contains ad*
 
 There is one entry for each submission received by the supporters
 

@@ -4,6 +4,13 @@ subtitle: February 2019
 date: 2019-05-20T15:01:21+01:00
 draft: false
 layout: page
+
+
+og_title: "ytTREX - first results"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
+og_url: "https://youtube.tracking.exposed/initial-analysis"
+og_description: "In our first inspiring experiment, a dozen of students play with youtube personalization algorithm"
 ---
 
 youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create [free (libre) software](https://github.com/tracking-exposed/yttrex), support a community of analysts and developers, and enable critical analysis of monopolist platforms.

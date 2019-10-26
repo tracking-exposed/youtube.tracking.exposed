@@ -5,6 +5,13 @@ type: c3app
 date: 2019-08-11T00:00:00
 description: Statistics build on what we are collecting; Aggregated information to keep in check our system and our relevance
 draft: false
+
+
+og_title: "ytTREX - impact"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
+og_url: "https://youtube.tracking.exposed/impact"
+og_description: "impact analysis, active users, collected content. we don't do full open-data, but you can ask for more as long as is privacy preserving"
 ---
 
 Statistics and OpenData enable network effects, data reuse, and collaborative revision of our project. But they are tricky and can't be released carelessly:
