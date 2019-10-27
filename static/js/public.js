@@ -188,10 +188,7 @@ function fillRecentSlot(item)
 // with 'getVideoId' we get the videos, it is display the different comparison
 function initCompare() {
 
-    var     comparison = $('#comparison'),
-            comparisonList = $('#comparison-list'),
-            comparisonListHead = $('#comparison-list-head'),
-            compareId = null;
+    var compareId = null;
 
     if(_.size(window.location.href.split('/#')) == 2) {
         compareId = window.location.href.split('/#').pop();
