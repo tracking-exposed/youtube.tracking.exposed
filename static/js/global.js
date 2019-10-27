@@ -1,10 +1,10 @@
 
-function buildApiUrl(apiName, option) {
+function buildApiUrl(apiName, option, apiv) {
 
     // const SERVER = 'https://youtube.tracking.exposed';
     const SERVER = 'http://localhost:9000';
     let rv = null;
-    const api_path = "/api/v1/"
+    const api_path = apiv ? `/api/v${apiv}/` : "/api/v1/";
 
     if (window.location.origin.match(/localhost/)) {
         const x = SERVER;

@@ -54,7 +54,7 @@ function initAuthor() {
 function appendCard(targetId, video) {
 
     if(_.size(video) != 1)
-        content.log("Condition not properly tested!", video);
+        console.log("Condition not properly tested!", video);
 
     video = _.first(video);
     // console.log(video);
@@ -205,19 +205,16 @@ function initCompare() {
 
     const url = buildApiUrl('videoId', compareId);
     $.getJSON(url, function (results) {
-
         if (_.size(results) == 0) {
             const nope = `
                 <h3 class="text-center">Nope, this video has never been watched by someone with ytTREX extension</h3>
                 <p class="text-center">
                   Check if is a 
                   <a href="https://youtube.com/watch?v=${compareId}">valid video</a>.
-                </p>
-            `;
+                </p>`;
             $("#error").append(nope);
             return;
         }
-
         const allrelated = _.flatten(_.map(results, 'related'));
 
         $("#ifVideoExists").show();
@@ -235,16 +232,20 @@ function initCompare() {
         let tableBodyElement = null;
         let tableElement = null;
         _.each(x, function (relatedList) {
-
             let currentRepetition = _.size(relatedList);
+            // something was seen three times now is seen twice ..
             if (currentRepetition != lastH) {
+                // when this happen, create a new table
                 tableElement = $("#master").clone();
                 let tableId = "table-" + currentRepetition;
                 tableElement.attr('id', tableId);
                 $('#comparison').append(tableElement);
-
+                // this bodyElement would be updated by <tr> below
                 tableBodyElement = $("#" + tableId + '> tbody');
+                // the tableHeader is on top. we might filter if the table become
+                // too long.
                 let tableHeader = $("#" + tableId + '> thead');
+                // The text printed on top
                 let printed = "Reccomended " + (currentRepetition > 1 ? currentRepetition + " times" : "once");
                 tableHeader.html(`<tr>
                     <th><h2>${printed}</h2></th>
@@ -253,10 +254,13 @@ function initCompare() {
                 </tr>`);
 
                 $("#" + tableId).append(tableHeader);
+                // the table is display:none CSS until we don't display it
                 $("#" + tableId).show();
             }
+            // copy to spot if change in the next iterations
             lastH = currentRepetition;
 
+            // this might or might not be useful: 1,2,11,5,15 what does it gives??
             const positions = _.join(_.map(relatedList, 'index'), ', ');
             const relatedVideo = _.first(relatedList);
             const videoEntry = `

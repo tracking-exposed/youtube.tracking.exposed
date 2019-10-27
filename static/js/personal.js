@@ -1,7 +1,5 @@
 /* functions used in 'personal' visualization */
 
-// const SERVER = 'https://youtube.tracking.exposed';
-const SERVER = 'http://localhost:9000';
 
 function getPubKey() {
     const t = window.location.href.split('/#').pop();
@@ -114,9 +112,9 @@ function manageTag(action) {
     /* XHR section */
     let url = null;
     if(action == 'create')
-        url = `${SERVER}/api/v2/profile/${pk}/tag`;
+        url = buildApiUrl(`profile/${pk}/tag`, null, 2);
     else /* action == 'update' */
-        url = `${SERVER}/api/v2/profile/${pk}`;
+        url = buildApiUrl(`profile/${pk}`, null, 2);
 
     console.log("Ready to ", action, tag, "via", url);
 
@@ -207,7 +205,7 @@ function addVideoRow(video) {
 function removeEvidence(e) {
     const id = $(this).attr('yttrex-id');
     const pk = getPubKey();
-    const deleteURL = `${SERVER}/api/v2/personal/${pk}/selector/id/${id}`;
+    const deleteURL = buildApiUrl(`personal/${pk}/selector/id/${id}`, null, 2);
     console.log(deleteURL);
     return fetch(deleteURL, {
         method: 'DELETE',
