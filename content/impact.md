@@ -6,7 +6,6 @@ date: 2019-08-11T00:00:00
 description: Statistics build on what we are collecting; Aggregated information to keep in check our system and our relevance
 draft: false
 
-
 og_title: "ytTREX - impact"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
@@ -23,10 +22,16 @@ Statistics and OpenData enable network effects, data reuse, and collaborative re
 
 <!-- the graphs are appended in the 'div'. the ID #impression-graph is referenced in hugo-theme-trex/layouts/c3app/single.html -->
 _newcomers is the number of people installing the extension. In every day the sum of new installations is counted. They can be either in Firefox, Chrome, Brave, and we don't know if the user uninstall the extension few seconds later or not._
-<div id="newcomers-graph" class="c3graph"></div>
+<div id="supporters-graph" class="c3graph"></div>
 
 _related reports the number of suggested videos. Normally we observe 20 related suggestion, but for technical reason we catch a different number. This stats is meant at helping us in investigating how the collection is doing._
 <div id="related-graph" class="c3graph"></div>
 
 _below a graph on how our parsers are performing: how many HTMLs have been parsed successfully or not_
 <div id="processing-graph" class="c3graph"></div>
+
+_processing2_
+<div id="processing2-graph" class="c3graph"></div>
+
+_metadata_
+<div id="metadata-graph" class="c3graph"></div>
