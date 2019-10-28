@@ -216,6 +216,7 @@ function initCompare() {
             return;
         }
         const allrelated = _.flatten(_.map(results, 'related'));
+        const csvVideoURL = buildApiUrl("videoCSV", results[0].videoId);
 
         $("#ifVideoExists").show();
         $("#title").text(results[0].title);
@@ -224,7 +225,8 @@ function initCompare() {
         $("#relatedLink").attr('href', `/related/#${results[0].videoId}`);
         $("#authorLink").attr('href', `/author/#${results[0].videoId}`);
         $("#author").text(results[0].authorName);
-        $("#ytLink").attr('href', `https://www.youtube.com/watch?v=/author/#${results[0].videoId}`);
+        $("#ytLink").attr('href', `https://www.youtube.com/watch?v=${results[0].videoId}`);
+        $("#csvLink").attr('href', csvVideoURL);
 
         const x = _.reverse(_.orderBy(_.groupBy(allrelated, 'videoId'), _.size));
 

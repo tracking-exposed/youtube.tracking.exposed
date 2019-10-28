@@ -9,17 +9,16 @@ function getPubKey() {
 
 function personal(pages, profile) {
 
-    if(!pages) pages = '10-0';
+    if(!pages) pagestr = '10-0';
     else {
         $("#report").empty();
-        pages = pages + '-' + (pages - 10);
+        pagestr = 10 + '-' + (pages - 10);
     }
     const pk = getPubKey();
-    const url = buildApiUrl('personal', pk + '/' + pages); // `/personal/${pk}/`);
+    const url = buildApiUrl('personal', pk + '/' + pagestr); // `/personal/${pk}/`);
     $.getJSON(url, (data) => {
-        console.log(data.recent);
         _.each(data.recent, addVideoRow);
-        addPages(data.total, pages);
+        addPages(data.total, pagestr);
         if(!profile) updateProfileInfo(data.supporter);
     });
 }
