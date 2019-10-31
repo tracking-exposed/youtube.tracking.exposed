@@ -70,41 +70,61 @@ function appendCard(targetId, video) {
     $("#" + computedId).removeAttr('hidden');
 }
 
+function invalidVideoId(relatedId) {
+    const nope = `
+        <h3 class="text-center">Nope, this video has been never found among the recommented videos</h3>
+        <p class="text-center">
+            Check if 
+            <a href="https://youtube.com/watch?v=${relatedId}">
+                is a valid video
+            </a>
+            <br />
+            (maybe, this video was never observed as part of the <i>recommended</i>)
+        </p>
+    `;
+    $("#notes").append(nope);
+}
+
+function buildCardsFromLast() {
+    const url = buildApiUrl('last');
+    console.log("LAST URL", url);
+    $.getJSON(url, function (results) {
+        console.log(results);
+    });
+
+    return '<h1>ceppa</h1>';
+}
+
 function initRelated() {
     let relatedId = null;
     if(_.size(window.location.href.split('/#')) == 2) {
         relatedId = window.location.href.split('/#').pop();
-        console.log(`Found an ID ${relatedId}`)
-        $("#search").val(relatedId);
-    } else {
-        console.log("Not found any ID (returning without action) rif:", window.location.href);
-        $("#search").val("Please write a youtube URL!");
-        // maybe highligh an error ?
     }
 
-    const url = buildApiUrl('related', relatedId);
-    if(_.isNull(url)) {
+    if(!relatedId) {
         const nope = `
-            <h3 class="text-center error">you should select a video or write a video</h3>`;
-            //                     ^^^^^  error do not exist
+            <div class="text-center error">
+            <p>
+                This functionality allow you to query a videoId and watch were it was recommented as a related content.
+                <br />
+                Because you didn't pick any video, we select four random and recent videos to let you try this tool.
+            </p>
+            </div>`;
+        const cards = buildCardsFromLast();
         $("#notes").append(nope);
+        $("#notes").append(cards);
         return;
     }
 
+    const url = buildApiUrl('related', relatedId);
     $.getJSON(url, function (results) {
-        if (_.size(results) === 0) {
-            const nope = `
-                <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
-                <p class="text-center">
-                   Check if is a valid video, here the YouTube link generated from the videoId you pasted:
-                   <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${rId}</a>
-                </p>
-            `;
-            $("#notes").append(nope);
-            return;
-        }
+        if (_.size(results) === 0)
+            return invalidVideoId(relatedId);
 
-        const target = _.find(results[0].related, {videoId: rId});
+        const target = _.find(results[0].related, {videoId: relatedId});
+        if(!target)
+            return invalidVideoId(relatedId);
+
         const hdr = `
             <div class="text-center protagonist">
                 <h3>
@@ -112,24 +132,26 @@ function initRelated() {
                 </h3>
                 <p class="strong">
                     ${_.size(results)} videos linked to this
-                    <a class="notclassiclink" href="/compare/#${rId}">→ compare</a>
+                    <a class="notclassiclink" href="/compare/#${relatedId}">compare</a>
                 </p>
             </div>
-
         `;
         $('#related').append(hdr);
 
         _.each(results, function (watched) {
-            const index = _.find(watched.related, {videoId: rId}).index;
+            const index = _.find(watched.related, {videoId: relatedId}).index;
             let videoEntry = `
                 <tr id="${watched.videoId}" class="step">
 
                         <td class="video">
                             <b>${watched.title}</b>
-                            <a class="primary" href="/compare/#${watched.videoId}">See related</a>
+                            <a class="primary" href="/compare/#${watched.videoId}">(compare)</a>
                         </td>
                         <td class="author">
                            ${watched.authorName}
+                        </td>
+                        <td class="foryou">
+                           ${watched.foryou}
                         </td>
                         <td class="position">
                            ${index}
@@ -143,19 +165,18 @@ function initRelated() {
             $('#related-list').append(videoEntry);
         });
 
-
         const thead = `
                 <tr>
-                    <th>Primary video</th>
-                    <th>Primary channel</th>
+                    <th>Video watched</th>
+                    <th>Channel</th>
+                    <th><i>for you</i></th>
                     <th>Position</th>
-                    <th>Saved on</th>
+                    <th>Happened</th>
                 </tr>
             `;
         $('#related-list-head').append(thead);
     });
 }
-
 
 function submit() {
     const submitted = $("#search").val();

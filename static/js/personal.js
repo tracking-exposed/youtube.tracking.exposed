@@ -1,6 +1,3 @@
-/* functions used in 'personal' visualization */
-
-
 function getPubKey() {
     const t = window.location.href.split('/#').pop();
     if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
@@ -36,14 +33,12 @@ function updateProfileInfo(profile) {
     $('#lastActivityFormatted').text(lastActivityFormatted);
     $('#user-name').text(userName);
 
-    if (profile.tag) {
+    if (profile.tag && profile.tag.name) {
         $("#tag-name").text(profile.tag.name);
-        $("#tag-badge").removeAttr('hidden');
-        console.log('tag only ---', profile.tag);
+        $("#tag-badge").show();
     }
     console.log("profile display", JSON.stringify(profile, undefined, 2));
 }
-
 
 function printMessage(element, text, type) {
     if(!type) var type = 'danger';
@@ -175,6 +170,13 @@ function addPages(total, pages) {
 }
 
 function addVideoRow(video) {
+
+    if(!video.videoId) {
+        console.log("Nope!!", video);
+        return;
+    }
+    console.log(video);
+
     const entry = $("#master").clone();
     const computedId = `video-${video.id}`;
     entry.attr("id", computedId);

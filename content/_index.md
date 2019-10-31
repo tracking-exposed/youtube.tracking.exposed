@@ -16,11 +16,11 @@ and -yay- is getting closer to a proper release
 * Released an example on how adopters and researcher can play and compare their results, check our [first results](/results)
 * Give control: a supported can create private group, tag their contributions, and remove any evidence they don't want to preserve.
 * Compare video from the same [Author](/author).
+* Our extension become more stable! it collects advertising too (it is not display yet). check out version 1.2.x
 
 ### ☒  To be improved 
 
 * Our current [public stats](/impact).
-* Our extension stability, and a parsing bug.
 
 ---
 

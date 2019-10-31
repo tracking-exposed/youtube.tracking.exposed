@@ -41,10 +41,19 @@ type: app
   </div> <!-- #ifVideoExists -->
 
   <div id="ifRandomVideos">
+    <div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <span class="card-text"></span>
+      </div>
+      <div class="card-footer">
+        <span class="text-muted">test</span>
+      </div>
+    </div>
     <hr>
     <h2 class="text-center">Want to play more? Pick a random video</h2>
     <div id="recent"></div>
-  </div> <!-- ifRandomVideos -->
+  </div>
 </div>
 
 <script src="/js/global.js"></script>
