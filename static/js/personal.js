@@ -9,10 +9,12 @@ function personal(pages, profile) {
     if(!pages) pagestr = '10-0';
     else {
         $("#report").empty();
-        pagestr = 10 + '-' + (pages - 10);
+        var pagesDecimal = pages + '0';
+        var pagesNumber = Number(pagesDecimal);
+        var pagestr = '10' + '-' + ( pagesNumber - 10 );
     }
     const pk = getPubKey();
-    const url = buildApiUrl('personal', pk + '/' + pagestr); // `/personal/${pk}/`);
+    const url = buildApiUrl('personal', pk + '/' + pagestr);
     $.getJSON(url, (data) => {
         _.each(data.recent, addVideoRow);
         addPages(data.total, pagestr);
@@ -54,12 +56,12 @@ function manageTag(action) {
     error.empty();
     resultDiv.empty();
 
-    console.log("manageTag", action)
+    console.log("manageTag", action);
 
     const tag = $('#tag').val();
     const password = $("#password").val();
     const description = $("#description").val();
-    const private = $("#private").is(':checked')
+    const private = $("#private").is(':checked');
 
     /* in data we add the tag info to be sent */
     let data = {
@@ -149,25 +151,30 @@ function downloadCSV() {
     window.open(csvurl);
 }
 
+function between(x, min, max) {
+    return x >= min && x <= max;
+}
+
 function addPages(total, pages) {
     const ul = $('#pagination').find('ul');
-    const pageString = pages.split('-').shift();
-    const actualPage = pageString.slice(0, -1);
-
+    const pageString = pages.split('-').pop();
+    const actualPage = Number(pageString.slice(0, -1)) + 1 ;
     ul.empty();
     if(total > 10) {
         var page;
         const pagesNumber = _.round(total / 10);
-        const description = `There are <b>${total}</b> evidences. Page <b>${actualPage}</b> of <b>${pagesNumber}</b>`;
+        const description = `There are <i>${total}</i> evidences. Page <b>${actualPage}</b> of <b>${pagesNumber}</b>`;
         $('#total-evidence').html(description);
+
         for (page = 1; page < pagesNumber + 1; page++) {
+            let pageValue = page;
             let liStyle = '';
-            let pageValue =  page + '0';
-            if (pageValue == actualPage + '0')  liStyle = ' red';
-            ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
+            if (pageValue == actualPage) liStyle = ' red';
+            if (between(page, actualPage-3, actualPage+3)) ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
         }
     }
 }
+
 
 function addVideoRow(video) {
 
