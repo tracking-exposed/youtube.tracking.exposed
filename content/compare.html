@@ -11,48 +11,49 @@ type: app
 
   <div id="error"></div>
   <div id="ifVideoExists" style="display:none;">
-  <header
-    class="p-3 text-center alert badge-secondary"
-    style="background-color: #f7fbfa;border: 2px solid #d9230f;border-radius: .85rem;border-bottom: white;">
-    <h3 class="mt-0">
-      Now comparing: <span id="title"></span>
-    </h3>
-    <p class="m-0">
-      <b id="resultSize"></b>
-      times has been seen this video, and YouTube gave
-      <b id="relatedSize"></b>
-      related videos
-    </p>
-  </header>
-  <smaller>Extra:
-    Was this video among the <a href="" id="relatedLink"><i>reccomended<i>?</a> —
-    <a href="" id="authorLink"><i>What was suggested</i></a> 
-      next to <span id="author"></span> contents? — Watch the video
-    <a href="" target=_blank id="ytLink">on YT</a> — Download the 
-    <a href="" id="csvLink">CSV</a>.
-  </smaller>
+    <header
+      class="p-3 text-center alert badge-secondary"
+      style="background-color: #f7fbfa;border: 2px solid #d9230f;border-radius: .85rem;border-bottom: white;">
+      <h3 class="mt-0">
+        Now comparing: <span id="title"></span>
+      </h3>
+      <p class="m-0">
+        <b id="resultSize"></b>
+        times has been seen this video, and YouTube gave
+        <b id="relatedSize"></b>
+        related videos
+      </p>
+    </header>
+    <smaller>Extra:
+      Was this video among the <a href="" id="relatedLink"><i>reccomended<i>?</a> —
+      <a href="" id="authorLink"><i>What was suggested</i></a> 
+        next to <span id="author"></span> contents? — Watch the video
+      <a href="" target=_blank id="ytLink">on YT</a> — Download the 
+      <a href="" id="csvLink">CSV</a>.
+    </smaller>
 
-  <table id="master" class="table" style="display:none;">
-    <thead id="comparison-list-head"></thead>
-    <tbody id="comparison-list"></tbody>
-  </table>
+    <table id="table-master" class="table" style="display:none;">
+      <thead id="comparison-list-head"></thead>
+      <tbody id="comparison-list"></tbody>
+    </table>
 
-  <div id="comparison"><!-- here the tables get appended --></div> 
+    <div id="comparison"><!-- here the tables get appended --></div> 
   </div> <!-- #ifVideoExists -->
 
-  <div id="ifRandomVideos">
-    <div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <span class="card-text"></span>
-      </div>
-      <div class="card-footer">
-        <span class="text-muted">test</span>
-      </div>
-    </div>
+  <div id="ifRandomVideos" style="display:none;">
     <hr>
-    <h2 class="text-center">Want to play more? Pick a random video</h2>
+    <h2 class="text-center">You should select a video to compare the recommented; Pick a random one:</h2>
     <div id="recent"></div>
+  </div>
+</div>
+
+<div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <span class="card-text"></span>
+  </div>
+  <div class="card-footer">
+    <span class="text-muted"></span>
   </div>
 </div>
 

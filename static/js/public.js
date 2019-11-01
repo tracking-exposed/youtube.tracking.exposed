@@ -1,12 +1,6 @@
 /* here the javascript functions used in 'last', 'compare' and 'related',
 it is named 'public.js' because implement the usage of public APIs */
 
-function newVideo(videoID) {
-    window.location.assign('#' + videoID);
-    console.log("XXX newVideo has been called"); // I'm debugging when this should happen
-    location.reload();
-}
-
 function initAuthor() {
 
     const videoId = window.location.href.split('/#').pop();
@@ -21,12 +15,15 @@ function initAuthor() {
     console.log("using", videoId, "connecting to", url);
 
     $.getJSON(url, function (results) {
+
         if (_.size(results) === 0) {
             const nope = `
                 <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
                 <p class="text-center">
-                   Check if is a valid video, here the YouTube link generated from the videoId you pasted:
-                   <a href="https://youtube.com/watch?v=${rId}">https://youtube.com/watch?v=${videoId}</a>
+                    Check if is a 
+                    <a href="https://youtube.com/watch?v=${videoId}">
+                        valid video
+                    </a>
                 </p>
             `;
             $("#notes").html(nope);
@@ -60,9 +57,13 @@ function appendCard(targetId, video) {
     // console.log(video);
 
     const entry = $("#master").clone();
-    const computedId = `video-${video.id}`;
+    const computedId = `video-${video.id.replace(/[\ \-&=]/g, '')}`
+    // TODO this regexp was to filter id with "&" which if they happen should not.
     entry.attr("id", computedId);
     $(targetId).append(entry);
+
+    const t = $("#" + computedId);
+    console.log(t);
 
     $("#" + computedId + " .card-title").text(video.relatedTitle);
     $("#" + computedId + " .card-text").text(video.relatedAuthorName);
@@ -85,14 +86,24 @@ function invalidVideoId(relatedId) {
     $("#notes").append(nope);
 }
 
-function buildCardsFromLast() {
+function buildCardsFromLast(containerId) {
     const url = buildApiUrl('last');
-    console.log("LAST URL", url);
+    console.log("buildCardsFromLast", url);
     $.getJSON(url, function (results) {
-        console.log(results);
+        // these are not really 'cards'
+        _.each(results.content, function(video, i) {
+            console.log(video);
+            const appended =`
+                    <a href="/compare/#${video.videoId}">
+                        ${video.title}
+                    </a>
+                    <smaller>
+                        ${video.authorName} — ${video.timeago} ago
+                    </smaller>
+                <br/>`;
+            $(containerId).append(appended);
+        });
     });
-
-    return '<h1>ceppa</h1>';
 }
 
 function initRelated() {
@@ -110,9 +121,9 @@ function initRelated() {
                 Because you didn't pick any video, we select four random and recent videos to let you try this tool.
             </p>
             </div>`;
-        const cards = buildCardsFromLast();
         $("#notes").append(nope);
-        $("#notes").append(cards);
+        buildCardsFromLast("#recent");
+        $("#ifRandomVideos").show();
         return;
     }
 
@@ -178,32 +189,6 @@ function initRelated() {
     });
 }
 
-function submit() {
-    const submitted = $("#search").val();
-    const videoId = submitted.replace(/.*v=/, '');
-    if (_.size(videoId) < 8 || _.size(videoId) > 11) {
-      console.log(`We are excluding ${videoId} because size doens't fit`);
-      return;
-    }
-    window.location.replace('/related/#' + videoId);
-    location.reload();
-}
-
-// recent
-function fillRecentSlot(item)
-{
-    let h = `
-            <li>
-                <p>
-                    <a class="linked" onclick="newVideo('${item.videoId}');" href="/compare/#${item.videoId}">${item.title}</a>
-                    <br />
-                    <small> <code>${item.timeago}</code> <code>Related: <b>${item.relatedN}</b></code> </small>
-                </p>
-           </li>
-    `;
-    $('#recent').append(h);
-}
-
 // #recent and #comparison
 // with 'last' we populate some snippet
 // with 'getVideoId' we get the videos, it is display the different comparison
@@ -218,9 +203,14 @@ function initCompare() {
     if(_.isNull(compareId)) {
         console.log("Not found any ID (returning without action) rif:", window.location.href);
         const nope = `
-            <div class="error"><h3 class="text-center">You should pick a video to compare</h3></div>
+            <div class="error">
+                <h3 class="text-center"> — No video requested —
+                </h3>
+            </div>
         `;
         $("#error").append(nope);
+        buildCardsFromLast("#recent");
+        $("#ifRandomVideos").show();
         return;
     }
 
@@ -259,7 +249,7 @@ function initCompare() {
             // something was seen three times now is seen twice ..
             if (currentRepetition != lastH) {
                 // when this happen, create a new table
-                tableElement = $("#master").clone();
+                tableElement = $("#table-master").clone();
                 let tableId = "table-" + currentRepetition;
                 tableElement.attr('id', tableId);
                 $('#comparison').append(tableElement);
@@ -318,24 +308,4 @@ function unfoldRelated(memo, e) {
     `;
     memo += add;
     return memo;
-}
-
-function initLast() {
-    const url = buildApiUrl('last')
-    $.getJSON(url, function(recent) {
-        _.each(recent.content, function(item) {
-            let relates = _.reduce(item.related, unfoldRelated, "");
-            let h = `
-            <p class="last mt-5">
-                <code>${item.timeago}</code>
-                <b>${item.title}</b>
-                <a class="title" href="/compare/#${item.videoId}">See related</a>
-            </p>
-            ${relates}
-
-        `;
-            $('#recent').append(h);
-        });
-
-    });
 }

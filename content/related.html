@@ -7,13 +7,29 @@ type: app
 ---
 
 <div class="container">
-    <div id="notes"></div>
-    <ul id="related"></ul>
+  <div id="error"></div>
+  <ul id="related"></ul>
 
-    <table class="table">
-        <thead id="related-list-head"></thead>
-        <tbody id="related-list"></tbody>
-    </table>
+  <table class="table">
+    <thead id="related-list-head"></thead>
+    <tbody id="related-list"></tbody>
+  </table>
+
+  <div id="ifRandomVideos" style="display:none;">
+    <hr>
+    <h2 class="text-center">You should select a video to play with the related; Pick a random one:</h2>
+    <div id="recent"></div>
+  </div>
+</div>
+
+<div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <span class="card-text"></span>
+    </div>
+    <div class="card-footer">
+        <span class="text-muted"></span>
+    </div>
 </div>
 
 <script src="/js/global.js"></script>

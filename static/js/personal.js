@@ -182,7 +182,6 @@ function addVideoRow(video) {
         console.log("Nope!!", video);
         return;
     }
-    console.log(video);
 
     const entry = $("#master").clone();
     const computedId = `video-${video.id}`;
