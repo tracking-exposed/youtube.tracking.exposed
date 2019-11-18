@@ -15,14 +15,10 @@ og_description: "look at the suggested video sorted by publisher"
 <div class="container">
     <div id="c3-graph"></div>
     <h3 id="title" hidden>What <i>YouTube</i> associate to the videos from <span class="name"></span> ?</h3>
-    <p id="boring">
-        <h1>Loading...</h1>
-        This interface display all the videos suggested to the watchers of a particular channel. Let's assume me and you watch  the channel 'Veritaseum', this interface is meant to compare what is
-        suggested by YouTube.
-        <br/>
-        <b>This interface is a work in progress because might suffer of the scalability issues (popular channels produces a lot of evidences and we never did a proper UX research.</b>
-        <br/>
-        This message should disappear when everything is ready. If persist, it is a bug: please reach out support at tracking dot exposed.
+    <h3 class="boring">Loading...</h3>
+    <p class="boring">
+        This interface display all the videos recommended next to the same author;
+        The primary use is for content creator: which content are display next to your productions?
     </p>
     <div id="notes"></div>
     <div id="report">
@@ -43,18 +39,17 @@ og_description: "look at the suggested video sorted by publisher"
         <hr>
 
         <p class="info" hidden>
-            In the suggestions:<span class="counter" id="sameauthor-count"></span>from the same author <span class="name"></span>
+            In the suggestions:<span class="counter" id="sameauthor-count"></span>are from the same author <span class="name"></span>
         </p>
         <div class="card-group" id="sameauthor-cards"></div>
 
         <p class="info" hidden>
-            In the suggestions:<span class="counter" id="foryou-count"></span><i>Recommended for you</i>
+            In the suggestions:<span class="counter" id="foryou-count"></span>are present because <i>Recommended</i> for the supporter</span>
         </p>
-
         <div class="card-group" id="foryou-cards"></div>
 
         <p class="info" hidden>
-            In the suggestions:<span class="counter" id="treasure-count"></span> it is what we call the treasure. It is personalized, but not explicitly.
+            In the suggestions:<span class="counter" id="treasure-count"></span> it is what we call the treasure: It is personalized, but nobody knows why and how.
         </p>
         <div class="card-deck" id="treasure-cards"></div>
 

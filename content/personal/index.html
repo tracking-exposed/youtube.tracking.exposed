@@ -22,7 +22,9 @@ type: app
         <div id="master" hidden class="row border-bottom p-2 mb-3 align-middle">
           <div class="col-7">
             <p class="mb-0">
-              <small class="relative">relativeFiller</small><br />
+              <span class="extendable">
+                <small class="relative">relativeFiller</small> ― <small class="producer">authorFiller</small><br />
+              </span>
               <b class="title">titleFiller</b>
             </p>
           </div>
@@ -39,13 +41,11 @@ type: app
                   <!-- string is completed in JS so the HTML can be translated -->
                   <small>Related</small>
               </a>
-              <!--
               <a
                 class="author icon-small mb-1"
-                title="Compare all the evidences from the same author">
+                title="Compare all the evidences from ">
                   <small>Channel</small>
               </a>
-              -->
               <a
                 class="delete icon-small mb-1"
                 title="Remove this evidence about">

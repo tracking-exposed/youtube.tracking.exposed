@@ -31,7 +31,7 @@ function initAuthor() {
         }
 
         /* if we reach here: good! we've data and now the page will be populated */
-        $("#boring").hide();
+        $(".boring").hide();
         $("#title").removeAttr('hidden');
         $(".info").removeAttr('hidden');
 

@@ -176,10 +176,9 @@ function addPages(total, pages) {
 }
 
 
-function addVideoRow(video) {
-
+function addVideoRow(video, i) {
     if(!video.videoId) {
-        console.log("Nope!!", video);
+        console.log(i, "Nope!!", video);
         return;
     }
 
@@ -196,13 +195,16 @@ function addVideoRow(video) {
     title = $("#" + computedId + " .related").attr('title')  + "«" + video.title + "»";
     $("#" + computedId + " .related").attr('title', title);
 
-    // $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
+    $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
+    title = $("#" + computedId + " .author").attr('title')  + "«" + video.authorName+ "»";
+    $("#" + computedId + " .author").attr('title', title);
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
     $("#" + computedId + " .delete").attr('yttrex-id', `${video.id}`);
     title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";
     $("#" + computedId + " .delete").attr('title', title);
 
+    $("#" + computedId + " .producer").text(video.authorName);
     $("#" + computedId + " .relative").text(video.relative);
     $("#" + computedId + " .title").text(video.title);
 
