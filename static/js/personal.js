@@ -146,7 +146,7 @@ function manageTag(action) {
 
 function downloadCSV() {
     const pk = getPubKey();
-    const csvurl = `/api/v1/personal/${pk}/csv`;
+    const csvurl = buildApiUrl('personal', pk + '/csv');
     console.log("downloadCSV from: ", csvurl);
     window.open(csvurl);
 }
