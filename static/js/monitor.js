@@ -88,8 +88,6 @@ function monitorUpdate() {
     $.getJSON(url, (data) => {
 
         lastUpdate = new Date();
-        console.log(data.content);
-        console.log(data);
 
         if(!_.size(data.content)) {
             const randomId = "X-" + _.random(0, 0xffff);
@@ -240,11 +238,7 @@ function appendStat(elem, o) {
     $("#" + o.id + " .countby").text(
         JSON.stringify(o.countby).replace(/[}{\"]/g, '')
     );
-    $("#" + o.id + " .lastUpdate").text("c:" +
-        o.lastUpdate.getHours() + ':' +
-        o.lastUpdate.getMinutes() + ":" +
-        o.lastUpdate.getSeconds()
-    );
+    $("#" + o.id + " .lastUpdate").text("c:" + o.toISOString().substr(11,8) );
     $("#" + o.id + " .start").text("s:" + o.start);
     $("#" + o.id + " .end").text("e:" + o.end);
     $("#" + o.id + " .duration").text(o.duration);
