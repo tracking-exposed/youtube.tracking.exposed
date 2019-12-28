@@ -1,6 +1,19 @@
-function getPubKey() {
-    const t = window.location.href.split('/#').pop();
-    if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
+
+function renderC3Graph(collection) {
+    console.log("TODO personal render c3 graph");
+    console.log(collection);
+}
+
+
+/* --_------------------------------------------------.
+    | | ___  _ __ ___ _ __  _______                   |
+    | |/ _ \| '__/ _ \ '_ \|_  / _ \                  |
+    | | (_) | | |  __/ | | |/ / (_) |                 |
+    |_|\___/|_|  \___|_| |_/___\___/     ↓↓↓↓↓↓↓↓↓↓   */
+
+    function getPubKey() {
+        const t = window.location.href.split('/#').pop();
+        if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
     return t;
 }
 
@@ -17,6 +30,7 @@ function personal(pages, profile) {
     const url = buildApiUrl('personal', pk + '/' + pagestr);
     $.getJSON(url, (data) => {
         _.each(data.recent, addVideoRow);
+        renderC3Graph(data.recent);
         addPages(data.total, pagestr);
         if(!profile) updateProfileInfo(data.supporter);
     });
@@ -158,19 +172,19 @@ function between(x, min, max) {
 function addPages(total, pages) {
     const ul = $('#pagination').find('ul');
     const pageString = pages.split('-').pop();
-    const actualPage = Number(pageString.slice(0, -1)) + 1 ;
+    const actualPage = Number(pageString.slice(0, -1));
     ul.empty();
     if(total > 10) {
         var page;
         const pagesNumber = _.round(total / 10);
-        const description = `There are <i>${total}</i> evidences. Page <b>${actualPage}</b> of <b>${pagesNumber}</b>`;
+        const description = `There are <i>${total}</i> evidences. Page <b>${actualPage +1}</b> of <b>${pagesNumber +1}</b>`;
         $('#total-evidence').html(description);
 
-        for (page = 1; page < pagesNumber + 1; page++) {
+        for (page = 0; page < pagesNumber + 1; page++) {
             let pageValue = page;
             let liStyle = '';
             if (pageValue == actualPage) liStyle = ' red';
-            if (between(page, actualPage-3, actualPage+3)) ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + pageValue + ', true)">'+ page +'</a></li>');
+            if (between(page, actualPage-3, actualPage+3)) ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + (pageValue +1 ) + ', true)">'+ (page +1) +'</a></li>');
         }
     }
 }
@@ -187,9 +201,13 @@ function addVideoRow(video, i) {
     entry.attr("id", computedId);
     $("#report").append(entry);
 
-    $("#" + computedId + " .compare").attr('href', `/compare/#${video.videoId}`);
-    let title = $("#" + computedId + " .compare").attr('title') + "«" + video.title + "»";
-    $("#" + computedId + " .compare").attr('title', title);
+    if(video.relatedN > 0) {
+        $("#" + computedId + " .compare").attr('href', `/compare/#${video.videoId}`);
+        let title = $("#" + computedId + " .compare").attr('title') + "«" + video.title + "»";
+        $("#" + computedId + " .compare").attr('title', title);
+    } else {
+        disableClick("#" + computedId + " .compare", "This evidence has not related video");
+    }
 
     $("#" + computedId + " .related").attr('href', `/related/#${video.videoId}`);
     title = $("#" + computedId + " .related").attr('title')  + "«" + video.title + "»";
@@ -198,6 +216,15 @@ function addVideoRow(video, i) {
     $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
     title = $("#" + computedId + " .author").attr('title')  + "«" + video.authorName+ "»";
     $("#" + computedId + " .author").attr('title', title);
+
+    if(video.relatedN > 0) {
+        $("#" + computedId + " .csv").on('click', downloadVideoCSV);
+        $("#" + computedId + " .csv").attr('yttrex-videoId', `${video.videoId}`);
+        title = $("#" + computedId + " .csv").attr('title')  + "«" + video.title + "»";
+        $("#" + computedId + " .csv").attr('title', title);
+    } else {
+        disableClick("#" + computedId + " .csv", "This evidence has not related video");
+    }
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
     $("#" + computedId + " .delete").attr('yttrex-id', `${video.id}`);
@@ -209,6 +236,14 @@ function addVideoRow(video, i) {
     $("#" + computedId + " .title").text(video.title);
 
     entry.removeAttr('hidden');
+}
+
+function downloadVideoCSV(e) {
+    const videoId = $(this).attr('yttrex-videoId');
+    const pk = getPubKey();
+    const csvurl = buildApiUrl(`videoCSV/${videoId}/`, null, 1);
+    console.log("videoCSV from: ", csvurl);
+    window.open(csvurl);
 }
 
 function removeEvidence(e) {
@@ -231,6 +266,12 @@ function removeEvidence(e) {
         $(selectorId).fadeOut(300);
         console.log(result);
     });
+}
+
+function disableClick(targetId, reason) {
+    console.log("disaling");
+    $(targetId).addClass("interaction-disabled");
+    $(targetId).attr('title', reason);
 }
 
 function showPassword(status) {

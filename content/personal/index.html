@@ -3,6 +3,7 @@ title: Use & Control the evidence you sent us
 subtitle: Please note, this is working prototype. If your data looks wrong get in touch with support at tracking dot exposed
 date: 2019-05-22T15:01:21+01:00
 draft: false
+extraCSS: "/css/personal.css"
 description: Personal interface, this link is only know by you; keep it private
 type: app
 ---
@@ -10,7 +11,6 @@ type: app
 <div class="container">
 
     <section>
-        <h2>Recent evidence collected</h2>
         <div class="mb-3">
             <p id="total-evidence" class="mb-2"></p>
             <nav id="pagination" aria-label="navigation" class="mb-4">
@@ -42,11 +42,20 @@ type: app
                   <small>Related</small>
               </a>
               <a
+                style="cursor: pointer"
+                class="csv icon-small mb-1"
+                title="CSV with all the observations of ">
+                  <!-- string is completed in JS so the HTML can be translated -->
+                  <span style="color:#ff0000;">⇓</span>
+                  <small>CSV</small>
+              </a>
+              <a
                 class="author icon-small mb-1"
                 title="Compare all the evidences from ">
                   <small>Channel</small>
               </a>
               <a
+                style="cursor: pointer"
                 class="delete icon-small mb-1"
                 title="Remove this evidence about">
                   <small>Remove</small>
@@ -64,9 +73,8 @@ type: app
             <div class="col-sm">
                 <h3>Your pseudonym is <i id="user-name"></i></h3>
                 <div id="user-info">
-                    <p class="mb-2">Here you can find all data collected from your <b>Youtube activity</b> since <span class="badge badge-pill badge-light" id="createdAtFormatted"></span></p>
                     <ul class="mb-4">
-                        <li class="mr-1"><p class="mb-0">Your access token: <span class="badge badge-light align-middle" id="accessToken"><i></i></span></p></li>
+                        <li class="mr-1"><p class="mb-0">First access: <span class="badge badge-pill badge-light" id="createdAtFormatted"></span></p></li>
                         <li class="mr-1"><p class="mb-0">Last activity: <span class="badge badge-light align-middle" id="lastActivityFormatted"></span></p></li>
                     </ul>
                     <h5 id="tag-badge" style="display:none;">

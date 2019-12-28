@@ -1,0 +1,6 @@
+.interaction-disabled {
+    cursor: no-drop !important;
+    color: grey !important;
+    background-color: #fff6f6;
+    border-radius: 5px;
+}
