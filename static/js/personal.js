@@ -240,7 +240,6 @@ function addVideoRow(video, i) {
 
 function downloadVideoCSV(e) {
     const videoId = $(this).attr('yttrex-videoId');
-    const pk = getPubKey();
     const csvurl = buildApiUrl(`videoCSV/${videoId}/`, null, 1);
     console.log("videoCSV from: ", csvurl);
     window.open(csvurl);

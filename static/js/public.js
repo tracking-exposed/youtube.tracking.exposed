@@ -49,6 +49,7 @@ function initAuthor() {
 }
 
 function appendCard(targetId, video) {
+    /* this function is used in the compare by author broken experiment! */
 
     if(_.size(video) != 1)
         console.log("Condition not properly tested!", video);
@@ -58,13 +59,13 @@ function appendCard(targetId, video) {
 
     const entry = $("#master").clone();
     const computedId = `video-${video.id.replace(/[\ \-&=]/g, '')}`
+
     // TODO this regexp was to filter id with "&" which if they happen should not.
+
     entry.attr("id", computedId);
     $(targetId).append(entry);
 
     const t = $("#" + computedId);
-    console.log(t);
-
     $("#" + computedId + " .card-title").text(video.relatedTitle);
     $("#" + computedId + " .card-text").text(video.relatedAuthorName);
     $("#" + computedId + " .text-muted").text(video.savingTime);
