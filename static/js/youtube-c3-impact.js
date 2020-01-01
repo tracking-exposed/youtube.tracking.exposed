@@ -1,24 +1,9 @@
-$(document).ready(function() {
-
-    var graphNodes = $('.c3graph');
-    const graphs = _.map(graphNodes, function(graph) {
-        var graphId = '#' + graph.id;
-        var config = _.find(clist, { bindto: graphId });
-        if(config) {
-            console.log("Generating graph", graphId);
-            var r = c3.generate(config);
-        } else {
-            console.log("Invalid ID", graphId);
-        }
-    });
-    /* graphs is never used but might be, for refresh and updates */
-
-});
+const DAYSAGO = 15;
 
 const clist = [{
+    API: buildApiUrl('statistics/supporters/day', 15, 2),
     bindto: '#supporters-graph',
     data : {
-        url: '/api/v2/statistics/supporters/day/15',
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
         keys: { value : [ 'newcomers' ], x: 'day' },
@@ -34,129 +19,163 @@ const clist = [{
         x: {
             type: 'timeseries',
             tick: {
-                format: '%d',
-                culling: { max: 5 }
+                format: '%Y-%m-%d',
             },
         }
     }
 }, {
-    bindto: '#related-graph',
+    API: buildApiUrl('statistics/active/day', 15, 2),
+    bindto: '#active-graph',
     data : {
-        url: '/api/v2/statistics/related/day/15',
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'total', 'related-20', 'related-19', 'related-1' ], x: 'day' },
+        keys: { value : [ 'active' ], x: 'day' },
+        type: 'bar',
+        axes: {
+            'active': 'y'
+        },
+        colors: {
+            'active': '#00ffcf'
+        }
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        }
+    }
+}, {
+    API: buildApiUrl('statistics/related/day', 15, 2),
+    bindto: '#related-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'total', 'related-20', 'others', 'more-than-20' ], x: 'day' },
         types: {
             'total': 'bar',
             'related-20': 'bar',
-            'related-19': 'bar',
-            'related-1': 'bar'
+            'others': 'bar',
+            'more-than-20': 'bar',
         },
         axes: {
             'total': 'y',
             'related-20': 'y',
-            'related-19': 'y',
-            'related-1': 'y'
+            'others': 'y',
+            'more-than-20': 'y'
         },
+        groups: [
+            [ 'related-20', 'others', 'more-than-20' ]
+        ]
     },
     axis: {
         x: {
             type: 'timeseries',
             tick: {
-                format: '%d',
-                culling: { max: 5 }
+                format: '%Y-%m-%d',
             },
-
         }
     }
 }, {
+    API: buildApiUrl('statistics/processing/day', 15, 2),
     bindto: '#processing-graph',
     data : {
-        url: '/api/v2/statistics/processing/day/15',
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'failure', 'successful', 'unprocessed', 'total' ], x: 'day' },
-        types: {
-            'failure': 'bar',
-            'unprocessed': 'bar',
-            'successful': 'line',
-            'total': 'line',
-        },
-        axes: {
-            'failure': 'y',
-            'unprocessed': 'y',
-            'successful': 'y2',
-            'total': 'y2',
-        },
+        keys: { value : [ 'failure', 'successful', 'unprocessed', 'total', 'hasMetadata' ], x: 'day' },
+        type: 'bar',
         colors: {
-            'failure': 'black',
-            'unprocessed': '#eee',
+            'failure': '#07e',
+            'unprocessed': '#faa',
             'successful': '#3b5898',
-            'total': 'green'
-        }
+            'total': '#99e'
+        },
+        groups: [ [ 'successful', 'failure', 'unprocessed' ] ],
     },
     axis: {
         x: {
             type: 'timeseries',
             tick: {
-                format: '%d',
-                culling: { max: 5 }
+                format: '%Y-%m-%d',
             },
-
         },
-        y2: { show: true }
     }
 }, {
-    bindto: '#processing2-graph',
-    data : {
-        url: '/api/v2/statistics/processing2/day/15',
-        mimeType: 'json',
-        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'failure', 'successful', 'unprocessed', 'total' ], x: 'day' },
-        types: {
-            'failure': 'bar',
-            'unprocessed': 'bar',
-            'successful': 'line',
-            'total': 'line',
-        },
-        axes: {
-            'failure': 'y',
-            'unprocessed': 'y',
-            'successful': 'y2',
-            'total': 'y2',
-        },
-        colors: {
-            'failure': 'black',
-            'unprocessed': '#eee',
-            'successful': '#3b5898',
-            'total': 'green'
-        }
-    },
-    axis: {
-        x: {
-            type: 'timeseries',
-            tick: {
-                format: '%d',
-                culling: { max: 5 }
-            },
-        }
-    }
-}, {
+    API: buildApiUrl('statistics/metadata/day', 15, 2),
     bindto: '#metadata-graph',
     data : {
-        url: '/api/v2/statistics/metadata/day/15',
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'hasTitle', 'hasAuthor', 'hasRelated', 'hasAd', 'total' ], x: 'day' },
-        type: 'bar'
+        keys: {
+            value : [ 'hasTitle', 'hasAuthor', 'hasRelated', 'hasAd', 'videos', 'total' ],
+            x: 'day'
+        },
+        types: {
+            'videos': 'line',
+            'total': 'line',
+            'hasTitle': 'bar',
+            'hasAuthor': 'bar',
+            'hasRelated': 'bar',
+            'hasAd': 'bar',
+        },
+        axes: {
+            'videos': 'y',
+            'hasTitle': 'y',
+            'hasAuthor': 'y',
+            'hasRelated': 'y',
+            'hasAb': 'y',
+        },
+        colors: {
+            'videos': '#00cfff',
+            'total': '0058ff',
+        }
     },
     axis: {
         x: {
             type: 'timeseries',
             tick: {
-                format: '%d',
-                culling: { max: 5 }
-            },
-        }
+                format: '%Y-%m-%d',
+            }
+        },
+        // y2: { show: true }
     }
 }];
+
+
+$(document).ready(async function() {
+
+    var graphNodes = $('.c3graph');
+    console.log("Retrieved", _.size(graphNodes), "from the impact.md page");
+
+    const graphs = _.compact(_.map(graphNodes, function(graph) {
+        var graphId = '#' + graph.id;
+
+        const config = _.find(clist, { bindto: graphId });
+        if(!config) {
+            console.log("Invalid ID", graphId, "not found among the c3 configs");
+            return null;;
+        }
+        return {
+            config,
+            graphId
+        }
+    }));
+
+    for (const g of graphs) {
+        const connection = await fetch(g.config.API);
+        const content = await connection.json();
+        if(content.error) {
+            console.log("Error received!", g.graphId, JSON.stringify(content));
+        } else if (!_.size(content)) {
+            console.log("Empty answer for", g.graphId, JSON.stringify(content));
+        } else {
+            console.log("Generating graph", g.graphId, g,
+                        "Retrieved", _.size(content),
+                        "adding to config.data https://c3js.org/reference.html");
+            g.config.data.json = content;
+            const retval = c3.generate(g.config);
+            // retval currently not used for updates
+        }
+    }
+});
