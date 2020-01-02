@@ -11,12 +11,28 @@ type: app
 <div class="container">
 
     <section>
-        <div class="mb-3">
+        <div class="mb-11">
             <p id="total-evidence" class="mb-2"></p>
             <nav id="pagination" aria-label="navigation" class="mb-4">
                 <ul class="pagination centered"></ul>
             </nav>
         </div>
+
+        <div class="col-5" style="display:inline-block">
+            <p>Watched video from:</p>
+            <div class="chart1"></div>
+        </div>
+        <div class="col-6" style="display:inline-block">
+            <p>Reasons (as declared by YouTube)</p>
+            <div class="chart2"></div>
+        </div> 
+        <div class="col-12" style="display:inline-block">
+            <p>Recommented videos breakdown</p>
+            <div class="chart3"></div>
+        </div> 
+    </section>
+
+    <section>
 
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
         <div id="master" hidden class="row border-bottom p-2 mb-3 align-middle">
@@ -140,6 +156,9 @@ type: app
 
 </div>
 
+<link href="/css/c3.min.css" rel="stylesheet">
+<script src="/js/d3.min.js"></script>
+<script src="/js/c3.min.js"></script>
 <script src="/js/global.js"></script>
 <script src="/js/personal.js"></script>
 <script type="text/javascript">

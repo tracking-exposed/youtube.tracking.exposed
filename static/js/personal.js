@@ -1,9 +1,80 @@
 
-function renderC3Graph(collection) {
-    console.log("TODO personal render c3 graph");
-    console.log(collection);
+let c3__graph = [ null, null, null ];
+const c3__config = [{
+    bindto: '.chart1',
+    data: {
+        type: 'pie'
+    },
+    legend: { show: false }
+}, {
+    bindto: '.chart2',
+    data: {
+        type: 'pie'
+    },
+    legend: { position: 'right'}
+}, {
+    bindto: '.chart3',
+    data: {
+        type: 'bar',
+        keys: {
+            x: 'name',
+            value: ['recommended videos']
+        },
+        labels: { show: true }
+    },
+    axis: {
+        rotated: true,
+        x: {
+            type: 'category',
+        },
+        padding: { left: 330 }
+    },
+    legend: { show: false },
+    size: {
+        height: 0, // filled in initializeGraph
+    }
+}];
+/*
+function updateGraphs(graphInfo) {
+    console.log("update to be done", graphInfo);
+    c3__graph[0].load({
+        json: graphInfo.view
+    });
+    c3__graph[1].load({
+        json: graphInfo.reason
+    });
+    c3__graph[2].load({
+        json: graphInfo.related,
+        size: { height: _.size(graphInfo.related) * 20 }
+    });
+}
+*/
+function initializeGraphs(graphInfo) {
+    // c3__config.data.json = collection;
+    console.log(graphInfo);
+
+    c3__config[0].data.json = graphInfo.view;
+    c3__graph[0] = c3.generate(c3__config[0]);
+
+    c3__config[1].data.json = graphInfo.reason;
+    c3__graph[1] = c3.generate(c3__config[1]);
+
+    c3__config[2].data.json = graphInfo.related;
+    c3__config[2].size.height = _.size(graphInfo.related) * 20;
+    c3__graph[2] = c3.generate(c3__config[2]);
 }
 
+function renderC3Graph(collection) {
+ /*   if(c3__graph[0])
+        updateGraphs(collection);
+    else */
+        initializeGraphs(collection);
+}
+
+function reportError(info) {
+    $("section").hide();
+    $(".container").html('<h4>Fatal error: ' + info.message + '</h4>');
+}
 
 /* --_------------------------------------------------.
     | | ___  _ __ ___ _ __  _______                   |
@@ -21,6 +92,9 @@ function personal(pages, profile) {
 
     if(!pages) pagestr = '10-0';
     else {
+        c3__graph[0].destroy();
+        c3__graph[1].destroy();
+        c3__graph[2].destroy();
         $("#report").empty();
         var pagesDecimal = pages + '0';
         var pagesNumber = Number(pagesDecimal);
@@ -29,10 +103,16 @@ function personal(pages, profile) {
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/' + pagestr);
     $.getJSON(url, (data) => {
-        _.each(data.recent, addVideoRow);
-        renderC3Graph(data.recent);
-        addPages(data.total, pagestr);
-        if(!profile) updateProfileInfo(data.supporter);
+
+        if(data.error) 
+            reportError(data);
+        else {
+            _.each(data.recent, addVideoRow);
+            renderC3Graph(data.graphs);
+            addPages(data.total, pagestr);
+            if(!profile)
+                updateProfileInfo(data.supporter);
+        }
     });
 }
 
@@ -268,7 +348,6 @@ function removeEvidence(e) {
 }
 
 function disableClick(targetId, reason) {
-    console.log("disaling");
     $(targetId).addClass("interaction-disabled");
     $(targetId).attr('title', reason);
 }
