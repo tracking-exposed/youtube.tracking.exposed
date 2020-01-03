@@ -12,9 +12,11 @@ const clist = [{
             'newcomers': 'y'
         },
         colors: {
-            'newcomers': 'black'
-        }
+            'newcomers': _.first(palette)
+        },
+        labels: { show: true },
     },
+    legend: { show: false },
     axis: {
         x: {
             type: 'timeseries',
@@ -35,9 +37,11 @@ const clist = [{
             'active': 'y'
         },
         colors: {
-            'active': '#00ffcf'
-        }
+            'active': _.last(palette)
+        },
+        labels: { show: true },
     },
+    legend: { show: false },
     axis: {
         x: {
             type: 'timeseries',
@@ -59,15 +63,15 @@ const clist = [{
             'others': 'bar',
             'more-than-20': 'bar',
         },
-        axes: {
-            'total': 'y',
-            'related-20': 'y',
-            'others': 'y',
-            'more-than-20': 'y'
+        colors: {
+            'total': palette[0],
+            'related-20': palette[1],
+            'others': palette[2],
+            'more-than-20': palette[3]
         },
         groups: [
             [ 'related-20', 'others', 'more-than-20' ]
-        ]
+        ],
     },
     axis: {
         x: {
@@ -86,10 +90,11 @@ const clist = [{
         keys: { value : [ 'failure', 'successful', 'unprocessed', 'total', 'hasMetadata' ], x: 'day' },
         type: 'bar',
         colors: {
-            'failure': '#07e',
-            'unprocessed': '#faa',
-            'successful': '#3b5898',
-            'total': '#99e'
+            'failure': palette[0],
+            'unprocessed': palette[2],
+            'successful': palette[4],
+            'total': palette[1],
+            'hasMetadata': palette[3]
         },
         groups: [ [ 'successful', 'failure', 'unprocessed' ] ],
     },
@@ -112,23 +117,20 @@ const clist = [{
             x: 'day'
         },
         types: {
-            'videos': 'line',
             'total': 'line',
+            'videos': 'area',
             'hasTitle': 'bar',
             'hasAuthor': 'bar',
             'hasRelated': 'bar',
             'hasAd': 'bar',
         },
-        axes: {
-            'videos': 'y',
-            'hasTitle': 'y',
-            'hasAuthor': 'y',
-            'hasRelated': 'y',
-            'hasAb': 'y',
-        },
         colors: {
-            'videos': '#00cfff',
-            'total': '0058ff',
+            'total': palette[0],
+            'videos': palette[1],
+            'hasTitle': palette[2],
+            'hasAuthor': palette[3],
+            'hasRelated': palette[4],
+            'hasAd': palette[5]
         }
     },
     axis: {
@@ -138,7 +140,6 @@ const clist = [{
                 format: '%Y-%m-%d',
             }
         },
-        // y2: { show: true }
     }
 }];
 

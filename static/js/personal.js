@@ -1,15 +1,18 @@
 
-let c3__graph = [ null, null, null ];
+const c3__graph = [ null, null, null ];
 const c3__config = [{
     bindto: '.chart1',
     data: {
-        type: 'pie'
+        type: 'pie',
     },
     legend: { show: false }
 }, {
     bindto: '.chart2',
     data: {
-        type: 'pie'
+        type: 'pie',
+        colors: { 'foryou': _.first(palette), 
+                  'organic' : _.last(palette)
+        },
     },
     legend: { position: 'right'}
 }, {
@@ -20,7 +23,8 @@ const c3__config = [{
             x: 'name',
             value: ['recommended videos']
         },
-        labels: { show: true }
+        labels: { show: true },
+        colors: { 'recommended videos': _.first(palette) }
     },
     axis: {
         rotated: true,
@@ -34,41 +38,43 @@ const c3__config = [{
         height: 0, // filled in initializeGraph
     }
 }];
-/*
-function updateGraphs(graphInfo) {
-    console.log("update to be done", graphInfo);
-    c3__graph[0].load({
-        json: graphInfo.view
-    });
-    c3__graph[1].load({
-        json: graphInfo.reason
-    });
-    c3__graph[2].load({
-        json: graphInfo.related,
-        size: { height: _.size(graphInfo.related) * 20 }
-    });
-}
-*/
-function initializeGraphs(graphInfo) {
-    // c3__config.data.json = collection;
-    console.log(graphInfo);
+
+function renderC3Graph(graphInfo) {
+    console.log("Rendering three C3 graphs using",
+        graphInfo.view, graphInfo.reason, graphInfo.related);
 
     c3__config[0].data.json = graphInfo.view;
+    let counter = 1;
+    c3__config[0].data.colors = _.reduce(graphInfo.view, function(memo, amount, name) {
+        _.set(memo, name, _.nth(palette, counter % _.size(palette)));
+        counter++;
+        return memo;
+    }, {})
     c3__graph[0] = c3.generate(c3__config[0]);
 
     c3__config[1].data.json = graphInfo.reason;
     c3__graph[1] = c3.generate(c3__config[1]);
 
-    c3__config[2].data.json = graphInfo.related;
-    c3__config[2].size.height = _.size(graphInfo.related) * 20;
+    /* in the recommended graph we don't display authors appearing only 
+     * once in 10 videos, except if the video is only one */
+    if(_.size(graphInfo.view) == 1) {
+        console.log("Only one video watch! -- we render differently");
+        $("#recommended-once-title").hide();
+        c3__config[2].data.json = graphInfo.related;
+        c3__config[2].size.height = _.size(graphInfo.related) * 20;
+    } else {
+        c3__config[2].data.json = _.reject(graphInfo.related, { "recommended videos": 1});
+        c3__config[2].size.height = _.size(c3__config[2].data.json) * 25;
+        const l = _.map(
+            _.filter(graphInfo.related, { "recommended videos": 1}),
+            'name'
+        );
+        const h = _.reduce(l, function(memo, name, i) {
+            return memo + '<span class="once">' + name + '</span>';
+        }, "")
+        $(".recommended-once").html(h);
+    }
     c3__graph[2] = c3.generate(c3__config[2]);
-}
-
-function renderC3Graph(collection) {
- /*   if(c3__graph[0])
-        updateGraphs(collection);
-    else */
-        initializeGraphs(collection);
 }
 
 function reportError(info) {
@@ -76,18 +82,13 @@ function reportError(info) {
     $(".container").html('<h4>Fatal error: ' + info.message + '</h4>');
 }
 
-/* --_------------------------------------------------.
-    | | ___  _ __ ___ _ __  _______                   |
-    | |/ _ \| '__/ _ \ '_ \|_  / _ \                  |
-    | | (_) | | |  __/ | | |/ / (_) |                 |
-    |_|\___/|_|  \___|_| |_/___\___/     ↓↓↓↓↓↓↓↓↓↓   */
-
-    function getPubKey() {
-        const t = window.location.href.split('/#').pop();
-        if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
+function getPubKey() {
+    const t = window.location.href.split('/#').pop();
+    if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
     return t;
 }
 
+/* -- EXECUTION STARTS HERE */
 function personal(pages, profile) {
 
     if(!pages) pagestr = '10-0';
@@ -95,6 +96,8 @@ function personal(pages, profile) {
         c3__graph[0].destroy();
         c3__graph[1].destroy();
         c3__graph[2].destroy();
+        $(".recommended-once").html();
+
         $("#report").empty();
         var pagesDecimal = pages + '0';
         var pagesNumber = Number(pagesDecimal);

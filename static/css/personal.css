@@ -4,3 +4,11 @@
     background-color: #fff6f6;
     border-radius: 5px;
 }
+
+.once {
+    background-color: #eee;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin: 3px;
+    word-break: keep-all;
+}
