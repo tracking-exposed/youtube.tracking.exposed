@@ -359,3 +359,33 @@ function showPassword(status) {
     if( status == 'private') $('#group-password-wrapper').show();
     else $('#group-password-wrapper').hide();
 }
+
+function personalTimeseries() {
+    // timeserises is the c3 name, timeline the generic API name
+    // supports paging if become too heavy!
+    const pk = getPubKey();
+    const url = buildApiUrl('personal', pk + '/timeline');
+    const config = {
+      bindto: '#series',
+      data: {
+          url,
+          mimeType: 'json',
+          xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+          keys: { value : [ 'value' ], x: 'savingTime' },
+          type: 'bar',
+          labels: { show: true },
+      },
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: '%m-%d'
+          }
+        },
+        padding: { left: 330 }
+      },
+      legend: { show: false },
+      height: 600,
+    };
+    c3.generate(config);
+}

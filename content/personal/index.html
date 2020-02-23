@@ -11,6 +11,11 @@ type: app
 <div class="container">
 
     <section>
+        <div class="mb-11" id="series">
+        </div>
+    </section>
+
+    <section>
         <div class="mb-11">
             <p id="total-evidence" class="mb-2"></p>
             <nav id="pagination" aria-label="navigation" class="mb-4">
@@ -168,6 +173,7 @@ type: app
     $( document ).ready(function() {
         $("#description").val("");
         personal();
+        personalTimeseries();
     });
 
 </script>

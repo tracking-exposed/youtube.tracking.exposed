@@ -7,7 +7,12 @@ description: Only by comparing how the same videos get different reccomendations
 type: app
 ---
 
+	db.getCollection('metadata').aggregate([     { "$match": { "videoId": { "$exists": true } } },     {         "$group": {             "_id": { "videoId": "$videoId" },             "count": { "$sum": 1 }         }     },     { "$match": { "count": { "$gt": 1 } } }
+
+
 <div class="container">
+
+
 
   <div id="error"></div>
   <div id="ifVideoExists" style="display:none;">
