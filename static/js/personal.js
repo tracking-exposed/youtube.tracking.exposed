@@ -368,24 +368,50 @@ function personalTimeseries() {
     const config = {
       bindto: '#series',
       data: {
-          url,
-          mimeType: 'json',
-          xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-          keys: { value : [ 'value' ], x: 'savingTime' },
-          type: 'bar',
-          labels: { show: true },
+           // mimeType: 'json',
+           // xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+           // keys: { value : [ 'veler' ], x: 'savingTime' },
+        keys: { value : [ 'veler' ], x: 'cat' },
+           //type: 'bar',
+        labels: { show: true },
+        type: 'scatter'
       },
       axis: {
         x: {
-          type: 'timeseries',
+          type: 'category',
+          categories: ['a', 'b','c'],
+/*          type: 'timeseries',
           tick: {
-            format: '%m-%d'
-          }
+            format: '%d'
+          } */
         },
-        padding: { left: 330 }
+        padding: { left: 330 },
+        rotated: true,
       },
-      legend: { show: false },
-      height: 600,
+      legend: { show: true},
+      size: {
+        height: 600,
+      }
     };
-    c3.generate(config);
+
+    $.getJSON(url, (data) => {
+
+        const adNames =  _.compact(_.map(data, 'ad'));
+        console.log(adNames);
+        const titles =  _.compact(_.map(data, 'title'));
+        console.log(titles);
+        const final = _.concat(adNames, titles);
+        console.log(final);
+        config.axis.x.categories = final;
+        config.size.height = 40 * _.size(final);
+
+        config.data.json = _.map(data, function(e) {
+            e.savingTime = new Date(e.savingTime);
+            e.cat = !e.ad ? e.title : e.ad;
+            e.cat = "ΦΦΦΦ";
+            return e;
+        });
+        c3.generate(config);
+        //d3.
+    });
 }
