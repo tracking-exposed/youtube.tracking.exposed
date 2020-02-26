@@ -30,7 +30,7 @@ Nina Altmaier, Davide Beraldo, Maria Castaldo, Daniel Jurg, Salvatore Romano, Ma
 
 Over the last few years, the creation of ‘filter-bubbles’ and the issue of algorithmic radicalization has sparked significant controversy within academia and privacy-focused collectives. In this literature, YouTube especially has come under scrutiny. In 2019, [Ribeiro et al.](https://www.google.com/url?q=https://arxiv.org/abs/1908.08313&sa=D&ust=1580319744818000) have sought to computationally verify the ‘anecdotal literature’ on the ‘radicalizing power’ of YouTube ’s Recommendation Systems (RSs). They argued that there is indeed empirical evidence to confirm the hypothesis that users navigate along with YouTube Recommendations. Contrary to this research, at the end of 2019, [Ledwich and Zaitsev](https://arxiv.org/abs/1912.11211&sa=D&ust=1580319744818000) claimed that the hypothesis of YouTube being a platform for algorithmic radicalization to be actually false. Instead, they highlighted how YouTube recommends a more mainstream type content to its users. In other words, blaming the algorithm for creating niche viewing behavior might be incorrect.
 
-The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ( [Feuer](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000)). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They [Ledwich and Zaitsev] reached their sweeping conclusion *without logging in*…” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture” (10). While some scholars have suggested moving away from RSs ([Munger and Phillips](https://osf.io/73jys/)), it is still the case that YouTube’s algorithm accounts for 70 percent of videos watched on the platform ([Newton](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000)) and, therefore, is worth investigating.
+The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ( [Feuer](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000)). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They [Ledwich and Zaitsev] reached their sweeping conclusion *without logging in…* ” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture” (10). While some scholars have suggested moving away from RSs ([Munger and Phillips](https://osf.io/73jys/)), it is still the case that YouTube’s algorithm accounts for 70 percent of videos watched on the platform ([Newton](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000)) and, therefore, is worth investigating.
 
 This Winter School project seeks to study algorithmic recommendation from a user perspective in an attempt to move towards post-API research. Specifically, empowered by [youtube.tracking.exposed](https://youtube.tracking.exposed)’s infrastructure, we have been able to highlight filter bubbles visually and statistically as a by-product of polarization dynamics. Taking Brexit as an emblem for a divisive issue, this project aims to map in which way the algorithm guides users through the enormous supply of Brexit videos and how this algorithmic guiding might polarize users interested in the topic coming from divergent political backgrounds.
 
@@ -191,69 +191,7 @@ Matthew Smith. “How left or right-wing are the UK’s newspapers. YouGov. 7 Ma
 
 https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers
 
-<h1 id='h.34i8wvmrxf4l'>8. Appendix</h1> <h2 id='h.p4ob78plzqhn'>8.1 Adèle Haenel and pro/against #metoo polarization</h2>
+## Appendix
 
-| Title | Type | URL |
-| French actress Adèle Haenel accuses filmmaker of 'sexual harassment' when a minor | Video of reference | https://www.youtube.com/watch?v=QFRPci2wK2Y |
-
-| Article title | Type | Article URL |
-| « Adèle Haenel parle d’elle mais surtout elle s’adresse à nous. En un mot, elle est politique » | Pro-feminist | https://www.lemonde.fr/idees/article/2019/11/08/adele-haenel-parle-d-elle-mais-surtout-elle-s-adresse-a-nous-en-un-mot-elle-est-politique_6018416_3232.html |
-| « Adèle Haenel devrait saisir la justice », lui conseille la ministre | Against-feminist | https://www.nouvelobs.com/societe/20191106.OBS20761/adele-haenel-devrait-saisir-la-justice-lui-conseille-la-ministre.html |
-
-| Channel title | Type | Channel URL |
-| Valek | Anti-feminist | https://www.youtube.com/user/Valeknoraje |
-| Anti-feminism | Anti-feminist | https://www.youtube.com/user/AntiFeminisme/videos |
-| Marinette- femmes et féminisme | Pro-feminist | https://www.youtube.com/channel/UCcP3HpPMKiQHsj7qDzu3q6g/videos |
-| Osez le féminisme | Pro-feminist | https://www.youtube.com/channel/UC3lZNxZeElkWmsKNMuLHUZQ/videos |
-
-| Number | Type | Channel | Video URL | Length |
-| 1 | against | Valek | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D4G7xD6s5dFA&sa=D&ust=1580319744862000][https://www.youtube.com/watch?v=4G7xD6s5dFA]] | 04:24 |
-| 2 | against | Valek | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DqX5RhQAwCuY&sa=D&ust=1580319744863000][https://www.youtube.com/watch?v=qX5RhQAwCuY]] | 08:05 |
-| 3 | against | Valek | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Deup58lgzPJc&sa=D&ust=1580319744864000][https://www.youtube.com/watch?v=eup58lgzPJc]] | 06:34 |
-| 4 | against | Valek | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DusoMpgySmx0%26t&sa=D&ust=1580319744866000][https://www.youtube.com/watch?v=usoMpgySmx0&t]] | 3:07 |
-| 5 | against | Valek | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DYGV6DBoGVV4&sa=D&ust=1580319744867000][https://www.youtube.com/watch?v=YGV6DBoGVV4]] | 8:53 |
-| 1 | pro | Osez | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DjiFRlpSWv8I&sa=D&ust=1580319744869000][https://www.youtube.com/watch?v=jiFRlpSWv8I]] | 1:11 |
-| 2 | pro | Osez | https://www.youtube.com/watch?v=Qn_mz8UMjgA | 7:48 |
-| 3 | pro | Osez | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DuraCYlPaCWY&sa=D&ust=1580319744871000][https://www.youtube.com/watch?v=uraCYlPaCWY]] | 7:24 |
-| 4 | pro | Osez | https://www.youtube.com/watch?v=zxAhhgC6554 | 3:00 |
-| 5 | pro | Osez | https://www.youtube.com/watch?v=637NkjxDTGg | 5:00 |
-8.2 Trexitors
-
-| Title | Type | URL |
-| London's Big Ben must 'bong for Brexit' on January 31, say MPs | Video of reference | https://www.youtube.com/watch?v=i7i6zUCXRO4 |
-
-| Publisher | Round | Subscribers | Brexit position |
-| The Guardian | 1 | 1.12M | Remain |
-| The Mirror | 2 | 22.6K | Remain |
-| The Telegraph | 2 | 822K | Leave |
-| The Sun | 1 | 576K | Leave |
-
-| # | Video Title | URL | Video ID | Publisher | Date | Views |
-| 1 | Boris Johnson confronted by medical student over 'PR stunt' | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dq7edg_A4P4o&sa=D&ust=1580319744888000][https://www.youtube.com/watch?v=q7edg_A4P4o]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dq7edg_A4P4o&sa=D&ust=1580319744888000][q7edg_A4P4o]] | The Mirror | 1/11/2019 | 694 |
-| 2 | Britain Talks: Vegan fashion blogger Sarah King meets third-generation dairy farmer Abi Reader | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DznCBjKTqXe4&sa=D&ust=1580319744891000][https://www.youtube.com/watch?v=znCBjKTqXe4]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DznCBjKTqXe4&sa=D&ust=1580319744892000][znCBjKTqXe4]] | The Mirror | 30/6/2019 | 264 |
-| 3 | Jeremy Corbyn's social care pledge to the country | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DX_Xm4K2Yh-0&sa=D&ust=1580319744894000][https://www.youtube.com/watch?v=X_Xm4K2Yh-0]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DX_Xm4K2Yh-0&sa=D&ust=1580319744895000][X_Xm4K2Yh-0]] | The Mirror | 9/12/2019 | 347 |
-| 4 | Britain Talks: What happened when a Syrian refugee met a committed Brexiteer | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dklhr1T3cWKk&sa=D&ust=1580319744897000][https://www.youtube.com/watch?v=klhr1T3cWKk]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dklhr1T3cWKk&sa=D&ust=1580319744898000][klhr1T3cWKk]] | The Mirror | 30/6/2019 | 293 |
-| 5 | Britain Talks: Brexit Remainer meets Leave voter to discuss EU referendum | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DEfwOCLYK4ZQ&sa=D&ust=1580319744899000][https://www.youtube.com/watch?v=EfwOCLYK4ZQ]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DEfwOCLYK4ZQ&sa=D&ust=1580319744900000][EfwOCLYK4ZQ]] | The Mirror | 17/04/2019 | 4694 |
-| 1 | EU referendum: lies, myths and half-truths | Guardian Explainers | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DG5AbdJwBDag&sa=D&ust=1580319744902000][https://www.youtube.com/watch?v=G5AbdJwBDag]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DG5AbdJwBDag&sa=D&ust=1580319744902000][G5AbdJwBDag]] | The Guardian | 15.6.2016 | 21.515 |
-| 2 | Brexit result: 'Now we can look forward to a good Great Britain' | EU referendum | <br /><br />[[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DmHroD4w2xxE&sa=D&ust=1580319744905000][https://www.youtube.com/watch?v=mHroD4w2xxE]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DmHroD4w2xxE&sa=D&ust=1580319744906000][mHroD4w2xxE]] | The Guardian | 24.6.2016 | 14.337 |
-| 3 | EU referendum explained: Brexit for non-Brits | Guardian Animations | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D7H9Z4sn8csA&sa=D&ust=1580319744908000][https://www.youtube.com/watch?v=7H9Z4sn8csA]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D7H9Z4sn8csA&sa=D&ust=1580319744909000][7H9Z4sn8csA]] | The Guardian | 31.5.2016 | 67.673 |
-| 4 | The EU costs you the same as Netflix - is it worth it? Rem Koolhaas thinks so. | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D1lsLXRV5ldI&sa=D&ust=1580319744910000][https://www.youtube.com/watch?v=1lsLXRV5ldI]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D1lsLXRV5ldI&sa=D&ust=1580319744911000][1lsLXRV5ldI]] | The Guardian | 21.5.2019 | 69.324 |
-| 5 | What is article 50? | Brexit and the EU referendum explained | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DZkHtbVAcTbM&sa=D&ust=1580319744914000][https://www.youtube.com/watch?v=ZkHtbVAcTbM]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DZkHtbVAcTbM&sa=D&ust=1580319744914000][ZkHtbVAcTbM]] | The Guardian | 29.6.2016 | 28.206 |
-| 1 | MPs pass Boris Johnson's Brexit Withdrawal Bill paving the way for Brexit in January | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DGhiHk3FWjlU&sa=D&ust=1580319744917000][https://www.youtube.com/watch?v=GhiHk3FWjlU]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DGhiHk3FWjlU&sa=D&ust=1580319744918000][GhiHk3FWjlU]] | The Telegraph | 20 dec. 2019 | 41.208 |
-| 2 | Five reasons to love Brexit | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DY5Ikf1J47dg&sa=D&ust=1580319744921000][https://www.youtube.com/watch?v=Y5Ikf1J47dg]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DY5Ikf1J47dg&sa=D&ust=1580319744921000][Y5Ikf1J47dg]] | The Telegraph | 29 mrt. 2019 | 9.111 |
-| 3 | EU Referendum: Vote Leave's key claims about Brexit | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dc_K0fOMViz0&sa=D&ust=1580319744931000][https://www.youtube.com/watch?v=c_K0fOMViz0]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dc_K0fOMViz0&sa=D&ust=1580319744932000][c_K0fOMViz0]] | The Telegraph | 3 jun. 2016 | 16.462 |
-| 4 | The EU's publicity stunts on British prime ministers over Brexit | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D6ANgJT5Ra_s&sa=D&ust=1580319744935000][https://www.youtube.com/watch?v=6ANgJT5Ra_s]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D6ANgJT5Ra_s&sa=D&ust=1580319744936000][6ANgJT5Ra_s]] | The Telegraph | 17 sept. 2019 | 171 504 |
-| 5 | EU Referendum: Who's more likely to vote for Brexit? | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DlM6byZyTwto&sa=D&ust=1580319744940000][https://www.youtube.com/watch?v=lM6byZyTwto]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DlM6byZyTwto&sa=D&ust=1580319744940000][lM6byZyTwto]] | The Telegraph | 26 feb. 2016 | 8.541 |
-| 1 | Could a No Deal Brexit be the beginning of the end for the UK? | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D-p_96YAHZz4&sa=D&ust=1580319744943000][https://www.youtube.com/watch?v=-p_96YAHZz4]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D-p_96YAHZz4&sa=D&ust=1580319744943000][-p_96YAHZz4]] | The Sun | 2 aug. 2019 | 79.738 |
-| 2 | Britain on way to Brexit as MPs FINALLY back Boris Johnson’s deal to leave in 42 days | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DY11uWHIE18s&sa=D&ust=1580319744945000][https://www.youtube.com/watch?v=Y11uWHIE18s]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DY11uWHIE18s&sa=D&ust=1580319744945000][Y11uWHIE18s]] | The Sun | 20 dec. 2019 | 115.434 |
-| 3 | Boris Johnson to unveil final masterplan for Brexit deal | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dyh4lUi-5ccA&sa=D&ust=1580319744948000][https://www.youtube.com/watch?v=yh4lUi-5ccA]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dyh4lUi-5ccA&sa=D&ust=1580319744949000][yh4lUi-5ccA]] | The Sun | 1 okt. 2019 | 147.381 |
-| 4 | MEPs battle after Commons reject Brexit deal | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dv0JaK3hbfm4&sa=D&ust=1580319744953000][https://www.youtube.com/watch?v=v0JaK3hbfm4]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3Dv0JaK3hbfm4&sa=D&ust=1580319744954000][v0JaK3hbfm4]] | The Sun | 13 mrt. 2019 | 373.477 |
-| 5 | MPs back Boris' deal but WRECK chances of Brexit on Oct 31 | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DDwkWuR_9Fgs&sa=D&ust=1580319744956000][https://www.youtube.com/watch?v=DwkWuR_9Fgs]] | [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DDwkWuR_9Fgs&sa=D&ust=1580319744956000][DwkWuR_9Fgs]] | The Sun | 22 okt. 2019 | 56.996 |
-
----
-
-This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No 825974-ALEX, with Stefania Milan as Principal Investigator;<a href='%20https://algorithms.exposed' target='_blank'> https://algorithms.exposed</a>).
----
-
-</noautolink>
+we don't provide appendix: TODO the link on DMI
 
