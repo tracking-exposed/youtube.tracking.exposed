@@ -1,80 +1,45 @@
-i<noautolink>  
-
----+ YouTube Tracking Exposed: Investigating polarization via YouTube ’s Recommender Systems
-<h1 id='h.7f0ehfr2qsr9'>Team Members</h1>
-
-Nina Altmaier
-
-Davide Beraldo
-
-Maria Castaldo
-
-Daniel Jurg
-
-Salvatore Romano
-
-Matteo Renoldi
-
-Tatiana Smirnova
-
-Natacha Seweryn
-
-Luukas Veivo
-<h1 id='h.7e4qzg82etpn'>Contents</h1>
-
-[[#h.7f0ehfr2qsr9][Team Members]]
-
-[[#h.7e4qzg82etpn][Contents]][[#h.7e4qzg82etpn][<br />]]
-
-[[#h.k5ftj3qwqwr9][Summary of Key Findings]][[#h.k5ftj3qwqwr9][<br />]]
-
-[[#h.4sgi3td6ugyr][1. Introduction]][[#h.4sgi3td6ugyr][<br />]]
-
-[[#h.gw3sbje4g1fu][2. Research Questions]][[#h.gw3sbje4g1fu][<br />]]
-
-[[#h.yhe0dhukwd9r][3. Methodology]][[#h.yhe0dhukwd9r][<br />]]
-
-[[#h.f4s13i8wnci][3.1 Datasets]][[#h.f4s13i8wnci][<br />]]
-
-[[#h.1tqsd6hifhnw][3.2 Qualitative Analysis]][[#h.1tqsd6hifhnw][<br />]]
-
-[[#h.cqr2bmks7j2][4. Findings]][[#h.cqr2bmks7j2][<br />]]
-
-[[#h.mfisbablwuh][4.1 Video Recommendations]][[#h.mfisbablwuh][<br />]]
-
-[[#h.6ysyl2nnml0d][4.2 Channel Recommendations]][[#h.6ysyl2nnml0d][<br />]]
-
-[[#h.l3790lcw76j6][4.3 Qualitative Analyses of Brexit Recommendations]][[#h.l3790lcw76j6][<br />]]
-
-[[#h.wfo8748bti44][5. Discussion]][[#h.wfo8748bti44][<br />]]
-
-[[#h.5e8hlm6rw7hb][6. Reflections/ Limitations]][[#h.5e8hlm6rw7hb][<br />]]
-
-[[#h.hgrfuzax8xmp][7. Conclusion]][[#h.hgrfuzax8xmp][<br />]]
-
-[[#h.adqxlyg5w44m][7. References]][[#h.adqxlyg5w44m][<br />]]
-
-[[#h.34i8wvmrxf4l][8. Appendix]][[#h.34i8wvmrxf4l][<br />]]
-
-[[#h.p4ob78plzqhn][8.1 Adèle Haenel and pro/against #metoo polarization]][[#h.p4ob78plzqhn][<br />]]
-
-[[#h.tt50itr42pg8][8.2 Trexitors]][[#h.tt50itr42pg8][<br />]]
-
 ---
-<h1 id='h.yfs09mnwcbz9'> </h1> <h1 id='h.k5ftj3qwqwr9'>Summary of Key Findings</h1> <ol start='1'> <li>There is evidence of progressive polarization of the recommendations around Brexit on YouTube, especially for Leave-inclined users.</li> <li>The Leave/Remain content bubbles, constituted respectively by The Sun/The Telegraph and The Guardian/The Mirror YouTube channels rarely converge.</li> <li>Mainstream media is recommended with greater regularity compared to natively digital channels.</li> </ol><h1 id='h.4sgi3td6ugyr'>1. Introduction</h1>
+title: FIXC 
+subtitle: FIX
+date: 2020-02-22T15:01:21+01:00
+draft: false
+description: FIX
 
-Over the last few years, the creation of ‘filter-bubbles’ and the issue of algorithmic radicalization has sparked significant controversy within academia and privacy-focused collectives. In this literature, YouTube especially has come under scrutiny. In 2019, [[https://www.google.com/url?q=https://arxiv.org/abs/1908.08313&sa=D&ust=1580319744818000][Ribeiro et al.]] have sought to computationally verify the ‘anecdotal literature’ on the ‘radicalizing power’ of YouTube ’s Recommendation Systems (RSs). They argued that there is indeed empirical evidence to confirm the hypothesis that users navigate along with YouTube Recommendations. Contrary to this research, at the end of 2019, [[https://www.google.com/url?q=https://arxiv.org/abs/1912.11211&sa=D&ust=1580319744818000][Ledwich and Zaitsev]] claimed that the hypothesis of YouTube being a platform for algorithmic radicalization to be actually false. Instead, they highlighted how YouTube recommends a more mainstream type content to its users. In other words, blaming the algorithm for creating niche viewing behavior might be incorrect.
+og_title: "IXytTREX - how to use our data"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
+og_url: "https://youtube.tracking.exposed/trexit"
+og_description: "FIX - FIX - FIX youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
+---
 
-The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ([[https://www.google.com/url?q=https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000][Feuer]]). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They [Ledwich and Zaitsev] reached their sweeping conclusion *without logging in*…” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture” (10). While some scholars have suggested moving away from RSs ([[https://www.google.com/url?q=https://www.google.com/url?sa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D2%26cad%3Drja%26uact%3D8%26ved%3D2ahUKEwjd18DU8JbnAhVKEVAKHcwkAnUQFjABegQIBRAB%26url%3Dhttps%253A%252F%252Fosf.io%252F73jys%252Fdownload%26usg%3DAOvVaw0WPl6hMoMud_6-H2bDpgBG&sa=D&ust=1580319744819000][Munger and Phillips]]), it is still the case that YouTube ’s algorithm accounts for 70 percent of videos watched on the platform ([[https://www.google.com/url?q=https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000][Newton]]) and, therefore, is worth investigating.
+{{< colorblock text="YouTube Tracking Exposed: Investigating polarization via YouTube’s Recommender Systems" >}}
 
-This Winter School project seeks to study algorithmic recommendation from a user perspective in an attempt to move towards post-API research. Specifically, empowered by youtube.tracking.exposed’s infrastructure, we have been able to highlight filter bubbles visually and statistically as a by-product of polarization dynamics. Taking Brexit as an emblem for a divisive issue, this project aims to map in which way the algorithm guides users through the enormous supply of Brexit videos and how this algorithmic guiding might polarize users interested in the topic coming from divergent political backgrounds.
+{{< colorblock text="YouTube Tracking Exposed: Investigating polarization via YouTube’s Recommender Systems" color="secondary">}}
 
-<h1 id='h.gw3sbje4g1fu'>2. Research Questions</h1>
+### Team Members
 
-The following have been our two leading research questions:
+Nina Altmaier, Davide Beraldo, Maria Castaldo, Daniel Jurg, Salvatore Romano, Matteo Renoldi, Tatiana Smirnova, Natacha Seweryn, Luukas Veivo
+
+## Summary of Key Findings
+
+1. There is evidence of progressive polarization of the recommendations around Brexit on YouTube, especially for Leave-inclined users.
+2. The Leave/Remain content bubbles, constituted respectively by The Sun/The Telegraph and The Guardian/The Mirror YouTube channels rarely converge.
+3. Mainstream media is recommended with greater regularity compared to natively digital channels.
+
+### Introduction 
+
+Over the last few years, the creation of ‘filter-bubbles’ and the issue of algorithmic radicalization has sparked significant controversy within academia and privacy-focused collectives. In this literature, YouTube especially has come under scrutiny. In 2019, [Ribeiro et al.](https://www.google.com/url?q=https://arxiv.org/abs/1908.08313&sa=D&ust=1580319744818000) have sought to computationally verify the ‘anecdotal literature’ on the ‘radicalizing power’ of YouTube ’s Recommendation Systems (RSs). They argued that there is indeed empirical evidence to confirm the hypothesis that users navigate along with YouTube Recommendations. Contrary to this research, at the end of 2019, [Ledwich and Zaitsev](https://arxiv.org/abs/1912.11211&sa=D&ust=1580319744818000) claimed that the hypothesis of YouTube being a platform for algorithmic radicalization to be actually false. Instead, they highlighted how YouTube recommends a more mainstream type content to its users. In other words, blaming the algorithm for creating niche viewing behavior might be incorrect.
+
+The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ( [Feuer](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000)). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They [Ledwich and Zaitsev] reached their sweeping conclusion *without logging in*…” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture” (10). While some scholars have suggested moving away from RSs ([Munger and Phillips](https://osf.io/73jys/)), it is still the case that YouTube’s algorithm accounts for 70 percent of videos watched on the platform ([Newton](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000)) and, therefore, is worth investigating.
+
+This Winter School project seeks to study algorithmic recommendation from a user perspective in an attempt to move towards post-API research. Specifically, empowered by [youtube.tracking.exposed](https://youtube.tracking.exposed)’s infrastructure, we have been able to highlight filter bubbles visually and statistically as a by-product of polarization dynamics. Taking Brexit as an emblem for a divisive issue, this project aims to map in which way the algorithm guides users through the enormous supply of Brexit videos and how this algorithmic guiding might polarize users interested in the topic coming from divergent political backgrounds.
+
+## Research Questions
+
    * Do YouTube ’s recommendation systems enhance and potentially incentivise users’ polarization on a specific topic?
    * How might users experience Brexit polarization on YouTube?
-<h1 id='h.yhe0dhukwd9r'>3. Methodology</h1>
+
+## Methodology
 
 The aim of this project was to try to understand the inner logic of YouTube ’s recommender algorithm by taking into account the videos recommended to different research personas. Crucially, we made use of the youtube.tracking.exposed tool which allows us - in contrast to YouTube ’s official API - to retrieve data about users’ personalized experience. This is possible as a result of the passive scraping performed by the browser extension on the videos’ pages.
 
@@ -88,11 +53,19 @@ Data was then retrieved for all 4 scenarios to compare the recommendations given
 
 The second experiment was performed on the issue of Brexit. We chose four different British newspapers according to their political stances ([[https://www.google.com/url?q=https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers&sa=D&ust=1580319744823000][YouGov 2017]]). Then, we selected five videos for each of their respective YouTube channels. Again, we divided the team into two sub-groups. Each sub-group performed two tests, always starting from a clean, cookies-free browser with English (UK) as a language setting. Importantly, we also found what we regarded as a non-partisan video on Brexit (see Appendix 8.2) to access after watching the selected videos.
 
-<ol start='1'> <li>Half of the group watched five videos from The Guardian. The other half watched five videos from The Sun. Afterward all accessed the ‘neutral’ video.</li> <li>Half of the group watched five videos from The Mirror. The other half watched five videos from The Telegraph. Afterward all accessed the ‘neutral’ video.</li> </ol>
+1. Half of the group watched five videos from The Guardian. The other half watched five videos from The Sun. Afterward all accessed the ‘neutral’ video.
+2. Half of the group watched five videos from The Mirror. The other half watched five videos from The Telegraph. Afterward all accessed the ‘neutral’ video.
 
 We retrieved the information after each step across all scenarios.
 
-<img alt='image19.png' height='500' src='%ATTACHURL%/image19.png' title='image19.png' width='750' />
+<div class="row">
+  <div class="col-sm-12">
+    <figure>
+        <img width="100%" src='/images/ytws20-method.png' title='image19.png' />
+    </figure>
+  </div>
+</div>
+
 
 Figure 1: Methodology for Data Collection
 
