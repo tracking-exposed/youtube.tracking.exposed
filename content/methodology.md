@@ -115,7 +115,7 @@ Then you can run the command:
 
 To open more than one directory in parallel run the command:
 
-    20171 ۞  ~/Dev/yttrex/methodology$ ((python3 src/experiment1.py config/fqdn & );(python3 src/experiment1.py config/repubblica & );
+    20171 ۞  ~/Dev/yttrex/methodology$ ((python3 src/experiment1.py config/fqdn.txt & );(python3 src/experiment1.py config/repubblica.txt & );
 
 This should:
 
@@ -151,8 +151,12 @@ The directory `snaps/` keep the snapshots:
     -rw-r--r-- 1 oo oo  689359 fev 26 12:45 fanpage-1-snap-1.png
     ...
 
-### How to access and use the data collected
+### How to access and use the data collected  
+To access the data that each directory recorded, you need to open that specific directory running this command:
 
+   20168 ۞  chromium-browser --user-data-dir=profiles/repubblica/
+
+Then you need to open the Youtube tracking exposed extension and download the CSV file 
 **TBC**
 
 
