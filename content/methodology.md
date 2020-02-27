@@ -111,7 +111,11 @@ The master directory is located in `profiles/MASTER`
 
 Then you can run the command:
 
-    20171 ۞  ~/Dev/yttrex/methodology$ python3 src/experiment1.py config/fqdn.txt
+    20171 ۞  ~/Dev/yttrex/methodology$ python3 src/experiment1.py config/fqdn.tx
+
+To open more than one directory in parallel run the command:
+
+    20171 ۞  ~/Dev/yttrex/methodology$ ((python3 src/experiment1.py config/fqdn & );(python3 src/experiment1.py config/repubblica & );
 
 This should:
 
