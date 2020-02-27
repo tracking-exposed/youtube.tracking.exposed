@@ -15,7 +15,7 @@ og_description: "When testing youtube you might want to mix actual people with s
 
 
     sudo pip3 install -U selenium 
-    sudo apt install firefox-geckodriver
+    sudo apt install firefox-geckodriver chromium-chromedriver
 
 ### Browser extension
 
