@@ -1,3 +1,22 @@
+## CSV format
+
+                recommendedVideoId: related.videoId,
+                recommendedViews: (related.mined) ? related.mined.viz : null,
+                recommendedDuration: (related.mined) ? related.mined.duration : null,
+                recommendedPubtime: (related.mined) ? related.mined.timeago : null,
+                recommendedForYou: related.foryou,
+                recommendedTitle: related.title,
+                recommendedAuthor: related.source,
+                recommendedVerified: related.verified,
+                recommendationOrder: related.index,
+                watchedId: evidence.id,
+                watchedAuthor: evidence.authorName,
+                watchedPubtime: evidence.related.vizstr,
+                watchedTitle: evidence.title,
+                watchedViews: evidence.viewInfo.viewStr ? evidence.viewInfo.viewStr : null,
+                watchedChannel: evidence.authorSource,
+
+
 ## Introduction
 
 The main URL to access the ytTrex API is:
