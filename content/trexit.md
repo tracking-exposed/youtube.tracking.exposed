@@ -1,83 +1,85 @@
 ---
-title: FIXC 
-subtitle: FIX
+title: "YouTube Tracking Exposed: Investigating Brexit polarization" 
+subtitle: "Workshop at the Digital Methods Winter School and Data Sprint 2020"
 date: 2020-02-22T15:01:21+01:00
 draft: false
-description: FIX
+description: "Winter School workshop's Final Report, extended version"
 
-og_title: "IXytTREX - how to use our data"
+og_title: "ytTREX - how to use our data"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/trexit"
-og_description: "FIX - FIX - FIX youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
+og_description: "Youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
 ---
 
-{{< colorblock text="YouTube Tracking Exposed: Investigating polarization via YouTube’s Recommender Systems" >}}
+{{< colorblock text="TREXIT: can we observe UK's news media polarization around Brexit?">}}
 
-{{< colorblock text="YouTube Tracking Exposed: Investigating polarization via YouTube’s Recommender Systems" color="secondary">}}
 
 ### Team Members
 
 Nina Altmaier, Davide Beraldo, Maria Castaldo, Daniel Jurg, Salvatore Romano, Matteo Renoldi, Tatiana Smirnova, Natacha Seweryn, Luukas Veivo
 
-## Summary of Key Findings
+### Summary of Key Findings
 
 1. There is evidence of progressive polarization of the recommendations around Brexit on YouTube, especially for Leave-inclined users.
 2. The Leave/Remain content bubbles, constituted respectively by The Sun/The Telegraph and The Guardian/The Mirror YouTube channels rarely converge.
 3. Mainstream media is recommended with greater regularity compared to natively digital channels.
 
-### Introduction 
+## 1) Introduction 
 
 Over the last few years, the creation of ‘filter-bubbles’ and the issue of algorithmic radicalization has sparked significant controversy within academia and privacy-focused collectives. In this literature, YouTube especially has come under scrutiny. In 2019, [Ribeiro et al.](https://www.google.com/url?q=https://arxiv.org/abs/1908.08313&sa=D&ust=1580319744818000) have sought to computationally verify the ‘anecdotal literature’ on the ‘radicalizing power’ of YouTube ’s Recommendation Systems (RSs). They argued that there is indeed empirical evidence to confirm the hypothesis that users navigate along with YouTube Recommendations. Contrary to this research, at the end of 2019, [Ledwich and Zaitsev](https://arxiv.org/abs/1912.11211&sa=D&ust=1580319744818000) claimed that the hypothesis of YouTube being a platform for algorithmic radicalization to be actually false. Instead, they highlighted how YouTube recommends a more mainstream type content to its users. In other words, blaming the algorithm for creating niche viewing behavior might be incorrect.
 
-The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ( [Feuer](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000)). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They [Ledwich and Zaitsev] reached their sweeping conclusion *without logging in…* ” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture” (10). While some scholars have suggested moving away from RSs ([Munger and Phillips](https://osf.io/73jys/)), it is still the case that YouTube’s algorithm accounts for 70 percent of videos watched on the platform ([Newton](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000)) and, therefore, is worth investigating.
+The aforementioned articles (and scholars) have also become the center of discussions on Twitter. Prominent journalists Zeynep Tufekci and Kevin Roose, as well as scholars, e.g. Becca Lewis and Arvind Narayan, writing on the topic of YouTube ’s algorithm have questioned the validity of the methods used to study RSs ( [Feuer](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744819000)). The main critique here is methodological, i.e. studies into RSs have relied on YouTube ’s official API, which, arguably, does not give an accurate representation of users’ actual experiences. As Narayan points out: “They (Ledwich and Zaitsev) reached their sweeping conclusion *without logging in…* ” (ibid.). Ribeiro et al. already pointed out that their “analysis does not take into account personalization, which could reveal a completely different picture”. While some scholars have suggested moving away from RSs ([Munger and Phillips](https://osf.io/73jys/)), it is still the case that YouTube’s algorithm accounts for 70 percent of videos watched on the platform ([Newton](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744820000)) and, therefore, is worth investigating.
 
 This Winter School project seeks to study algorithmic recommendation from a user perspective in an attempt to move towards post-API research. Specifically, empowered by [youtube.tracking.exposed](https://youtube.tracking.exposed)’s infrastructure, we have been able to highlight filter bubbles visually and statistically as a by-product of polarization dynamics. Taking Brexit as an emblem for a divisive issue, this project aims to map in which way the algorithm guides users through the enormous supply of Brexit videos and how this algorithmic guiding might polarize users interested in the topic coming from divergent political backgrounds.
 
-## Research Questions
+## 2) Research Questions
 
    * Do YouTube ’s recommendation systems enhance and potentially incentivise users’ polarization on a specific topic?
    * How might users experience Brexit polarization on YouTube?
 
-## Methodology
+## 3) Methodology
 
 The aim of this project was to try to understand the inner logic of YouTube ’s recommender algorithm by taking into account the videos recommended to different research personas. Crucially, we made use of the youtube.tracking.exposed tool which allows us - in contrast to YouTube ’s official API - to retrieve data about users’ personalized experience. This is possible as a result of the passive scraping performed by the browser extension on the videos’ pages.
 
-We conducted experiments on two separate topics and refined the methodology after the first experiment. Our initial research was focused on a controversy arising from the French YouTube -sphere concerning the following video [[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DQFRPci2wK2Y&sa=D&ust=1580319744821000][“]][[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DQFRPci2wK2Y&sa=D&ust=1580319744822000][French actress Adèle Haenel accuses filmmaker of 'sexual harassment' when a minor”]]. This was a video that sparked significant debate in France between feminists and more conservative-leaning groups. We performed four different tests, each time retrieving the recommendations given on the aforementioned video through the youtube.tracking.exposed web extension. For all the tests were started with a clean, cookie-free browser as a baseline setting and the “French (France)” language as a default to reduce the influence of system variables.
+We conducted experiments on two separate topics and refined the methodology after the first experiment. Our initial research was focused on a controversy arising from the French YouTube -sphere concerning the following video ["French actress Adèle Haenel accuses filmmaker of 'sexual harassment"](https://www.youtube.com/watch?v=QFRPci2wK2Y). This was a video that sparked significant debate in France between feminists and more conservative-leaning groups. We performed four different tests, each time retrieving the recommendations given on the aforementioned video through the youtube.tracking.exposed web extension. For all the tests were started with a clean, cookie-free browser as a baseline setting and the “French (France)” language as a default to reduce the influence of system variables.
 
-The following are the four different tests that we performed:
-
-<ol start='1'> <li>The video was accessed directly via the URL through a simple copy-paste.</li> <li>Half of the team accessed the video from a right-leaning website (Appendix 8.1) and the other half from a left-leaning website (Appendix 8.1).</li> <li>Half of the group watched five left-leaning videos on the topic (Appendix 8.1). The other half right-leaning videos (Appendix 8.1). Afterward all accessed the initial video through a copy-paste.</li> <li>Half of the group watched five left-leaning videos on the topic, while the other half right-leaning videos. Following this, the groups switched videos, watching the videos the other “side” had seen. Afterward all accessed the initial video.</li> </ol>
+The video was accessed directly via the URL through a simple copy-paste.
+Half of the team accessed the video from a right-leaning website and the other half from a left-leaning website (you can find the precise list of videos in the [Appendix 8.1](https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube)). 
+Half of the group watched five left-leaning videos on the topic. The other half right-leaning videos.
+Afterward all accessed the initial video through a copy-paste.
+Half of the group watched five left-leaning videos on the topic, while the other half right-leaning videos. Following this, the groups switched videos, watching the videos the other “side” had seen. Afterward all accessed the initial video.
 
 Data was then retrieved for all 4 scenarios to compare the recommendations given on the initial video.
 
-The second experiment was performed on the issue of Brexit. We chose four different British newspapers according to their political stances ([[https://www.google.com/url?q=https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers&sa=D&ust=1580319744823000][YouGov 2017]]). Then, we selected five videos for each of their respective YouTube channels. Again, we divided the team into two sub-groups. Each sub-group performed two tests, always starting from a clean, cookies-free browser with English (UK) as a language setting. Importantly, we also found what we regarded as a non-partisan video on Brexit (see Appendix 8.2) to access after watching the selected videos.
+The second experiment was performed on the issue of Brexit. We chose four different British newspapers according to their political stances ([YouGov 2017](https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers)). Then, we selected five videos for each of their respective YouTube channels. Again, we divided the team into two sub-groups. Each sub-group performed two tests, always starting from a clean, cookies-free browser with English (UK) as a language setting. Importantly, we also found what we regarded as a non-partisan video on Brexit (see Appendix 8.2) to access after watching the selected videos.
 
 1. Half of the group watched five videos from The Guardian. The other half watched five videos from The Sun. Afterward all accessed the ‘neutral’ video.
 2. Half of the group watched five videos from The Mirror. The other half watched five videos from The Telegraph. Afterward all accessed the ‘neutral’ video.
 
 We retrieved the information after each step across all scenarios.
 
-<div class="row">
-  <div class="col-sm-12">
-    <figure>
-        <img width="100%" src='/images/ytws20-method.png' title='image19.png' />
-    </figure>
-  </div>
-</div>
+{{< entry 
+    title="The following are the different tests that we performed:" 
+    text="Figure 1: Methodology for Data Collection " 
+    picture="/images/winter_met1.png" 
+    type="center" 
+    legend-image-url=""
+>}}
 
 
-Figure 1: Methodology for Data Collection
+{{< entry 
+    title="" 
+    text="Figure 2: Methodology for analysis of the finding" 
+    picture="/images/winter_met2.png" 
+    type="left" 
+    legend-image-url=""
+>}}
 
-<img alt='image18.png' height='500' src='%ATTACHURL%/image18.png' title='image18.png' width='750' />
-
-Figure 2: Methodology for analysis of the findings
-
-<h2 id='h.f4s13i8wnci'>3.1 Datasets</h2>
-
+### 3.2) Dataset
 The size and shape of our datasets have been defined by the functioning of the youtube.tracking.exposed web extension. This browser add-on is able to save and store the video that is being watched but also the metadata of the first twenty suggested videos that appear on the right side of the screen.
 
-<h2 id='h.1tqsd6hifhnw'>3.2 Qualitative Analysis</h2>
+### 3.3) Qualitative Analysis
 
 In order to ascertain what effect the partisan stance of each of the two ‘research personas’ constructed for the experiment had on the nature of the content recommended by Youtube, a subset of our group carried out qualitative research designed to map out the political position of each recommended channel from each of the scenarios listed above.
 
@@ -85,7 +87,8 @@ To carry out this task, a list of the recommended channels was retrieved from th
 
 For the main experiment concerning polarisation around Brexit, this data also formed the basis of two graphs we created using Tableau. The first was a set of 5 pie graphs conflated into one pane, each showing the absolute number of recommended channels subscribing to one of 4 political positions (Leave, Remain, neutral, or irrelevant) divided according to the type of media they represented (alternative media, government, influencer, mainstream media, other). In addition, to further elucidate the qualitative nature of and possible links between the content bubbles surrounding each of the 4 publications chosen for the experiment, the data we had retrieved was also used to create a word map of the top 10 keywords occurring in the titles of the first 20 recommended videos for each of the main channels.
 
-<h1 id='h.cqr2bmks7j2'>4. Findings</h1> <h2 id='h.mfisbablwuh'>4.1 Video Recommendations</h2>
+## 4) Findings 
+### 4.1) Video Recommendations
 
 <img alt='image17.png' height='400' src='%ATTACHURL%/image17.png' title='image17.png' width='700' />
 
@@ -95,7 +98,7 @@ We investigated the number of suggested videos shared by different users. In Fig
 
 Then, we focused on the number of suggested videos shared by Leave users (in yellow in Figure 3), i.e. users trained with videos coming from The Telegraph or The Sun channels, and Remain users (in blue in Figure 3), i.e. users trained with videos coming from The Guardian and The Daily Mirror. We investigated how this quantity changes over time, i.e. as the number of videos used to personalize profiles grows from 1 to 5. The result is a dynamic network graph presented by the following video.
 
-[[https://www.google.com/url?q=https://www.youtube.com/watch?v%3DEzkh7GqxP-M%26feature%3Dyoutu.be&sa=D&ust=1580319744827000][Video 1]]: Evolution of shared suggested videos within different user groups
+[Video 1](https://www.youtube.com/watch?v=Ezkh7GqxP-M&feature=youtu.be): Evolution of shared suggested videos within different user groups
 
 As shown by the video (Figure 4), the number of videos suggested to both Remain and Leave users seems to decrease as the personalization goes on. We decided to formally test this result by defining a measure of similarity between clusters as a measure of similarity between the suggestions proposed to Remain and Leave users and to test the availability of statistical evidence of the similarity decrease.
 
