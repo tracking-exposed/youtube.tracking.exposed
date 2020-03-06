@@ -370,11 +370,11 @@ function personalTimeseries() {
       data: {
         mimeType: 'json',
         xFormat: '%Y-%m-%d',
-        keys: { value : [ 'types', 'adverts', 'authors' ], x: 'dayStr' },
+        keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
         type: 'bar',
         labels: { show: true },
-        groups: [ [ 'types', 'adverts', 'authors'] ],
-        colors: { 'types': palette[1], 'adverts': palette[4], 'authors': palette[7] }
+        groups: [ [ 'videos', 'adverts', 'authors'] ],
+        colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
       },
       regions: [
          { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
@@ -384,7 +384,7 @@ function personalTimeseries() {
           type: 'timeseries',
           tick: {
             format: '%m-%d'
-          } 
+          }
         },
         padding: { left: 330 },
       },
@@ -399,23 +399,21 @@ function personalTimeseries() {
       },
       size: {
         height: 600,
+      },
+      grid: {
+        x: {
+          show: true,
+          lines: [
+            { value: new Date("2020-02-01"), text: 'Last week', position: 'end', class: 'last-week' },
+          ]
+        },
       }
     };
 
     $.getJSON(url, (data) => {
-
-        /*
-        const adNames =  _.compact(_.map(data, 'ad'));
-        console.log(adNames);
-        const titles =  _.compact(_.map(data, 'title'));
-        console.log(titles);
-        const final = _.concat(adNames, titles);
-        console.log(final);
-        config.axis.x.categories = final;
-        config.size.height = 40 * _.size(final);
-        */
-
-        config.data.json = data
+        console.log("Fetch data for personal timeline", data);
+        config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
+        config.data.json = data.aggregated;
         c3.generate(config);
     });
 }
