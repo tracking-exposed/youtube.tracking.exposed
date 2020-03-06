@@ -368,27 +368,35 @@ function personalTimeseries() {
     const config = {
       bindto: '#series',
       data: {
-           // mimeType: 'json',
-           // xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-           // keys: { value : [ 'veler' ], x: 'savingTime' },
-        keys: { value : [ 'veler' ], x: 'cat' },
-           //type: 'bar',
+        mimeType: 'json',
+        xFormat: '%Y-%m-%d',
+        keys: { value : [ 'types', 'adverts', 'authors' ], x: 'dayStr' },
+        type: 'bar',
         labels: { show: true },
-        type: 'scatter'
+        groups: [ [ 'types', 'adverts', 'authors'] ],
+        colors: { 'types': palette[1], 'adverts': palette[4], 'authors': palette[7] }
       },
+      regions: [
+         { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
+      ],
       axis: {
         x: {
-          type: 'category',
-          categories: ['a', 'b','c'],
-/*          type: 'timeseries',
+          type: 'timeseries',
           tick: {
-            format: '%d'
-          } */
+            format: '%m-%d'
+          } 
         },
         padding: { left: 330 },
-        rotated: true,
       },
-      legend: { show: true},
+      bar: {
+        width: {
+            ratio: 0.1
+        }
+      },
+      legend: { show: true },
+      tooltip: {
+          grouped: false,
+      },
       size: {
         height: 600,
       }
@@ -396,6 +404,7 @@ function personalTimeseries() {
 
     $.getJSON(url, (data) => {
 
+        /*
         const adNames =  _.compact(_.map(data, 'ad'));
         console.log(adNames);
         const titles =  _.compact(_.map(data, 'title'));
@@ -404,14 +413,9 @@ function personalTimeseries() {
         console.log(final);
         config.axis.x.categories = final;
         config.size.height = 40 * _.size(final);
+        */
 
-        config.data.json = _.map(data, function(e) {
-            e.savingTime = new Date(e.savingTime);
-            e.cat = !e.ad ? e.title : e.ad;
-            e.cat = "ΦΦΦΦ";
-            return e;
-        });
+        config.data.json = data
         c3.generate(config);
-        //d3.
     });
 }

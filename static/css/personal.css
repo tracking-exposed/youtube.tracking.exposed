@@ -12,3 +12,7 @@
     margin: 3px;
     word-break: keep-all;
 }
+
+.last-week {
+    background-color: aqua;
+}
