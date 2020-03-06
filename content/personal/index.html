@@ -12,6 +12,13 @@ type: app
 
     <section>
         <div class="mb-11">
+            <p>Recent actions recorded:</p>
+            <div id="series"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="mb-11">
             <p id="total-evidence" class="mb-2"></p>
             <nav id="pagination" aria-label="navigation" class="mb-4">
                 <ul class="pagination centered"></ul>
@@ -27,13 +34,13 @@ type: app
             <div class="chart2"></div>
         </div> 
         <div class="col-12" style="display:inline-block">
-            <p>Recommended videos count by producer</p>
+            <p>Recommended videos count by producer:</p>
             <div class="chart3"></div>
-            <span id="recommended-once-title">Recommended once: </span>
+            <span id="recommended-once-title">Recommended once:<br> </span>
             <span class="recommended-once"></span>
         </div>
     </section>
-    </br>
+
     <section>
 
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
@@ -168,6 +175,7 @@ type: app
     $( document ).ready(function() {
         $("#description").val("");
         personal();
+        personalTimeseries();
     });
 
 </script>

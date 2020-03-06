@@ -359,3 +359,61 @@ function showPassword(status) {
     if( status == 'private') $('#group-password-wrapper').show();
     else $('#group-password-wrapper').hide();
 }
+
+function personalTimeseries() {
+    // timeserises is the c3 name, timeline the generic API name
+    // supports paging if become too heavy!
+    const pk = getPubKey();
+    const url = buildApiUrl('personal', pk + '/timeline');
+    const config = {
+      bindto: '#series',
+      data: {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%d',
+        keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
+        type: 'bar',
+        labels: { show: true },
+        groups: [ [ 'videos', 'adverts', 'authors'] ],
+        colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
+      },
+      regions: [
+         { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
+      ],
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: '%m-%d'
+          }
+        },
+        padding: { left: 330 },
+      },
+      bar: {
+        width: {
+            ratio: 0.1
+        }
+      },
+      legend: { show: true },
+      tooltip: {
+          grouped: false,
+      },
+      size: {
+        height: 600,
+      },
+      grid: {
+        x: {
+          show: true,
+          lines: [
+            { value: new Date("2020-02-01"), text: 'Last week', position: 'end', class: 'last-week' },
+          ]
+        },
+      }
+    };
+
+    $.getJSON(url, (data) => {
+        console.log("Fetch data for personal timeline", data);
+        config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
+        config.data.json = data.aggregated;
+        c3.generate(config);
+    });
+}
