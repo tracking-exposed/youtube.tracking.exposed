@@ -1,3 +1,7 @@
+li, p, div {
+    font-size: 1.1em !important;
+}
+
 .counter {
     padding-right: 10px;
     padding-left: 10px;
@@ -11,4 +15,22 @@
     margin: 1px;
     padding: 1px;
     border-radius: 5px;
+}
+
+.upside {
+    background-color:#d5f5d5;
+    padding: 2px;
+    border-radius: 5px;
+    border: solid 2px rgb(19, 248, 57);
+}
+
+.downside {
+    background-color: #ffdede;
+    padding: 2px;
+    border-radius: 5px;
+    border: solid 2px #f9b3b3;
+}
+
+.larger {
+    font-size: 1.6em;
 }
