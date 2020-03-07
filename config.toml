@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "en-us"
+languageCode = "utf-8"
 title = "YouTube Tracking Exposed"
 theme = "trex"
 enableRobotsTXT = true
@@ -17,79 +17,57 @@ canonifyURLs = true
 
 [menu]
  [[menu.main]]
-    page = "first results"
-    identifier = "first-results"
     name = "First results"
     url = "/results/"
     weight = -170
  [[menu.main]]
-    page = "About"
-    identifier = "about"
     name = "About"
     url = "/about/"
     weight = -110
 
  [[menu.main]]
-    page = "More"
-    identifier = "more"
     name = "More"
     url = "#"
     weight = -100
  [[menu.main]]
-    page = "API Documentation"
-    identifier = "api-documentation"
-    parent = "more"
+    parent = "More"
     name = "API Documentation"
     url = "/api-documentation/"
     weight = -130
  [[menu.main]]
-    page = "Get Involved"
-    identifier = "get-involved"
     name = "Get Involved"
-    parent = "more"
+    parent = "More"
     url = "/get-involved/"
     weight = -140
  [[menu.main]]
-    page = "What We Collect, how does it work"
-    identifier = "what-we-collect"
     name = "What We Collect"
-    parent = "more"
+    parent = "More"
     url = "/what-we-collect/"
     weight = -150
  [[menu.main]]
-    page = "Impact"
-    identifier = "impact"
     name = "Impact"
-    parent = "more"
+    parent = "More"
     url = "/impact/"
     weight = -160
  [[menu.main]]
-    page = "Youtuber Labor union"
-    identifier = "SeeYou"
-    parent = "more"
+    parent = "More"
     name = "(concept) Youtuber Labor union"
     url = "/seeyou/"
     weight = -170
 
  [[menu.featured]]
-    page = "compare"
-    identifier = "compare"
     name = "Compare"
     url = "/compare/"
     weight = -180
     pre = "/images/Icons-home-page_Compare.svg"
     post = "Compare how a video gets different reccomendations"
  [[menu.featured]]
-    page = "related"
-    identifier = "related"
-    name= "Related"
-    url = "/related/"
+    name= "weTEST #1 - 15 March 2020"
+    url = "/wetest/1"
     pre = "/images/Icons-home-page_Related.svg"
-    post = "Search if a video has ever been recommended by YouTube"
+    post = "We are coordinating the first global observation of the Youtube personalization algorithm. Join us!"
     weight = -170
  [[menu.featured]]
-    page = "data"
-    identifier = "data"
     name = "Play with data"
     url = "/data/"
     pre = "/images/Icons-home-page_Play%20with%20Data.svg"
@@ -97,20 +75,14 @@ canonifyURLs = true
     weight = -160
 
  [[menu.footer]]
-    page = "Project analysis"
-    identifier = "initial-analysis"
     name = "Project analysis"
     url = "/initial-analysis/"
     weight = 100
  [[menu.footer]]
-    page = "Tracking Exposed"
-    identifier = "trex"
     name = "Umbrella project: Tracking Exposed"
     url = "https://tracking.exposed"
     weight = 90
  [[menu.footer]]
-    page = "ALEX"
-    identifier = "alex"
     name = "Sponsoring project: Algorithms Exposed"
     url = "https://algorithms.exposed"
     weight = 80
