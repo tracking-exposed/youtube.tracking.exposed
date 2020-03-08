@@ -1,4 +1,13 @@
-## CSV format
+## CSV is the most knonw format for basic data analysis. We offer three kinds of CSV
+
+1. The *personal* CSV, by [using the browser extension](/preview), you can collect evidenced of personalization, and download them. 
+  * *personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
+  * *personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
+2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
+
+#### PersonalVideo CSV
+#### PersonalHome CSV
+#### Compare CSV
 
                 recommendedVideoId: related.videoId,
                 recommendedViews: (related.mined) ? related.mined.viz : null,
@@ -17,13 +26,15 @@
                 watchedChannel: evidence.authorSource,
 
 
-## Introduction
+## API Introduction
 
-The main URL to access the ytTrex API is:
-`https://youtube.tracking.exposed/api/`.
+The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/`.
 
-<br>`userToken` is an unique identifier for you Facebook user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.<br><br>
-`videoToken` is the identifier used for each video by Youtube. You can retrieve it by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.<br><br>
+
+`userToken` is an unique identifier for you YoutubeTrackingExposed user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.
+
+`videoId` is the identifier used for each video by Youtube. You can retrieve it by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.
+
 `Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
 
 There are two fundamental `data units` through which entries (video observations) are shared: _video metadata_ and _related videos_.
@@ -41,57 +52,57 @@ In _related videos_, the unit is a suggested video, when the data is served in C
   </tr>
   <tr>
     <td>Personal</td>
-    <td><a href=#personal>link</a></td>
+    <td><a href=#personal>see details</a></td>
     <td>/v1/personal/$userToken/$paging</td>
   </tr>
     <tr>
     <td>Personal Related</td>
-    <td><a href=#personalrelated>link</a></td>
+    <td><a href=#personalrelated>see details</a></td>
     <td>/v1/personal/$userToken/related/$paging</td>
   </tr>
   <tr>
     <td>Personal CSV</td>
-    <td><a href=#personalcsv>link</a></td>
+    <td><a href=#personalcsv>see details</a></td>
     <td>/v1/personal/$userToken/csv</td>
   </tr>
   <tr>
     <td>Research</td>
-    <td><a href=#research>link</a></td>
+    <td><a href=#research>see details</a></td>
     <td>/v1/research/$researchToken</td>
   </tr>
   <tr>
     <td>VideoId</td>
-    <td><a href=#videoid>link</a></td>
+    <td><a href=#videoid>see details</a></td>
     <td>/v1/videoId/$videoToken</td>
   </tr>
   <tr>
     <td>VideoId Related</td>
-    <td><a href=#related>link</a></td>
+    <td><a href=#related>see details</a></td>
     <td>/v1/related/$videoToken</td>
   </tr>
   <tr>
     <td>VideoId Csv</td>
-    <td><a href=#videocsv>link</a></td>
+    <td><a href=#videocsv>see details</a></td>
     <td>/v1/videoCSV/$videoToken/$paging</td>
   </tr>
   <tr>
     <td>Statistics</td>
-    <td><a href=#stats>link</a></td>
+    <td><a href=#stats>see details</a></td>
     <td>/v2/statistics</td>
   </tr>
   <tr>
     <td>Last</td>
-    <td><a href=#last>link</a></td>
+    <td><a href=#last>see details</a></td>
     <td>/v1/last</td>
   </tr>
   <tr>
     <td>Author</td>
-    <td><a href=#author>link</a></td>
+    <td><a href=#author>see details</a></td>
     <td>/v1/author/John%20Malecki</td>
   </tr>
     <tr>
     <td>HTML ID</td>
-    <td><a href=#htmlid>link</a></td>
+    <td><a href=#htmlid>see details</a></td>
     <td>/v1/htmlId/$id</td>
   </tr>
 </table>

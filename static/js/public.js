@@ -6,7 +6,7 @@ function initAuthor() {
     const videoId = window.location.href.split('/#').pop();
     if(_.size(videoId) < 6) {
         const nope = `<h3 class="text-center">Error: URL should contain a valid-look-alike YouTube VideoId</h3>`;
-        $("#notes").html(nope);
+        $("#error").html(nope);
         $("#boring").hide();
         return console.log("error N#1 (validation)");
     }
@@ -17,17 +17,8 @@ function initAuthor() {
     $.getJSON(url, function (results) {
 
         if (_.size(results) === 0) {
-            const nope = `
-                <h3 class="text-center">Nope, a video with such id has been never found among the evidence collected</h3>
-                <p class="text-center">
-                    Check if is a 
-                    <a href="https://youtube.com/watch?v=${videoId}">
-                        valid video
-                    </a>
-                </p>
-            `;
-            $("#notes").html(nope);
-            return console.log("error N#2 (API)");
+            console.log("error N#2 (API)");
+            return invalidVideoId(videoId);
         }
 
         /* if we reach here: good! we've data and now the page will be populated */
@@ -72,19 +63,17 @@ function appendCard(targetId, video) {
     $("#" + computedId).removeAttr('hidden');
 }
 
-function invalidVideoId(relatedId) {
+function invalidVideoId(relatedId, additionalInfo) {
+    const msg = additionalInfo || "This video has not been watched by someone with ytTREX extension";
     const nope = `
-        <h3 class="text-center">Nope, this video has been never found among the recommented videos</h3>
+        <h3 class="text-center">Nope, ${msg}</h3>
         <p class="text-center">
             Check if 
             <a href="https://youtube.com/watch?v=${relatedId}">
-                is a valid video
-            </a>
-            <br />
-            (maybe, this video was never observed as part of the <i>recommended</i>)
+                is a valid video</a>.
         </p>
     `;
-    $("#notes").append(nope);
+    $("#error").append(nope);
 }
 
 function buildCardsFromLast(containerId) {
@@ -95,7 +84,7 @@ function buildCardsFromLast(containerId) {
         _.each(results.content, function(video, i) {
             console.log(video);
             const appended =`
-                    <a href="/compare/#${video.videoId}">
+                    <a class="linked" href="/compare/#${video.videoId}">
                         ${video.title}
                     </a>
                     <smaller>
@@ -103,6 +92,11 @@ function buildCardsFromLast(containerId) {
                     </smaller>
                 <br/>`;
             $(containerId).append(appended);
+        });
+        $(".linked").click(function(e) {
+            let x = $(this).attr('href');
+            window.location.href = x;
+            window.location.reload();
         });
     });
 }
@@ -122,7 +116,7 @@ function initRelated() {
                 Because you didn't pick any video, we select four random and recent videos to let you try this tool.
             </p>
             </div>`;
-        $("#notes").append(nope);
+        $("#error").append(nope);
         buildCardsFromLast("#recent");
         $("#ifRandomVideos").show();
         return;
@@ -131,7 +125,7 @@ function initRelated() {
     const url = buildApiUrl('related', relatedId);
     $.getJSON(url, function (results) {
         if (_.size(results) === 0)
-            return invalidVideoId(relatedId);
+            return invalidVideoId(relatedId, "This video never looks to be a 'related' content in any observation.");
 
         const target = _.find(results[0].related, {videoId: relatedId});
         if(!target)
@@ -144,14 +138,19 @@ function initRelated() {
                 </h3>
                 <p class="strong">
                     ${_.size(results)} videos linked to this
-                    <a class="notclassiclink" href="/compare/#${relatedId}">compare</a>
+                    <a class="notclassiclink" href="/compare/#${relatedId}">Compare</a>
                 </p>
             </div>
         `;
         $('#related').append(hdr);
 
+        $(".notclassiclink").click(function(e) {
+            let x = $(this).attr('href');
+            window.location.href = x;
+            window.location.reload();
+        });
         _.each(results, function (watched) {
-            const index = _.find(watched.related, {videoId: relatedId}).index;
+            const match = _.find(watched.related, {videoId: relatedId});
             let videoEntry = `
                 <tr id="${watched.videoId}" class="step">
 
@@ -163,10 +162,10 @@ function initRelated() {
                            ${watched.authorName}
                         </td>
                         <td class="foryou">
-                           ${watched.foryou}
+                           ${match.foryou}
                         </td>
                         <td class="position">
-                           ${index}
+                           ${match.index}
                         </td>
                         <td>
                             ${watched.timeago} ago
@@ -217,16 +216,9 @@ function initCompare() {
 
     const url = buildApiUrl('videoId', compareId);
     $.getJSON(url, function (results) {
-        if (_.size(results) == 0) {
-            const nope = `
-                <h3 class="text-center">Nope, this video has never been watched by someone with ytTREX extension</h3>
-                <p class="text-center">
-                  Check if is a 
-                  <a href="https://youtube.com/watch?v=${compareId}">valid video</a>.
-                </p>`;
-            $("#error").append(nope);
-            return;
-        }
+        if (_.size(results) == 0)
+            return invalidVideoId(relatedId);
+
         const allrelated = _.flatten(_.map(results, 'related'));
         const csvVideoURL = buildApiUrl("videoCSV", results[0].videoId);
 
@@ -281,8 +273,9 @@ function initCompare() {
                 <tr id="${relatedVideo.videoId}" class="step">
                      <td class="video">
                          ${relatedVideo.title}<br />
-                         <a class="linked" href="/related/#${relatedVideo.videoId}">See related</a> |
-                         <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">See video</a>
+                         <a class="linked" href="/related/#${relatedVideo.videoId}">Related</a> |
+                         <a class="linked" href="/compare/#${relatedVideo.videoId}">Compare</a> |
+                         <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">Video</a>
                     </td>
                     <td class="author">
                         ${relatedVideo.source}
@@ -294,16 +287,22 @@ function initCompare() {
             `;
             tableBodyElement.append(videoEntry);
         });
+        $(".linked").click(function(e) {
+            let x = $(this).attr('href');
+            window.location.href = x;
+            window.location.reload();
+        });
     });
 
 }
 
 function unfoldRelated(memo, e) {
+    // this function is not called?
     let add = `
         <small class="related">
             <b>${e.index}</b>:
             <span>${e.title}</span>
-            <a href="/related/#${e.videoId}">See related</a> |
+            <a class="linked" href="/related/#${e.videoId}">See related</a> |
             <a target=_blank href="https://www.youtube.com/watch?v=${e.videoId}">See video</a>
         </small><br />
     `;

@@ -14,7 +14,7 @@ This project belong to [ALEX](https://algorithms.exposed) research initiative.
 
 _coordination and technical development by_ Claudio Agosti,
 _review and revision by_ Barbara Gianessi,
-_outreach and analysis_ Salvatore Romano,
+_outreach and analysis_ Salvatore Romano, Giulia Corona, Matteo Renoldi, 
 _graphic and analysis_ Laura Swietlicki.
 
 ## When
@@ -23,9 +23,10 @@ The 1st of July 2018 the first commit on the [github repository](https://github.
 first lesson: *your partner might have difficulties in implementing methodologies*. In 2019:
 
   * With the Italian Pirate Party, we elaborate a way to address the current issue felt by the [YouTuber's community](/seeyou).
-  * In a Summer School from University of Amsterdam, we finally coordinate [our first test](/results).
+  * In University of Amsterdam Summer School 2019, we finally coordinate [our first test](/results).
+  * In University of Amsterdam Winter School 2020, we tested a [new method](/trexit).
 
-And around the end of October 2019 we had enough stable functionality to release our stable beta version.
+And around the end of October 2019 we had enough stable functionality to release our stable beta version, in March 2020 we'll release our first [public appearance with weTEST#1](/wetest/1).
 
 ## Where
 

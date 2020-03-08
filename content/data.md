@@ -6,11 +6,11 @@ draft: false
 description: methodology, experiments, tools, data format and public datasets
 extraCSS: "/css/author.css"
 
-og_title: "ytTREX - how to use our data"
+og_title: "How to use ytTREX data"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/data"
-og_description: "youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
+og_description: "youtube.tracking.exposed offert API for researchers and a few methodology tips."
 ---
 
 {{<colorblock text="Methodologies">}}
