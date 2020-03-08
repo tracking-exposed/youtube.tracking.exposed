@@ -5,8 +5,7 @@ function initAuthor() {
 
     const videoId = window.location.href.split('/#').pop();
     if(_.size(videoId) < 6) {
-        const nope = `<h3 class="text-center">Error: URL should contain a valid-look-alike YouTube VideoId</h3>`;
-        $("#error").html(nope);
+        invalidVideoId(videoId, "URL should contain a valid-look-alike YouTube VideoId");
         $("#boring").hide();
         return console.log("error N#1 (validation)");
     }
@@ -63,16 +62,16 @@ function appendCard(targetId, video) {
     $("#" + computedId).removeAttr('hidden');
 }
 
-function invalidVideoId(relatedId, additionalInfo) {
+function invalidVideoId(videoId, additionalInfo) {
     const msg = additionalInfo || "This video has not been watched by someone with ytTREX extension";
     const nope = `
         <h3 class="text-center">Nope, ${msg}</h3>
-        <p class="text-center">
-            Check if 
-            <a href="https://youtube.com/watch?v=${relatedId}">
-                is a valid video</a>.
-        </p>
+        <p class="text-center">${courtesy}</p>
     `;
+    const courtesy = videoId ?
+        `Check if <a href="https://youtube.com/watch?v=${videoId}">is a valid video</a>.`
+        : "";
+
     $("#error").append(nope);
 }
 
@@ -103,20 +102,12 @@ function buildCardsFromLast(containerId) {
 
 function initRelated() {
     let relatedId = null;
-    if(_.size(window.location.href.split('/#')) == 2) {
+
+    if(_.size(window.location.href.split('/#')) == 2)
         relatedId = window.location.href.split('/#').pop();
-    }
 
     if(!relatedId) {
-        const nope = `
-            <div class="text-center error">
-            <p>
-                This functionality allow you to query a videoId and watch were it was recommented as a related content.
-                <br />
-                Because you didn't pick any video, we select four random and recent videos to let you try this tool.
-            </p>
-            </div>`;
-        $("#error").append(nope);
+        invalidVideoId(null, "The URL hasn't a videoId; It is necessary, please take a recent one below."),
         buildCardsFromLast("#recent");
         $("#ifRandomVideos").show();
         return;
@@ -129,7 +120,7 @@ function initRelated() {
 
         const target = _.find(results[0].related, {videoId: relatedId});
         if(!target)
-            return invalidVideoId(relatedId);
+            return invalidVideoId(relatedId, "Invalid data found in the database, please alert developers.");
 
         const hdr = `
             <div class="text-center protagonist">
@@ -202,13 +193,7 @@ function initCompare() {
 
     if(_.isNull(compareId)) {
         console.log("Not found any ID (returning without action) rif:", window.location.href);
-        const nope = `
-            <div class="error">
-                <h3 class="text-center"> — No video requested —
-                </h3>
-            </div>
-        `;
-        $("#error").append(nope);
+        invalidVideoId(null, "— No video requested —");
         buildCardsFromLast("#recent");
         $("#ifRandomVideos").show();
         return;
