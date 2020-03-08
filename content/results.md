@@ -22,7 +22,6 @@ Our goal was to **compare the 20 related videos** for different profiles and obs
     legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
 >}}
 
-
 The percentage of "For you" recommendations grows when we switch from the "clean" browser to our personal accounts logged browser, which has more data on us to make decisions. In this case we have some explicitly “for you” related videos in the clean browser (7% in yellow): the percentage grows when watching the same video with more personalized browser. The video used for this test was: “cutest cat compilation”.
 
 **Expected results**: The browsers logged in the _Youtube account_ inherits years of behavioral surveillance. We correctly expect a higher amount of yellow dots (explicitly personalized) and a larger number of dots (more diversity).
@@ -36,8 +35,6 @@ The percentage of "For you" recommendations grows when we switch from the "clean
     type="left"
     legend-image-url="/images/yt-results/fixed-legend-1,2.svg"
 >}}
-
-
 
 Moving to the second part of the experiment - watching a political video - the differences between the clean and the personal browser set up were much more evident.
 In this case we had no “for you” videos at all. It seems that Youtube doesn’t want to suggest anything on this sensitive issue (perhaps to make sure they do not make mistakes).
@@ -99,7 +96,6 @@ We already know, by the admission of the developers, that the time watched per p
 
 {{<halfentry title="Warning: personalization works differently for each one of us" content="we should be ready, as a society, to observe and think about how algorithms have an impact on our lives. You shouldn't relay on an expert report, but figure how things affects us in first person." picture="/images/yt-results/6-or-9.jpg" type="right" >}}
 
-
 {{<colorblock text="What make us unique" color="primary">}}
 
 ### By installing our browser extension, you'll do passive scraping of your personalized experience. The collected evidence can be used by you and you decide what, when, and if you want to share those results.
@@ -126,8 +122,6 @@ We already know, by the admission of the developers, that the time watched per p
     type="left" 
     legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
 >}}
-
-
 
 Each violet bubble in the center represents one of the video suggested. They are few, but share many links, because most of the suggestions are the same among all the observers.
 This is a starting condition: how users gets treated when Google doesn't know anything about a profile. Of course, they always know something (location of the connection, operating system model, default language, browser version). We tried to reduce these differences, to have something similar to a *non-personalized* algorithm stage.
