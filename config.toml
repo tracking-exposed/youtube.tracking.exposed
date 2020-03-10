@@ -51,11 +51,11 @@ canonifyURLs = true
     weight = 170
 
  [[menu.featured]]
-    name = "Compare"
-    url = "/compare/"
+    name = "How it works"
+    url = "/preview"
     weight = -180
     pre = "/images/compare.svg"
-    post = "Compare how a video gets different reccomendations"
+    post = "Installation, functionalities, and offered services"
  [[menu.featured]]
     name= "weTEST#1 ― 15 March 2020"
     url = "/wetest/1"
