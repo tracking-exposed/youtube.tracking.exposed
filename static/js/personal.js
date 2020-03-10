@@ -131,6 +131,7 @@ function updateProfileInfo(profile) {
     $('#accessToken').text(publicKey);
     $('#lastActivityFormatted').text(lastActivityFormatted);
     $('#user-name').text(userName);
+    $('#hereSince').text(profile.hereSince);
 
     if (profile.tag && profile.tag.name) {
         $("#tag-name").text(profile.tag.name);
