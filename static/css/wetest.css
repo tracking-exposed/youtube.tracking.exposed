@@ -14,3 +14,9 @@
 ol {
     margin: 1.6em;
 }
+
+.imgtile {
+    border: 10px;
+    box-shadow: 1px 3px 3px 3px #888888;
+    margin: 1%;
+}

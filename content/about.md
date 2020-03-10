@@ -30,5 +30,7 @@ And around the end of October 2019 we had enough stable functionality to release
 
 ## Where
 
-Join our [mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed), we are guest of [securitywithoutborders](https://securitywithoutborders.org).
-Or even, follow our (poorly maintained, non primary resource) Facebook page [Personalization Algorithms](https://www.facebook.com/personalizationalgorithm).
+* Join our [mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed), we are guest of [securitywithoutborders](https://securitywithoutborders.org).
+* Or follow our (poorly maintained, non primary resource) Facebook page [Personalization Algorithms](https://www.facebook.com/personalizationalgorithm).
+* We've also Twitter [[@trackingexposed](https://twitter.com/trackingexposed)], and Fediverse [[@trex@nebbia.fail]]
+* If anywant of you wants to work on a youtube channels, for experiment

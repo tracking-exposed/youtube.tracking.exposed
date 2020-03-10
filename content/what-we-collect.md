@@ -14,9 +14,9 @@ og_description: "this is the privacy statement, data processing and consent for 
 
 1. It creates cryptographic key pairs. It is the method to ensure you can access your data, and only you can mark the data received as “yours.” It is necessary because we don’t have an email address, Google profile, or YouTube username. Your official identification method is not linked to our data at all. This work for every human or bot opening youtube.com website. Every browser extension installed has a different and unique cryptographic key.
 
-2. It copies the HTML of every youtube.com video page once YouTube has completed to send the suggested videos. The HTML is sent to the tracking.exposed server, hosted in Germany and administrated by the [tech leader of our group](/about).
+2. It copies the HTML of every youtube.com video page once YouTube has completed to send the suggested videos. The HTML is sent to the tracking.exposed server, hosted in Germany and administrated by the [technical staff of our team](/about).
 
-**Technical detail**: the extension cryptographically signs the HTML you send, with your public key. We differentiate *supporters* through the public key they are using, and you can create a new key, download, or import a key when you want.
+**Technical detail**: the extension cryptographically signs the HTML you send, with your public key. We differentiate *supporters* through the public key they are using, and you can create a new key, download, or import a key when you want. Each time a new supporter show up [you'll see it in the first graph](/impact)
 
 ## Which data we receive and save
 
@@ -180,7 +180,7 @@ This method has a problem: the three points above are not enough for producing 1
 1. A third party proposes a research question and a logic in pseudo-code
 2. We implement the functionality and don't release it to the public, we only produce a small sample of data.
 3. We help the third party in writing their privacy assessment.
-3. The proposal (1), our experimental result (2) and the P.A. (3) are assessed by a team of independent reviewers.
+4. The proposal (1), our experimental result (2) and the P.A. (3) are assessed by a team of independent reviewers.
 
 At the moment, this is not yet happening. We are only experimenting with producing aggregated queries with privacy-preserving capabilities. When external researchers had access to a selected portion of the dataset, they signed an agreement with us which requires them to:
 
@@ -191,12 +191,18 @@ At the moment, this is not yet happening. We are only experimenting with produci
 * Share the data with third parties only prior the discloser's consent;
 * Remove the data from the recipient's storage devices after the end of the project.
 
-#### "Public only" approaches
+#### How we (and other researcher) release data
 
 In case a research abides the following methodology:
 
-1) researchers are using profiles under their control
-2) the profiles only follow content of known public interests (political figures, mainstream media)
-3) we are sure no content of private individuals might be part of the dataset
+1. Researchers must use profiles under their control.
+2. The profiles should investigate on activities of clear public interests (political figures, mainstream media)
 
-then the researchers might decide to publish their collected data as a method to let others replicate and validate the research. Few cases like these are registered so far, such as in the context of Facebook algorithm analysis, as documented in [the invisible curation of content](https://webfoundation.org/research/the-invisible-curation-of-content-facebooks-news-feed-and-our-information-diets/), or the report [Italian political election and digital propaganda](https://ourdataourselves.tacticaltech.org/posts/overview-italy/), has data released in a [repository](https://github.com/tracking-exposed/experiments-data/tree/master/e18).
+A researchers might decide to publish their collected data as a method to let others replicate and validate the research. 
+Few cases like these are registered so far, such as in the context of Facebook algorithm analysis, as documented in [the invisible curation of content](https://webfoundation.org/research/the-invisible-curation-of-content-facebooks-news-feed-and-our-information-diets/), or the report [Italian political election and digital propaganda](https://ourdataourselves.tacticaltech.org/posts/overview-italy/), has data released in a [repository](https://github.com/tracking-exposed/experiments-data/tree/master/e18).
+
+The *collaborative test* like [poTEST#1](https://pornhub.tracking.exposed/potest/final-1), or [weTEST#1](/wetest/1) **fail to comply with point n.1 above**, we release the data because:
+
+1. the pseudonym released as part of the test is different from the one associated to the profile. It can't be correlated. It is possible, among the 'related content', **YouTube likely recommend something related to individual previous activities**. It is possible exist a content so personal to link uniquely an individual, and thus de-anonymize a subject or an interest of a subject? what this might lead at? 
+2. **ATTENTION**: we can't outline a general rule and we should evaluate to do a data protection impact assessment in every different case. It is good, in the test, to do the experiment with a browser logged off, cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest [Brave](https://brave.com)
+    * We express worry on the centralization of power in the hand of Google Chrome, upon Brave and Edge runs. We already suffered a few takedown of our extension(s).

@@ -59,18 +59,18 @@ canonifyURLs = true
     name = "Compare"
     url = "/compare/"
     weight = -180
-    pre = "/images/Icons-home-page_Compare.svg"
+    pre = "/images/compare.svg"
     post = "Compare how a video gets different reccomendations"
  [[menu.featured]]
     name= "weTEST #1 - 15 March 2020"
     url = "/wetest/1"
-    pre = "/images/Icons-home-page_Related.svg"
+    pre = "/images/related.svg"
     post = "We are coordinating the first global observation of the Youtube personalization algorithm. Join us!"
     weight = -170
  [[menu.featured]]
     name = "Play with data"
     url = "/data/"
-    pre = "/images/Icons-home-page_Play%20with%20Data.svg"
+    pre = "/images/data.svg"
     post = "The lastest videos we have collected with our monitoring tools"
     weight = -160
 

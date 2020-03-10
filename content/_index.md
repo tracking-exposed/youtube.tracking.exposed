@@ -9,19 +9,30 @@ layout: home
 
 ---
 
-### 2020 Work in progress
-
-* The year we have begun, we saw a debate and articles on academic research using API or non-logged profiles. We were happy because, finally, someone acknowledges that you can't investigate algorithms without a passive scraper, which is precisely what we do, and we hope to be used by researchers.
-* Keep improving visualization in personal page.
-* We already collect advertising information, but we don't display they yet!
-* Compare video from the same [Author](/author).
-* Support automatic testing 
-* The first collaborative test is coming! Inspired by [the first collective observation of PornHub algorithm](https://pornhub.tracking.exposed/potest/final-1).
-
-### 2019 Completed components
-
-* Working browser extension capable of copying the YouTube pages: [Chrome store,](https://chrome.google.com/webstore/detail/yttrex/kbbgjcgdcibilpahljnlejefcehbljnd) and [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/yttrex/).
-* Release a simple API without any interface, to let researchers and developers experiment with the tool, check our [API documentation](/api-documentation).
-* Released a page with a summary of our [first experiments](/results),
-* Give control: a supported can create private group, tag their contributions, and remove any evidence they don't want to preserve.
-* [Public stats](/impact).
+<div class="row container">
+    <div class="col-4">
+        <h5>Analysis and findings</h5>
+        {{<researchCard text="sa sa sa" title="Compare and Guess"
+        text="One week research with a dozen of students. We begin to map Youtube personalization algorithm" href="/results" picture="/images/compare.jpeg">}}
+        {{<researchCard text="sa sa so" title="fi fo fo" href="/trexit" >}}
+    </div>
+    <div class="col-8">
+        <h5>2020 Work in progress</h5>
+        <ul>
+            <li> The year begun with heated debate and articles on academic research using API or non-logged profiles. <b>We were happy!</b> because, someone acknowledges that you can't investigate algorithms without a passive scraper, which is precisely what we do, and we hope to be used by researchers.</li>
+            <li>Keep improving visualization in personal page.</li>
+            <li>Compare video from the same <a href="/author">Author</a>.</li>
+            <li>The first collaborative test is happening! <a href="/wetest/1">wetest#1</a>, inspired by <a href="https://pornhub.tracking.exposed/potest/final-1">
+                the first collective observation of PornHub algorithm
+                </a>
+            </li>
+        </ul>
+        <h5>2019 Completed components</h5>
+        <ul>
+            <li>Released working browser extension, good enough for researchers and running workshops.</li>
+            <li>Released a page with a summary of our <a href="/results">first experiments</a>.</li>
+            <li><b>Give control to researchers and individuals</b>: a supported can tag their contributions, and remove any evidence they don't want to preserve. Download data <a href="/api-documentation/">in CSV format or via API</a>.</li>
+            <li><a href="/impact">Public stats</a>.</li>
+        </ul>
+    </div>
+</div>
