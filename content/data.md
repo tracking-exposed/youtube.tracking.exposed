@@ -53,7 +53,7 @@ On the table below, we summarize the different approaches and the _qualities of 
         <ol>
           <li class="upside" >Control of most of the variables</li>
           <li class="upside">Research can try to isolate a variable and infer insights on personalization algorithm.</li>
-          <li class="downside">No representative of anything.</li>
+          <li class="downside">of reality.</li>
           <li class="downside">Social Media Platforms tend to hunt and limit actions from automatized accounts.</li>
         </ol>
       </td>
