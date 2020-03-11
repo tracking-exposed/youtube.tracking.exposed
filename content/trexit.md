@@ -5,11 +5,11 @@ date: 2020-02-22T15:01:21+01:00
 draft: false
 description: "Winter School workshop's Final Report, extended version"
 
-og_title: "ytTREX - how to use our data"
+og_title: "TREXIT - Winter School focus group on youtube+brexit"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/trexit"
-og_description: "Youtube.tracking.exposed provides API for researchers, here you can see what and how you can use them"
+og_description: "A group of researcher using our tool to investigate in personalization algorithm, researched how media in UK polatize around brexit"
 ---
 
 {{< colorblock text="TREXIT: can we observe UK's news media polarization around Brexit?">}}

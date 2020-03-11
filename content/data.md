@@ -43,7 +43,9 @@ On the table below, we summarize the different approaches and the _qualities of 
         </ol>
       </td>
       <td class="larger">
-        <a href="#datathon">DSSG-berlin Datathon</a>, <a href="#first">First YouTube class</a>, <a href="#eu19">European Election Campaign</a>.
+        <a href="#datathon">DSSG-berlin Datathon</a>,<hr>
+        <a href="#first">First YouTube class</a>,<hr>
+        <a href="#eu19">European Election Campaign</a>.
       </td>
     </tr>
     <tr>
@@ -57,7 +59,10 @@ On the table below, we summarize the different approaches and the _qualities of 
           <li class="downside">Social Media Platforms tend to hunt and limit actions from automatized accounts.</li>
         </ol>
       </td>
-      <td class="larger"><a href="#profiles-under-control">Argentinian 2017 Analysis</a>, <a href="#profiles-under-control">Italian 2018</a>, <a href="#profiles-under-control">Brasialian 2019</a>, ...</td>
+      <td class="larger">
+        <a href="#profiles-under-control">Argentinian 2017 Analysis</a>,<hr>
+        <a href="#profiles-under-control">Italian 2018</a>,<hr>
+        <a href="#profiles-under-control">Brasialian 2019</a>, ...</td>
     </tr>
     <tr>
       <th scope="row">3</th>
@@ -70,7 +75,9 @@ On the table below, we summarize the different approaches and the _qualities of 
           <li class="downside">Plan a test might be even harder.</li>
         </ol>
       </td>
-      <td class="larger"><a href="#collaborative-testing">potest#1, wetest#1</a>, <a href="#workshop">Workshop</a>.</td>
+      <td class="larger">
+        <a href="#collaborative-testing">potest#1, wetest#1</a>,<hr>
+        <a href="#workshop">Workshop</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -86,25 +93,66 @@ On the table below, we summarize the different approaches and the _qualities of 
 
 {{<colorblock text="Experiments and Experiences on algorithmic testing">}}
 
-## The first workshop
+## — The first workshop — 3 working days — 10 students & 2 facilitators
 
-piccola descrizione + link a /results
+{{< entry 
+    text="10 different students using their computers, open the same video at the same time. Here we compare the 20 related videos suggested" 
+    picture="/images/yt-results/clean-browsers-pattern.svg" 
+    type="left" 
+    legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
+>}}
 
-## The second workshop
+— The blue circles represent the *related content*, they are all in the center because they are shared among profiles.
 
-piccola descrizione + link a /trexit 
+— The small groups of individually-selected-videos are represented with Green circles, and profile 4 and 3, have such dedicated content because of their configured computer language (Korean and French, while the test was performed from Amsterdam in English).
 
-## youTEST
+— Below, the same test did by the same students, same room and IP address, same computers, but with their browser logged in Google/YouTube:
 
-riferimenti a potest + fare le pagine di youtest
+{{< entry 
+    text="It is visually clear how the data points linked to the profiles cause personalized suggestions." 
+    picture="/images/yt-results/personalized-browsers-pattern.svg" 
+    type="right"
+    legend-image-url="/images/yt-results/fixed-legend-6,7.svg"
+>}}
 
-## Automatized access approach 
+#### Regardless of Youtube API
 
-linkare methodology e mettere qui alcuni dei risultati (se unici e se possibili solo con accesso automatizzato) 
+We verified which videos YouTube declares as _related_ by using the official API, and then compared those with what is actually displayed on people interface.
 
-{{<colorblock text="Tools for analysts">}}
+{{< entry 
+    text="Red circles represent the videos declared by YT as related. In yellow and green, the videos actually suggested to watchers." 
+    picture="/images/yt-results/youtube-API-vs-TREX-observations.svg" 
+    type="right"
+    legend-image-url="/images/yt-results/fixed-legend-3.svg"
+>}}
 
-The juicest trap: Gephi
+We knew API they can't be considered a reliable method, I want to list why this misunderstanding is 
+
+
+— **Achievements**: have a rudimental method to compare among profile with reduced personalization vs profile highly personalizeed.
+
+## — The second workshop
+
+**Work in progress** TODO [trexit](/trexit)
+
+## — Collaborative, Worldwide, time restricted, guided observation (potest and wetest)
+
+<div class="row">
+  <div class="col-6">
+    <br>
+    The collaborative observation is a new experiment in this regards. allow us to guide people in a few steps, we did it on <a href="https://pornhub.tracking.exposed/potest/final-1" target=_blank>PornHub, the name was poTEST</a>, the Youtube collaborative test is a March 2020 experiment.
+  </div>
+  <div class="col-6">
+    <a href="/wetest/1">
+      <img class="align-left imgtile" src="/images/wetest-yt2.jpg" />
+    </a>
+  </div>
+</div>
+
+
+## — Variable comparison 
+
+TODO explain from [first test](/results) the CNN/FOX test.
 
 {{< entry 
     title="A network visualization and analysis tool"
@@ -113,32 +161,22 @@ The juicest trap: Gephi
     type="right" 
 >}}
 
-[en.wikipeda/Gephi](https://en.wikipedia.org/wiki/Gephi), 
+## — Automatized access approach 
 
-## H2 sei in markdown
+linkare methodology e mettere qui alcuni dei risultati (se unici e se possibili solo con accesso automatizzato) 
 
-del testo qui è possibile 
+{{<colorblock text="Tools for analysts">}}
+
+TODO, should be done a list of tools we used, which limits and perks:
+
+* [en.wikipeda/Gephi](https://en.wikipedia.org/wiki/Gephi), 
+* [rawgraphs](https://rawgraphs.io), 
+* Our dashboard (AudIt)
 
 {{<colorblock text="Data format and API ">}}
 
-link a documentazione
-link a dashboard e possibile uso con yt
-immagini che spiegano il data processing?
+<div class="row">
+  <div class="cards-group">
 
-<!--
-{{<colorblock text="Public data samples">}}
--->
-
-## Profiles under control
-
-dd
-
-## Collaborative testing
-
-dd
-
-## First
-
-dd 
-
-## Workshop
+  </div>
+</div>
