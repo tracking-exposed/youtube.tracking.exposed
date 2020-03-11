@@ -13,6 +13,8 @@ og_url: "https://youtube.tracking.exposed/data"
 og_description: "youtube.tracking.exposed offert API for researchers and a few methodology tips."
 ---
 
+# This page is a work in progress -- content need to be completed and English need a full revision --.
+
 {{<colorblock text="Methodologies">}}
 
 The collection methodology is a crucial attribute to judge, use and analyze evidences of algorithm personalization.
@@ -173,10 +175,45 @@ TODO, should be done a list of tools we used, which limits and perks:
 * [rawgraphs](https://rawgraphs.io), 
 * Our dashboard (AudIt)
 
-{{<colorblock text="Data format and API ">}}
+{{<colorblock text="Tools and resources for wannabe algorithm analyst">}}
 
 <div class="row">
-  <div class="cards-group">
-
+  <div class="card-deck">
+    <div class="card">
+      <h5 class="card-header text-center">API integration</h5>
+      <div class="card-body">
+        <h3 class="card-title">Data scientists or third party integrator should use this</h3>
+        <small class="card-text">
+          Our API allow to an individual to retrieved their data, and if a researcher has a list of personal token from partecipans, might collect all the data of their partecipants.
+          <br><br>
+          API are handy also if you want to fetch, process, or store daily the updates.
+        </small>
+        <a href="/api-documentation#api" role="button" class="btn btn-outline-danger btn-seconday">API docs</a>
+      </div>
+    </div>
+    <div class="card">
+      <h5 class="card-header text-center">the CSV format</h5>
+      <div class="card-body">
+        <h3 class="card-title">Data analysts, researcher should read it</h3>
+        <small class="card-text">
+          CSV format is readable by spreadsheets like excel, google docs, and most of the data analysis tools.
+          <br><br>
+          Each line of these CSV are one of the suggested videos, the documentation explain the different between personal API (they require a personal access token to access)
+        </small>
+        <a href="/api-documentation#csv" role="button" class="btn btn-outline-danger btn-seconday">CSV docs</a>
+      </div>
+    </div>
+    <div class="card">
+      <h5 class="card-header text-center">Bokeh analyst dashboard</h5>
+      <div class="card-body">
+        <h3 class="card-title">XXXXXXXXXXXXXXXXXX PLEASE HELP<h3>
+        <small class="card-text">
+          AAAAA AAAAAAAAAAAAAA AAAAAAAAAAAAA A AAAAAAAA A IDEM
+          <br><br>
+          OOOOO OOOOOOOOOOOOO OOOOO OOOO OOOOOOOOOOOOOO SAME SAME SAME 
+        </small>
+        <a href="https://github.com/tracking-exposed/dashboard/" role="button" class="btn btn-outline-danger btn-seconday">repo on git</a>
+      </div>
+    </div>
   </div>
 </div>

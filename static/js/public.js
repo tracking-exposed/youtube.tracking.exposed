@@ -64,13 +64,13 @@ function appendCard(targetId, video) {
 
 function invalidVideoId(videoId, additionalInfo) {
     const msg = additionalInfo || "This video has not been watched by someone with ytTREX extension";
-    const nope = `
-        <h3 class="text-center">Nope, ${msg}</h3>
-        <p class="text-center">${courtesy}</p>
-    `;
     const courtesy = videoId ?
         `Check if <a href="https://youtube.com/watch?v=${videoId}">is a valid video</a>.`
         : "";
+    const nope = `
+        <h3 class="text-center">Error ${msg}</h3>
+        <p class="text-center">${courtesy}</p>
+    `;
 
     $("#error").append(nope);
 }
@@ -193,7 +193,7 @@ function initCompare() {
 
     if(_.isNull(compareId)) {
         console.log("Not found any ID (returning without action) rif:", window.location.href);
-        invalidVideoId(null, "— No video requested —");
+        invalidVideoId(null, "— You should select a video —");
         buildCardsFromLast("#recent");
         $("#ifRandomVideos").show();
         return;
