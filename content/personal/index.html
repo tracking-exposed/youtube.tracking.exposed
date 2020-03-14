@@ -45,15 +45,22 @@ type: app
 
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
         <div id="master" hidden class="row border-bottom p-2 mb-3 align-middle">
-          <div class="col-7">
-            <p class="mb-0">
+          <div class="col-8">
+            <span class="logged" title="Logged in youtube" hidden>👤</span> 
+            <span class="mb-0">
               <span class="extendable">
-                <small class="relative">relativeFiller</small> ― <small class="producer">authorFiller</small><br />
+                <small class="relative">relativeFiller</small> ― <small>
+                    <a
+                        class="author icon-small mb-1"
+                        title="Compare all the evidences from ">
+                        producerFiller
+                    </a>
+                </small><br />
               </span>
               <b class="title">titleFiller</b>
-            </p>
+            </span>
           </div>
-          <nav class="col-5">
+          <nav class="col-4">
               <a
                 class="compare icon-small mb-1"
                 title="Compare all the related suggestions selected for ">
@@ -73,11 +80,6 @@ type: app
                   <!-- string is completed in JS so the HTML can be translated -->
                   <span style="color:#ff0000;">⇓</span>
                   <small>CSV</small>
-              </a>
-              <a
-                class="author icon-small mb-1"
-                title="Compare all the evidences from ">
-                  <small>Channel</small>
               </a>
               <a
                 style="cursor: pointer"

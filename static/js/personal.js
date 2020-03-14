@@ -300,6 +300,7 @@ function addVideoRow(video, i) {
     $("#" + computedId + " .author").attr('href', `/author/#${video.videoId}`);
     title = $("#" + computedId + " .author").attr('title')  + "«" + video.authorName+ "»";
     $("#" + computedId + " .author").attr('title', title);
+    $("#" + computedId + " .author").text(video.authorName);
 
     if(video.relatedN > 0) {
         $("#" + computedId + " .csv").on('click', downloadVideoCSV);
@@ -315,8 +316,12 @@ function addVideoRow(video, i) {
     title = $("#" + computedId + " .delete").attr('title')  + "«" + video.title + "»";
     $("#" + computedId + " .delete").attr('title', title);
 
-    $("#" + computedId + " .producer").text(video.authorName);
     $("#" + computedId + " .relative").text(video.relative);
+
+    if(video.login == true) {
+        $("#" + computedId + " .logged").removeAttr('hidden');
+    }
+
     $("#" + computedId + " .title").text(video.title);
 
     entry.removeAttr('hidden');
@@ -372,7 +377,7 @@ function personalTimeseries() {
         mimeType: 'json',
         xFormat: '%Y-%m-%d',
         keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
-        type: 'bar',
+        type: 'area',
         labels: { show: true },
         groups: [ [ 'videos', 'adverts', 'authors'] ],
         colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
