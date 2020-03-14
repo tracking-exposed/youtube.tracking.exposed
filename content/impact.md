@@ -44,6 +44,12 @@ _Below a graph on how our parsers are performing: how many HTMLs have been parse
 _We usually expect 20 videos suggested in the right column of YouTube. But if a watcher scroll down more would get more related videos. Also, sometimes we might not load or properly extract the associated videos, and if this happens, it is an error to investigate promptly._
 
 ---
+## Aggregated stats on usage
+<div id="usage-graph" class="c3graph"></div>
+
+_homepages and videos are the two kind of metadata we have. Logged/unlogged is the only information we might infer to assume the profile was more or less personalized. (personalization happens even without being logged, but in general seems less stronger)_
+
+---
 ### Statistics and OpenData enable network effects, data reuse, and collaborative revision of our project. But they are tricky and can't be released carelessly:
 
 * [Data can't be anonymized](https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds) easily, we aggregate them and we use only non-personal metadata to develop the aggregation.

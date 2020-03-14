@@ -141,7 +141,32 @@ const clist = [{
             }
         },
     }
-}];
+}, {
+    API: buildApiUrl('statistics/usage/day', 15, 2),
+    bindto: '#usage-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'logged', 'unlogged', 'homepages', 'videos', 'total' ], x: 'day' },
+        type: 'bar',
+        colors: {
+            'logged': palette[0],
+            'unlogged': palette[1],
+            'homepages': palette[4],
+            'videos': palette[3],
+            'total': palette[6]
+        },
+        groups: [ [ 'logged', 'unlogged' ], [ 'videos', 'homepages' ] ],
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        },
+    }
+},];
 
 
 $(document).ready(async function() {
