@@ -70,14 +70,14 @@ We retrieved the information after each step across all scenarios.
 {{< entry 
     title="The different tests designed and realized:" 
     text="1: Methodology for Data Collection " 
-    picture="/images/winter_met1.png" 
+    picture="/images/ws20/winter_met1.png" 
     type="right" 
 >}}
 
 
 {{< entry 
     text="2: Methodology for analysis of the finding" 
-    picture="/images/winter_met2.png" 
+    picture="/images/ws20/winter_met2.png" 
     type="left" 
 >}}
 
@@ -109,47 +109,37 @@ Then, we focused on the number of suggested videos shared by Leave users (in yel
 
 As shown by the video (Figure 4), the number of videos suggested to both Remain and Leave users seems to decrease as the personalization goes on. We decided to formally test this result by defining a measure of similarity between clusters as a measure of similarity between the suggestions proposed to Remain and Leave users and to test the availability of statistical evidence of the similarity decrease.
 
-To give a formal definition, let us call <img alt='image1.png' height='14' src='%ATTACHURL%/image1.png' title='image1.png' width='12' /> the set of Leave users and <img alt='image2.png' height='15' src='%ATTACHURL%/image2.png' title='image2.png' width='15' /> the set of Remain users. Let us also call <img alt='image3.png' height='21' src='%ATTACHURL%/image3.png' title='image3.png' width='24' /> the set of videos suggested to user <img alt='image4.png' height='14' src='%ATTACHURL%/image4.png' title='image4.png' width='6' /> at time <img alt='image5.png' height='13' src='%ATTACHURL%/image5.png' title='image5.png' width='10' />For each user <img alt='image6.png' height='17' src='%ATTACHURL%/image6.png' title='image6.png' width='65' />, we define a measure <img alt='image7.png' height='17' src='%ATTACHURL%/image7.png' title='image7.png' width='18' /> of similarity between clusters as follows:
+_{Apoligies for the style change: better a graphic horror than copy paste pictures of formulas in a web page}_.
 
-<img alt='image8.png' height='47' src='%ATTACHURL%/image8.png' title='image8.png' width='256' />
+{{<bord-img href="/images/ws20/formulas.jpeg" >}}
 
-<img alt='image9.png' height='47' src='%ATTACHURL%/image9.png' title='image9.png' width='256' />
+Figure 5, below: R code of t test execution:
 
-where
-
-<img alt='image16.png' height='100' src='%ATTACHURL%/image16.png' title='image16.png' width='300' />
-
-Once defined this measure and evaluated the two samples at time <img alt='image10.png' height='14' src='%ATTACHURL%/image10.png' title='image10.png' width='39' />and <img alt='image11.png' height='14' src='%ATTACHURL%/image11.png' title='image11.png' width='34' /> we can investigate the difference in means within the two samples and run a t test using R.
-
-The output of such a test is displayed below:
-
-mean of <img alt='image12.png' height='18' src='%ATTACHURL%/image12.png' title='image12.png' width='19' /> = 30%
-
-mean of <img alt='image13.png' height='18' src='%ATTACHURL%/image13.png' title='image13.png' width='20' /> = 18%
-
-<img align='middle' alt='image22.png' height='163' src='%ATTACHURL%/image22.png' title='image22.png' width='551' />
-
-Figure 5: R code of t test execution
+{{<bord-img href="/images/ws20/winter_Routput.png" >}}
 
 Such a low p-value, noticeable in Figure 5, stands for statistical evidence of the difference within the two means to be significant. Therefore, we can state that the similarity of suggestions between the Remain and Leave users decreases over time and that it is already significant after a personalization built on watching just five videos.
 
-<h2 id='h.6ysyl2nnml0d'>4.2 Channel Recommendations</h2> <h1 id='h.ezrtv8ocszkl'><img alt='image14.png' height='400' src='%ATTACHURL%/image14.png' title='image14.png' width='750' /></h1>
+<h2 id='h.6ysyl2nnml0d'>4.2 Channel Recommendations</h2>
+
+<img src='/images/ws20/winter_graph_2.png'  />
 
 Figure 6: Comparing Channel Recommendations, after one visualization (left-side) and five visualizations (right-side)
 
 In section 4.1 we investigated the relation between the videos suggested to different kind of users by looking at the channels the videos belonged to. In Figure 6, on the left, we can see the network of suggestions proposed to users that watched a single video coming from either The Telegraph, The Sun, The Guardian or The Daily Mirror. On the right part of the same picture we visualize how the structure of the network changed after users watching five videos each. As we can see from the plots, once again, the number of channels suggested to both Remain and Leave users decreases with time, i.e. as a result of the personalization increase.
 
-[[https://www.google.com/url?q=https://www.youtube.com/watch?v%3D6v6Go1TfJyk%26feature%3Dyoutu.be&sa=D&ust=1580319744836000][Video 2]]: evolution of channel recommendations after one to five views
+## Evolution of channel recommendations after one to five views
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6v6Go1TfJyk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The aforementioned dynamics can be clearly noticed in Video 2.
 
-<h2 id='h.l3790lcw76j6'>4.3 Qualitative Analyses of Brexit Recommendations</h2>
+## 4.3 Qualitative Analyses of Brexit Recommendations
 
 Two kinds of qualitative analyses have been performed: (1) a categorization of the recommended channels and (2) a word association of the recommended video titles.
 
 First, in order to see what type of channels were recommended and how they were positioned on Brexit we performed a close-reading of the channels to get a sense of their content and possible stand.
 
-<img alt='image21.png' height='350' src='%ATTACHURL%/image21.png' title='image21.png' width='1000' />
+<img src='/images/ws20/winter_cake.png' />
 
 Figure 7: Categorization of Recommended Channels
 
@@ -157,13 +147,15 @@ Figure 7 highlights that, contrary to earlier research on YouTube, where audienc
 
 Second, in order to get a sense of the actual impact of polarization on YouTube in relation to Brexit, we extracted all the titles of the recommended videos per news source, i.e. The Mirror, The Telegraph, The Guardian and The Sun. Video titles are an important factor in getting a video recommended to users and nudging them into clicking and watching the content. Comparing video titles the refore says something about how these news sources, in relation to the algorithm, address audience concerns. Figure 8 highlights the association of words in the recommended video titles in relation to the various outlets.
 
-<img alt='image20.png' height='500' src='%ATTACHURL%/image20.png' title='image20.png' width='750' />
+<img src='/images/ws20/winter_semantic.png' />
 
 Figure 8: Network of Common Keywords by Publication
 
 Figure 8 shows that audiences of The Guardian will be recommended more ‘explanatory’ videos and ‘documentaries’. The Sun audiences get recommendations mostly of Nigel Farage addressing members of the European Parliament and, considering the timing of our research, the controversy surrounding the Duke and Duchess of Sussex Meghan and Harry. Counter to the findings of video and channel recommendations, where The Guardian and The Mirror shared more in common, the difference in non-shared videos reveals that audiences actually get different topics recommended. Videos recommended to The Mirror’s audience address Labour Party Leader Jeremy Corbyn as well as more specific videos about farms and dairy. The centrality of The Telegraph shows that audiences get recommended videos of topics that all other channels also touch on.
+
 ---
-<h1 id='h.bbo8cvuldw5k'> </h1> <h1 id='h.wfo8748bti44'>5. Discussion</h1>
+
+# 5. Discussion
 
 The experiments carried out by our group suggest that there is some evidence of progressive polarisation on Youtube, particularly around the already controversial subject of Brexit, although this is more prominent on the side of Leave users.
 
@@ -171,37 +163,28 @@ The analyses of title recommendations also show that, in the frame of our smalle
 
 Significantly, our findings also show that, despite clear evidence of slight polarisation around political issues, contrary to assumptions that frequently underpin claims about Youtube’s ‘radicalising’ effect, videos by mainstream media outlets were recommended with far greater regularity compared to those produced by native digital channels (such as alt-right influencers). What this suggests is that although the recommender algorithm seems to favour videos with clear partisan leanings, it does not inevitably lead users towards the most radical or inflammatory content.
 
-<h1 id='h.hgrfuzax8xmp'>7. Conclusion</h1>
+# 6. Conclusion
 
-[[https://www.google.com/url?q=https://wiki.digitalmethods.net/Dmi/SummerSchool2019AlgorithmsExposed&sa=D&ust=1580319744843000][Previous research]] at the DMI Summer School has shown that personalization happens just when the users watch the entirety of the video. For this reason, we had to limit the videos chosen to five and also select videos that won’t be too long - we decided to have seven minutes as the maximum length. Clearly, further research which will take into account a more in-depth personalization i.e. watching more videos and longer videos would be beneficial in illustrating this phenomena. To avoid unnecessary laborious human-curated work, we would recommend the development and use of bots for this task. These could also help in generating a larger dataset compared to the relatively small one that we were able to create in the Winter School session. Crucially, youtube.tracking.exposed, as well as the other tracking.exposed tools are still under development.
+[Previous research](https://wiki.digitalmethods.net/Dmi/SummerSchool2019AlgorithmsExposed) at the DMI Summer School has shown that personalization happens just when the users watch the entirety of the video. For this reason, we had to limit the videos chosen to five and also select videos that won’t be too long - we decided to have seven minutes as the maximum length. Clearly, further research which will take into account a more in-depth personalization i.e. watching more videos and longer videos would be beneficial in illustrating this phenomena. To avoid unnecessary laborious human-curated work, we would recommend the development and use of bots for this task. These could also help in generating a larger dataset compared to the relatively small one that we were able to create in the Winter School session. Crucially, youtube.tracking.exposed, as well as the other tracking.exposed tools are still under development.
 
-As with all projects, our experiments also held certain limitations that future research into the subject should acknowledge. Importantly, we did not look at the Youtube ‘home screen’ that offers users a separate collection of recommended videos when opening the webpage, and consider the effect the research personas created had on these recommendations - a strategy recommended by Arvind Narayan ([[https://www.google.com/url?q=https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744844000][Feuer]]). In addition, the sets of five videos chosen for both experiments, decided in partially in the interests of expediency as mentioned above, were not as uniform in age and tone as one might hope for optimal results. These pragmatic constraints had a slight detrimental effect for some of our results such as the Common Keywords graph, the relatively important amount of ‘irrelevant’ and ‘off-topic’ recommended videos obscuring some of the conclusions that could be drawn. A more precisely curated set of videos might thus have avoided some of these issues (which cropped up particularly strongly around the Mirror), and produced somewhat more refined datasets. Finally, taking up Rogers suggestions after presenting this report at the DMI Winterschool, we feel it can be beneficial to ‘confuse’ the algorithm by watching videos that would be ‘meant’ for opposing audiences in order to assess a ‘bias’ within the algorithm.
+As with all projects, our experiments also held certain limitations that future research into the subject should acknowledge. Importantly, we did not look at the Youtube ‘home screen’ that offers users a separate collection of recommended videos when opening the webpage, and consider the effect the research personas created had on these recommendations - a strategy recommended by [Arvind Narayan](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html) Feuer. In addition, the sets of five videos chosen for both experiments, decided in partially in the interests of expediency as mentioned above, were not as uniform in age and tone as one might hope for optimal results. These pragmatic constraints had a slight detrimental effect for some of our results such as the Common Keywords graph, the relatively important amount of ‘irrelevant’ and ‘off-topic’ recommended videos obscuring some of the conclusions that could be drawn. A more precisely curated set of videos might thus have avoided some of these issues (which cropped up particularly strongly around the Mirror), and produced somewhat more refined datasets. Finally, taking up Rogers suggestions after presenting this report at the DMI Winterschool, we feel it can be beneficial to ‘confuse’ the algorithm by watching videos that would be ‘meant’ for opposing audiences in order to assess a ‘bias’ within the algorithm.
 
 In light of these conclusions, it is clear that the Youtube recommender algorithm certainly has subtle polarising effect on the content it proposes to users, yet this phenomenon is a more nuanced and complex one than is often claimed by straightforward accounts of Youtube radicalisation. Thus, future research aimed at appreciating this process in greater detail might focus particularly on some of the concerns that our project missed, such as the recommendations suggested by the ‘home screen’, and with the help of larger datasets produce more lucid and illuminating accounts of the impact of the recommender algorithm on Youtube user experience.
+
 ---
-<h1 id='h.uswdzxcw4jyl'> </h1> <h1 id='h.adqxlyg5w44m'>7. References</h1>
+# 7. References
 
-Ledwich, Mark, and Anna Zaitsev. “Algorithmic Extremism: Examining YouTube 's Rabbit Hole of Radicalization.” arXiv preprint arXiv:1912.11211v1 (Submitted 24 December 2019).
+* Ledwich, Mark, and Anna Zaitsev. “Algorithmic Extremism: Examining YouTube 's Rabbit Hole of Radicalization.” arXiv preprint arXiv:1912.11211v1 (Submitted 24 December 2019).
+* Lewis, Rebecca. “Alternative Influence: Broadcasting the Reactionary Right on YouTube.” Data Media Manipulation. Data & Society (2018). 1 November 2019. [pdf](https://datasociety.net/wpcontent/uploads/2018/09/DS_Alternative_Influence.pdf).
+* Munger, Kevin, and Joseph Phillips. "A Supply and Demand Framework for YouTube Politics." OSF (2019). 4 November 2019. [pdf](https://osf.io/73jys/).
+* Tufekci, Zeynep. “[YouTube, the Great Radicalizer](https://www.nytimes.com/2018/03/10/opinion/sunday/youtube-politicsradical.html).” The New York Times. 10 March 2018.
+* Ribeiro, Manoel Horta, et al. "Auditing radicalization pathways on YouTube." arXiv preprint arXiv:1908.08313 (2019).
+* Rogers, Richard. Digital Methods. Cambridge, Massachusetts: The MIT Press, 2013.
+* Feuer, William. “[Critics Slam Study Claiming YouTube’s Algorithm Doesn’t Lead to Radicalization](https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html).” CNBC. 30 December 2019. 20 Januari 2020. 
+* Newton, Casey. “[How YouTube Perfected the Feed](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed).” The Verge. 30 August 2017. [Update](https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed), 20 January 2020. 
+* [Matthew Smith. “How left or right-wing are the UK’s newspapers. YouGov. 7 March 2017](https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers).
 
-Lewis, Rebecca. “Alternative Influence: Broadcasting the Reactionary Right on YouTube.” Data Media Manipulation. Data & Society (2018). 1 November 2019. &lt;https://datasociety.net/wpcontent/uploads/2018/09/DS_Alternative_Influence.pdf&gt;.
-
-Munger, Kevin, and Joseph Phillips. "A Supply and Demand Framework for YouTube Politics." OSF (2019). 4 November 2019. &lt;[[https://www.google.com/url?q=https://osf.io/73jys/&sa=D&ust=1580319744845000][https://osf.io/73jys/]]&gt;.
-
-Tufekci, Zeynep. “YouTube, the Great Radicalizer.” The New York Times. 10 March 2018. 1 November 2019. &lt;https://www.nytimes.com/2018/03/10/opinion/sunday/youtube-politicsradical.html&gt;.
-
-Ribeiro, Manoel Horta, et al. "Auditing radicalization pathways on YouTube." arXiv preprint arXiv:1908.08313 (2019).
-
-Rogers, Richard. Digital Methods. Cambridge, Massachusetts: The MIT Press, 2013.
-
-Feuer, William. “Critics Slam Study Claiming YouTube ’s Algorithm Doesn’t Lead to Radicalization.” CNBC. 30 December 2019. 20 Januari 2020. [[https://www.google.com/url?q=https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html&sa=D&ust=1580319744846000][https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html]].
-
-Newton, Casey. “How YouTube Perfected the Feed.” The Verge. 30 August 2017.[[https://www.google.com/url?q=https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744846000][ ]]20 Januari 2020. [[https://www.google.com/url?q=https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed&sa=D&ust=1580319744847000][https://www.theverge.com/2017/8/30/16222850/youtube-google-brain-algorithm-video-recommendation-personalized-feed]].
-
-Matthew Smith. “How left or right-wing are the UK’s newspapers. YouGov. 7 March 2017
-
-https://yougov.co.uk/topics/politics/articles-reports/2017/03/07/how-left-or-right-wing-are-uks-newspapers
 
 ## Appendix
 
-we don't provide appendix: TODO the link on DMI
-
+Please refer to [original document](https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube).
