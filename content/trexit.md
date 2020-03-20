@@ -15,11 +15,19 @@ og_description: "A group of researcher using our tool to investigate in personal
 {{< colorblock text="TREXIT: can we observe UK's news media polarization around Brexit?">}}
 
 
-### Team Members
+##### Nina Altmaier, Davide Beraldo, Maria Castaldo, Daniel Jurg, Salvatore Romano, Matteo Renoldi, Tatiana Smirnova, Natacha Seweryn, Luukas Veivo.
 
-Nina Altmaier, Davide Beraldo, Maria Castaldo, Daniel Jurg, Salvatore Romano, Matteo Renoldi, Tatiana Smirnova, Natacha Seweryn, Luukas Veivo
+— _students and researchers worked on this research for four days in January 2020_.
 
-### Summary of Key Findings
+--- 
+
+# Abstract
+
+The research used the technology of youtube.tracking.exposed {**yttrex**} to collect evidence of personalization on Youtube session. By creating and controlling new profile, we controlled their behavior to study how gradually and quickly YouTube catch up with the simulated political interest (_leave_ or _remain_), and return content gradually exposed to more personalized content. This analysis is quantitative (counting, for example, diversity of recommended media sources), and qualitative (judge, for example, if the _remain_ profiles actually got content politically aligned to their simulated interest).
+
+We released open data and the methodology might be replicate by other team, using the same topic (if they want to verify our research), or with new topics.
+
+### Key findings
 
 1. There is evidence of progressive polarization of the recommendations around Brexit on YouTube, especially for Leave-inclined users.
 2. The Leave/Remain content bubbles, constituted respectively by The Sun/The Telegraph and The Guardian/The Mirror YouTube channels rarely converge.
@@ -35,7 +43,7 @@ This Winter School project seeks to study algorithmic recommendation from a user
 
 ## 2) Research Questions
 
-   * Do YouTube ’s recommendation systems enhance and potentially incentivise users’ polarization on a specific topic?
+   * Do YouTube’s recommendation systems enhance and potentially incentivise users’ polarization on a specific topic?
    * How might users experience Brexit polarization on YouTube?
 
 ## 3) Methodology
@@ -60,20 +68,17 @@ The second experiment was performed on the issue of Brexit. We chose four differ
 We retrieved the information after each step across all scenarios.
 
 {{< entry 
-    title="The following are the different tests that we performed:" 
-    text="Figure 1: Methodology for Data Collection " 
+    title="The different tests designed and realized:" 
+    text="1: Methodology for Data Collection " 
     picture="/images/winter_met1.png" 
-    type="center" 
-    legend-image-url=""
+    type="right" 
 >}}
 
 
 {{< entry 
-    title="" 
-    text="Figure 2: Methodology for analysis of the finding" 
+    text="2: Methodology for analysis of the finding" 
     picture="/images/winter_met2.png" 
     type="left" 
-    legend-image-url=""
 >}}
 
 ### 3.2) Dataset
@@ -90,7 +95,7 @@ For the main experiment concerning polarisation around Brexit, this data also fo
 ## 4) Findings 
 ### 4.1) Video Recommendations
 
-<img alt='image17.png' height='400' src='%ATTACHURL%/image17.png' title='image17.png' width='700' />
+<img alt='a network graph hardly can be described by alternative text' src='/images/ws20/winter_graph_all.png' title='' />
 
 Figure 3: Shared titles within different bubbles
 
@@ -98,7 +103,9 @@ We investigated the number of suggested videos shared by different users. In Fig
 
 Then, we focused on the number of suggested videos shared by Leave users (in yellow in Figure 3), i.e. users trained with videos coming from The Telegraph or The Sun channels, and Remain users (in blue in Figure 3), i.e. users trained with videos coming from The Guardian and The Daily Mirror. We investigated how this quantity changes over time, i.e. as the number of videos used to personalize profiles grows from 1 to 5. The result is a dynamic network graph presented by the following video.
 
-[Video 1](https://www.youtube.com/watch?v=Ezkh7GqxP-M&feature=youtu.be): Evolution of shared suggested videos within different user groups
+### Evolution of shared suggested videos within different user groups
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Ezkh7GqxP-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 As shown by the video (Figure 4), the number of videos suggested to both Remain and Leave users seems to decrease as the personalization goes on. We decided to formally test this result by defining a measure of similarity between clusters as a measure of similarity between the suggestions proposed to Remain and Leave users and to test the availability of statistical evidence of the similarity decrease.
 
