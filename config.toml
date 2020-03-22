@@ -57,7 +57,7 @@ canonifyURLs = true
     pre = "/images/compare.svg"
     post = "Installation, functionalities, and offered services"
  [[menu.featured]]
-    name= "weTEST#1 ― 15 March 2020"
+    name= "weTEST#1 ― 25 March 2020"
     url = "/wetest/1"
     pre = "/images/related.svg"
     post = "We are coordinating the first global observation of the Youtube personalization algorithm. Join us!"

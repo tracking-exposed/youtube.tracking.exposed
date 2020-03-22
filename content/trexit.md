@@ -107,7 +107,7 @@ Then, we focused on the number of suggested videos shared by Leave users (in yel
 
 As shown by the video (Figure 4), the number of videos suggested to both Remain and Leave users seems to decrease as the personalization goes on. We decided to formally test this result by defining a measure of similarity between clusters as a measure of similarity between the suggestions proposed to Remain and Leave users and to test the availability of statistical evidence of the similarity decrease.
 
-_{Apoligies for the style change: better a graphic horror than copy paste pictures of formulas in a web page}_.
+_{Apologies for the style change: better a graphic horror than copy paste pictures of formulas in a web page}_.
 
 {{<bord-img href="/images/ws20/formulas.jpeg" >}}
 
