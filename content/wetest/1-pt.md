@@ -35,7 +35,7 @@ ZERO ― para nos preparar antes do dia 25
 Compartilhe o evento! Ele deve ser visto em grupos distintos do nosso.
 Nós vamos lançar um conjunto de dados abertos nesse formato. Comunidades de analistas de dados, ciência aberta, ativistas digitais que desejam manter a plataforma responsável, podem se juntar a nós se você lhes disser que existimos
 
-{{<colorblock}}
+{{<colorblock>}}
 
 ## 10 minutos de um experimento onde toda contribuição importa.
 ### Instale a extensão youtube.tracking.exposed no seu navegador.
