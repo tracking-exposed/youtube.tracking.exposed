@@ -13,6 +13,19 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 24 March 2020 — weTEST stickers pack!
+<div class="container row">
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-ai.jpg"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-basic.png"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-know.svg"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-youralgo.svg"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-youtrust.jpg"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-yt.png"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-yt2.jpg"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest.svg"></span>
+</div>
+
+---
 ## 23 March 2020 — Call for help
 
 We released a small [call for help](https://www.facebook.com/personalizationalgorithm/posts/3143468549072245), especially we need Chinese and Arabic expertise. 
