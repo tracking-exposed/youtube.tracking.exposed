@@ -13,7 +13,14 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
-## 24 March 2020 — weTEST stickers pack!
+## 23 March 2020 — Portuguese translation [of the call for participation](/wetest/1-pt)!
+
+#### Thanks to [Narrira](https://twitter.com/narriral/status/1242121677749788677) we got [Brazilian Portuguese translation](/wetest/1-pt). 
+
+#### FYI, she did it by [forking this website](https://github.com/tracking-exposed/youtube.tracking.exposed) from our github repository. 
+
+---
+## 23 March 2020 — weTEST stickers pack!
 <div class="container row">
   <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-ai.jpg"></span>
   <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-basic.png"></span>
@@ -205,4 +212,25 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
       <li>research questions should come from the community: concerned citizen, seasoned professional expert, to submit a proposal open a GitHub issue in our repository.</li>
     </ol>
   </p>
+</div> <!-- container -->
+
+---
+## March 2020 — quarantined, planning of [weTEST#1](/wetest/1) 
+
+<h2 class="project-color">
+  <a href="https://covid-ad-home.info" style="color:brown">
+  Wash your hands
+  </a> 🦠 and we need as much observations as possible!
+</h2>
+
+---
+
+<div class="container col-12 justify-content-center" id="contacts">
+  <h2 style="text-align: center;">CONTACT US ― 
+    <a href="#contacts" onclick="replacemail()" id="email">team shared email</a>,
+    <a href="https://twitter.com/trackingexposed" target=_blank>
+      project twitter</a>,
+    <a href="https://facebook.com/personalizationalgorithm" target=_blank>facebook page</a>
+  </h2>
+
 </div> <!-- container -->
