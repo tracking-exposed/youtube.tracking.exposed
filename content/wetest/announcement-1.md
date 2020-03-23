@@ -206,3 +206,15 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
     </ol>
   </p>
 </div> <!-- container -->
+
+---
+
+<div class="container col-12 justify-content-center" id="contacts">
+  <h2 style="text-align: center;">CONTACT US ― 
+    <a href="#contacts" onclick="replacemail()" id="email">team shared email</a>,
+    <a href="https://twitter.com/trackingexposed" target=_blank>
+      project twitter</a>,
+    <a href="https://facebook.com/personalizationalgorithm" target=_blank>facebook page</a>
+  </h2>
+
+</div> <!-- container -->
