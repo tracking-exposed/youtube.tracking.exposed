@@ -2,14 +2,14 @@
 title: "1a Observação Global do Algoritmo do Youtube"
 subtitle: "Apenas comparandno como a Inteligência Artificial maltrata você e outras pessoas que nós podemos lidar com isso de uma maneira coletiva"
 draft: false
-date: 2020-03-01T10:26:08Z
+date: 2020-03-23T10:26:08Z
 
 og_title: "1a Análise Global colaborativa do Algoritmo do Youtubem"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/images/compare.jpeg"
 og_url: "https://youtube.tracking.exposed/wetest/1"
-og_description: "This is the first worldwide test of the Youtube algorithm; on Sunday March 15th, with a browser extension, we'll see how YT personalizes the customer experience"
 
+extraCSS: "/css/wetest.css"
 ---
 
 <script src="/js/collaborative-tests.js"></script>
@@ -20,7 +20,6 @@ og_description: "This is the first worldwide test of the Youtube algorithm; on S
    </h1>
 </div>
 
-
 <div class="container row">
   <img width="48%" class="align-right imgtile" src="/images/youtrust.svg" />
   <img width="48%" class="align-right imgtile" src="/images/wetest-know.svg" />
@@ -30,6 +29,7 @@ og_description: "This is the first worldwide test of the Youtube algorithm; on S
 
 {{<colorblock text="10 minutos de um experimento onde toda contribuição importa.">}}
 
+<<<<<<< HEAD
 ZERO ― para nos preparar antes do dia 25
 
 Compartilhe o evento! Ele deve ser visto em grupos distintos do nosso.
@@ -39,6 +39,9 @@ Nós vamos lançar um conjunto de dados abertos nesse formato. Comunidades de an
 
 ## 10 minutos de um experimento onde toda contribuição importa.
 ### Instale a extensão youtube.tracking.exposed no seu navegador.
+=======
+### PRIMERO ― Instale a extensão youtube.tracking.exposed no seu navegador.
+>>>>>>> linked PT page
 
 {{<yt-extension>}}
 
@@ -54,28 +57,26 @@ Nós vamos lançar um conjunto de dados abertos nesse formato. Comunidades de an
 
 <div class="container col-12 justify-content-center">
 
-Os links serão disponibilizados algumas horas antes do teste!
-
-<div class="test-steps links--disabled">
+  <div class="test-steps links--disabled">
     <ol>
       <li>
-1. Abra a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>.
+        Abra a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>.
       </li>
       <li>
-2. Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>!.
+        Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>!.
       </li>
       <li>
-3. Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">segundo vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">segundo vídeo</a>!.
       </li>
       <li>
-4. Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">terceiro vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">terceiro vídeo</a>!.
       </li>
       <li>
-5. Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">quarto vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">quarto vídeo</a>!.
       </li>
       <li>
-6. Volte para a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>  
-        </li>
+        Volte para a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>  
+      </li>
     </ol>
     <br>
   </div>
@@ -105,7 +106,7 @@ Uma discussão que anima jornalistas e pesquisas a respeito das responsabilidade
             <a href="https://chrome.google.com/webstore/detail/youtube-rabbit-hole/nlddakjbmpidooplakalfoogdincflfh" target=_blank>tente fazer isso para se livrar!?</a>] </i>. Em todos os casos, vemos experiência <b>anedótica</b>. Histórias contadas pelo autor, na melhor das hipóteses, apoiadas por capturas de tela de links de vídeo.
 
 </li>
-        <liUma coleção de evidências mais visível foi o <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>, de Guillaume Chaslot.
+        <li>Uma coleção de evidências mais visível foi o <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>, de Guillaume Chaslot.
 
 <li>No início de 2020, um debate acalorado 
           <a target=_blank href="https://twitter.com/mark_ledwich/status/1210743158184693760">(Mark Ledwich, anúncios no twitter)</a>. O artigo deles revisou o conceito de youtube como apoiador de radicalizações. A metodologia era limitada/inadequada, mas não era diferente do estado da arte. O <b>Youtube Tracking Exposed</b> faz exatamente o que os pesquisadores procuram, para superar os limites existentes.
@@ -132,6 +133,11 @@ A extensão do navegador é crucial, e precisamos que ela seja usada nas partes 
   <b>O COVID-19 está tendo um impacto sem precedentes na vida em todo o mundo </b>, e o YouTube afirma ser ativo no combate à desinformação no momento em que as pessoas procuram se informar sobre tópicos relacionados à saúde pública. A interpretação cultural não se adapta tão bem quanto os serviços da Web, e somos céticos em relação ao conteúdo em idiomas onde menos investimentos foram feitos. Com este estudo, pretendemos explorar o impacto das recomendações de conteúdo para as informações de saúde pública, uma vez que moldam as visões e crenças de quem não fala inglês.  </p>
 
 </div>
+
+
+## ― Compartilhe o [evento](https://www.facebook.com/events/795277934295961/)! Ele deve ser visto em grupos distintos do nosso.
+## ― Nós vamos lançar um conjunto de dados abertos nesse formato. Comunidades de analistas de dados, ciência aberta, ativistas digitais que desejam manter a plataforma responsável, podem se juntar a nós se você lhes disser que existimos
+
 
 <script>
   $(document).ready(function() {

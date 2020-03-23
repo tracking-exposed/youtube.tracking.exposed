@@ -13,7 +13,14 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
-## 24 March 2020 — weTEST stickers pack!
+## 23 March 2020 — Portuguese translation [of the call for participation](/wetest/1-pt)!
+
+#### Thanks to [Narrira](https://twitter.com/narriral/status/1242121677749788677) we got [Brazilian Portuguese translation](/wetest/1-pt). 
+
+#### FYI, she did it by [forking this website](https://github.com/tracking-exposed/youtube.tracking.exposed) from our github repository. 
+
+---
+## 23 March 2020 — weTEST stickers pack!
 <div class="container row">
   <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-ai.jpg"></span>
   <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/wetest-basic.png"></span>
