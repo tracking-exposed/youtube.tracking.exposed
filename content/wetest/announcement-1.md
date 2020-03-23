@@ -208,6 +208,15 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
 </div> <!-- container -->
 
 ---
+## March 2020 — quarantined, planning of [weTEST#1](/wetest/1) 
+
+<h2 class="project-color">
+  <a href="https://covid-ad-home.info" style="color:brown">
+  Wash your hands
+  </a> 🦠 and we need as much observations as possible!
+</h2>
+
+---
 
 <div class="container col-12 justify-content-center" id="contacts">
   <h2 style="text-align: center;">CONTACT US ― 
