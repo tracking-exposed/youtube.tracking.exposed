@@ -40,35 +40,39 @@ extraCSS: "/css/wetest.css"
     {{<yt-extension>}}
       <ol>
         <li>
-          Open <a href="https://www.youtube.com" target="_blank">YouTube Homepage</a>.<br>
+          Open <a href="https://www.youtube.com" target="_blank">YouTube Homepage</a>.<br><br>
         </li>
 <br>
 <br>
         <li>
-          Watch in ZH: <a href="https://www.youtube.com/watch?v=" target="_blank">to be announced!</a><br>
+          Open the <a href="https://www.youtube.com/watch?v=" target="_blank">Chinese</a>, scroll down, wait 10 seconds, close.
+          <br> <br>
         </li>
         <br>
         <li>
-          Watch in ES: <a href="https://www.youtube.com/watch?v=" target="_blank">to be announced!</a><br>
+          Open the <a href="https://www.youtube.com/watch?v=" target="_blank">Spanish</a>, scroll down, wait 10 seconds, close.
+          <br> <br>
         </li>
         <br>
         <li>
-          Watch in EN: <a href="https://www.youtube.com/watch?v=" target="_blank">to be announced!</a><br>
+          Open the <a href="https://www.youtube.com/watch?v=" target="_blank">English</a>, scroll down, wait 10 seconds, close.
+          <br> <br>
         </li>
         <br>
         <li>
-          Watch in PT-br: <a href="https://www.youtube.com/watch?v=" target="_blank">to be announced!</a><br>
+          Open the <a href="https://www.youtube.com/watch?v=WEMpIQ30srI" target="_blank">Portuguese</a>, scroll down, wait 10 seconds, close.
+          <br> <br>
         </li>
         <br>
         <li>
-          Watch in AR: <a href="https://www.youtube.com/watch?v=" target="_blank">to be announced!</a><br>
+          Open the <a href="https://www.youtube.com/watch?v=BNdW_6TgxH0" target="_blank">Arabic</a>, scroll down, wait 10 seconds, close.
+          <br> <br>
         </li>
         <br>
         <br>
         <li>
-          Open again <a href="https://www.youtube.com" target="_blank">YouTube Homepage </a> <br>
+          Open again <a href="https://www.youtube.com" target="_blank">YouTube Homepage </a>
         </li>
-        <br>
       </ol>
     </div>
   </div>
@@ -123,4 +127,8 @@ extraCSS: "/css/wetest.css"
   $(document).ready(function() {
     countdown(new Date("Mar 25, 2020 00:00:01"), "demo");
   });
+  $(".links--disabled a").click(function(e) {
+    e.preventDefault();
+    $(this).text(" NOPE! Wait the 25th 00:00 GMT ");
+  })
 </script>

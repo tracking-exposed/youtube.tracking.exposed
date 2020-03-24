@@ -54,16 +54,19 @@ extraCSS: "/css/wetest.css"
         Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>!.
       </li>
       <li>
+        Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>!.
+      </li>
+      <li>
         Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">segundo vídeo</a>!.
       </li>
       <li>
-        Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">terceiro vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=WEMpIQ30srI" target="_blank">terceiro vídeo</a>!.
       </li>
       <li>
         Assista o <a href="https://www.youtube.com/watch?v=" target="_blank">quarto vídeo</a>!.
       </li>
       <li>
-        Volte para a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>  
+        Volte para a <a href="https://www.youtube.com/watch?v=BNdW_6TgxH0" target="_blank">página inicial do Youtube</a>  
       </li>
     </ol>
     <br>
@@ -134,4 +137,8 @@ A extensão do navegador é crucial, e precisamos que ela seja usada nas partes 
   $("#clickToEnglish").click(function(e) {
     window.location.href = "/wetest/1";
   });
+   $(".links--disabled a").click(function(e) {
+    e.preventDefault();
+    $(this).text(" NOPE! Wait the 25th 00:00 GMT ");
+  })
 </script>

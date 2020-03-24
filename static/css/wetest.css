@@ -1,3 +1,9 @@
+.links--disabled a {
+    cursor: not-allowed;
+}
+.links--disabled {
+    cursor: not-allowed;
+}
 
 .project-color {
     color: #ff0000;
