@@ -20,7 +20,7 @@ extraCSS: "/css/wetest.css"
    </h1>
 </div>
 
-<div class="container row">
+<div class="container row" id="clickToEnglish" style="cursor:pointer;">
   <img width="48%" class="align-right imgtile" src="/images/youtrust.svg" />
   <img width="48%" class="align-right imgtile" src="/images/wetest-know.svg" />
 </div>
@@ -130,5 +130,8 @@ A extensão do navegador é crucial, e precisamos que ela seja usada nas partes 
 <script>
   $(document).ready(function() {
     countdown(new Date("Mar 25, 2020 00:00:01"), "demo");
+  });
+  $("#clickToEnglish").click(function(e) {
+    window.location.href = "/wetest/1";
   });
 </script>
