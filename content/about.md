@@ -20,5 +20,6 @@ This project begin as part of [ALEX](https://algorithms.exposed) research initia
 ## Get in touch
 
 * Join our [mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed), we are guest of [securitywithoutborders](https://securitywithoutborders.org).
-* Or follow our (poorly maintained, non primary resource) Facebook page [Personalization Algorithms](https://www.facebook.com/personalizationalgorithm).
-* We've also Twitter [[@trackingexposed](https://twitter.com/trackingexposed)], and Fediverse [[@trex@nebbia.fail]].
+* Follow our (poorly maintained, non primary resource) Facebook page [Personalization Algorithms](https://www.facebook.com/personalizationalgorithm).
+* We are also on Twitter [[@trackingexposed](https://twitter.com/trackingexposed)], and in the Fediverse [@trex@nebbia.fail](https://nebbia.fail/@TRackingEXposed).
+* Drop an email do _youtube-team_ at _tracking_ dot _exposed_ and don't expect any .com or .org, it is really _.exposed_

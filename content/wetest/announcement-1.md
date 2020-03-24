@@ -1,6 +1,6 @@
 ---
-title: "weTEST#1 ― Announcements & Update"
-subtitle: "March 2020: the first coordinated observation of the Youtube algorithm"
+title: "1st coordinated observation of the Youtube algorithm ― Updates"
+subtitle: "👀Topic? COVID―19 👀When? 25.03.2020 👀You? SHOULD PARTICIPATE, EVERY OBSERVATION MATTER!"
 draft: false
 date: 2020-03-21T10:26:08Z
 
@@ -13,8 +13,9 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 24 March 2020 — Square tiles, for the social network, with contribution protocol
 
-## 24 March 2020 — Square tiles, for social network (protocol)
+🖼️ [SVG and PNG](https://github.com/tracking-exposed/youtube.tracking.exposed/tree/master/static/images/social).
 
 <div class="container row">
   <span class="col-xs-12 col-md-6"><img width="100%" class="imgtile" src="/images/social/1.svg"></span>
@@ -34,9 +35,11 @@ extraCSS: "/css/wetest.css"
 ---
 ## 23 March 2020 — Portuguese translation [of the call for participation](/wetest/1-pt)!
 
-#### Thanks to [Narrira](https://twitter.com/narriral/status/1242121677749788677) we got [Brazilian Portuguese translation](/wetest/1-pt). 
+<br />
 
-#### FYI, she did it by [forking this website](https://github.com/tracking-exposed/youtube.tracking.exposed) from our github repository. 
+# 🎉🎉 Thanks to [Narrira](https://twitter.com/narriral/status/1242121677749788677) we got [Brazilian Portuguese translation](/wetest/1-pt). 🎉🎉 She did it by [forking this website](https://github.com/tracking-exposed/youtube.tracking.exposed) from the github repository 🎉🎉
+
+<br />
 
 ---
 ## 23 March 2020 — weTEST stickers pack!
