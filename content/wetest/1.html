@@ -86,7 +86,9 @@ extraCSS: "/css/wetest.css"
 
   <div class="row enlarged" style="padding-top: 50px;">
     <div class="col-xs-12 col-md-4">
-      {{<colorblock text="weTEST#1 updates">}}
+      <a href="/wetest/announcement-1">
+        {{<colorblock text="weTEST#1 updates">}}
+      </a>
       We released 
       <a href="/wetest/announcement-1#23-march-2020-call-for-help">
         a <b>call for help</b></a>.
@@ -115,7 +117,4 @@ extraCSS: "/css/wetest.css"
   $(document).ready(function() {
     countdown(new Date("Mar 25, 2020 00:00:01"), "demo");
   });
-  function replacemail() {
-    $("#email").text("youtube-team" + "@" + "tracking" + "." + "exposed");
-  }
 </script>

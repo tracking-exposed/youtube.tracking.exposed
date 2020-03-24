@@ -13,6 +13,13 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 24 March 2020 — Protocol as a picture
+
+<div class="text-center">
+  <img width="80%" class="imgtile" src="/images/wetestprotocol.svg">
+</div>
+
+---
 ## 23 March 2020 — Portuguese translation [of the call for participation](/wetest/1-pt)!
 
 #### Thanks to [Narrira](https://twitter.com/narriral/status/1242121677749788677) we got [Brazilian Portuguese translation](/wetest/1-pt). 
@@ -77,9 +84,9 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
            <i>
             <a href="https://chrome.google.com/webstore/detail/youtube-rabbit-hole/nlddakjbmpidooplakalfoogdincflfh" target=_blank>[try this to get rid of!?]</a>. 
            </i>
-           Most of the evidence supporting these claims is <b>anecdotal</b>; stories told by the author, supported by screenshots of content. 
+           Most of the evidence supporting these claims is <b>anecdotal</b>; experiences of algorithmic interference, reported by screenshots and memories. 
         </li>
-        <li>A more rigorous collection presentaiton of evidence was produced by <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>, by Guillaume Chaslot.</li>
+        <li>A more rigorous collection of evidence, from the perspective of a singgle point of observation, is maintained by Guillaume Chaslot: <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>.</li>
         <li>At the beginning of 2020 a heated debate was seenon twitter, 
           <a target=_blank href="https://twitter.com/mark_ledwich/status/1210743158184693760">
            (Mark Ledwich, twitter announcements)
@@ -234,3 +241,9 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
   </h2>
 
 </div> <!-- container -->
+
+<script>
+function replacemail() {
+    $("#email").text("youtube-team" + "@" + "tracking" + "." + "exposed");
+  }
+</script>
