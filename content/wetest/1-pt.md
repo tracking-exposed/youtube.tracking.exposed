@@ -45,7 +45,7 @@ extraCSS: "/css/wetest.css"
 
 <div class="container col-12 justify-content-center">
 
-  <div class="test-steps links--disabled">
+  <div class="test-steps">
     <ol>
       <li>
         Abra a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>.
