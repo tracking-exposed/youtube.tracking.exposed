@@ -13,6 +13,13 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 25 March 2020 — Collection is open, and extended
+
+The test starts close to the right time, and we decided to consider collections for 48 hours instead of 24 hours. **25th March 00:00** till **26th 23:59 GMT**.
+
+The public outreach is a machine slow to warm-up.
+If anyone in from Germany, France, Italy, all the Scandinavian, Magreb, and Balkan regional languages want to organize a similar test, get in contact. 
+
 ## 24 March 2020 — Square tiles, for the social network, with contribution protocol
 
 🖼️ [SVG and PNG](https://github.com/tracking-exposed/youtube.tracking.exposed/tree/master/static/images/social).

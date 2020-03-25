@@ -15,12 +15,10 @@ extraCSS: "/css/wetest.css"
 
 
 <div class="container col-12 justify-content-center">
-  <h2 style="text-align:center;"> Today we are collecting evidences!
-  - In the next days follow the <a href="/wetest/announcement-1">Updates</a> 
+  <h2 style="text-align:center;">Evidence collection open now! - test ends in 
+    <span class="project-color"><span id="demo"></span></span> -
+    <a href="/wetest/announcement-1">Updates</a> 
   </h2>
-  <!-- <span class="project-color">
-           <span id="demo"></span> 
-   </span> --!> 
     
   <!--
     {{<colorblock text="HOW TO PARTICIPATE? 10 minutes experiment where every contribution matters.">}} -->
@@ -29,7 +27,7 @@ extraCSS: "/css/wetest.css"
 <br>
 <script src="/js/collaborative-tests.js"></script>
 <div class="container col-12 justify-content-center">
-  <h2 style="text-align: center;">On March 25th follow these links once, any time during the day:</h2>
+  <h2 style="text-align: center;">March 25th till 23:59 of 26th follow the sequence below, once or more:</h2>
 
 <br>
   <div class="row">
@@ -126,8 +124,9 @@ extraCSS: "/css/wetest.css"
 
 <script>
   $(document).ready(function() {
-    countdown(new Date("Mar 25, 2020 00:00:01"), "demo");
+    countdown(new Date("Mar 27, 2020 01:00:00"), "demo");
   });
+
   $(".links--disabled a").click(function(e) {
     e.preventDefault();
     $(this).text(" NOPE! Wait the 25th 00:00 GMT ");
