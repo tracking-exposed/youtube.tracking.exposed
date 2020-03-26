@@ -13,6 +13,80 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+
+<!--
+<div class="row">
+  <div class="col-6 ">
+    {{<colorblock text="Youtube Homepage">}}
+    507 access to YT-home was collected. YT-Homes tend to contains different selection curated by Youtube, based on what is trending in your region, something recommended for you, and something heavily dependent on your past profiles. 
+    <br>
+    This the first content we've produced, [download CSV] or [download JSON], check it below what it contains
+  </div>
+  <div class="col-6 ">
+    {{<colorblock text="The 5 Covid-19 related videos">}}
+    <i>We'll work on these since tomorrow.</i>
+  </div>
+</div>
+-->
+
+## 26 March 2020 — First day, a few statistics and a partial data release
+
+At the end of day 1, we see a smaller contribution compared to [pornhub collaborative test](https://pornhub.tracking.exposed/potest/announcement-1/#update-n-2-20-january-2020). Considering our 13 days before the weTEST day, we had an average of 79.3 daily adopters. Yesterday 168 people active, 72 new installations, likely each of them start to do the test. 
+
+<div class="container row">
+  <span class="col-xs-12 col-md-6"><img width="100%" src="/images/wt1/day1wetest1newadop.png"></span>
+  <span class="col-xs-12 col-md-6"><img width="100%" src="/images/wt1/day1wetest1lastactive.png"></span>
+</div>
+
+#### Data analysis and Data format
+
+
+Assume a person starts the test: open homepage, open five links, what if forget the 2nd links? 
+Since 26th early morning, we di not had visual feedback to remind you which links you already clicked. And we notice, for example, the Chinese-language-Codiv video has five access more than the Arabic. Does it means someone start the test and abandoned? Or our system has a small percentage of failures? Or that video wasn't loaded from youtube? We don't know. But does this precision matter? should we clean the dataset of the incomplete session? A complete session being with accessing the homepage, in the right sequence, access the five videos, and it concludes with the homepage again.
+
+We distinguish between **Session-centered dataset** it considers only **complete sessions** composed of seven observations each. **Page-centered dataset** do not consider the session. It keep in account video and homepage evidence, good as they are, indiviudual decontextualized observed evidence. **Basic researches on diversity and content analysis** can start with this. 
+
+<div class="row">
+  <div class="col-6 ">
+    {{<colorblock text="Session-centered dataset">}}
+    To extract the session we are working on a dedicated nodejs script <a href="https://github.com/tracking-exposed/yttrex/blob/master/backend/scripts/wetest1.js" target=_blank>wetest1.js</a>; we'll complete it in the next days.
+  </div>
+  <div class="col-6 ">
+    {{<colorblock text="Page-centered dataset">}}
+    A more basic script is develop to pick, anonymized, unroll and save in JSON/CSV format. 
+    <a href="https://github.com/tracking-exposed/yttrex/blob/master/backend/scripts/wetest1-basic.js" target=_blank>wetest1-basic.js</a>, <b>
+      <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1/day1-partials" target=_blank>pick the open data</a>
+    </b>, and see below the format description.
+    <pre>
+wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"home"}: 507 objects retrived +2s
+wetest-1-basic — Unnested the 'sections' return 18759 evidences. Saving JSON file +292ms
+wetest-1-basic — Produced 4879099 bytes for text/csv, saving file +1s
+    </pre>
+  </div>
+</div>
+
+#### YT-Home data format
+
+On the right, you see the evidence we collected: it represent a sample of what a supporter with browser extention installed is sending to us. The censored field, publicKey and id, as treated confidentially because they are visibile only to the data subject owning this evidence.
+
+<div class="row">
+  <span class="col-xs-12 col-md-6">
+    <img width="100%" src="/images/wt1/home-robomongo.png" />
+    <br /> <br />
+    By expanding 'sections' you see the metadata we collects from each video entry appearing in homepage. 
+    <br /> <br />
+    <img width="100%" src="/images/wt1/home-expanded-robomongo.png" />
+    <br /> <br />
+    With the functions <a href="https://github.com/tracking-exposed/yttrex/blob/master/backend/scripts/wetest1-basic.js#L52)" target=_blank>produceHomeCSV and unwindSections</a>, we produce the anonymized dataset you can see on the right.
+  </span>
+  <span class="col-xs-12 col-md-6">
+    <img width="100%" src="/images/wt1/home-json-format-example.png" />
+    <br /><br />
+    Here you can download the <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1/day1-partials" target=_blank>JSON and CSV</a>, and the format might change in the next hours. For technical inquiry, <a href="#contacts">reach out to us</a> on github.
+  </span>
+</div>
+
+---
 ## 25 March 2020 — Coverage
 
 **Italian**: [Come funziona la censura di YouTube sul coronavirus?](https://www.wired.it/internet/web/2020/03/25/coronavirus-youtube-censura/).
@@ -25,7 +99,7 @@ _¡Hey! Necesitamos tu ayuda. El proyecto Youtube.Tracking.Exposed (o ytTREX) es
 
 If you want to double check your collection, click on the browser extension icon. then click on the logo in the popup. It will open the ytTREX personal page. below the pie charts and the bar chars, you should see the five video in reverse order:
 
-{{<bord-img href="/images/ux-post-wetest1.png">}}
+{{<bord-img href="/images/wt1/ux-post-wetest1.png">}}
 
 ---
 ## 25 March 2020 — Collection is open, and extended
@@ -260,18 +334,21 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
 </div> <!-- container -->
 
 ---
-## March 2020 — quarantined, planning of [weTEST#1](/wetest/1) 
+## March 2020 — quarantined 🤞, the planning of [weTEST#1](/wetest/1) starts!
 
 <h2 class="project-color">
   <a href="https://covid-ad-home.info" style="color:brown">
   Wash your hands
-  </a> 🦠 and we need as much observations as possible!
+  </a> 🦠 and spread the word, we need as much observations as possible!
 </h2>
 
----
+<br/><br/>
+
+{{<colorblock>}}
 
 <div class="container col-12 justify-content-center" id="contacts">
   <h2 style="text-align: center;">CONTACT US ― 
+    <a href="https://github.com/tracking-exposed" target=_blank>github</a>,
     <a href="#contacts" onclick="replacemail()" id="email">team shared email</a>,
     <a href="https://twitter.com/trackingexposed" target=_blank>
       project twitter</a>,
