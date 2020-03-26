@@ -27,8 +27,7 @@ extraCSS: "/css/wetest.css"
 <br>
 <script src="/js/collaborative-tests.js"></script>
 <div class="container col-12 justify-content-center">
-  <h2 style="text-align: center;">March 25th till 23:59 of 26th follow the sequence below, once or more:</h2>
-
+  <h2 style="text-align: center;">March 25th till 26th at 23:59; Follow the sequence below, once (or more):</h2>
 <br>
   <div class="row">
     <div class="col-xs-12 col-md-6">
@@ -37,7 +36,7 @@ extraCSS: "/css/wetest.css"
     </div>
     <div class="col-xs-12 col-md-6">
       {{<yt-extension>}}
-      <div class="test-steps">
+      <div class="test-steps links--monouse">
         <ol>
           <li>
             Open <a href="https://www.youtube.com" target="_blank">YouTube Homepage</a>, scroll down, close.
@@ -127,8 +126,11 @@ extraCSS: "/css/wetest.css"
     countdown(new Date("Mar 27, 2020 01:00:00"), "demo");
   });
 
-  $(".links--disabled a").click(function(e) {
-    e.preventDefault();
-    $(this).text(" NOPE! Wait the 25th 00:00 GMT ");
+  $(".links--monouse a").click(function(e) {
+    const name = $(this).text();
+    $(this).text(name + ' [done]');
+    $(this).css('color', '#b3a920');
+    $(this).css('font-style', 'italic');
+    $(this).css('font-size', '0.8em');
   })
 </script>

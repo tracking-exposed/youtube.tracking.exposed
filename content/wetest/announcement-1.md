@@ -13,13 +13,29 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 25 March 2020 — Coverage
+
+**Italian**: [Come funziona la censura di YouTube sul coronavirus?](https://www.wired.it/internet/web/2020/03/25/coronavirus-youtube-censura/).
+_Un esperimento del team di Facebook Tracking Exposed vuole misurare i contenuti promossi o nascosti da YouTube sulla pandemia. Ecco come diventare volontari._
+
+**Spanish**: [¿Cómo funciona el sistema de moderación de contenidos algorítmico en Youtube? Ayuda a ytTREX a averiguarlo](https://derechosdigitales.tumblr.com/post/613590101901131776/c%C3%B3mo-funciona-el-sistema-de-moderaci%C3%B3n-de), from **Derechos Digitales**.
+_¡Hey! Necesitamos tu ayuda. El proyecto Youtube.Tracking.Exposed (o ytTREX) está aprovechando este horrible escenario de pandemia desatada por el COVID-19 para poder comprender un poco mejor cómo funciona el sistema moderación automática de contenido en hecha por algoritmos en Youtube._
+
+## 25 March 2020 — Is it worked what you did?
+
+If you want to double check your collection, click on the browser extension icon. then click on the logo in the popup. It will open the ytTREX personal page. below the pie charts and the bar chars, you should see the five video in reverse order:
+
+{{<bord-img href="/images/ux-post-wetest1.png">}}
+
+---
 ## 25 March 2020 — Collection is open, and extended
 
 The test starts close to the right time, and we decided to consider collections for 48 hours instead of 24 hours. **25th March 00:00** till **26th 23:59 GMT**.
 
 The public outreach is a machine slow to warm-up.
-If anyone in from Germany, France, Italy, all the Scandinavian, Magreb, and Balkan regional languages want to organize a similar test, get in contact. 
+If anyone in from Germany, France, Italy, all the Scandinavian, Magreb, and Balkan regional languages want to organize a similar test, [get in touch](#contacts).
 
+---
 ## 24 March 2020 — Square tiles, for the social network, with contribution protocol
 
 🖼️ [SVG and PNG](https://github.com/tracking-exposed/youtube.tracking.exposed/tree/master/static/images/social).
