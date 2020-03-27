@@ -14,6 +14,17 @@ extraCSS: "/css/wetest.css"
 ---
 
 
+## 27 March 2020 - Test completed!
+
+Thanks to everybody contributing and spreading the experinent. In the next days we'll release data, extend dataset as much as we feel it helpful, and improve how is openly acessed. we'll keep updating this page. 
+
+### we're short in human power and technologist! 
+
+Anyone who wants to copy it in analysis platform, consider this an open license database. The purpose of this dataset is research personalization algorithm, has been neutralized of personal data, and any research conducted with the intent of profile individuals is a pointless effort which can't bring any value to anyone.
+
+---
+## 27 March 2020 - Release of video data (first day partial)
+
 <!--
 <div class="row">
   <div class="col-6 ">
@@ -29,6 +40,17 @@ extraCSS: "/css/wetest.css"
 </div>
 -->
 
+λ node scripts\wetest1-basic.js --type video
+  wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
+  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0"]}}: 402 objects retrived +2s
+  wetest-1-basic — Unnested the 'sections' return 11563 evidences. Saving JSON file +438ms
+  wetest-1-basic — Produced 5218168 bytes for text/csv, saving file +820ms
+
+https://github.com/tracking-exposed/experiments-data/tree/master/wetest1/day1-partials
+
+
+---
 ## 26 March 2020 — First day, a few statistics and a partial data release
 
 At the end of day 1, we see a smaller contribution compared to [pornhub collaborative test](https://pornhub.tracking.exposed/potest/announcement-1/#update-n-2-20-january-2020). Considering our 13 days before the weTEST day, we had an average of 79.3 daily adopters. Yesterday 168 people active, 72 new installations, likely each of them start to do the test. 
