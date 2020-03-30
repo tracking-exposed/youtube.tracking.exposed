@@ -14,13 +14,15 @@ extraCSS: "/css/wetest.css"
 ---
 
 
-## 27 March 2020 - Test completed!
+## 27 March 2020 - 🎆 Test completed! 🎆
 
-Thanks to everybody contributing and spreading the experinent. In the next days we'll release data, extend dataset as much as we feel it helpful, and improve how is openly acessed. we'll keep updating this page. 
+🎆 **Thanks to everybody contributing and spreading the experiment** 🎆
 
-### we're short in human power and technologist! 
+In the next days, we’ll release data, extend the dataset as much as we feel it helpful, and improve how it is openly accessed. We’ll keep updating this page.
 
-Anyone who wants to copy it in analysis platform, consider this an open license database. The purpose of this dataset is research personalization algorithm, has been neutralized of personal data, and any research conducted with the intent of profile individuals is a pointless effort which can't bring any value to anyone.
+Anyone who wants to copy it in the analysis platform, consider this an open license database. The purpose of this dataset is the research personalization algorithm. The dataset has not personal data, despite the fact that the personalization of YouTube depends on personal data (data subject profile). The lack of context made research conducted with the intent of profile individuals is a pointless effort that can’t bring any value to anyone, or any kind of meaningful result.
+
+_note_ checkout [public stats](/impact) if curious un how we doing, or in the [github repository](https://github.com/tracking-exposed/yttrex).
 
 ---
 ## 27 March 2020 - Release of video data (first day partial)
@@ -40,14 +42,14 @@ Anyone who wants to copy it in analysis platform, consider this an open license 
 </div>
 -->
 
-λ node scripts\wetest1-basic.js --type video
-  wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
-  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
-  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0"]}}: 402 objects retrived +2s
-  wetest-1-basic — Unnested the 'sections' return 11563 evidences. Saving JSON file +438ms
-  wetest-1-basic — Produced 5218168 bytes for text/csv, saving file +820ms
+    λ node scripts\wetest1-basic.js --type video
+      wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
+      lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+      wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0"]}}: 402 objects retrived +2s
+      wetest-1-basic — Unnested the 'sections' return 11563 evidences. Saving JSON file +438ms
+      wetest-1-basic — Produced 5218168 bytes for text/csv, saving file +820ms
 
-https://github.com/tracking-exposed/experiments-data/tree/master/wetest1/day1-partials
+Get the [files](https://github.com/tracking-exposed/experiments-data/tree/master/wetest1/day1-partials). Soon we'll release day 1+2 and document the format.
 
 
 ---
