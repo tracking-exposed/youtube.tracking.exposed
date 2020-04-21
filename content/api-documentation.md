@@ -254,7 +254,6 @@ Request:
           "longlabel": "Governo M5s- Pd, le consultazioni di Conte a Montecitorio by La Repubblica Streamed 9 hours ago 5 hours 16,488 views"
         }
       ],
-      "relatedN": 9,
       "savingTime": "2019-08-30T23:24:34.513Z",
       "title": "Ленинград — Кабриолет",
       "videoId": "Z8qU0GdW88Q",
@@ -749,7 +748,6 @@ Request:
         "duration": "17 minuti",
         "timeago": "2 anni fa"
       }],
-    "relatedN": 4,
     "savingTime": "2019-05-27T16:32:28.196Z",
     "title": "Rick Astley - Never Gonna Give You Up (Video)",
     "videoId": "dQw4w9WgXcQ",
@@ -890,7 +888,6 @@ Request:
         "videoId": "dQw4w9WgXcQ"
       }
     ],
-    "relatedN": 16,
     "savingTime": "2019-07-11T21:36:10.492Z",
     "title": "YMCA (Original Version 1978)",
     "videoId": "RN8Li7kYNnw",

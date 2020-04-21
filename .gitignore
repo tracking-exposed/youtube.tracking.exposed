@@ -11,3 +11,4 @@ archetypes/*
 data/*
 resources/
 themes*
+.infrastructure/*

@@ -70,11 +70,6 @@ There is one entry for each submission received by the supporters
             <td>The date when the evidence was collected</td>
         </tr>
         <tr>
-            <td>RelatedN</td>
-            <td>20</td>
-            <td>The number of related video recorded</td>
-        </tr>
-        <tr>
             <td>watcher</td>
             <td>caramel-macaroon-succotash</td>
             <td>This is a pseudonym assigned to every broswer submitting data. This is linked to the authentication material, and therefore <b>this is a personal data</b>.</td>
