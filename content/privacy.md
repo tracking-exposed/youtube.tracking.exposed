@@ -1,32 +1,37 @@
 ---
-title: What We Collect
-subtitle: and how ytTREX works
+title: What Is Processed and Why
+subtitle: how ytTREX works, how you control your data, and which are the default settings
 draft: false
 
-og_title: "ytTREX - what we collect"
+og_title: "What is processed and why"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/what-we-collect"
-og_description: "this is the privacy statement, data processing and consent for data subjects using youtube.tracking.exposed"
+og_description: "documentation on how ytTREX works, how you control your data, and which are the default settings"
 ---
 
-## What the browser extension does
+# What the browser extension does
 
 1. It creates cryptographic key pairs. It is the method to ensure you can access your data, and only you can mark the data received as “yours.” It is necessary because we don’t have an email address, Google profile, or YouTube username. Your official identification method is not linked to our data at all. This work for every human or bot opening youtube.com website. Every browser extension installed has a different and unique cryptographic key.
 
-2. It copies the HTML of every youtube.com video page once YouTube has completed to send the suggested videos. The HTML is sent to the tracking.exposed server, hosted in Germany and administrated by the [technical staff of our team](/about).
+2. It copies the HTML of every youtube.com video page once YouTube has completed to send the suggested videos. The HTML is sent to the tracking.exposed server, hosted in Germany and administrated by the [technical staff of our team](/about). The system administrators are the three technologies of Tracking Exposed, get in touch at youtube-team at tracking dot exposed.
+
+3. Beside specially rare maintenance operations, the code processing the data collected is [here available for review](https://github.com/tracking-exposed/yttrex).
 
 **Technical detail**: the extension cryptographically signs the HTML you send, with your public key. We differentiate *supporters* through the public key they are using, and you can create a new key, download, or import a key when you want. Each time a new supporter show up [you'll see it in the first graph](/impact)
 
-## Which data we receive and save
+# Which data we receive and save
 
 1. From the submission: we use the public key to verify the existence of the profile and validate the signature. We keep the exact time, the URL of the video watched, and the HTML. This data goes in a collection named 'videos'.
 2. From videos: we pick all the HTML and extract metadata, using [parser implemented in nodejs](https://github.com/tracking-exposed/yttrex/blob/master/backend/parsers/video.js). It derives the following list of metadata. The data goes in a collection named 'metadata.'
-3. **YES**: You have full control of your entries in the 'videos' and 'metadata' collection.
+3. **Of course**, **You have full control on the data object linked to you** in the 'videos' and 'metadata' collections.
 
-### How a 'metadata' entry looks like
+## URL considered by the extension
 
-*todo update to v2, it contains ad*
+    https://www.youtube.com/watch?.*
+
+
+### A Watched Video Metadata entry 
 
 There is one entry for each submission received by the supporters
 
@@ -76,11 +81,18 @@ There is one entry for each submission received by the supporters
         </tr>
         <tr>
             <td>Related</td>
-            <td>[ is a list ]</td>
+            <td>[ list ]</td>
             <td>A list of related videos. The size of this list is the number in the field RelatedN. See below the details</td>
+        </tr>
+        <tr>
+            <td>Metadata</td>
+            <td>[ list ]</td>
+            <td>A collection of additional metadata about what YouTube sent you during the video. Advertising banner, Advertising video. This set of information grows as long as we support new one, and they are limited to what youtube is sending to the supporter.</td>
         </tr>
     </tbody>
 </table>
+
+### A Video Related Metadata entry
 
 Each related video has a different data structure. This list of related is part of the evidence. We use _related_ and _suggested_ as synonyms. We are talking about the videos display on the right column of YouTube interface.
 
@@ -157,25 +169,26 @@ A researcher coordinates tests among people or by using puppet profiles. The exp
 
 The privacy model is an explicit opt-in for people joining the research group. In case dummy profiles play a role, the researcher likely owns these profiles and has full control of the data collected with them.
 
-### Open data for a wider access
+# Open data for a wider access
 
 Tracking Exposed might run an analysis on the dataset as long as the logic to look into the database is:
+
 
 * it SHOULD be a [MapReduce](https://en.wikipedia.org/wiki/MapReduce): a transformation that filters and aggregates the analyzed records and produces a summarized version of the original input.
 * The generated dataset MUST not contain the watchers' names
 * The generation of the dataset SHOULD NOT use the watchers' ID as part of the aggregation logic.
 
-#### How to guarantee protection in Open Data
+### How to guarantee protection in Open Data
 
-Our privacy model wants to anonymize, aggregate data in a way which you can't recognize any contributor.
-Again, we should investigate phenomena without exposing any individual.
+Our privacy model wants to anonymize, aggregate data in a way which you can't recognize any contributor. Again, we should investigate phenomena without exposing any individual.
 
-This method has a problem: the three points above are not enough for producing 100% safe and useful data for the public. This approach is a general indication, but our procedure to accept a process like this includes three phases:
+This method has a problem: the three declaration above aren't enough at producing 100% safe and useful data for the public.
+Said approach it is a general indication, our procedure to accept a process like:
 
-1. A third party proposes a research question and a logic in pseudo-code
+1. A third party proposes a research question and a logic in pseudo-code.
 2. We implement the functionality and don't release it to the public, we only produce a small sample of data.
 3. We help the third party in writing their privacy assessment.
-4. The proposal (1), our experimental result (2) and the P.A. (3) are assessed by a team of independent reviewers.
+4. We'll notify impacted data subject if an opt-in isn't mandatory.
 
 At the moment, this is not yet happening. We are only experimenting with producing aggregated queries with privacy-preserving capabilities. When external researchers had access to a selected portion of the dataset, they signed an agreement with us which requires them to:
 
@@ -186,7 +199,7 @@ At the moment, this is not yet happening. We are only experimenting with produci
 * Share the data with third parties only prior the discloser's consent;
 * Remove the data from the recipient's storage devices after the end of the project.
 
-#### How we (and other researcher) release data
+### How we (and other researcher) release data
 
 In case a research abides the following methodology:
 
@@ -196,8 +209,12 @@ In case a research abides the following methodology:
 A researchers might decide to publish their collected data as a method to let others replicate and validate the research. 
 Few cases like these are registered so far, such as in the context of Facebook algorithm analysis, as documented in [the invisible curation of content](https://webfoundation.org/research/the-invisible-curation-of-content-facebooks-news-feed-and-our-information-diets/), or the report [Italian political election and digital propaganda](https://ourdataourselves.tacticaltech.org/posts/overview-italy/), has data released in a [repository](https://github.com/tracking-exposed/experiments-data/tree/master/e18).
 
-The *collaborative test* like [poTEST#1](https://pornhub.tracking.exposed/potest/final-1), or [weTEST#1](/wetest/1) **fail to comply with point n.1 above**, we release the data because:
+The *collaborative test* like [poTEST#1](https://pornhub.tracking.exposed/potest/final-1), or [weTEST#1](/wetest/1) **fail to comply with point n.1 above**, we release the data because the pseudonym released as part of the test is different from the one associated to the profile. _It can't be correlated_. 
 
-1. the pseudonym released as part of the test is different from the one associated to the profile. It can't be correlated. It is possible, among the 'related content', **YouTube likely recommend something related to individual previous activities**. It is possible exist a content so personal to link uniquely an individual, and thus de-anonymize a subject or an interest of a subject? what this might lead at? 
-2. **ATTENTION**: we can't outline a general rule and we should evaluate to do a data protection impact assessment in every different case. It is good, in the test, to do the experiment with a browser logged off, cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest [Brave](https://brave.com)
-    * We express worry on the centralization of power in the hand of Google Chrome, upon Brave and Edge runs. We already suffered a few takedown of our extension(s).
+We should also consider, among the 'related content', **YouTube likely recommend something related to individual previous activities**. It is possible exist a content so personal to link uniquely an individual, and thus de-anonymize a subject or an interest of a subject? (well, the answer is 'maybe', if supported by strong out of channel information). 
+What this might lead at? Considering the small amount and narrow-focus of the At the moment we don't estimate this might lead to a leakage of sensible information.
+ we can't outline a general rule and we should evaluate to do a data protection impact assessment in every different case. It is good, in the test, to do the experiment with a browser logged off, cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest [Brave](https://brave.com)
+
+---
+
+Last but not least: **We express worry on the centralization of power in the hand of Google Chrome, upon Brave and Edge runs. We already suffered a few takedown of our extension(s).**

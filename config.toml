@@ -40,9 +40,9 @@ canonifyURLs = true
     url = "/get-involved/"
     weight = 140
  [[menu.main]]
-    name = "What We Collect"
+    name = "Privacy"
     parent = "More"
-    url = "/what-we-collect/"
+    url = "/privacy/"
     weight = 150
  [[menu.main]]
     parent = "More"
