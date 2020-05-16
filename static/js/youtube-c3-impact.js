@@ -1,7 +1,7 @@
-const DAYSAGO = 15;
+const DAYSAGO = 17;
 
 const clist = [{
-    API: buildApiUrl('statistics/supporters/day', 15, 2),
+    API: buildApiUrl('statistics/supporters/day', DAYSAGO, 2),
     bindto: '#supporters-graph',
     data : {
         mimeType: 'json',
@@ -26,7 +26,7 @@ const clist = [{
         }
     }
 }, {
-    API: buildApiUrl('statistics/active/day', 15, 2),
+    API: buildApiUrl('statistics/active/day', DAYSAGO, 2),
     bindto: '#active-graph',
     data : {
         mimeType: 'json',
@@ -51,7 +51,7 @@ const clist = [{
         }
     }
 }, {
-    API: buildApiUrl('statistics/related/day', 15, 2),
+    API: buildApiUrl('statistics/related/day', DAYSAGO, 2),
     bindto: '#related-graph',
     data : {
         mimeType: 'json',
@@ -82,7 +82,7 @@ const clist = [{
         }
     }
 }, {
-    API: buildApiUrl('statistics/processing/day', 15, 2),
+    API: buildApiUrl('statistics/processing/day', DAYSAGO, 2),
     bindto: '#processing-graph',
     data : {
         mimeType: 'json',
@@ -107,7 +107,7 @@ const clist = [{
         },
     }
 }, {
-    API: buildApiUrl('statistics/metadata/day', 15, 2),
+    API: buildApiUrl('statistics/metadata/day', DAYSAGO, 2),
     bindto: '#metadata-graph',
     data : {
         mimeType: 'json',
@@ -142,7 +142,7 @@ const clist = [{
         },
     }
 }, {
-    API: buildApiUrl('statistics/usage/day', 15, 2),
+    API: buildApiUrl('statistics/usage/day', DAYSAGO, 2),
     bindto: '#usage-graph',
     data : {
         mimeType: 'json',
