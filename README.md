@@ -1,3 +1,7 @@
+## Initial welcome note
+
+This repository contains only templates, texts, and binaries concerning the website youtube.tracking.exposed, if you are interested in algorithm analysis and the yttrex technology, you should check [this repo](https://github.com/tracking-exposed/yttrex).
+
 YouTube Tracking Exposed Site
 ==============================
 
@@ -22,3 +26,8 @@ hugo -D server
 ```
 
 And now connect to http://localhost:1313. The website would work regarless the statis portion. Interaction with personal page pick data from API, and to bind properly the server to port 9000, you should run the [yttrex backend](https://github.com/tracking-exposed/yttrex).
+
+## edits of this morning have a meaning.
+
+and its *mean* 🤷 
+
