@@ -85,6 +85,7 @@ function reportError(info) {
 function getPubKey() {
     const t = window.location.href.split('/#').pop();
     if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
+    console.log("found token", t);
     return t;
 }
 
@@ -242,13 +243,29 @@ function manageTag(action) {
     });
 }
 
-function downloadCSV() {
+/* CSV related functions, the first two of them are for 'personal', last is on specific 'videoId' */
+function downloadVideoCSV() {
     const pk = getPubKey();
-    const csvurl = buildApiUrl('personal', pk + '/csv');
-    console.log("downloadCSV from: ", csvurl);
+    const csvurl = buildApiUrl('personal', pk + '/video/csv');
+    console.log("download personal video CSV from: ", csvurl);
     window.open(csvurl);
 }
 
+function downloadHomeCSV() {
+    const pk = getPubKey();
+    const csvurl = buildApiUrl('personal', pk + '/home/csv');
+    console.log("download personal home CSV from: ", csvurl);
+    window.open(csvurl);
+}
+
+function downloadCSVByVideoId(e) {
+    const videoId = $(this).attr('yttrex-videoId');
+    const csvurl = buildApiUrl(`videoCSV/${videoId}/`, null, 1);
+    console.log("videoCSV from: ", csvurl);
+    window.open(csvurl);
+}
+
+/* ------------- */
 function between(x, min, max) {
     return x >= min && x <= max;
 }
@@ -327,12 +344,6 @@ function addVideoRow(video, i) {
     entry.removeAttr('hidden');
 }
 
-function downloadVideoCSV(e) {
-    const videoId = $(this).attr('yttrex-videoId');
-    const csvurl = buildApiUrl(`videoCSV/${videoId}/`, null, 1);
-    console.log("videoCSV from: ", csvurl);
-    window.open(csvurl);
-}
 
 function removeEvidence(e) {
     const id = $(this).attr('yttrex-id');
