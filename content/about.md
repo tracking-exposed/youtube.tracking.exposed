@@ -1,16 +1,27 @@
 ---
-title: "About ytTREX"
-subtitle: "If you feel the project in your interest, we would love to expand our team ― FYI, we're all unfunded"
+title: About ytTREX and us
+subtitle: If you feel the project in your interest, we would love to expand our team ― FYI, we're all unfunded
 draft: false
+date: 2020-05-20T15:01:21+01:00
+description: Who, Why, What, When. 
+
+og_title: "About ytTREX"
+og_type: "website"
+og_image: "https://youtube.tracking.exposed/images/compare.jpeg"
+og_url: "https://youtube.tracking.exposed/get-involved"
+og_description: "WHO we are, WHY we do this, WHAT we do exactly, and WHEN this would matter"
 ---
 
-## What
+## Why ? To help digital activism and analysts in assessing algorithmic influences
 
-youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create [free (libre) software](https://github.com/tracking-exposed/yttrex), support a community of analysts and developers, and enable critical analysis of monopolist platforms. This website is on Hugo and mods can be pull-requested on this [repository](https://github.com/tracking-exposed/youtube.tracking.exposed).
+**We strongly expects** algorithmic content curation, as form of power and control, would be used and abused in many ways by multiple actors.
+**We acknowldge** our limits in even slightly shaping this political debate.
+**We concentrate** in developing technology to enable healthy discussion and skeptic analysis.
+**We commit** in transferring the centralization power to the border of the network.
 
-This project start as part of [ALEX](https://algorithms.exposed) research initiative, lead by DATACTIVE, in University of Amsterdam. The grant covered Tracking Exposed improvement since Novembre '18 till February '20. After since the project is unfunded and contributions happens via personal volunteering capacity.
+---
 
-## Who work on this
+## Work on this
 
 * _software development_ (browser extension), initially develop by [Alberto Granzotto](https://github.com/vrde), now maintain with the help of (another 😅) [Alberto](https://github.com/nkint).
 * _[weTest#1](/wetest/1) executives_ Salvatore Romano, Giulia Corona 🙌
@@ -18,6 +29,20 @@ This project start as part of [ALEX](https://algorithms.exposed) research initia
 * _outreach and analysis_ Salvatore Romano, Giulia Corona, Matteo Renoldi, Davide Beraldo.
 * _review and revision by_ Barbara Gianessi,
 * _graphic and analysis_ Laura Swietlicki.
+
+---
+
+## What
+
+youtube.tracking.exposed takes its inspiration, methods, experience, and code from [facebook.tracking.exposed](https://facebook.tracking.exposed). This project is motivated by and refers to the [tracking.exposed](https://tracking.exposed) manifesto; the goal is to create [free (libre) software](https://github.com/tracking-exposed/yttrex), support a community of analysts and developers, and enable critical analysis of monopolist platforms. This website is on Hugo and mods can be pull-requested on this [repository](https://github.com/tracking-exposed/youtube.tracking.exposed).
+
+#### Inception
+
+This project start as part of [ALEX](https://algorithms.exposed) research initiative, lead by DATACTIVE, in University of Amsterdam. The grant covered Tracking Exposed improvement since Novembre '18 till February '20. After since the project is unfunded and contributions happens via personal volunteering capacity.
+
+#### Want more more? Check out the [data processing and privacy policy](/privacy) and [weTest#1](/wetest/1).
+
+---
 
 ## Get in touch
 
