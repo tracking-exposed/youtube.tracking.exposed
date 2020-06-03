@@ -13,6 +13,78 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 30 May 2020 - a due update after some silence...
+
+$ DEBUG=* scripts/wetest1-basic.js --type video
+  wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
+  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0",null]}}: 152 objects retrived +2s
+  wetest-1-basic — Unnested the 'sections' return 7843 evidences. Saving JSON file +748ms
+  wetest-1-basic — Produced 4483380 bytes for text/csv, saving file +914ms
+  wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +26ms
+  wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 66.8% | false: 32.9% | null: 0.3% +0ms
+  wetest-1-basic — id,,,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — savingTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — clientTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — uxlang,,,,,,,,,,,,,,,,,,,,,,,string: 100% +0ms
+  wetest-1-basic — dataset,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — experiment,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — step,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — parameter,,,,,,,,,,,,,,,,,,,,undefined: 99.6% | string: 0.4% +0ms
+  wetest-1-basic — recommendedVideoId,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — recommendedAuthor,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — recommendedTitle,,,,,,,,,,,,,string: 100% +4ms
+  wetest-1-basic — recommendedLength,,,,,,,,,,,,int: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedDisplayL,,,,,,,,,,string: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedLengthText,,,,,,,,string: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedPubTime,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — ptPrecision,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — recommendedRelativeS,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedViews,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedForYou,,,,,,,,,,,,false: 78.8% | true: 21.2% +1ms
+  wetest-1-basic — recommendedVerified,,,,,,,,,,true: 100% +0ms
+  wetest-1-basic — recommendationOrder,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedKind,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — watchedVideoId,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedAuthor,,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedPubtime,,,,,,,,,,,,,,,object: 100% +2ms
+  wetest-1-basic — watchedTitle,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — watchedViews,,,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedChannel,,,,,,,,,,,,,,,string: 100% +2ms
+
+$ DEBUG=* scripts/wetest1-basic.js --type home
+  wetest-1-basic — [home] is the target: starting wetest basic extractor… +0ms
+  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"home"}: 188 objects retrived +2s
+  wetest-1-basic — Unnested the 'sections' return 10537 evidences. Saving JSON file +810ms
+  wetest-1-basic — Produced 4132743 bytes for text/csv, saving file +884ms
+  wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +23ms
+  wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +2ms
+  wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 84.7% | false: 15.3% | null: 0% +1ms
+  wetest-1-basic — id,,,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — savingTime,,,,,,,,,,,,,,,,,,,object: 100% +2ms
+  wetest-1-basic — clientTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — order,,,,,,,,,,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — uxlang,,,,,,,,,,,,,,,,,,,,,,,undefined: 100% +2ms
+  wetest-1-basic — dataset,,,,,,,,,,,,,,,,,,,,,,string: 100% +3ms
+  wetest-1-basic — experiment,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — step,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — parameter,,,,,,,,,,,,,,,,,,,,undefined: 100% +1ms
+  wetest-1-basic — sectionName,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — selectedVideoId,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — selectedAuthor,,,,,,,,,,,,,,,string: 92.3% | undefined: 7.7% +1ms
+  wetest-1-basic — selectedChannel,,,,,,,,,,,,,,string: 93.6% | undefined: 6.4% +2ms
+  wetest-1-basic — selectedTitle,,,,,,,,,,,,,,,,string: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedLength,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — selectedDisplayL,,,,,,,,,,,,,undefined: 100% +1ms
+  wetest-1-basic — selectedLengthText,,,,,,,,,,,undefined: 17.1% | string: 82.9% +2ms
+  wetest-1-basic — selectedPubTime,,,,,,,,,,,,,,object: 92.1% | null: 7.9% +2ms
+  wetest-1-basic — ptPrecision,,,,,,,,,,,,,,,,,,string: 100% +0ms
+  wetest-1-basic — selectedRelativeS,,,,,,,,,,,,int: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedViews,,,,,,,,,,,,,,,,int: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedKind,,,,,,,,,,,,,,,,,string: 100% +3ms
+
 
 ## 27 March 2020 - 🎆 Test completed! 🎆
 

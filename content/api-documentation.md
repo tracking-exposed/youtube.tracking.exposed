@@ -1,35 +1,36 @@
-## CSV is the most knonw format for basic data analysis. We offer three kinds of CSV
+---
+title: API and formats documentation
+subtitle: This is a work in progress, if you want to use us, it is worthy drop us an email!
+draft: false
+date: 2020-05-27T15:01:21+01:00
+description: 
 
-1. The *personal* CSV, by [using the browser extension](/preview), you can collect evidenced of personalization, and download them. 
-  * *personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
-  * *personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
-2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
+og_title: "youtube algorithm analysis"
+og_type: "website"
+og_image: "https://youtube.tracking.exposed/images/compare.jpeg"
+og_url: "https://youtube.tracking.exposed/get-involved"
+og_description: "API and format documentation"
+---
+
+## CSV (aka the most basic format for data analysis)
+
+The *personal* CSV, by [using the browser extension](/preview), you collect the video selected by Youtube for you, and download these logs.
 
 #### PersonalVideo CSV
+
+*personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
+
 #### PersonalHome CSV
+
+*personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
+
 #### Compare CSV
 
-                recommendedVideoId: related.videoId,
-                recommendedViews: (related.mined) ? related.mined.viz : null,
-                recommendedDuration: (related.mined) ? related.mined.duration : null,
-                recommendedPubtime: (related.mined) ? related.mined.timeago : null,
-                recommendedForYou: related.foryou,
-                recommendedTitle: related.title,
-                recommendedAuthor: related.source,
-                recommendedVerified: related.verified,
-                recommendationOrder: related.index,
-                watchedId: evidence.id,
-                watchedAuthor: evidence.authorName,
-                watchedPubtime: evidence.related.vizstr,
-                watchedTitle: evidence.title,
-                watchedViews: evidence.viewInfo.viewStr ? evidence.viewInfo.viewStr : null,
-                watchedChannel: evidence.authorSource,
+2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
 
-
-## API Introduction
+# API Introduction
 
 The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/`.
-
 
 `userToken` is an unique identifier for you YoutubeTrackingExposed user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.
 
