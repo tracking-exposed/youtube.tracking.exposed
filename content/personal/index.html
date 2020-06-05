@@ -1,18 +1,20 @@
 ---
-title: Use & Control the evidence you sent us
-subtitle: Please note, this is working prototype. If your data looks wrong get in touch with support at tracking dot exposed
+title: Your personal pagge
+subtitle: Do not share this link! Only you have access to it.
 date: 2019-05-22T15:01:21+01:00
 draft: false
 extraCSS: "/css/personal.css"
-description: Personal interface, this link is only know by you; keep it private
-type: app
+description: Personal interface, your evidence and settings. The link is know to you only; keep it private
+type: material
 ---
 
 <div class="container">
 
+    <div id="#material"><!-- here code injected by script injected by 'material' template --></div>
+
     <section>
         <div class="mb-11">
-            <p>Recent activities recorded by your browser extension:</p>
+            <p>Recent activities recorded:</p>
             <div id="series"></div>
         </div>
     </section>
@@ -115,7 +117,7 @@ type: app
                         </li>
                         <li class="mr-1 list-group-item d-flex justify-content-between align-items-center" id="tag-badge" style="display:none">
                             Group tagging
-                            <span class="badge badge-primary badge-info align-right" id="tag-name">&lt;none&gt;</span>
+                            <span class="badge italic align-right" id="tag-name">&lt;none&gt;</span>
                         </li>
                     </ul>
                     <p class="mt-3">
