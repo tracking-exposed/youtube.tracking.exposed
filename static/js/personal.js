@@ -50,15 +50,23 @@ function renderC3Graph(graphInfo) {
         counter++;
         return memo;
     }, {})
-    c3__graph[0] = c3.generate(c3__config[0]);
+    try {
+        c3__graph[0] = c3.generate(c3__config[0]);
+    } catch(error) {
+        console.error("In generating graph 0", error.message);
+    }
 
     c3__config[1].data.json = graphInfo.reason;
-    c3__graph[1] = c3.generate(c3__config[1]);
+    try {
+        c3__graph[1] = c3.generate(c3__config[1]);
+    } catch(error) {
+        console.error("In generating graph 1", error.message);
+    }
 
     /* in the recommended graph we don't display authors appearing only 
      * once in 10 videos, except if the video is only one */
-    if(_.size(graphInfo.view) == 1) {
-        console.log("Only one video watch! -- we render differently");
+    if(_.size(graphInfo.view) <2 ) {
+        console.log(".views < 2 (" + graphInfo.view + ") -- we render differently");
         $("#recommended-once-title").hide();
         c3__config[2].data.json = graphInfo.related;
         c3__config[2].size.height = _.size(graphInfo.related) * 20;
@@ -74,7 +82,11 @@ function renderC3Graph(graphInfo) {
         }, "")
         $(".recommended-once").html(h);
     }
-    c3__graph[2] = c3.generate(c3__config[2]);
+    try {
+        c3__graph[2] = c3.generate(c3__config[2]);
+    } catch(error) {
+        console.error("In generating graph 2", error.message);
+    }
 }
 
 function reportError(info) {
@@ -85,7 +97,6 @@ function reportError(info) {
 function getPubKey() {
     const t = window.location.href.split('/#').pop();
     if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
-    console.log("found token", t);
     return t;
 }
 
@@ -136,6 +147,9 @@ function updateProfileInfo(profile) {
 
     if (profile.tag && profile.tag.name) {
         $("#tag-name").text(profile.tag.name);
+        $("#tag-name").addClass("badge-info");
+        $("#tag-name").addClass("badge-primary");
+        $("#tag-name").removeClass("italic");
         $("#tag-badge").show();
     }
     console.log("profile display", JSON.stringify(profile, undefined, 2));
@@ -377,60 +391,80 @@ function showPassword(status) {
     else $('#group-password-wrapper').hide();
 }
 
+// function generateEntry()
+
+function simplept(data) {
+    /* simple personal timeseries, because the first 
+     * hours of usage you can't compare among days */
+    const listentries = _.map(data.aggregated.authors, function(amount, name) {
+        return amount +") " + name + " [" + + "] ";
+    });
+    $("#series").html('<pre>'+JSON.stringify(data, undefined, 2)+'</pre>');
+}
+
+const ptiserie_config = {
+    bindto: '#series',
+    data: {
+    mimeType: 'json',
+    xFormat: '%Y-%m-%d',
+    keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
+    type: 'area',
+    labels: { show: true },
+    groups: [ [ 'videos', 'adverts', 'authors'] ],
+    colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
+    },
+    regions: [
+        { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
+    ],
+    axis: {
+    x: {
+        type: 'timeseries',
+        tick: {
+        format: '%m-%d'
+        }
+    },
+    padding: { left: 330 },
+    },
+    bar: {
+    width: {
+        ratio: 0.1
+    }
+    },
+    legend: { show: true },
+    tooltip: {
+        grouped: false,
+    },
+    size: {
+    height: 600,
+    },
+    grid: {
+    x: {
+        show: true,
+        lines: [
+        { value: new Date("2020-02-01"), text: 'Last week', position: 'end', class: 'last-week' },
+        ]
+    },
+    }
+};
+
 function personalTimeseries() {
     // timeserises is the c3 name, timeline the generic API name
     // supports paging if become too heavy!
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/timeline');
-    const config = {
-      bindto: '#series',
-      data: {
-        mimeType: 'json',
-        xFormat: '%Y-%m-%d',
-        keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
-        type: 'area',
-        labels: { show: true },
-        groups: [ [ 'videos', 'adverts', 'authors'] ],
-        colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
-      },
-      regions: [
-         { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
-      ],
-      axis: {
-        x: {
-          type: 'timeseries',
-          tick: {
-            format: '%m-%d'
-          }
-        },
-        padding: { left: 330 },
-      },
-      bar: {
-        width: {
-            ratio: 0.1
-        }
-      },
-      legend: { show: true },
-      tooltip: {
-          grouped: false,
-      },
-      size: {
-        height: 600,
-      },
-      grid: {
-        x: {
-          show: true,
-          lines: [
-            { value: new Date("2020-02-01"), text: 'Last week', position: 'end', class: 'last-week' },
-          ]
-        },
-      }
-    };
 
     $.getJSON(url, (data) => {
         console.log("Fetch data for personal timeline", data);
-        config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
-        config.data.json = data.aggregated;
-        c3.generate(config);
+
+        if(_.size(data.aggregated) < 3) {
+            /* this condition is managed separately becauae we can't display a timeserie
+             * with only one day */
+            console.log("simpleviz because of", data.aggregated, "reduced size. eventually we can support hourly or minutes differences in backend");
+            simplept(data);
+        } else {
+            ptserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
+            ptserie_config.data.json = data.aggregated;
+            c3.generate(ptserie_config);
+        }
     });
 }
