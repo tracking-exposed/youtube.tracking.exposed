@@ -40,8 +40,6 @@ const c3__config = [{
 }];
 
 function renderC3Graph(graphInfo) {
-    console.log("Rendering three C3 graphs using",
-        graphInfo.view, graphInfo.reason, graphInfo.related);
 
     c3__config[0].data.json = graphInfo.view;
     let counter = 1;
@@ -49,7 +47,7 @@ function renderC3Graph(graphInfo) {
         _.set(memo, name, _.nth(palette, counter % _.size(palette)));
         counter++;
         return memo;
-    }, {})
+    }, {});
     try {
         c3__graph[0] = c3.generate(c3__config[0]);
     } catch(error) {
@@ -63,25 +61,25 @@ function renderC3Graph(graphInfo) {
         console.error("In generating graph 1", error.message);
     }
 
+    if(_.size(graphInfo.view) <2 ) {
+        console.log("Rendering only the piechars! Can't render views with small dataset", graphInfo);
+        $("#optionalChart3").hide();
+        return;
+    }
+    console.log("Rendering third C3 graph ", graphInfo.view, graphInfo.reason, graphInfo.related);
+
     /* in the recommended graph we don't display authors appearing only 
      * once in 10 videos, except if the video is only one */
-    if(_.size(graphInfo.view) <2 ) {
-        console.log(".views < 2 (" + graphInfo.view + ") -- we render differently");
-        $("#recommended-once-title").hide();
-        c3__config[2].data.json = graphInfo.related;
-        c3__config[2].size.height = _.size(graphInfo.related) * 20;
-    } else {
-        c3__config[2].data.json = _.reject(graphInfo.related, { "recommended videos": 1});
-        c3__config[2].size.height = _.size(c3__config[2].data.json) * 25;
-        const l = _.map(
-            _.filter(graphInfo.related, { "recommended videos": 1}),
-            'name'
-        );
-        const h = _.reduce(l, function(memo, name, i) {
-            return memo + '<span class="once">' + name + '</span>';
-        }, "")
-        $(".recommended-once").html(h);
-    }
+    c3__config[2].data.json = _.reject(graphInfo.related, { "recommended videos": 1});
+    c3__config[2].size.height = _.size(c3__config[2].data.json) * 25;
+    const l = _.map(
+        _.filter(graphInfo.related, { "recommended videos": 1}),
+        'name'
+    );
+    const h = _.reduce(l, function(memo, name, i) {
+        return memo + '<span class="once">' + name + '</span>';
+    }, "")
+    $(".recommended-once").html(h);
     try {
         c3__graph[2] = c3.generate(c3__config[2]);
     } catch(error) {
@@ -145,14 +143,18 @@ function updateProfileInfo(profile) {
     $('#user-name').text(userName);
     $('#hereSince').text(profile.hereSince);
 
-    if (profile.tag && profile.tag.name) {
+    if (profile.tag && profile.tag.id) {
         $("#tag-name").text(profile.tag.name);
         $("#tag-name").addClass("badge-info");
         $("#tag-name").addClass("badge-primary");
         $("#tag-name").removeClass("italic");
         $("#tag-badge").show();
+        $("#tag").attr('value', profile.tag.name); // this because delete read from there
+    } else {
+        $("#tag-name").text("");
+        $("#tag-badge").hide();
     }
-    console.log("profile display", JSON.stringify(profile, undefined, 2));
+    console.log("profile display updated:", JSON.stringify(profile, undefined, 2));
 }
 
 function printMessage(element, text, type) {
@@ -160,9 +162,14 @@ function printMessage(element, text, type) {
     element.html('<p class="alert alert-' + type + ' mb-3">' + text + '</p>');
 }
 
-function createTag() { return manageTag('create'); }
+function removeTag() { return manageTag('remove'); }
 function joinTag() { return manageTag('join'); }
 function manageTag(action) {
+    /* initially I desgined create and join as different operations.
+     * because it was less usability friendly, now there is also join and delete.
+     * the js sanity checks, requirements and the HTML form are commented but 
+     * preserved in case we need to expand this functionality, it should happen
+     * by supporting a link that automatically subscrive a watcher under a tag */
     const pk = getPubKey();
     const error = $('#error');
     const resultDiv = $('#result');
@@ -172,29 +179,29 @@ function manageTag(action) {
     console.log("manageTag", action);
 
     const tag = $('#tag').val();
-    const password = $("#password").val();
-    const description = $("#description").val();
-    const private = $("#private").is(':checked');
+    // const password = $("#password").val();
+    // const description = $("#description").val();
+    // const private = $("#private").is(':checked');
 
     /* in data we add the tag info to be sent */
     let data = {
         tag,
-        password,
-        description,
-        accessibility: private ? 'private': 'public'
+        password : '',
+        description: '',
+        accessibility: 'public' // private ? 'private': 'public'
     };
-
-    /* this was happening in development, maybe never happen in production */
-    if( _.size(password) > 0 && data.accessibility == 'private')
-        $("#group-password-wrapper").show();
-    if( _.size(description) >  0 && action == 'create' )
-        $("#description-block").show();
 
     /* validation */
     if(_.size(tag) == 0) {
         printMessage(error, 'Please, enter a tag name.');
         return;
     }
+
+    /*
+    if( _.size(password) > 0 && data.accessibility == 'private')
+        $("#group-password-wrapper").show();
+    if( _.size(description) >  0 && action == 'create' )
+        $("#description-block").show();
 
     if(action == 'create') {
         $("#description-block").show();
@@ -205,7 +212,7 @@ function manageTag(action) {
     } else {
         $("#description-block").hide();
         _.unset(data, 'description');
-    }
+    } 
 
     if(private) {
         $("#group-password-wrapper").show();
@@ -216,29 +223,43 @@ function manageTag(action) {
     } else {
         data.password = "";
         $("#group-password-wrapper").hide();
-    }
+    } */
 
     /* XHR section towards tagging! */
-    let url = null;
-    if(action == 'create')
+    let url = null, APIcall = null;
+    if(action == 'join') {
         url = buildApiUrl(`profile/${pk}/tag`, null, 2);
-    else /* action == 'update' */
-        url = buildApiUrl(`profile/${pk}`, null, 2);
+        console.log("Ready to ", action, tag, "via", url);
+        APIcall = fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+    }
+    else /* action == 'remove' */ {
+        $('#tag').attr('value', '');
+        $('#removeButton').text("Communicating...")
+        url = buildApiUrl(`profile/${pk}/tag/${tag}`, null, 2);
+        console.log("Ready to ", action, tag, "via", url);
+        APIcall = fetch(url, {
+            method: 'DELETE', 
+            mode: 'cors', // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+        });
+    }
 
-    console.log("Ready to ", action, tag, "via", url);
-
-    return fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    }).then(function(response) {
+    return APIcall.then(function(response) {
+        $('#removeButton').text("Remove tag")
         return response.json();
     }).then(function(result) {
         if(result.error == true) {
@@ -247,7 +268,8 @@ function manageTag(action) {
         }
         else {
             updateProfileInfo(result.profile);
-            printMessage(resultDiv, 'Tag "<b>' + result.group.name + '</b>" has been created', 'success');
+            console.log(result);
+            printMessage(resultDiv, 'Operation completed.', 'success');
         } 
         return result;
     })
@@ -260,14 +282,14 @@ function manageTag(action) {
 /* CSV related functions, the first two of them are for 'personal', last is on specific 'videoId' */
 function downloadVideoCSV() {
     const pk = getPubKey();
-    const csvurl = buildApiUrl('personal', pk + '/video/csv');
+    const csvurl = buildApiUrl('personal', pk + '/video/csv', 2);
     console.log("download personal video CSV from: ", csvurl);
     window.open(csvurl);
 }
 
 function downloadHomeCSV() {
     const pk = getPubKey();
-    const csvurl = buildApiUrl('personal', pk + '/home/csv');
+    const csvurl = buildApiUrl('personal', pk + '/home/csv', 2);
     console.log("download personal home CSV from: ", csvurl);
     window.open(csvurl);
 }
@@ -398,7 +420,6 @@ function simplept(data) {
         return amount +") " + name + " [" + + "] ";
     });
 
-    console.log(data);
     _.each(data.aggregated, function(dayntry) {
         /*
         advertiser: {}
@@ -438,7 +459,7 @@ const ptiserie_config = {
     colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
     },
     regions: [
-        { axis: 'x', start: "2020-02-01", end: "2020-01-01", class: 'last-week'},
+        { axis: 'x', start: "", end: "", class: 'last-week'}, // filled with API returned data
     ],
     axis: {
     x: {
@@ -465,7 +486,7 @@ const ptiserie_config = {
     x: {
         show: true,
         lines: [
-        { value: new Date("2020-02-01"), text: 'Last week', position: 'end', class: 'last-week' },
+            { value: null, text: 'Last week', position: 'end', class: 'last-week' }, // filled same 
         ]
     },
     }
@@ -478,17 +499,17 @@ function personalTimeseries() {
     const url = buildApiUrl('personal', pk + '/timeline');
 
     $.getJSON(url, (data) => {
-        console.log("Fetch data for personal timeline", data);
-
         if(_.size(data.aggregated) < 3) {
             /* this condition is managed separately becauae we can't display a timeserie
              * with only one day */
-            $(".timeserie").hide();
+            $(".fallback-listing").removeAttr('hidden');
             console.log("simpleviz because of", data.aggregated, "reduced size. eventually we can support hourly or minutes differences in backend");
             simplept(data);
         } else {
-            $(".fallback-listing").hide();
+            $(".timesavail").removeAttr('hidden');
             ptserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
+            ptserie_config.regions[0].start = data.oneWeekAgoDateString;
+            ptserie_config.regions[0].end = moment().format('YYYY-MM-DD');
             ptserie_config.data.json = data.aggregated;
             c3.generate(ptserie_config);
         }
