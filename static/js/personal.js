@@ -103,7 +103,7 @@ function getPubKey() {
 /* -- EXECUTION STARTS HERE */
 function personal(pages, profile) {
 
-    if(!pages) pagestr = '10-0';
+    if(!pages) pagestr = '10-0'; // not appropriate pagination management
     else {
         c3__graph[0].destroy();
         c3__graph[1].destroy();
@@ -218,7 +218,7 @@ function manageTag(action) {
         $("#group-password-wrapper").hide();
     }
 
-    /* XHR section */
+    /* XHR section towards tagging! */
     let url = null;
     if(action == 'create')
         url = buildApiUrl(`profile/${pk}/tag`, null, 2);
@@ -391,15 +391,39 @@ function showPassword(status) {
     else $('#group-password-wrapper').hide();
 }
 
-// function generateEntry()
-
 function simplept(data) {
     /* simple personal timeseries, because the first 
      * hours of usage you can't compare among days */
     const listentries = _.map(data.aggregated.authors, function(amount, name) {
         return amount +") " + name + " [" + + "] ";
     });
-    $("#series").html('<pre>'+JSON.stringify(data, undefined, 2)+'</pre>');
+
+    console.log(data);
+    _.each(data.aggregated, function(dayntry) {
+        /*
+        advertiser: {}
+        adverts: 0
+        authorName: {Breaking Italy: 1}
+        authors: 1
+        dayStr: "2020-06-06"
+        homepages: 1
+        type: {video: 1, home: 1}
+        types: 2
+        videos: 1 }) */
+
+        const entry = $("#fallback").clone();
+        const computedId = "fallback-id-" + dayntry.dayStr;
+        entry.attr("id", computedId);
+        $("#series").append(entry);
+
+        $("#" + computedId + " .dayString").text(dayntry.dayStr);
+        let infotxt = JSON.stringify(dayntry.type);
+        infotxt = infotxt.replace('{', '(').replace('}',') ').replace(/\"/g, '');
+        if(_.size(dayntry.advertiser)) 
+            infotxt = "adverts: " + _.map(dayntry.advertiser, 'name').join(", ");
+        $("#" + computedId + " .genericInfo").text(infotxt);
+        entry.removeAttr('hidden');
+    });
 }
 
 const ptiserie_config = {
@@ -459,9 +483,11 @@ function personalTimeseries() {
         if(_.size(data.aggregated) < 3) {
             /* this condition is managed separately becauae we can't display a timeserie
              * with only one day */
+            $(".timeserie").hide();
             console.log("simpleviz because of", data.aggregated, "reduced size. eventually we can support hourly or minutes differences in backend");
             simplept(data);
         } else {
+            $(".fallback-listing").hide();
             ptserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
             ptserie_config.data.json = data.aggregated;
             c3.generate(ptserie_config);

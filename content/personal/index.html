@@ -5,16 +5,26 @@ date: 2019-05-22T15:01:21+01:00
 draft: false
 extraCSS: "/css/personal.css"
 description: Personal interface, your evidence and settings. The link is know to you only; keep it private
-type: material
+type: app 
 ---
 
 <div class="container">
 
-    <div id="#material"><!-- here code injected by script injected by 'material' template --></div>
+    <section id="onlyWithMoreDays">
 
-    <section>
+        <!-- NOTE: this is hidden and appended in #series as fallback if few evidence are available -->
+        <div id="fallback" hidden class="row border-bottom p-2 mb-3 align-middle">
+          <div class="col-3">
+            <small class="dayString">dayStringFiller</small>
+          </div>
+          <div class="col-9">
+            <small class="genericInfo">InfoFiller</small>
+          </div>
+        </div>
+
         <div class="mb-11">
-            <p>Recent activities recorded:</p>
+            <p class="timeserie">Recent activities recorded:</p>
+            <p class="fallback-listing">Welcome, you just start! <b>at the third day</b> of using youtube.tracking.exposed, you'll find here a time graph; <b>Aggregated counters:</b></p>
             <div id="series"></div>
         </div>
     </section>
@@ -137,10 +147,9 @@ type: material
 
             <div class="col-sm" id="informative">
                 <div class="card p-3">
-                    <h3>Tag your evidence</h3>
+                    <h3>Do it with a group of friends!</h3>
                     <small class="mb-3 pb-3 border-bottom">
-                        By tagging your evidence, you can more easily compare with the other people tagging in the same way.
-                        To allow only the people you want to use a tag, you should make it private, and the password will be mandatory to join.
+                        By tagging your evidence, you can more easily compare with the other people tagging in the same way. A person in a group share evidences collected with the others, as they have access to a special group page.
                     </small>
                     <div>
 
@@ -149,6 +158,7 @@ type: material
                         <label for="tag">Tag as: </label>
                         <input name="tag" class="form-control" id="tag" type="text" value="" placeholder="">
                     </div>
+                    <!--
                     <div class="mb-3">
                         <label class="mr-2">Tag type: </label>
                         <div class="custom-control custom-radio custom-control-inline">
@@ -168,15 +178,16 @@ type: material
                         <label for="description">Description</label>
                         <input name="description" class="form-control" id="description" type="text" value="" placeholder="">
                     </div>
+                    -->
                     <div id="result"></div>
                     <button 
                         class="btn btn-lg float-left btn-success" 
                         style="min-width: 100px" 
-                        onclick="joinTag()">Join</button>
+                        onclick="joinTag()">Join +</button>
 
-                    <a class="btn btn-lg float-right" 
-                        style="min-width: 100px" onclick="createTag()"
-                        >Create +</a>
+                    <a class="btn btn-lg float-right"
+                        style="min-width: 100px" onclick="removeTag()"
+                        >Remove tag</a>
                     </div>
                 </div>
             </div>
