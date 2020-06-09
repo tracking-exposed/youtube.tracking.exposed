@@ -20,7 +20,31 @@ og_description: "documentation on how ytTREX works, how you control your data, a
 
 **Technical detail**: the extension cryptographically signs the HTML you send, with your public key. We differentiate *supporters* through the public key they are using, and you can create a new key, download, or import a key when you want. Each time a new supporter show up [you'll see it in the first graph](/impact)
 
-# Which data we receive and save
+## Privileges we need to operate
+
+In our [manifest.json](https://github.com/tracking-exposed/yttrex/blob/master/extension/manifest.json) the browser extension specify which kind of priviles the extension need, here you can find summarized what and why.
+
+<div class="row">
+<div class="col-4"><pre>
+  "permissions": [
+    "storage",
+    "alarms",
+    "http://localhost:9000/", (special *)
+    "https://*.youtube.com/",
+    "https://youtube.tracking.exposed/"
+  ],
+</pre></div>
+<div class="col-8">
+<ul>
+    <li><b>storage</b>: we need it to save your preference settings (if, for example, the extension is enabled or disabled, by default is disabled). It also stores the cryptographic material used by the extension.</li>
+    <li><b>alarms</b>: this is necessary to run some code at a scheduled time, we do not use it yet, but we are running an attempt that would let people participate in experiments like weTest with lesser effort. </li>
+    <li><b>youtube.com and youtube.tracking.exposed</b> are the two infrastructures with whom we operate. In youtube.com, the extension looks for suggested videos, and the remote server is the platform that allows you to compare, download, analyze the recommended videos. The code running on the server, is in the <a href="https://github.com/tracking-exposed/yttrex/tree/master/backend">backend directory</a>.</li>
+    <li><i>localhost isn't present among the privileges</i>, so you should never see a mention of localhost in our tool. The reason why is in the file is for the developers that instead of using the actual youtube.com and yttrex server, use a local replacement. We remove <i>localhost</i> each time gets released a new version.</li>
+</ul>
+</div>
+</div>
+
+## Data collected and processed
 
 1. From the submission: we use the public key to verify the existence of the profile and validate the signature. We keep the exact time, the URL of the video watched, and the HTML. This data goes in a collection named 'videos'.
 2. From videos: we pick all the HTML and extract metadata, using [parser implemented in nodejs](https://github.com/tracking-exposed/yttrex/blob/master/backend/parsers/video.js). It derives the following list of metadata. The data goes in a collection named 'metadata.'
@@ -211,9 +235,8 @@ Few cases like these are registered so far, such as in the context of Facebook a
 
 The *collaborative test* like [poTEST#1](https://pornhub.tracking.exposed/potest/final-1), or [weTEST#1](/wetest/1) **fail to comply with point n.1 above**, we release the data because the pseudonym released as part of the test is different from the one associated to the profile. _It can't be correlated_. 
 
-We should also consider, among the 'related content', **YouTube likely recommend something related to individual previous activities**. It is possible exist a content so personal to link uniquely an individual, and thus de-anonymize a subject or an interest of a subject? (well, the answer is 'maybe', if supported by strong out of channel information). 
-What this might lead at? Considering the small amount and narrow-focus of the At the moment we don't estimate this might lead to a leakage of sensible information.
- we can't outline a general rule and we should evaluate to do a data protection impact assessment in every different case. It is good, in the test, to do the experiment with a browser logged off, cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest [Brave](https://brave.com)
+We should also consider, among the 'related content,' **YouTube likely recommend something related to previous individual activities**. Is it possible Youtube creates a curated selection so personal to link an individual uniquely, and thus de-anonymize a subject or an interest of a data subject? The answer is, "maybe if supported by an out-of-band leak." Even in the worst-case scenario, we don't estimate this might lead to a leakage of personal data, mainly because thees amount of people using our tool is less than 100 on average per day.
+At the moment, it is too early for us to outline a general rule. Data Protection Impact Assessment should happen in every different case. In the test, it is good to participate in the experiment, with a browser logged-off and cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest Brave.
 
 ---
 
