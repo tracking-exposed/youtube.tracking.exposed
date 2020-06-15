@@ -34,3 +34,7 @@ li, p, div {
 .larger {
     font-size: 1.6em;
 }
+
+.displayLength {
+    font-size: 0.8em;
+}

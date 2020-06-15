@@ -142,9 +142,9 @@ function initRelated() {
         });
         _.each(results, function (watched) {
             const match = _.find(watched.related, {videoId: relatedId});
+            console.log(watched); // TODO fix fields name
             let videoEntry = `
                 <tr id="${watched.videoId}" class="step">
-
                         <td class="video">
                             <b>${watched.title}</b>
                             <a class="primary" href="/compare/#${watched.videoId}">(compare)</a>
@@ -161,7 +161,6 @@ function initRelated() {
                         <td>
                             ${watched.timeago} ago
                         </td>
-
                 </tr>
             `;
             $('#related-list').append(videoEntry);
@@ -223,6 +222,7 @@ function initCompare() {
         let tableBodyElement = null;
         let tableElement = null;
         _.each(x, function (relatedList) {
+
             let currentRepetition = _.size(relatedList);
             // something was seen three times now is seen twice ..
             if (currentRepetition != lastH) {
@@ -257,13 +257,14 @@ function initCompare() {
             const videoEntry = `
                 <tr id="${relatedVideo.videoId}" class="step">
                      <td class="video">
-                         ${relatedVideo.title}<br />
-                         <a class="linked" href="/related/#${relatedVideo.videoId}">Related</a> |
-                         <a class="linked" href="/compare/#${relatedVideo.videoId}">Compare</a> |
-                         <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">Video</a>
+                         ${relatedVideo.recommendedTitle} <br/>
+                         <span class="displayLength">&lt;${relatedVideo.recommendedDisplayL}&gt;</span>
+                         <a class="linked" href="/related/#${relatedVideo.videoId}">related</a><span> — </span>
+                         <a class="linked" href="/compare/#${relatedVideo.videoId}">compare</a><span> — </span>
+                         <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">video</a>
                     </td>
                     <td class="author">
-                        ${relatedVideo.source}
+                        ${relatedVideo.recommendedSource}
                     </td>
                     <td class="position">
                          ${positions}

@@ -41,9 +41,9 @@ const c3__config = [{
 
 function renderC3Graph(graphInfo) {
 
-    c3__config[0].data.json = graphInfo.view;
+    c3__config[0].data.json = graphInfo.views;
     let counter = 1;
-    c3__config[0].data.colors = _.reduce(graphInfo.view, function(memo, amount, name) {
+    c3__config[0].data.colors = _.reduce(graphInfo.views, function(memo, amount, name) {
         _.set(memo, name, _.nth(palette, counter % _.size(palette)));
         counter++;
         return memo;
@@ -380,12 +380,10 @@ function addVideoRow(video, i) {
     entry.removeAttr('hidden');
 }
 
-
 function removeEvidence(e) {
     const id = $(this).attr('yttrex-id');
     const pk = getPubKey();
     const deleteURL = buildApiUrl(`personal/${pk}/selector/id/${id}`, null, 2);
-    console.log(deleteURL);
     return fetch(deleteURL, {
         method: 'DELETE',
         mode: 'cors', // no-cors, *cors, same-origin
@@ -394,12 +392,12 @@ function removeEvidence(e) {
         redirect: 'follow', // manual, *follow, error
         referrer: 'no-referrer' // no-referrer, *client
     }).then(function(response) {
-        console.log(response);
+        console.log("Delete API return", response);
         return response.json();
     }).then(function(result) {
         const selectorId = `#video-${id}`;
         $(selectorId).fadeOut(300);
-        console.log(result);
+        console.log("Delete operation completed", result);
     });
 }
 
@@ -421,17 +419,6 @@ function simplept(data) {
     });
 
     _.each(data.aggregated, function(dayntry) {
-        /*
-        advertiser: {}
-        adverts: 0
-        authorName: {Breaking Italy: 1}
-        authors: 1
-        dayStr: "2020-06-06"
-        homepages: 1
-        type: {video: 1, home: 1}
-        types: 2
-        videos: 1 }) */
-
         const entry = $("#fallback").clone();
         const computedId = "fallback-id-" + dayntry.dayStr;
         entry.attr("id", computedId);
@@ -507,11 +494,11 @@ function personalTimeseries() {
             simplept(data);
         } else {
             $(".timesavail").removeAttr('hidden');
-            ptserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
-            ptserie_config.regions[0].start = data.oneWeekAgoDateString;
-            ptserie_config.regions[0].end = moment().format('YYYY-MM-DD');
-            ptserie_config.data.json = data.aggregated;
-            c3.generate(ptserie_config);
+            ptiserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
+            ptiserie_config.regions[0].start = data.oneWeekAgoDateString;
+            ptiserie_config.regions[0].end = moment().format('YYYY-MM-DD');
+            ptiserie_config.data.json = data.aggregated;
+            c3.generate(ptiserie_config);
         }
     });
 }
