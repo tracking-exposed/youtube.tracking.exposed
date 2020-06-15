@@ -122,14 +122,17 @@ function initRelated() {
         if(!target)
             return invalidVideoId(relatedId, "Invalid data found in the database, please alert developers.");
 
+        console.log(target);
+
         const hdr = `
             <div class="text-center protagonist">
                 <h3>
-                    ${target.title}
+                    ${target.recommendedTitle}
                 </h3>
                 <p class="strong">
-                    ${_.size(results)} videos linked to this
+                    ${_.size(results)} videos recommended this (
                     <a class="notclassiclink" href="/compare/#${relatedId}">Compare</a>
+                    )
                 </p>
             </div>
         `;
@@ -142,7 +145,6 @@ function initRelated() {
         });
         _.each(results, function (watched) {
             const match = _.find(watched.related, {videoId: relatedId});
-            console.log(watched); // TODO fix fields name
             let videoEntry = `
                 <tr id="${watched.videoId}" class="step">
                         <td class="video">

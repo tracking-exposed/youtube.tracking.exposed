@@ -1,12 +1,15 @@
 ---
-title: Search if this video ever been as YT's recommended
+title: Look if the video have ever been a YT's recommended
 date: 2019-05-22T15:01:21+01:00
 draft: false
-description: Search if this video ever been as YT's recommended
+description: By a videoId you can look when, where, and eventually why, a video was recommended by YT algorithm
 type: app
 ---
 
 <div class="container">
+
+  {{<shared-yt-services>}}
+
   <div id="error"></div>
   <ul id="related"></ul>
 
@@ -23,13 +26,13 @@ type: app
 </div>
 
 <div class="card mb-3" id="master" style="min-width: 18rem; max-width: 18rem;" hidden>
-    <div class="card-body">
-        <h5 class="card-title"></h5>
-        <span class="card-text"></span>
-    </div>
-    <div class="card-footer">
-        <span class="text-muted"></span>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <span class="card-text"></span>
+  </div>
+  <div class="card-footer">
+    <span class="text-muted"></span>
+  </div>
 </div>
 
 <script src="/js/global.js"></script>
