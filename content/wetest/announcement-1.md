@@ -1,6 +1,6 @@
 ---
 title: "1st coordinated observation of the Youtube algorithm ― Updates"
-subtitle: "👀Topic? COVID―19 👀When? 25.03.2020 👀You? SHOULD PARTICIPATE, EVERY OBSERVATION MATTER!"
+subtitle: "On the 25th of March we ask for a collaborative observation of youtube. Volunteers recorded the recommendation of Youtube regarding 5 COVID videos, in different languages. Here an experiment of open science and algorithm accountability." 
 draft: false
 date: 2020-03-21T10:26:08Z
 
@@ -13,34 +13,43 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
+## 17 June 20120 - Relased dataset v6
 
+Uh? Three months of silence and <b>six</b> version jump? What does it mean? A difficult task and experiment were about transforming human-readable strings into ISOData format. Now we have got a unique shiny piece of technology to further integrate into the browser extension. It has been an intense stream of work in between other tasks, such as fundraising. Now there is a bunch of new shiny metadata, notably:
+
+<b>The distance in seconds </b>between the user-watching-moment and the publication date of the related video. A researcher now might sort by newest-oldest recommendation. The <b>publication time</b> in ISODate format. <b>Number of views</b> of recommended video <b>in integer</b>. Likes and Dislikes of the watched video in integer, and please check the big link below to see more.
+
+<div class="row">
+  <div class="col-4 ">
+    <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1" target=_blank>
+      {{<colorblock color="secondary" text="Get the CSV/JSON">}}
+    </a>
+    <p style="text-align:right">
+      <a href="https://github.com/tracking-exposed/yttrex/blob/master/backend/scripts/wetest1-basic.js" target=_blank>
+      The extraction tool for selection and anonymization (javascript).</a>
+    </p>
+  </div>
+  <div class="col-8 ">
+    <a href="https://github.com/tracking-exposed/youtube.tracking.exposed/issues/43" target=_blank>
+      {{<colorblock color="red" text="See the ongoing analysis to get details on the dataset, thoughts on personalization, code, and visualizations.">}}
+      This GitHub issue is used by team members and by anyone who wants to discuss and share findings. 
+    </a>
+  </div>
+</div>
+
+---
 ## 27 March 2020 - 🎆 Test completed! 🎆
 
 🎆 **Thanks to everybody contributing and spreading the experiment** 🎆
 
 In the next days, we’ll release data, extend the dataset as much as we feel it helpful, and improve how it is openly accessed. We’ll keep updating this page.
 
-Anyone who wants to copy it in the analysis platform, consider this an open license database. The purpose of this dataset is the research personalization algorithm. The dataset has not personal data, despite the fact that the personalization of YouTube depends on personal data (data subject profile). The lack of context made research conducted with the intent of profile individuals is a pointless effort that can’t bring any value to anyone, or any kind of meaningful result.
+Anyone who wants to copy it in the analysis platform, consider this an open license database. <b>The purpose of this dataset is the research on personalization algorithm</b>. The dataset <b>has not personal data</b>, despite the fact that the personalization of YouTube depends on personal data (thus, legally acknowledged as data subject ). de-anonymization attacks such as <i>relinking by searching for known patterns</i> is not considered feasable because 1) attacker should know how patterns appears on youtube personalization algorithm and this is not know, and 2) Youtube (Alphabet) is likely the only entitiy who might be interested in de-anonymize volunteers, but we estimated they might already have such knowledge if they really want to have it. 3) People supporting the experiment would not be exposed to a risk for participating, as it is a scientific experiment on matter of covid information.
 
 _note_ checkout [public stats](/impact) if curious un how we doing, or in the [github repository](https://github.com/tracking-exposed/yttrex).
 
 ---
 ## 27 March 2020 - Release of video data (first day partial)
-
-<!--
-<div class="row">
-  <div class="col-6 ">
-    {{<colorblock text="Youtube Homepage">}}
-    507 access to YT-home was collected. YT-Homes tend to contains different selection curated by Youtube, based on what is trending in your region, something recommended for you, and something heavily dependent on your past profiles. 
-    <br>
-    This the first content we've produced, [download CSV] or [download JSON], check it below what it contains
-  </div>
-  <div class="col-6 ">
-    {{<colorblock text="The 5 Covid-19 related videos">}}
-    <i>We'll work on these since tomorrow.</i>
-  </div>
-</div>
--->
 
     λ node scripts\wetest1-basic.js --type video
       wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
