@@ -11,8 +11,10 @@ canonifyURLs = true
     description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
     tagline = "YouTube has the power to influence a public debate - Let's expose it together!"
 
-[markup.goldmark.renderer]
-  unsafe = true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [permalinks]
   posts = "/:slug/"
