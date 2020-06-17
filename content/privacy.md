@@ -235,8 +235,10 @@ Few cases like these are registered so far, such as in the context of Facebook a
 
 The *collaborative test* like [poTEST#1](https://pornhub.tracking.exposed/potest/final-1), or [weTEST#1](/wetest/1) **fail to comply with point n.1 above**, we release the data because the pseudonym released as part of the test is different from the one associated to the profile. _It can't be correlated_. 
 
-We should also consider, among the 'related content,' **YouTube likely recommend something related to previous individual activities**. Is it possible Youtube creates a curated selection so personal to link an individual uniquely, and thus de-anonymize a subject or an interest of a data subject? The answer is, "maybe if supported by an out-of-band leak." Even in the worst-case scenario, we don't estimate this might lead to a leakage of personal data, mainly because thees amount of people using our tool is less than 100 on average per day.
-At the moment, it is too early for us to outline a general rule. Data Protection Impact Assessment should happen in every different case. In the test, it is good to participate in the experiment, with a browser logged-off and cleaned cookies, history, and local storage. Even simple suggestion, install a new browser, often we suggest Brave.
+<b>The purpose of this dataset is the research on personalization algorithm</b>. The dataset <b>has not personal data</b>, despite the fact that the personalization of YouTube depends on personal data (thus, legally acknowledged as data subject ). de-anonymization attacks such as <i>relinking by searching for known patterns</i> is not considered feasable because:
+1. attacker should know how patterns appears on youtube personalization algorithm and this is not know.
+2. Youtube (Alphabet) is likely the only entitiy who might be interested in de-anonymize volunteers, but we estimated they might already have such knowledge if they really want to have it.
+3. People supporting the experiment would not be exposed to a risk for participating, as it is, at the moment, aimed to a still explorative scientific research.
 
 ---
 
