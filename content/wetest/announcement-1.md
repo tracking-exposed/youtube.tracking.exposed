@@ -1,6 +1,8 @@
 ---
 title: "1st coordinated observation of the Youtube algorithm ― Updates"
-subtitle: "On the 25th of March we ask for a collaborative observation of youtube. Volunteers recorded the recommendation of Youtube regarding 5 COVID videos, in different languages. Here an experiment of open science and algorithm accountability." 
+subtitle: "March 25th 2020 we call for a collaborative observation of Youtube. 
+Hundred of volunteers recorded Youtube's recommendations about five COVID related video
+Here's an experiment of open science and algorithm accountability." 
 draft: false
 date: 2020-03-21T10:26:08Z
 
@@ -42,18 +44,37 @@ Uh? Three months of silence and <b>six</b> version jump? What does it mean? A di
 
 🎆 **Thanks to everybody contributing and spreading the experiment** 🎆
 
-In the next days, we’ll release data, extend the dataset as much as we feel it helpful, and improve how it is openly accessed. We’ll keep updating this page.
+Since then, we have released the data, extended the dataset as much as we feel it helpful, and improved how it is openly accessed.
+We’ll keep updating this page.
+
+<!--In the next days, we’ll release data, extend the dataset as much as we feel it helpful, and improve how it is openly accessed. We’ll keep updating this page.-->
 
 ### Anonymization and data release
 
-We should also consider, among the 'related content,' YouTube likely recommend something related to previous individual activities. Is it possible Youtube creates a curated selection so personal to link an individual uniquely, and thus de-anonymize a subject or an interest of a data subject? The answer is, "maybe if supported by an out-of-band leak."
 
+The purpose of this dataset is a research on personalization algorithms. 
+*The dataset has not and do not aim to have personal data.*
+What follows is a brief description on how do we work to avoid to keep volunteer's personal data.
+
+We should consider that among the ‘related content,’ YouTube may likely recommend something related to previous individual activities. 
+Is it very possible that Youtube already creates a curated selection so personal, that may link to an individual uniquely. Could that de-anonymize a subject or an interest of a data subject? The answer is, “maybe if supported by an out-of-band leak.”
+
+But, even in the worst-case scenario, we estimate this can’t lead to a leakage of personal data,
+
+The purpose of this dataset is the research on personalization algorithm. The dataset has not personal data, despite the fact that the personalization of YouTube depends on personal data (thus, legally acknowledged as data subject). 
+de-anonymization attacks such as relinking by searching for known patterns is not considered feasable because:
+
+Attacker should know how patterns appears on Youtube personalization algorithm and this is not known. Youtube himself, a property of Alphabet inc., is likely to be the only entity who might be interested in de-anonymize volunteers, 
+but we estimated they might already have such knowledge if they really want to have it.
+
+*We believe that People supporting the experiment would not be exposed to a risk for participating, as it is, at the moment, aimed to a still explorative scientific research.*
+
+<!--We should also consider, among the 'related content,' YouTube likely recommend something related to previous individual activities. Is it possible Youtube creates a curated selection so personal to link an individual uniquely, and thus de-anonymize a subject or an interest of a data subject? The answer is, "maybe if supported by an out-of-band leak."
 *Even in the worst-case scenario, we estimate this can't lead to a leakage of personal data*, 
-
 <b>The purpose of this dataset is the research on personalization algorithm</b>. The dataset <b>has not personal data</b>, despite the fact that the personalization of YouTube depends on personal data (thus, legally acknowledged as data subject ). de-anonymization attacks such as <i>relinking by searching for known patterns</i> is not considered feasable because:
 1. attacker should know how patterns appears on youtube personalization algorithm and this is not know.
 2. Youtube (Alphabet) is likely the only entitiy who might be interested in de-anonymize volunteers, but we estimated they might already have such knowledge if they really want to have it.
-3. People supporting the experiment would not be exposed to a risk for participating, as it is, at the moment, aimed to a still explorative scientific research.
+3. People supporting the experiment would not be exposed to a risk for participating, as it is, at the moment, aimed to a still explorative scientific research.-->
 
 _note_ checkout [public stats](/impact) if curious un how we doing, or in the [github repository](https://github.com/tracking-exposed/yttrex).
 
@@ -229,7 +250,7 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
   <div class="row enlarged">
     <div class="col-6 ">
       <ul>
-        <li>The political danger of YouTube is often attributed to an article by Tufekci, Zeynep. “<a href="https://www.nytimes.com/2018/03/10/opinion/sunday/youtube-politicsradical.html" target=_blank>
+        <li>The political danger of YouTube is often attributed to an article by Tufekci, Zeynep. “<a href="https://www.nytimes.com/2018/03/10/opinion/sunday/youtube-politics-radical.html" target=_blank>
            YouTube, the Great Radicalizer
            </a>” <i>The New York Times. 10 March 2018.</i> 
            Note, "youtube rabbit hole" concept 
