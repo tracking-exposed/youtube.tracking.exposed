@@ -10,7 +10,11 @@ og_url: "https://youtube.tracking.exposed/what-we-collect"
 og_description: "documentation on how ytTREX works, how you control your data, and which are the default settings"
 ---
 
-# What the browser extension does
+## This browser extension allows you to collect evidence of algorithmic personalization; because the perception of public debate is personalized, only via a client-side-collection, we can perform analysis and research.
+
+---
+
+#### What [this browser extension](https://github.com/tracking-exposed/yttrex/tree/master/extension) does
 
 1. It creates cryptographic key pairs. It is the method to ensure you can access your data, and only you can mark the data received as “yours.” It is necessary because we don’t have an email address, Google profile, or YouTube username. Your official identification method is not linked to our data at all. This work for every human or bot opening youtube.com website. Every browser extension installed has a different and unique cryptographic key.
 
@@ -20,42 +24,42 @@ og_description: "documentation on how ytTREX works, how you control your data, a
 
 **Technical detail**: the extension cryptographically signs the HTML you send, with your public key. We differentiate *supporters* through the public key they are using, and you can create a new key, download, or import a key when you want. Each time a new supporter show up [you'll see it in the first graph](/impact)
 
-## Privileges we need to operate
+#### Privileges we need to operate
 
 In our [manifest.json](https://github.com/tracking-exposed/yttrex/blob/master/extension/manifest.json) the browser extension specify which kind of priviles the extension need, here you can find summarized what and why.
 
 <div class="row">
 <div class="col-4"><pre>
+
   "permissions": [
     "storage",
     "alarms",
-    "http://localhost:9000/", (special *)
     "https://*.youtube.com/",
     "https://youtube.tracking.exposed/"
-  ],
+  ]
 </pre></div>
 <div class="col-8">
 <ul>
     <li><b>storage</b>: we need it to save your preference settings (if, for example, the extension is enabled or disabled, by default is disabled). It also stores the cryptographic material used by the extension.</li>
     <li><b>alarms</b>: this is necessary to run some code at a scheduled time, we do not use it yet, but we are running an attempt that would let people participate in experiments like weTest with lesser effort. </li>
     <li><b>youtube.com and youtube.tracking.exposed</b> are the two infrastructures with whom we operate. In youtube.com, the extension looks for suggested videos, and the remote server is the platform that allows you to compare, download, analyze the recommended videos. The code running on the server, is in the <a href="https://github.com/tracking-exposed/yttrex/tree/master/backend">backend directory</a>.</li>
-    <li><i>localhost isn't present among the privileges</i>, so you should never see a mention of localhost in our tool. The reason why is in the file is for the developers that instead of using the actual youtube.com and yttrex server, use a local replacement. We remove <i>localhost</i> each time gets released a new version.</li>
+    <li>In the file you might see a mention about<i>localhost</i>, but it isn't actually present in the requested privileges. The reason why it is in the file, is to help developers, and this line take effect only when a developer is working on the tool.</li>
 </ul>
 </div>
 </div>
 
-## Data collected and processed
+#### Data collected and processed
 
 1. From the submission: we use the public key to verify the existence of the profile and validate the signature. We keep the exact time, the URL of the video watched, and the HTML. This data goes in a collection named 'videos'.
 2. From videos: we pick all the HTML and extract metadata, using [parser implemented in nodejs](https://github.com/tracking-exposed/yttrex/blob/master/backend/parsers/video.js). It derives the following list of metadata. The data goes in a collection named 'metadata.'
 3. **Of course**, **You have full control on the data object linked to you** in the 'videos' and 'metadata' collections.
 
-## URL considered by the extension
+#### URL considered by the extension
 
     https://www.youtube.com/watch?.*
 
 
-### A Watched Video Metadata entry 
+#### A Watched Video Metadata entry 
 
 There is one entry for each submission received by the supporters
 
@@ -116,7 +120,7 @@ There is one entry for each submission received by the supporters
     </tbody>
 </table>
 
-### A Video Related Metadata entry
+#### A Video Related Metadata entry
 
 Each related video has a different data structure. This list of related is part of the evidence. We use _related_ and _suggested_ as synonyms. We are talking about the videos display on the right column of YouTube interface.
 
@@ -163,7 +167,7 @@ Each related video has a different data structure. This list of related is part 
 </table>
 
 
-## What is a personal data in this regards
+#### What is a personal data in this regards
 
 What is linkable to an individual activity is personal data. In our regards, two metadata should deserve special attention and protection: the **watcher pseudonym**, and the **sequence of videos seen by the same watcher**.
 
@@ -175,7 +179,10 @@ What is linkable to an individual activity is personal data. In our regards, two
 4. The data subject can fully dispose of the evidence they send to us: they can control data retention time (default is 6 month, minimum two weeks, maximum 1 year). If they want to share some limited portion of this data, they can create access token for this, they can revoke and change their authentication code from the browser extension.
 5. The sequence of videos seen by the same watcher is not disclosed to anyone except the watcher. This sequence (or, the video experience of the individual) is protected because in the long term, these content might let an adversary infer personal information, and we don't allow it.
 
-# Our data processing logic
+
+---
+
+# Our data processing logic and values
 
 The primary goal is to enable algorithm analysis.
 The influence of the personalization algorithm emerges by comparing individualized experiences with other people's experiences.
