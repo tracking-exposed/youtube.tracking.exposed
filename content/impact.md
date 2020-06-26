@@ -50,6 +50,18 @@ _We usually expect 20 videos suggested in the right column of YouTube. But if a 
 _homepages and videos are the two kind of metadata we have. Logged/unlogged is the only information we might infer to assume the profile was more or less personalized. (personalization happens even without being logged, but in general seems less stronger)_
 
 ---
+## Searches related stats 
+<div id="searches-graph" class="c3graph"></div>
+
+_How many searches do we collect? and how many of them contains recent video (less than 24hours and less than 7 days) ?_
+
+---
+## Labels collection stats 
+<div id="labels-graph" class="c3graph"></div>
+
+_How many labels we got? they are the fundamental resource used to mine searches_
+
+---
 ### Statistics and OpenData enable network effects, data reuse, and collaborative revision of our project. But they are tricky and can't be released carelessly:
 
 * [Data can't be anonymized](https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds) easily, we aggregate them and we use only non-personal metadata to develop the aggregation.

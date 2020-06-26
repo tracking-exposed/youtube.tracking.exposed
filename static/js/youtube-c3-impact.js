@@ -166,8 +166,50 @@ const clist = [{
             },
         },
     }
-},];
-
+}, {
+    API: buildApiUrl('statistics/searches/day', DAYSAGO, 2),
+    bindto: '#searches-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ '7days', '24hours', 'searches' ], x: 'day' },
+        type: 'bar',
+        colors: {
+            '7days': palette[1],
+            '24hours': palette[3],
+            'searches': palette[6]
+        },
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        },
+    }
+}, {
+    API: buildApiUrl('statistics/labels/day', DAYSAGO, 2),
+    bindto: '#labels-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'labels', 'total' ], x: 'day' },
+        type: 'bar',
+        colors: {
+            'labels': palette[2],
+            'total': palette[6],
+        },
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        },
+    }
+} ];
 
 $(document).ready(async function() {
 

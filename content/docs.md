@@ -1,35 +1,18 @@
-## CSV is the most knonw format for basic data analysis. We offer three kinds of CSV
+---
+title: "API documentation"
+subtitle: "youtube.tracking.exposed, how to access JSON and CSV content for public of via personal access token"
+draft: false
 
-1. The *personal* CSV, by [using the browser extension](/preview), you can collect evidenced of personalization, and download them. 
-  * *personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
-  * *personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
-2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
-
-#### PersonalVideo CSV
-#### PersonalHome CSV
-#### Compare CSV
-
-                recommendedVideoId: related.videoId,
-                recommendedViews: (related.mined) ? related.mined.viz : null,
-                recommendedDuration: (related.mined) ? related.mined.duration : null,
-                recommendedPubtime: (related.mined) ? related.mined.timeago : null,
-                recommendedForYou: related.foryou,
-                recommendedTitle: related.title,
-                recommendedAuthor: related.source,
-                recommendedVerified: related.verified,
-                recommendationOrder: related.index,
-                watchedId: evidence.id,
-                watchedAuthor: evidence.authorName,
-                watchedPubtime: evidence.related.vizstr,
-                watchedTitle: evidence.title,
-                watchedViews: evidence.viewInfo.viewStr ? evidence.viewInfo.viewStr : null,
-                watchedChannel: evidence.authorSource,
+og_title: "youtube tracking exposed API"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/images/wetest-yt2.jpg"
+og_url: "https://youtube.tracking.exposed/docs"
+og_description: "The unique user-centric youtube algorithm analysis toolkit, join us as research or as curious netizen!"
+---
 
 
-## API Introduction
 
 The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/`.
-
 
 `userToken` is an unique identifier for you YoutubeTrackingExposed user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.
 
@@ -37,11 +20,61 @@ The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/
 
 `Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
 
-There are two fundamental `data units` through which entries (video observations) are shared: _video metadata_ and _related videos_.
+#### Maintenaince -- last update 24 June 2020
 
-In _video metadata_, the unit is the watched video. Each 'id' represents an evidence collected by the watcher. Often you will see a field named _related_. It's a list of objects, each one describing a suggested video on the right column of the YouTube interface. The number of these videos differs. We expect it to be always 20, but it might not be.
+This software and this documentation are under open licese, AGPL and CC-BY. We maintain this documentation without a proper procedure, and it might be outdated. Reach out to us, analyze API format with some browser inspection, and remind all the API routes are here listed and linked: [server.js] Express app, [lib.js] routes and correspondend API name/function, [routes/] where the API are implemented.
 
-In _related videos_, the unit is a suggested video, when the data is served in CSV - but not only in that case.
+#### Data units
+
+The smalles data unit in this system is an object that descrive a video thumbnail from the youtube pages.
+A video thumbnail might not be played or watched, we report the mere *presence* of this video, because our goal is to allow analysis of youtube recommendation and personalization.
+
+Going forward, there are two fundamental **data units**: **video metadata** and **related videos**. 
+
+In _video metadata_, the unit is the watched video. There are informations such as the number of likes, publication Time of the video, number of views and the 20 or more recommended videos.
+Each row has a unique ID, and it represents an *evidence*. It is collected by the watchers, and allow watchers to compare how their recommendation differs.
+
+A video watched has a field named _related_, in other cases (homepages and search results) we call them _selected_ because they have been selectred by YT, not really recommended. It is always a personalization effects but here is in use this terminology.
+
+
+---
+
+### CSV is the most knonw format for basic data analysis. We offer three kinds of CSV
+
+1. The *personal* CSV, by [using the browser extension](/preview), you can collect evidenced of personalization, and download them. 
+  * *personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
+  * *personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
+2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
+
+#### PersonalVideo CSV
+
+_TBD_
+
+#### PersonalHome CSV
+
+_TBD_
+
+#### Compare CSV
+
+_To Be Done, and also To Be Determined: what really we have to explain here?_
+
+    recommendedVideoId
+    recommendedViews
+    recommendedDuration
+    recommendedPubtime
+    recommendedForYou
+    recommendedTitle
+    recommendedAuthor
+    recommendedVerified
+    recommendationOrder
+    watchedId
+    watchedAuthor
+    watchedPubtime
+    watchedTitle
+    watchedViews
+    watchedChannel
+
+---
 
 ## API Index
 <table>

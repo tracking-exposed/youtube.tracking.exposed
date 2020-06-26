@@ -26,7 +26,7 @@ canonifyURLs = true
     url = "/about/"
     weight = 0
  [[menu.main]]
-    name = "Impact"
+    name = "Stats"
     url = "/impact/"
     weight = 10
 
@@ -37,7 +37,7 @@ canonifyURLs = true
  [[menu.main]]
     parent = "More"
     name = "API Documentation"
-    url = "/api-documentation/"
+    url = "/docs/"
     weight = 130
  [[menu.main]]
     name = "Get Involved"
