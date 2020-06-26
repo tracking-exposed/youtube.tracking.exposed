@@ -496,7 +496,10 @@ function personalTimeseries() {
             $(".timesavail").removeAttr('hidden');
             ptiserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
             ptiserie_config.regions[0].start = data.oneWeekAgoDateString;
-            ptiserie_config.regions[0].end = moment().format('YYYY-MM-DD');
+            ptiserie_config.regions[0].end = new Date()
+                                                .toISOString()
+                                                .replace(/T/, ' ')    // replace T with a space
+                                                .replace(/\..+/, ''); // delete the dot and everything after
             ptiserie_config.data.json = data.aggregated;
             c3.generate(ptiserie_config);
         }
