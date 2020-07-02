@@ -13,7 +13,43 @@ og_description: "The first worldwide test of the Pornhub algorithm; on Sunday Ja
 extraCSS: "/css/wetest.css"
 ---
 
-## 17 June 20120 - Relased dataset v6
+## 2 July 2020 - Released dataset v7, and youtube official API historical data.
+
+<div class="row">
+  <div class="col-4 ">
+    <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1" target=_blank>
+      <br>
+      <br>
+      {{<colorblock color="secondary" text="Download dataset v.7">}}
+    </a>
+  </div>
+  <div class="col-8 ">
+    <ul>
+      <li>Added <code>thumbnail</code> URL.</li>
+      <li>Added <code>isAPItoo</code> (true|false) by comparing <b>if the recommended videoId</b> is also among the related videoId returned by the official youtube API. We retrieve the data on the 25th of March, the day of the experiment.</li>
+      <li>Added <code>sessionId</code> to link and filter only complete session.</li>
+      <li>Added <code>hoursOffset</code> a number of hours starting from 0 till 47, it represents time as offset. 0 is the beginning of the experiment (midnight, 25th of March). The software culculate from <code>savingTime</code>. Note, we didn't use <code>clientTime</code> because that's bound to the timezone, our server is in GMT-0.</li>
+      <li>Added <code>top20</code>: a boolean field that tells if the evidence has a <code>recommendationOrder</code> lesser than 20. 20 it is the default amount of recommended display to every watcher, and *optionally*, if a watcher scroll down, youtube send more recommendations.</li>
+      <li>Consider <code>recommendedId</code> and <code>id</code> are both equivalents as a unique identifiers.</li>
+    </ul>
+  </div>
+</div>
+
+##### The new released data
+
+* **Session file**: only 66 unique profile complete a session, we are not considering additional session per tester, at the moment. This amount is quite small considering the effort we put on this \[*swearing*\].
+* **Youtube official API**: in the 25th of March we fetch the youtube API to see what the company was declared as 'related'. Our goal was to reproduce this (2019) venn diagram equivalence, 
+
+##### On fact-checking + crowdsourcing
+
+To judge youtube quality selection, we need people understanding Chinese, Arabic, and all the languages of the experiment and manually review the recommended videos. This crowdsourced qualitative assessment should give an indicator on how Youtube claims and methodology are accurate.
+
+At the moment we can't organize such review, but if any partner display such interest youtube-team at tracking dot exposed.
+
+By reading analysis such as [Saudi Arabia sstate media and covid-19](https://cyber.fsi.stanford.edu/io/news/saudi-arabia-state-media-and-covid-19), or [Pandemics and chinese-attributed propagand](https://misinforeview.hks.harvard.edu/article/pandemics-propaganda-how-chinese-state-media-creates-and-propagates-ccp-coronavirus-narratives/), it is clear Youtube **can't** do qualitative analysis with their machines. Artificial Intelligence isn't suitable to addess this problem. Until we do not prove it, any company would keep claiming they address content curation with "better algorithm" altought should be clear this is not technically, and logically, possible.
+
+---
+## 17 June 2020 - Relased dataset v6
 
 Uh? Three months of silence and <b>six</b> version jump? What does it mean? A difficult task and experiment were about transforming human-readable strings into ISOData format. Now we have got a unique shiny piece of technology to further integrate into the browser extension. It has been an intense stream of work in between other tasks, such as fundraising. Now there is a bunch of new shiny metadata, notably:
 
