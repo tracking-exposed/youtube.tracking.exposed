@@ -283,14 +283,14 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
            </i>
            Most of the evidence supporting these claims is <b>anecdotal</b>; experiences of algorithmic interference, reported by screenshots and memories. 
         </li>
-        <li>A more rigorous collection of evidence, from the perspective of a singgle point of observation, is maintained by Guillaume Chaslot: <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>.</li>
+        <li>A more rigorous collection of evidence, from the perspective of a single point of observation, is maintained by Guillaume Chaslot: <a target=_blank href="https://algotransparency.org/">algotransparency.org</a>.</li>
         <li>At the beginning of 2020 a heated debate was seenon twitter, 
           <a target=_blank href="https://twitter.com/mark_ledwich/status/1210743158184693760">
            (Mark Ledwich, twitter announcements)
           </a>
             Their paper reitterated the concept of YouTube as a facilitator in radicalization efforts. The methodology was limited, but reinforced the state of the art.
-            <b>Youtube Tracking Exposed aims to provide researchers with the data and tooling
-          </b> to overcome the existing methodological limitations.
+            <b>Youtube Tracking Exposed aims to provide researchers with the data and tooling</b>
+            to overcome the existing methodological limitations.
         </li>
       </ul>
     </div>
@@ -392,8 +392,7 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
     We want to apply the most scientific, open, distributed approach we can aim for
   </h3>
   <p class="enlarged">
-    <b>
-      Diversity is the key</b>, but how exactly?
+    <b>Diversity is the key</b>, but how exactly?
     <br>
     <br>
     Personalization algorithms, content curation, and targeted experiences are unique for each of us. 
