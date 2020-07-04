@@ -8,7 +8,7 @@ og_title: "Coordinated observation of YouTube — test n.1 updates"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/images/compare.jpeg"
 og_url: "https://youtube.tracking.exposed/wetest/announcement-1"
-og_description: "The first worldwide test of the Pornhub algorithm; on Sunday January 19th, with a browser extension, we'll see how PH personalizes the customer experience"
+og_description: "The first collaborative experiment investigating biases in YoutTube's personalization algorithm! Open dataset, discussion on findings: we explore COVID-19 related recommendations in 5 languages."
 
 extraCSS: "/css/wetest.css"
 ---
