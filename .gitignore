@@ -12,3 +12,4 @@ data/*
 resources/
 themes*
 .infrastructure/*
+static/js/generated/*
