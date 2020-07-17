@@ -37,7 +37,6 @@ extraCSS: "/css/wetest.css"
 
 <div class="container col-12 justify-content-center">
   <h2 class="project-color">SEGUNDO ― Clique nos links, a ordem importa!</h2>
-  {{<yt-extension>}}
 </div>
 
 {{<colorblock >}}
@@ -51,16 +50,16 @@ extraCSS: "/css/wetest.css"
         Abra a <a href="https://www.youtube.com" target="_blank">página inicial do Youtube</a>.
       </li>
       <li>
-        Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>!.
+        Assista o  <a href="https://www.youtube.com/watch?v=" target="_blank">primeiro vídeo</a>.
       </li>
       <li>
-        Assista o <a href="https://www.youtube.com/watch?v=Zh_SVHJGVHw" target="_blank">segundo vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=Zh_SVHJGVHw" target="_blank">segundo vídeo</a>.
       </li>
       <li>
-        Assista o <a href="https://www.youtube.com/watch?v=A2kiXc5XEdU"" target="_blank">terceiro vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=A2kiXc5XEdU"" target="_blank">terceiro vídeo</a>.
       </li>
       <li>
-        Assista o <a href="https://www.youtube.com/watch?v=WEMpIQ30srI" target="_blank">quarto vídeo</a>!.
+        Assista o <a href="https://www.youtube.com/watch?v=WEMpIQ30srI" target="_blank">quarto vídeo</a>.
       </li>
       <li>
         Volte para a <a href="https://www.youtube.com/watch?v=BNdW_6TgxH0" target="_blank">página inicial do Youtube</a>  
