@@ -354,7 +354,6 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
           <br<br>
           It is the most basic calculus on how much is unique, personalized, the experience the company decide for us.
       </p>
-
     </div>
     <div class="col-6">
       <img class="imgtile" width="96%" style="margin-left:2%;margin-right:2%" src="/images/wetest-youralgo.svg" />
@@ -387,7 +386,6 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
       </p>
     </div>
   </div> 
-
   <h3>
     We want to apply the most scientific, open, distributed approach we can aim for
   </h3>
@@ -425,7 +423,6 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
   Wash your hands
   </a> 🦠 and spread the word, we need as much observations as possible!
 </h2>
-
 <br/><br/>
 
 {{<colorblock>}}
@@ -438,7 +435,6 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
       project twitter</a>,
     <a href="https://facebook.com/personalizationalgorithm" target=_blank>facebook page</a>
   </h2>
-
 </div> <!-- container -->
 
 <script>
