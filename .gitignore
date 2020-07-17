@@ -11,5 +11,8 @@ archetypes/*
 data/*
 resources/
 themes*
+
 .infrastructure/*
+
 static/js/generated/*
+static/js/vendor/*
