@@ -258,7 +258,7 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
   </ul>
 </div>
 
-<hr />
+---
 ## 22 March 2020 — Research state of art
 
 <div class="container col-12 justify-content-center">
@@ -310,7 +310,7 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
 
 </div> <!-- container -->
 
-<hr />
+---
 ## 21 March 2020 — Background experiment design
 
 <div class="container col-12 justify-content-center">
