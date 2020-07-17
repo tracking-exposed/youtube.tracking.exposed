@@ -300,13 +300,13 @@ We released a small [call for help](https://www.facebook.com/personalizationalgo
         <li>The official API isn't suitable for this analysis and limits access ot information unsuitable to exploring algorthmic bias</li>
         <li>We do not use 'anonymous profiles' like some research, this would miss out on critical data pertaining to the use of historical profiles in recommendations.</li>        
         <li>We distinguish between two kind of <i>logged profiles</i>: the profiles with traces left by genuine human utilization, and automated data collection efforts. </li>
-
       </ol>
     </div>
   </div> 
 
   <p style="font-size: 2.2em">
-  <b>COVID-19 is having unprecedented impact on life across the globe</b>, and YouTube claims to be active in combating disinformation at a time when people are seeking to inform themselves on topics related to public health. Cultural interpretation does not scale as well as web services do, and we're skeptically of efforts for content in languages where less investment has been made. With this study we aim to explore the impact of content recommendations for public health information as it shapes the views and beliefs of non-English speakers as well.  </p>
+    <b>COVID-19 is having unprecedented impact on life across the globe</b>, and YouTube claims to be active in combating disinformation at a time when people are seeking to inform themselves on topics related to public health. Cultural interpretation does not scale as well as web services do, and we're skeptically of efforts for content in languages where less investment has been made. With this study we aim to explore the impact of content recommendations for public health information as it shapes the views and beliefs of non-English speakers as well.
+  </p>
 
 </div> <!-- container -->
 
