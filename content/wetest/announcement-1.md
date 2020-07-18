@@ -13,6 +13,58 @@ og_description: "The first collaborative experiment investigating biases in Yout
 extraCSS: "/css/wetest.css"
 ---
 
+## 18 July 2020 - First qualitative analysis embedded into dataset (English only)
+
+Now the field <code>qualitative</code> might assume three value: 'relevant', 'linked', 'off-topic'; we pass trought all the videos suggested by YouTube on the right column, only concerning the BBC English video of our experiment. 
+
+#### Qualitative analysis attribution criteria:
+* **relevant**: the video talk actually about covid-19, coronavirus, lockdown, etc..
+* **linked**: the video has another subject, but it is linked because talks about health, past pandemincs.
+* **off-topic**: anything else.
+
+You can get the files named 'qualitative' [from the dedicated repository](https://github.com/tracking-exposed/experiments-data/tree/master/wetest1), and this [public tableau simple visualization](https://public.tableau.com/profile/claudio.of.tracking.exposed#!/vizhome/weTest1-Qualitativefirstreview/Sheet1?publish=yes) might help third party revision. Below, a complete cell from file _qualitative-ωτ1-v7.json_.
+
+<pre>
+ {
+    "evidence": 0,
+    "login": true,
+    "id": "c8eecebbdcd9badcafdc",
+    "savingTime": "2020-03-26T21:33:58.071Z",
+    "clientTime": "2020-03-27T02:45:01.000Z",
+    "uxLang": "es",
+    "recommendedId": "2f577cef26c0e61ec54ac3ad725dafb5104fc6cf",
+    "recommendedVideoId": "BtN-goy9VOY",
+    "recommendedAuthor": "Kurzgesagt – In a Nutshell",
+    "recommendedTitle": "El Coronavirus Explicado & Qué Deberías Hacer",
+    "recommendedLength": 30900,
+    "recommendedDisplayL": "8:35",
+    "recommendedLengthText": "8 minutos y 35 segundos",
+    "recommendedPubTime": "2020-03-20T02:45:01.000Z",
+    "recommendedRelativeS": 604800,
+    "recommendedViews": 17854,
+    "recommendedForYou": true,
+    "recommendedVerified": true,
+    "recommendationOrder": 1,
+    "recommendedKind": "video",
+    "watchedVideoId": "A2kiXc5XEdU",
+    "watchedTitle": "How do I know if I have coronavirus? - BBC News",
+    "watchedAuthor": "BBC News",
+    "watchedChannel": "/user/bbcnews",
+    "watchedPubTime": "2020-03-21T00:00:00.000Z",
+    "watchedViews": 682214,
+    "watchedLike": 6331,
+    "watchedDislike": 223,
+    "hoursOffset": 47,
+    "experiment": "wetest1",
+    "pseudonym": "nachos-taco-manicotti",
+    "step": "English",
+    "top20": true,
+    "isAPItoo": true,
+    "thumbnail": "https://i.ytimg.com/vi/BtN-goy9VOY/mqdefault.jpg",
+    "qualitative": "relevant"
+  },
+</pre>
+
 ## 2 July 2020 - Released dataset v7, and youtube official API historical data.
 
 <div class="row">
