@@ -13,6 +13,12 @@ og_description: "The first collaborative experiment investigating biases in Yout
 extraCSS: "/css/wetest.css"
 ---
 
+## 14 September 2020 - Our paper get accepted with surprisingly good review!
+
+Preprint: [YTTREX: crowdsourced analysis of Youtube's recommender system during COVID-19 pandemic](https://github.com/tracking-exposed/experiments-data/blob/master/wetest1/wetest-paper-submitted-preprint.pdf).
+
+Check out data collected the 25th and 26th, in [JSON and CSV](https://github.com/tracking-exposed/experiments-data/tree/master/wetest1).
+
 ## 18 July 2020 - First qualitative analysis embedded into dataset (English only)
 
 Now the field <code>qualitative</code> might assume three value: 'relevant', 'linked', 'off-topic'; we pass trought all the videos suggested by YouTube on the right column, only concerning the BBC English video of our experiment. 

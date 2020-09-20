@@ -63,9 +63,9 @@ canonifyURLs = true
     post = "Installation, functionalities, and offered services"
  [[menu.featured]]
     name= "weTEST#1 ― 25 March 2020"
-    url = "/wetest/1"
+    url = "/wetest/announcement-1"
     pre = "/images/related.svg"
-    post = "We are coordinating the first global observation of the Youtube personalization algorithm. Join us!"
+    post = "We coordinated the first global observation of the Youtube personalization algorithm; See the results!"
     weight = -170
  [[menu.featured]]
     name = "Play with data"
