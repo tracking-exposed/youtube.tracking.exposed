@@ -14,11 +14,32 @@ og_description: "look at the suggested video organized by publisher"
 
 {{<colorblock text="This service isn't ready yet, despite there is an API">}}
 
+<pre>
+curl https://youtube.tracking.exposed/api/v1/author/EwZRhQ4easE
+
+{
+    "authorName":"TCHIKVEVO",
+    "content":{
+        "sameAuthor": {...},
+        "foryou": {...}
+        "treasure": {...}
+    },
+    "authorSource":"/user/TCHIKVEVO",
+    "total":2
+}
+</pre>
+
 <p>
-    The interface have been developed as part of the <a href="/seeyou">SeeYou</a>, an experiment on building a Youtube(r) labor union. Few weeks after that path begun, other two (unrelated) initiatives show up: 
-    <a href="https://fairtube.com">FairTube</a>, and 
-    <a href="https://techworkerscoalition.org/">Tech Worker Coalition</a>. 
-    <br><br>
+    The request need a youtube Video Id. The backend look in the database on who is the author of this video (we call it, O.A.) and then fetch all the video, recorded in yttrex, belonging to the same author.
+    <br>
+    Then it aggregate the results in three groups: <i>sameAuthor</i> are the video recommended that belong to O.A, <i>foryour</i>: the videos recommended explicitly for personal taste of the watcher (anonymous, you don't have any pseudonym here), and <i>treasure</i>: the remaining video related which might or might not be the same of the offical API. 
+    <br>
+    If many person watch content of O.A, the content producer or anyone else, might see what Youtube recommended next to O.A. productions.
+</p>
+
+<p>
+    The interface have been developed as part of the <a href="/seeyou">SeeYou</a>, an experiment on building a Youtube(r) labor union. (to better understand the addressed problem, please check out <a href="https://fairtube.com">FairTube</a>).
+    <br>
     We should engineer a decent interface and UX. If you've features in mind or skill to share, feel free to connect with our <a href="https://github.com/tracking-exposed/youtube.tracking.exposed/issues">issue tracker</a> ;)
 </p>
 

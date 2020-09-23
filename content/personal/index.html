@@ -11,7 +11,7 @@ type: app
 <div class="container">
 
     <section>
-        <!-- NOTE: this is hidden and appended in #series as fallback if few evidence are available -->
+        <!-- this fallback appear if a few days of recording exists -->
         <div id="fallback" hidden class="row border-bottom p-2 mb-3 align-middle">
           <div class="col-3">
             <small class="dayString">dayStringFiller</small>
@@ -21,8 +21,9 @@ type: app
           </div>
         </div>
 
+        <!-- this start when more data is avail -->
         <div class="mb-11">
-            <p hidden class="timesavail">Recent activities recorded:</p>
+            <p hidden class="timesavail">Last two months of activities recorded:</p>
             <p hidden class="fallback-listing">Welcome, you just start! <b>at the third day</b> of using youtube.tracking.exposed, you'll find here a time graph; Now there are only few <b>counters</b>:</p>
             <div id="series"></div>
         </div>
@@ -41,7 +42,7 @@ type: app
             <div class="chart1"></div>
         </div>
         <div class="col-6" style="display:inline-block">
-            <p>Reasons (as declared by YouTube)</p>
+            <p>Recommendation reasons (as declared by YouTube)</p>
             <div class="chart2"></div>
         </div> 
         <div id="optionalChart3" class="col-12" style="display:inline-block">
@@ -53,7 +54,6 @@ type: app
     </section>
 
     <section>
-
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
         <div id="master" hidden class="row border-bottom p-2 mb-3 align-middle">
           <div class="col-8">
@@ -130,15 +130,17 @@ type: app
                         </li>
                     </ul>
                     <br>
-                    <h3>Data Download</h3>
+                </div>
+                <div class="card p-3">
+                    <h3>CSV data Download</h3>
                     <ul>
                         <li class="mr-1 d-flex justify-content-between align-items-left">
                             <button type="button" class="btn btn-success" onclick="downloadHomeCSV()">
-                                Get Home Videos CSV
+                                YT homepage videos 
                             </button>
                             <span class="align-right">
                                 <button type="button" class="btn btn-success" onclick="downloadVideoCSV()">
-                                    Get Recommended CSV 
+                                    Recommended videos
                                 </button>
                             </span>
                         </li>
@@ -150,7 +152,7 @@ type: app
                 <div class="card p-3">
                     <h3>Do it with a group of friends!</h3>
                     <small class="mb-3 pb-3 border-bottom">
-                        By tagging your evidence, you can more easily compare with the other people tagging in the same way. A person in a group share evidences collected with the others, as they have access to a special group page.
+                        By tagging your evidence, you can more easily compare with the other people tagging in the same way. A person in a group share evidences collected with the others, as this tag works as a shared access code.
                     </small>
                     <div>
 
@@ -184,6 +186,7 @@ type: app
                     <button 
                         class="btn btn-lg float-left btn-success" 
                         style="min-width: 100px" 
+                        id="joinTagButton"
                         onclick="joinTag()">Join +</button>
 
                     <a class="btn btn-lg float-right" id="removeButton"

@@ -12,10 +12,28 @@ og_url: "https://youtube.tracking.exposed/hompare"
 og_description: "youtube.tracking.exposed allow to see discrimination through comparing your personalized content."
 ---
 
-# This page isn't ready yet
+{{<colorblock text="This service isn't ready yet, despite there is an API">}}
+
+<pre>
+curl https://youtube.tracking.exposed/api/v1/home/
+
+[
+    { selectedVideo }, 
+    { selectedVideo }, 
+    { selectedVideo }, ...
+]
+</pre>
+
+<p>
+    The API return all the selected videos up to 100 evidences collected in the same day of the request.
+    <br>
+    The API and collection have been developed to display how personalization happens in homepages. To get a grasp of why this matter, please give a look to <a href="https://their.tube">Their Tube</a>.
+    <br>
+    We don't know yet if and how transform the collected data in meaningful visualization. If you are doing any research, you should find a CSV in your personal page.
+    <br>
+    We should engineer a decent interface and UX. If you've features in mind or skill to share, feel free to connect with our <a href="https://github.com/tracking-exposed/youtube.tracking.exposed/issues">issue tracker</a> ;)
+</p>
 
 ---
 
 {{<shared-yt-services>}}
-
-# 'Home' analysis is only recently supported

@@ -158,6 +158,7 @@ function updateProfileInfo(profile) {
 }
 
 function printMessage(element, text, type) {
+    $("#joinTagButton").removeClass('disabled');
     if(!type) var type = 'danger';
     element.html('<p class="alert alert-' + type + ' mb-3">' + text + '</p>');
 }
@@ -177,6 +178,8 @@ function manageTag(action) {
     resultDiv.empty();
 
     console.log("manageTag", action);
+    /* this class is removed in printMessage because is the exit flow */
+    $("#joinTagButton").addClass('disabled');
 
     const tag = $('#tag').val();
     // const password = $("#password").val();
@@ -437,45 +440,48 @@ function simplept(data) {
 const ptiserie_config = {
     bindto: '#series',
     data: {
-    mimeType: 'json',
-    xFormat: '%Y-%m-%d',
-    keys: { value : [ 'videos', 'homepages', 'adverts', 'authors' ], x: 'dayStr' },
-    type: 'area',
-    labels: { show: true },
-    groups: [ [ 'videos', 'adverts', 'authors'] ],
-    colors: { 'videos': palette[1], 'adverts': palette[4], 'authors': palette[7], 'homepages': palette[0] }
+        mimeType: 'json',
+        xFormat: '%Y-%m-%d',
+        keys: { value : [ 'videos', 'homepages', 'authors' ], x: 'dayStr' },
+        type: 'bar',
+        labels: { show: true },
+        // groups: [ [ 'videos', 'authors'] ],
+        colors: { 'videos': palette[0], 'authors': palette[4], 'homepages': palette[6] }
     },
     regions: [
-        { axis: 'x', start: "", end: "", class: 'last-week'}, // filled with API returned data
+        { axis: 'x', start: null, end: null, class: 'last-week'}, // filled with API returned data
     ],
     axis: {
-    x: {
-        type: 'timeseries',
-        tick: {
-        format: '%m-%d'
-        }
-    },
-    padding: { left: 330 },
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%d-%m',
+                culling: {
+                    max: 5,
+                }
+            }
+        },
+        padding: { left: 330 },
     },
     bar: {
-    width: {
-        ratio: 0.1
-    }
+        width: {
+            ratio: 0.1
+        }
     },
     legend: { show: true },
     tooltip: {
         grouped: false,
     },
     size: {
-    height: 600,
+        height: 600,
     },
     grid: {
-    x: {
-        show: true,
-        lines: [
-            { value: null, text: 'Last week', position: 'end', class: 'last-week' }, // filled same 
-        ]
-    },
+        x: {
+            show: true,
+            lines: [
+                { value: null, text: 'Last week', position: 'end', class: 'last-week' }, // filled same 
+            ]
+        },
     }
 };
 
@@ -494,13 +500,22 @@ function personalTimeseries() {
             simplept(data);
         } else {
             $(".timesavail").removeAttr('hidden');
+            console.log(data);
             ptiserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);
             ptiserie_config.regions[0].start = data.oneWeekAgoDateString;
             ptiserie_config.regions[0].end = new Date()
                                                 .toISOString()
-                                                .replace(/T/, ' ')    // replace T with a space
-                                                .replace(/\..+/, ''); // delete the dot and everything after
-            ptiserie_config.data.json = data.aggregated;
+                                                .replace(/T.*/, '');   // remove hours and everything except YYYY-MM-DD
+
+            ptiserie_config.data.json = _.map(data.aggregated, function(dayentry) {
+                return {
+                    dayStr: dayentry.dayStr,
+                    authors: _.size(_.keys(dayentry.authorName)), // authors is simply equal to 'videos'
+                    videos: ( dayentry.type && dayentry.type.video ) ? dayentry.type.video : 0,
+                    homepages: ( dayentry.type && dayentry.type.home ) ? dayentry.type.home: 0,
+                    homevideos: dayentry.totalsuggested,
+                }
+            });
             c3.generate(ptiserie_config);
         }
     });
