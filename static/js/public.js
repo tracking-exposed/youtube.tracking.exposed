@@ -115,8 +115,19 @@ function initRelated() {
 
     const url = buildApiUrl('related', relatedId);
     $.getJSON(url, function (results) {
-        if (_.size(results) === 0)
-            return invalidVideoId(relatedId, "This video never looks to be a 'related' content in any observation.");
+        if (_.size(results) === 0) {
+            const nope = `
+                <h3 class="text-center">
+                    No! this video never been recommended in any observation.
+                </h3>
+                <p class="text-center">
+                    Eventually, check if <a href="https://youtube.com/watch?v=${relatedId}">is a valid video</a>.
+                </p>
+            `;
+            $("#error").append(nope);
+            // this is not an error so I didn't want the same look and feel of an error
+            return;
+        }
 
         const target = _.find(results[0].related, {videoId: relatedId});
         if(!target)
