@@ -6,15 +6,16 @@
     background-color: bisque;
     padding: 10px;
     border-radius: 5px;
+    display: inline-block;
+    width: 60px;
 }
 
 .totalvideos {
     font-family: monospace;
-}
-
-.downloadCSV {
-
+    display: inline-block;
+    width: 100px;
 }
 
 .linkwrapper {
+    padding-left: 60px;
 }
