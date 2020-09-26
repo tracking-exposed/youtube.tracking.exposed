@@ -31,12 +31,6 @@ layout: home
             picture="/images/compare.jpeg" >}}
     </div>
     <div class="col-8">
-        <h5>2020 Second half</h5>
-        <ul style="font-size:1.4em;">
-            <li> </li>
-            <li> </li>
-        </ul>
-        <br>
         <h5>2020 At the beginning</h5>
         <ul style="font-size:1.4em;">
             <li>The year begun with <a href="https://www.cjr.org/the_media_today/youtube-radicalization.php">heated</a> <a href="https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html">debate</a> and <a href="https://ffwd.medium.com/youtubes-deradicalization-argument-is-really-a-fight-about-transparency-fe27af2f3963">articles</a> on academic research using API or non-logged profiles. <b>We were happy!</b> because, someone acknowledges that you can't investigate algorithms without a passive scraper, which is precisely what we do, and we hope to be used by researchers.</li>
@@ -57,3 +51,6 @@ layout: home
         </ul>
     </div>
 </div>
+
+<br>
+{{<shared-yt-services>}}
