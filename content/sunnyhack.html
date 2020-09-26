@@ -1,0 +1,46 @@
+---
+title: "Sunnyhack: a tool to measure shadowban*"
+date: 2020-09-22T15:01:21+01:00
+draft: false
+subtitle: By merging our individual observation we can understand how our personalized and partial is our perception
+type: app
+extraCSS: "/css/sunnyhack.css"
+---
+
+<div class="row" id="sunnyblock-skeleton-0" hidden>
+  <div class="col-6">
+    <div class="sunnyblock">
+    </div>
+  </div>
+</div>
+
+<div id="sunnylink-skeleton-0" hidden>
+  <p class="sunnylink">
+    <span class="searchtimes"></span>
+    <span class="totalvideos"></span>
+    <a role="button" class="btn btn-outline-info btn-secondary downloadCSV">CSV</a>
+    <span class="linkwrapper">
+      Search on Youtube: <a target=_blank class="linktoyoutube"></a>
+    </span>
+  </p>
+</div>
+
+<div class="container">
+
+  <h3 id="infoLoading">Loading list of recent queries...</h3>
+  <!-- this is the container of the list -->
+  <div id="linklist"></div>
+</div>
+
+
+<script src="/js/global.js"></script>
+<script src="/js/sunnyhack.js"></script>
+
+<script type="text/javascript">
+  $( document ).ready(async function() {
+    // queryServerAboutQuerystrings("somekeyword");
+    const recentSearches = await getRecentSearches();
+    appendLinkList(recentSearches, "#sunnylink-skeleton-0", "#linklist");
+    $("#infoLoading").toggle();
+  });
+</script>

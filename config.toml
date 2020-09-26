@@ -9,7 +9,7 @@ canonifyURLs = true
     subsite = "youtube"
     openGraphSiteName = "YouTube Tracking Exposed"
     description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
-    tagline = "YouTube has the power to influence a public debate - Let's expose it together!"
+    tagline = "A data-activism project; We develop tech to dissect & expose Youtube influence."
 
 [markup]
   [markup.goldmark]
@@ -56,26 +56,26 @@ canonifyURLs = true
     weight = 170
 
  [[menu.featured]]
-    name = "How it works"
+    name = "How to join the experiment"
     url = "/preview"
+    pre = "/images/related.svg"
     weight = -180
-    pre = "/images/compare.svg"
     post = "Installation, functionalities, and offered services"
  [[menu.featured]]
     name= "weTEST#1 ― 25 March 2020"
     url = "/wetest/announcement-1"
-    pre = "/images/related.svg"
+    pre = "/images/data.svg"
     post = "We coordinated the first global observation of the Youtube personalization algorithm; See the results!"
     weight = -170
  [[menu.featured]]
-    name = "Play with data"
+    name = "Algorithm analysis methodologies"
     url = "/data/"
-    pre = "/images/data.svg"
+    pre = "/images/compare.svg"
     post = "The lastest videos we have collected with our monitoring tools"
     weight = -160
 
  [[menu.footer]]
-    name = "Project analysis"
+    name = "first project overview"
     url = "/initial-analysis/"
     weight = 100
  [[menu.footer]]
@@ -83,6 +83,6 @@ canonifyURLs = true
     url = "https://tracking.exposed"
     weight = 90
  [[menu.footer]]
-    name = "Sponsoring project: Algorithms Exposed"
+    name = "Connected project: Algorithms Exposed"
     url = "https://algorithms.exposed"
     weight = 80
