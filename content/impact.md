@@ -6,11 +6,11 @@ date: 2019-08-11T00:00:00
 description: Statistics build on what we are collecting; Aggregated information to keep in check our system and our relevance
 draft: false
 
-og_title: "ytTREX - impact"
+og_title: "ytTREX - usage statistics"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/impact"
-og_description: "impact analysis, active users, collected content. we don't do full open-data, but you can ask for more as long as is privacy preserving"
+og_description: "impact analysis, active users, collected content. Open-data as long as is privacy preserving"
 ---
 
 <!-- the graphs are appended in the 'div'. the ID #impression-graph is referenced in hugo-theme-trex/layouts/c3app/single.html -->
@@ -66,5 +66,5 @@ _How many labels we got? they are the fundamental resource used to mine searches
 
 * [Data can't be anonymized](https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds) easily, we aggregate them and we use only non-personal metadata to develop the aggregation.
 * We don't want to help in any way [social media intelligence](https://responsibledata.io/social-media-intelligence-the-wayward-child-of-open-source-intelligence/).
-* It is in our DNA [to enable researchers](/data-activism), we described our [data usage policies](/what-we-collect).
+* It is in our DNA [to enable researchers](/data-activism), we described our [data usage policies](/privacy).
 * The public stats below display how the system is performing, how the people use it (no content-related analysis are here).
