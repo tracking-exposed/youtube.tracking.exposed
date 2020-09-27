@@ -25,3 +25,11 @@
     width: 70%;
     display: inline-block;
 }
+
+#stats {
+    font-family: monospace;
+    background-color: lightgray;
+    color: darkred;
+    font-size: 1.3em;
+    margin-top: 20px;
+}

@@ -51,6 +51,7 @@ function appendLinkList(data, copyFrom, dest) {
      * copyFrom is CSS selector about a piece of <HTML hidden> acting as a template 
      * dest is a CSS selector where we append the dynamic content */
     console.log("appendLinkList", data, copyFrom, dest, "applying alphabetical sorting");
+    const stats = { totalvideso: 0, keywords: 0, searches: 0}
     _.each(_.orderBy(data, 't'), function(entry) {
         const div = $(copyFrom).clone();
         div.removeAttr('hidden');
@@ -64,7 +65,11 @@ function appendLinkList(data, copyFrom, dest) {
         $(idname + " > .sunnylink > .downloadCSV").attr('href', csvlink);
         $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").attr('href', 'https://www.youtube.com/results?search_query=' + entry.t);
         $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.t);
+
+        stats.totalvideso += entry.amount;
+        stats.searches += entry.searches;
+        stats.keywords += 1;
     });
-
-
+    $("#stats").text(`counters: keywords ${stats.keywords}, searches ${stats.searches}, videos ${stats.totalvideso}`);
+    $("#stats").css('padding', '5px');
 }
