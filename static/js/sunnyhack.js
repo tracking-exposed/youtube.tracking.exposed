@@ -70,6 +70,7 @@ function appendLinkList(data, copyFrom, dest) {
         stats.searches += entry.searches;
         stats.keywords += 1;
     });
-    $("#stats").text(`counters: keywords ${stats.keywords}, searches ${stats.searches}, videos ${stats.totalvideso}`);
+    const avg = _.round(stats.totalvideso / stats.searches, 1)
+    $("#stats").text(`counters: keywords ${stats.keywords}, searches ${stats.searches}, videos ${stats.totalvideso}, avg ${avg} video/search`);
     $("#stats").css('padding', '5px');
 }
