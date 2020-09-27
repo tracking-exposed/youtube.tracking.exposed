@@ -1,21 +1,27 @@
 .sunnylink {
-    margin: 3px; 
+    margin: 5px;
+    padding-bottom: 10px;
+    font-size: 1.1em;
 }
 
 .searchtimes {
-    background-color: bisque;
-    padding: 10px;
-    border-radius: 5px;
+    border-bottom: 1px solid #D9230F;
     display: inline-block;
-    width: 60px;
+    width: 10%;
 }
 
 .totalvideos {
     font-family: monospace;
     display: inline-block;
-    width: 100px;
+    width: 10%;
+}
+
+.query {
+    font-family: monospace;
 }
 
 .linkwrapper {
-    padding-left: 60px;
+    border-bottom: solid darkgray;
+    width: 70%;
+    display: inline-block;
 }

@@ -7,7 +7,12 @@ type: app
 extraCSS: "/css/sunnyhack.css"
 ---
 
-<h4>* this is a very alpha stage interface!</h4>
+<p>* here you can compare the most recent 🔍 collected by yttrex. only last 3 days are considered. 
+  Search results change because of regional filter, client-side language, personalization, or shadow banning of a content creator.
+  All they might be a reason to appear or not, in a search result. Please note: <i>is a very-alpha stage tool</i>, checkout code: 
+  <a href="https://github.com/tracking-exposed/yttrex/blob/master/backend/routes/searches.js" target=_blank>backend API</a>,
+  <a href="https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/content/sunnyhack.html" target=_blank>frontend</a>, 
+  <a href="https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/static/js/sunnyhack.js" target=_blank>jquery</a>.</p>
 
 <hr />
 
@@ -20,12 +25,13 @@ extraCSS: "/css/sunnyhack.css"
 
 <div id="sunnylink-skeleton-0" hidden>
   <p class="sunnylink">
+    <span class="linkwrapper">
+      <span class="query"></span>
+      <a target=_blank class="linktoyoutube"> repeat⏵ </a>
+    </span>
     <span class="searchtimes"></span>
     <span class="totalvideos"></span>
     <a role="button" class="btn btn-default btn-outline-info downloadCSV">⇓ CSV</a>
-    <span class="linkwrapper">
-      Search on Youtube: <a target=_blank class="linktoyoutube"></a>
-    </span>
   </p>
 </div>
 

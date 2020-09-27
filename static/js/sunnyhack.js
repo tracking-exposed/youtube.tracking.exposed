@@ -59,11 +59,11 @@ function appendLinkList(data, copyFrom, dest) {
         const idname = "#" + entry.id;
         const csvlink = buildApiUrl('searches', entry.t.replace(/\ /g, '+') + '/CSV', 2);
 
-        $(idname + " > .sunnylink > .searchtimes").text("#" + entry.searches);
-        $(idname + " > .sunnylink > .totalvideos").text("videos " + entry.amount);
+        $(idname + " > .sunnylink > .searchtimes").text(entry.searches + " times");
+        $(idname + " > .sunnylink > .totalvideos").text(entry.amount  + " videos");
         $(idname + " > .sunnylink > .downloadCSV").attr('href', csvlink);
         $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").attr('href', 'https://www.youtube.com/results?search_query=' + entry.t);
-        $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").text(entry.t);
+        $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.t);
     });
 
 
