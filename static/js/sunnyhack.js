@@ -47,6 +47,7 @@ async function getRecentSearches() {
 }
 
 function appendLinkList(data, copyFrom, dest) {
+    if(data.error) return manageError(data, dest);
     /* data is a collection from the API above,
      * copyFrom is CSS selector about a piece of <HTML hidden> acting as a template 
      * dest is a CSS selector where we append the dynamic content */
@@ -73,4 +74,8 @@ function appendLinkList(data, copyFrom, dest) {
     const avg = _.round(stats.totalvideso / stats.searches, 1)
     $("#stats").text(`counters: keywords ${stats.keywords}, searches ${stats.searches}, videos ${stats.totalvideso}, avg ${avg} video/search`);
     $("#stats").css('padding', '5px');
+}
+
+function manageError(data, dest) {
+    $(dest).html('<h4>Error: ' + data.message +'</h4')
 }
