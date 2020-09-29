@@ -299,7 +299,7 @@ function downloadHomeCSV() {
 
 function downloadCSVByVideoId(e) {
     const videoId = $(this).attr('yttrex-videoId');
-    const csvurl = buildApiUrl(`videoCSV/${videoId}/`, null, 1);
+    const csvurl = buildApiUrl("videoCSV", videoId);
     console.log("videoCSV from: ", csvurl);
     window.open(csvurl);
 }
@@ -359,7 +359,7 @@ function addVideoRow(video, i) {
     $("#" + computedId + " .author").text(video.authorName);
 
     if(video.relatedN > 0) {
-        $("#" + computedId + " .csv").on('click', downloadVideoCSV);
+        $("#" + computedId + " .csv").on('click', downloadCSVByVideoId);
         $("#" + computedId + " .csv").attr('yttrex-videoId', `${video.videoId}`);
         title = $("#" + computedId + " .csv").attr('title')  + "«" + video.title + "»";
         $("#" + computedId + " .csv").attr('title', title);
