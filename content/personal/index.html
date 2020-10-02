@@ -107,6 +107,41 @@ type: app
     </section>
 
     <section>
+      <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
+      <div id="searchmaster" hidden class="row border-bottom p-2 mb-3 align-middle">
+        <div class="col-8">
+          <span class="mb-0">
+            <small class="when">whenFiller</small> ― 
+            <b class="title">titleFiller</b>
+            <a class="repeat" target=_blank>linkFiller</a>
+          </span>
+        </div>
+        <nav class="col-4">
+          <a
+            style="cursor: pointer"
+            class="csv icon-small mb-1"
+            title="CSV with all the observations of ">
+            <!-- string is completed in JS so the HTML can be translated -->
+            <span style="color:#ff0000;">⇓</span>
+            <small>CSV</small>
+          </a>
+          <a
+            style="cursor: pointer"
+            class="delete icon-small mb-1"
+            title="Remove (only) this query about ">
+            <small>Remove</small>
+          </a>
+        </nav>
+      </div>
+
+      <p>Searches collected: download CSV or share the link</p>
+      <div id="searchlog" class="mb-5">
+        <!-- Here are appended the clones of #master, by jQuery -->
+      </div>
+    </section>
+
+
+    <section>
         <div class="row mb-5">
             <div class="col-sm">
                 <div class="card p-3">

@@ -121,6 +121,7 @@ function personal(pages, profile) {
             reportError(data);
         else {
             _.each(data.recent, addVideoRow);
+            _.each(data.searches, addSearchRow)
             renderC3Graph(data.graphs);
             addPages(data.total, pagestr);
             if(!profile)
@@ -283,6 +284,13 @@ function manageTag(action) {
 }
 
 /* CSV related functions, the first two of them are for 'personal', last is on specific 'videoId' */
+function downloadSearchCSV() {
+    const queryTerms = $(this).attr('yttrex-search-terms');
+    const csvurl = buildApiUrl("searches", queryTerms);
+    console.log("Search CSV in opening is: ", csvurl);
+    window.open(csvurl);
+}
+
 function downloadVideoCSV() {
     const pk = getPubKey();
     const csvurl = buildApiUrl('personal', pk + '/video/csv', 2);
@@ -329,6 +337,38 @@ function addPages(total, pages) {
     }
 }
 
+function addSearchRow(searche, i) {
+    // console.log(searche); 
+    /* clang: "en"
+        id: "a217a2259295bedd777681ff4f57c9a33a48e338"
+        publicKey: "FxMy3C17AijcLhc3pD6gSwLbM16ZFcC9sdLgUJrQbUHJ"
+        results: 40
+        savingTime: "2020-09-30T17:34:40.125Z"
+        searchTerms: "trump biden face to face" */
+    const entry = $("#searchmaster").clone();
+    const computedId = `search-${searche.id}`;
+    entry.attr("id", computedId);
+    $("#searchlog").append(entry);
+
+    $("#" + computedId + " .title").text(searche.searchTerms + " (" + searche.results + ")");
+    $("#" + computedId + " .when").text(searche.savingTime.substr(11, 5));
+
+    const ytlink = "https://www.youtube.com/results?search_query=" + encodeURIComponent(searche.searchTerms);
+    $("#" + computedId + " .repeat").attr('href', ytlink);
+    $("#" + computedId + " .repeat").text('repeat YT query');
+
+    $("#" + computedId + " .csv").on('click', downloadSearchCSV);
+    $("#" + computedId + " .csv").attr('yttrex-search-terms', `${searche.searchTerms}`);
+    title = $("#" + computedId + " .csv").attr('title')  + "«" + searche.searchTerms + "»";
+    $("#" + computedId + " .csv").attr('title', title);
+
+    $("#" + computedId + " .delete").on('click', removeEvidence);
+    $("#" + computedId + " .delete").attr('yttrex-search-id', `${searche.id}`);
+    title = $("#" + computedId + " .delete").attr('title')  + "«" + searche.searchTerms + "»";
+    $("#" + computedId + " .delete").attr('title', title);
+
+    entry.removeAttr('hidden');
+}
 
 function addVideoRow(video, i) {
     if(!video.videoId) {
