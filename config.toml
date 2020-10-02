@@ -75,7 +75,7 @@ canonifyURLs = true
     weight = -160
 
  [[menu.footer]]
-    name = "first project overview"
+    name = "Initial project analysis (2018)"
     url = "/initial-analysis/"
     weight = 100
  [[menu.footer]]
