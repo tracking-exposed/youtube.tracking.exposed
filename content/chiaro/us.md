@@ -6,11 +6,14 @@ draft: false
 type: ytSearchCampaign
 ---
 
-# This page is about an hipothetical list of search terms
+# This is an experiment of many 
+## you can build the next one
 
-they are below. This test can be edited as markdown on github: 
+{{<colorblock text="Collective observation of youtube personalization in US election, follow for more">}}
 
-To edit the list of allowed query, which you can suggest to friends to 
+they are below. This test can be edited as markdown on github: [us.md](https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/content/chiaro/us.md). Feel free to copy and create a new list. do a puil request.
+
+To edit the list of allowed query, which you can suggest to friends to:
 
 1. download browser extension
 2. access to one or many search query
