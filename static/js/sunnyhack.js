@@ -8,71 +8,85 @@ async function queryServerAboutQuerystrings() {
 }
 
 async function getRecentSearches() {
+    /* discontinued or soon to be discontinued */
     const url = buildApiUrl('search', 'keywords', 2);
-    const retval = await $.getJSON(url, function (results) {
-        return results;
+    return await $.getJSON(url, function (results) {
+        return validateResults(results);
     });
     /*  { "selist": [
      *    {
      *      "id": "ab12cd34",
-     *      "t": "Qanon",
-     *      "amount": 60,
-     *      "searchId": [
-     *        "38708bd5cc61134ea0763f1b079fc94bcff1a615", "21dc51be94b4b64ea6380f96e031d48818112e31", "7def339253ac062721a2f58cadf90aa739d23945"
-     *      ],
-     *      "searches": 3
+     *      "searchTerms": "Qanon",
+     *      "contributions": [ 20, 20, 20 ],
+     *      "total": 60,
      *    }, {...}, {...}
      *  ],
+     *  "contributors": 5,
      *  "parameters": {
-     *    "hardcodedAmount": 17,
-     *    "hardcodedUnit": "days",
-     *    "amount": 200,
-     *    "skip": 0
+     *    "maxAmount": 200,
+     *    "retrieved": 199,
+     *    "overflow": false,
      *  }}
      */
+}
+
+function validateResults(retval) {
 
     if(!retval || !retval.parameters) 
-        return { error: true, message: "failure in communicating with server"};
-
-    if(!retval.selist || _.size(retval.selist) == 0)
-        return _.merge(retval.parameters, {
+        retval = { error: true, message: "failure in communicating with server"};
+    else if(!retval.selist || _.size(retval.selist) == 0)
+        retval = _.merge(retval.parameters, {
             error: true, message: "we didn't get any search result from the server"});
-
-    if(retval.parameters.overflow)
+    else if(retval.parameters.overflow)
         console.log("Manage paging, overflow observed in the last",
             retval.parameters.hardcodedAmount, retval.parameters.hardcodedUnit);
 
-    console.log("returning", retval.parameters.amount, "over a maximum of", retval.parameters.max);
-    return retval.selist;
+    console.log("validateResults: returning", retval.parameters.amount, "over a maximum of", retval.parameters.max);
+    return retval;
 }
 
-function appendLinkList(data, copyFrom, dest) {
-    if(data.error) return manageError(data, dest);
+async function getCampaignQueryStats(campaignName) {
+    const url = buildApiUrl('queries', campaignName, 2);
+    try {
+        return await $.getJSON(url, function (results) {
+            return validateResults(results);
+        });
+    } catch(e) {
+        console.error("Unable to fetch data", e);
+        return { error: true, message: "failure in communicating with server", code: e.status};
+    }
+}
+
+function appendLinkList(retrieved, copyFrom, dest) {
+    const data = _.orderBy(retrieved.selist, 'searchTerms');
+    if(retrieved.error) return manageError(retrieved, dest);
     /* data is a collection from the API above,
      * copyFrom is CSS selector about a piece of <HTML hidden> acting as a template 
      * dest is a CSS selector where we append the dynamic content */
     console.log("appendLinkList", data, copyFrom, dest, "applying alphabetical sorting");
-    const stats = { totalvideso: 0, keywords: 0, searches: 0}
-    _.each(_.orderBy(data, 't'), function(entry) {
+    const stats = { contributions: retrieved.contributions, totalvideos: 0, keywords: 0, searches: 0 };
+    _.each(data, function(entry) {
         const div = $(copyFrom).clone();
         div.removeAttr('hidden');
         div.attr("id", entry.id);
         div.appendTo(dest);
         const idname = "#" + entry.id;
-        const csvlink = buildApiUrl('searches', entry.t.replace(/\ /g, '+') + '/CSV', 2);
+        const csvlink = buildApiUrl('searches', encodeURIComponent(entry.searchTerms) + '/CSV', 2);
 
-        $(idname + " > .sunnylink > .searchtimes").text(entry.searches + " times");
-        $(idname + " > .sunnylink > .totalvideos").text(entry.amount  + " videos");
+        $(idname + " > .sunnylink > .searchtimes").text(_.size(entry.searches) + " times");
+        $(idname + " > .sunnylink > .totalvideos").text(entry.total + " videos");
         $(idname + " > .sunnylink > .downloadCSV").attr('href', csvlink);
-        $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").attr('href', 'https://www.youtube.com/results?search_query=' + entry.t);
-        $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.t);
+        $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
+            .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(entry.searchTerms));
+        $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
 
-        stats.totalvideso += entry.amount;
-        stats.searches += entry.searches;
+        stats.totalvideos += entry.total;
+        stats.searches += _.size(entry.searches);
         stats.keywords += 1;
     });
-    const avg = _.round(stats.totalvideso / stats.searches, 1)
-    $("#stats").text(`counters: keywords ${stats.keywords}, searches ${stats.searches}, videos ${stats.totalvideso}, avg ${avg} video/search`);
+    $("#stats").text(
+        `counters: keywords ${stats.keywords}, from ${retrieved.contributors}, searches ${stats.searches}, videos ${stats.totalvideos}`
+    );
     $("#stats").css('padding', '5px');
 }
 
