@@ -32,20 +32,25 @@ async function getRecentSearches() {
 
 function validateResults(retval) {
 
-    if(!retval || !retval.parameters) 
+    if(!retval || !retval.parameters)
         retval = { error: true, message: "failure in communicating with server"};
-    else if(!retval.selist || _.size(retval.selist) == 0)
-        retval = _.merge(retval.parameters, {
-            error: true, message: "we didn't get any search result from the server"});
+    else if(!_.size(retval.selist) )
+        retval = _.merge(retval, {
+            error: false, message: "we didn't get any search result from the server"});
     else if(retval.parameters.overflow)
         console.log("Manage paging, overflow observed in the last",
             retval.parameters.hardcodedAmount, retval.parameters.hardcodedUnit);
 
-    console.log("validateResults: returning", retval.parameters.amount, "over a maximum of", retval.parameters.max);
+    if(retval.message)
+        console.log("validateResults !OK (error ", retval.error, ") message: ", retval.message);
+    else
+        console.log("validateResults: OK", JSON.stringify(retval.parameters));
+
     return retval;
 }
 
 async function getCampaignQueryStats(campaignName) {
+    /* this function is called by the template in themse/trex called ytSearchCampaign/single.html */
     const url = buildApiUrl('queries', campaignName, 2);
     try {
         return await $.getJSON(url, function (results) {
@@ -59,30 +64,51 @@ async function getCampaignQueryStats(campaignName) {
 
 function appendLinkList(retrieved, copyFrom, dest) {
     const data = _.orderBy(retrieved.selist, 'searchTerms');
+    const campaign = retrieved.campaign;
+    console.log(retrieved, campaign);
     if(retrieved.error) return manageError(retrieved, dest);
     /* data is a collection from the API above,
      * copyFrom is CSS selector about a piece of <HTML hidden> acting as a template 
      * dest is a CSS selector where we append the dynamic content */
     console.log("appendLinkList", data, copyFrom, dest, "applying alphabetical sorting");
     const stats = { contributions: retrieved.contributions, totalvideos: 0, keywords: 0, searches: 0 };
-    _.each(data, function(entry) {
+    _.each(campaign.queries, function(searchTerms) {
+
+        /* this creation happen in any condition, if entry exists or not */
         const div = $(copyFrom).clone();
         div.removeAttr('hidden');
-        div.attr("id", entry.id);
         div.appendTo(dest);
-        const idname = "#" + entry.id;
-        const csvlink = buildApiUrl('searches', encodeURIComponent(entry.searchTerms) + '/CSV', 2);
 
-        $(idname + " > .sunnylink > .searchtimes").text(_.size(entry.searches) + " times");
-        $(idname + " > .sunnylink > .totalvideos").text(entry.total + " videos");
-        $(idname + " > .sunnylink > .downloadCSV").attr('href', csvlink);
-        $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
-            .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(entry.searchTerms));
-        $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
+        const entry = _.find(data, { searchTerms });
+        /* entry have different display and logic if AT least one been searched or not */
+        if(entry) {
+            div.attr("id", entry.id);
+            const idname = "#" + entry.id;
+            const csvlink = buildApiUrl('searches', encodeURIComponent(entry.searchTerms) + '/CSV', 2);
 
-        stats.totalvideos += entry.total;
-        stats.searches += _.size(entry.searches);
-        stats.keywords += 1;
+            $(idname + " > .sunnylink > .searchtimes").text(_.size(entry.searches) + " times");
+            $(idname + " > .sunnylink > .totalvideos").text(entry.total + " videos");
+            $(idname + " > .sunnylink > .downloadCSV").attr('href', csvlink);
+            $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
+                .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(entry.searchTerms));
+            $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
+
+            stats.totalvideos += entry.total;
+            stats.searches += _.size(entry.searches);
+            stats.keywords += 1;
+        } else {
+            let idname = _.random(0, 0xffff) + "-ne";
+            div.attr("id", idname);
+            idname = "#" + idname;
+
+            $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
+                .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(searchTerms));
+            $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").text("do first search⏵");
+            $(idname + " > .sunnylink > .linkwrapper > .query").text(searchTerms);
+            $(idname + " > .sunnylink > .searchtimes").remove();
+            $(idname + " > .sunnylink > .totalvideos").remove();
+            $(idname + " > .sunnylink > .downloadCSV").remove();
+        }
     });
     $("#stats").text(
         `counters: keywords ${stats.keywords}, from ${retrieved.contributors}, searches ${stats.searches}, videos ${stats.totalvideos}`

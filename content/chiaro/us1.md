@@ -6,18 +6,29 @@ draft: false
 type: ytSearchCampaign
 ---
 
-# This is an experiment of many 
+# Trump vs. Biden on youtube searches: what's going to return?
+
+{{<colorblock text="Each person gots different results! Collaboratively we can show what happen">}}
+
+## (An experiment among the many)
 ## you can build the next one
 
 {{<colorblock text="Collective observation of youtube personalization in US election, follow for more">}}
 
-they are below. This test can be edited as markdown on github: [us.md](https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/content/chiaro/us.md). Feel free to copy and create a new list. do a puil request.
+They are below. This chiaro can be edited as markdown on github: [us1.md](https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/content/chiaro/us1.md).
+Feel free to copy and create a new list and open a pull request. Follow [this issue](https://github.com/tracking-exposed/yttrex/issues/44) to suggest edits in the query list.
 
-To edit the list of allowed query, which you can suggest to friends to:
+{{<colorblock text="An ongoin campaign, this is how to participate:">}}
 
-1. download browser extension
-2. access to one or many search query
-3. it can be done by different devices
+### 1. download browser extension
+
+{{<yt-extension>}}
+
+### 2. access to one or many search query
+
+
+
+### 3. it can be done by different devices
 
 below query list and download button for CSV.
 

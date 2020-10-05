@@ -62,10 +62,10 @@ type: app
 
 ### Active experiments
 
-* [US election](/chiaro/us)
-* [+ how to crete your own list of queries](/chiaro/experiment)
+* [US election](/chiaro/us1)
+* [+ How to crete your own list of queries](/chiaro/example)
+
+We though your list of queries might cover aspects we couldn't figure out as important. For us algorithic transparency is pointless without enabling individuals and digitally organized research groups, that can extract more contexual insights rather then a national or global report.
 
 {{<colorblock text="We can keep platform accountable, know about us:">}}
 
-
-??? something something ???
