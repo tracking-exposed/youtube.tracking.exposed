@@ -7,6 +7,11 @@ draft: false
 type: app
 ---
 
+{{<halfentry
+    title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
+    type="right"
+>}}
+
 # THE SAME SEARCH QUERY ON YouTube RETURNS DIFFERENT RESULTS: 
 
 <div class="row">
@@ -62,10 +67,8 @@ type: app
 
 ### Active experiments
 
-* [US election](/chiaro/us1)
-* [+ How to crete your own list of queries](/chiaro/example)
+* [US election](/chiaro/us1), our necessary clickbait to let reddit talk about this experiment. still it is original isn't it?
+* [+ Create your own CHIARO](/chiaro/example), open a tutorial with a large room for improvement.
 
-We though your list of queries might cover aspects we couldn't figure out as important. For us algorithic transparency is pointless without enabling individuals and digitally organized research groups, that can extract more contexual insights rather then a national or global report.
-
-{{<colorblock text="We can keep platform accountable, know about us:">}}
+We though your list of queries might cover aspects we couldn’t figure out as significant. For us, **algorithmic transparency is pointless if we do not enable individuals** and digitally organized research groups. We don’t pursue a victory in having platforms accountable only by teams of experts. These companies affect us all; we urge to reach a broader understanding of this phenomenon.
 

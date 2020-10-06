@@ -6,6 +6,13 @@ draft: false
 type: ytSearchCampaign
 ---
 
+
+{{<halfentry
+    title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
+    type="right"
+    picture=""
+>}}
+
 # Trump vs. Biden on youtube searches: what's going to return?
 
 {{<colorblock text="Each person gots different results! Collaboratively we can show what happen">}}

@@ -96,12 +96,21 @@ Same for YT
 
 {{<yt-extension>}}
 
----
-# TBC
----
-
 ## filterbox.html
 
+
+```
+{{ < halfentry
+    title="The secret algorithm behind the related videos is a method to maximize engagement; that's our target."
+    content="Algorithms are a known problem since a while, but it might look like we are not doing much against surveillance capitalism. Tracking Exposed has an actionable plan, and experiences built on testing Facebook algorithm black-box." 
+    picture="/images/yt-results/lead_art_algorithm_VOX.jpg" 
+    type="right" 
+    link="https://www.vox.com/technology/2018/10/1/17882340/how-algorithms-control-your-life-hannah-fry" 
+    description="“How algorithms are controlling your life”." 
+    credit="Christina Animashaun/Vox" > }}
+```
+
+{{<halfentry title="The secret algorithm behind the related videos is a method to maximize engagement; that's our target." content="Algorithms are a known problem since a while, but it might look like we are not doing much against surveillance capitalism. Tracking Exposed has an actionable plan, and experiences built on testing Facebook algorithm black-box." picture="/images/yt-results/lead_art_algorithm_VOX.jpg" type="right" link="https://www.vox.com/technology/2018/10/1/17882340/how-algorithms-control-your-life-hannah-fry" description="“How algorithms are controlling your life”." credit="Christina Animashaun/Vox">}}
 
 ## halfentry.html
 ## researchCard.html

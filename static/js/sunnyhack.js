@@ -105,6 +105,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
                 .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(searchTerms));
             $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").text("do first search⏵");
             $(idname + " > .sunnylink > .linkwrapper > .query").text(searchTerms);
+            $(idname + " > .sunnylink > .linkwrapper").css('width', '100%');
             $(idname + " > .sunnylink > .searchtimes").remove();
             $(idname + " > .sunnylink > .totalvideos").remove();
             $(idname + " > .sunnylink > .downloadCSV").remove();
