@@ -31,17 +31,19 @@ const clist = [{
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'foryou', 'verified', 'isLive' ], x: 'day' },
+        keys: { value : [ 'total', 'foryou', 'verified', 'isLive' ], x: 'day' },
         type: 'bar',
         axes: {
             'foryou': 'y',
             'verified': 'y',
             'isLive': 'y',
+            'total': 'y',
         },
         colors: {
             'foryou': _.last(palette),
             'verified': palette[4],
             'isLive': palette[1],
+            'total': palette[3],
         },
         labels: { show: true },
     },
@@ -52,6 +54,24 @@ const clist = [{
             tick: {
                 format: '%Y-%m-%d',
             },
+        }
+    },
+    tooltip: {
+        contents: function(d) {
+            if(!d || !_.isObject(d[0]) )
+                return `<code>No data</code>`;
+
+            const total = _.find(d, {id: 'total'}).value;
+            const info = _.join(_.compact(_.map(['isLive', 'foryou', 'verified'], function(k) {
+                const amount = _.find(d, {id: k}).value;
+                if(amount && total) {
+                    const percent = _.round( ((amount / total ) * 100), 1);
+                    return `<code><b>${k} ${percent}</b>%</code>`;
+                } else {
+                    return // `<code>${k} n/a</code>`;
+                }
+            })), '  ');
+            return `<code>${d[0].x}</code><br>${info}`;
         }
     }
 }, {
