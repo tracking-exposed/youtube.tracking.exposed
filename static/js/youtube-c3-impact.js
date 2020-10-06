@@ -26,6 +26,35 @@ const clist = [{
         }
     }
 }, {
+    API: buildApiUrl('statistics/deeper/day', DAYSAGO, 2),
+    bindto: '#deeper-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'foryou', 'verified', 'isLive' ], x: 'day' },
+        type: 'bar',
+        axes: {
+            'foryou': 'y',
+            'verified': 'y',
+            'isLive': 'y',
+        },
+        colors: {
+            'foryou': _.last(palette),
+            'verified': palette[4],
+            'isLive': palette[1],
+        },
+        labels: { show: true },
+    },
+    legend: { show: true },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        }
+    }
+}, {
     API: buildApiUrl('statistics/active/day', DAYSAGO, 2),
     bindto: '#active-graph',
     data : {
@@ -113,7 +142,7 @@ const clist = [{
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
         keys: {
-            value : [ 'hasTitle', 'hasAuthor', 'hasRelated', 'hasAd', 'videos', 'total' ],
+            value : [ 'hasTitle', 'hasAuthor', 'hasRelated', 'viewWorks', 'videos', 'total' ],
             x: 'day'
         },
         types: {
@@ -122,7 +151,7 @@ const clist = [{
             'hasTitle': 'bar',
             'hasAuthor': 'bar',
             'hasRelated': 'bar',
-            'hasAd': 'bar',
+            'viewWorks': 'bar',
         },
         colors: {
             'total': palette[0],
@@ -130,7 +159,7 @@ const clist = [{
             'hasTitle': palette[2],
             'hasAuthor': palette[3],
             'hasRelated': palette[4],
-            'hasAd': palette[5]
+            'viewWorks': palette[5]
         }
     },
     axis: {
@@ -172,9 +201,10 @@ const clist = [{
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ '7days', '24hours', 'searches' ], x: 'day' },
+        keys: { value : [ '1month', '7days', '24hours', 'searches' ], x: 'day' },
         type: 'bar',
         colors: {
+            '1month': palette[2],
             '7days': palette[1],
             '24hours': palette[3],
             'searches': palette[6]

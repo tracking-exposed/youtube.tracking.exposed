@@ -62,6 +62,12 @@ _How many searches do we collect? and how many of them contains recent video (le
 _How many labels we got? they are the fundamental resource used to mine searches_
 
 ---
+## Deeper look into recommended videos stats
+<div id="deeper-graph" class="c3graph"></div>
+
+_In the metadata collected we can count and see if new trends arise from the collective observations._
+
+---
 ### Statistics and OpenData enable network effects, data reuse, and collaborative revision of our project. But they are tricky and can't be released carelessly:
 
 * [Data can't be anonymized](https://www.theguardian.com/technology/2019/jul/23/anonymised-data-never-be-anonymous-enough-study-finds) easily, we aggregate them and we use only non-personal metadata to develop the aggregation.
