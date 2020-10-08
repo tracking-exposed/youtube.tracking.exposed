@@ -98,6 +98,7 @@ Same for YT
 
 ## filterbox.html
 
+## halfentry.html
 
 ```
 {{ < halfentry
@@ -112,10 +113,45 @@ Same for YT
 
 {{<halfentry title="The secret algorithm behind the related videos is a method to maximize engagement; that's our target." content="Algorithms are a known problem since a while, but it might look like we are not doing much against surveillance capitalism. Tracking Exposed has an actionable plan, and experiences built on testing Facebook algorithm black-box." picture="/images/yt-results/lead_art_algorithm_VOX.jpg" type="right" link="https://www.vox.com/technology/2018/10/1/17882340/how-algorithms-control-your-life-hannah-fry" description="“How algorithms are controlling your life”." credit="Christina Animashaun/Vox">}}
 
-## halfentry.html
 ## researchCard.html
 ## resource.html
+
+Because there are many options, this is an experiment to see if suits better
+```
+{{ $nature := .Get "nature" }}
+{{ $title:= .Get "title" }}
+{{ $when := .Get "when" }}
+{{ $description := .Get "description" }}
+{{ $href := .Get "href" }}
+{{ $kind := .Get "kind" }}
+{{ $author := .Get "author" }}
+{{ $authors := .Get "authors" }}
+{{ $authorLink := .Get "authorLink" }}
+{{ $language := .Get "language" }}
+
+{{ $resource1 := .Get "resource1" }}
+{{ $resource1href := .Get "resource1href" }}
+{{ $resource2 := .Get "resource2" }}
+{{ $resource2href := .Get "resource2href" }}
+{{ $resource3 := .Get "resource3" }}
+{{ $resource3href := .Get "resource3href" }}
+```
+
+{{<resource
+  kind="article"
+  when="January"
+  title="Youtube Tracking Exposed — DMI UvA Winter School Tutorial"
+  authors="Salvatore Romano"
+  description="Tutorial to explain the possible uses of the ytTREX tool, try it at https://youtube.tracking.exposed"
+  resource1="Tutorial slides"
+  resource1href="https://prezi.com/view/KqmfljOsE8HYvyT7TqGE">}}
+
 ## shared-yt-services.html
+
+{{<shared-yt-services>}}
+
 ## simplepict.html
+
 ## sponsor.html
+
 ## trexproj.html

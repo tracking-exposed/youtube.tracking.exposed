@@ -10,7 +10,10 @@ type: ytSearchCampaign
 {{<halfentry
     title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
     type="right"
-    picture=""
+    picture="/images/youtube-us-election-NBC.jpg"
+    credit="NBC"
+    description="YouTube 2020: Why politics have exploded on the video platform"
+    link="https://www.nbcnews.com/tech/tech-news/youtube-2020-why-politics-have-exploded-video-platform-n1240160"
 >}}
 
 # Trump vs. Biden on youtube searches: what's going to return?

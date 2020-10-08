@@ -37,3 +37,22 @@
 .linktoyoutube {
     padding-left: 10px;
 }
+
+.search_example {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 15px;
+}
+
+.search_fake_input {
+    width: 100%;
+    padding: 12px 24px;
+    text-align: center;
+
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 1.3em;
+    line-height: 18px;
+        
+    color: #575756;
+}
