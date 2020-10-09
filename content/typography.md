@@ -1,6 +1,6 @@
 ---
 title: Typography ― usages of all the shortcodes
-subtitle: Dah
+subtitle: an internal page
 date: 2020-10-01T15:01:21+01:00
 draft: false
 ---
@@ -22,6 +22,8 @@ draft: false
 * sponsor.html
 * trexproj.html
 * yt-extension.html
+
+[Check the code of this file](https://github.com/tracking-exposed/youtube.tracking.exposed/blob/master/content/typography.md).
 
 --- 
 
@@ -116,7 +118,8 @@ Same for YT
 ## researchCard.html
 ## resource.html
 
-Because there are many options, this is an experiment to see if suits better
+The `resource` is used in [analysis and publication](/analysis-and-publication) and originally comes from [fbtrex analysis and publication](https://facebook.tracking.exposed/analysis-and-publication). Here is the option list:
+
 ```
 {{ $nature := .Get "nature" }}
 {{ $title:= .Get "title" }}
@@ -152,6 +155,61 @@ Because there are many options, this is an experiment to see if suits better
 
 ## simplepict.html
 
+This simply embed at maximumg width a picture in the page 
+```
+{{ < simplepict href=""> }}
+```
+
+{{<simplepict href="/images/wetest-youtrust.jpg">}}
+
 ## sponsor.html
 
+this might be rendered as a bootstrap card, but expand to 100% when used alone.
+
+```
+<div class="card-deck">
+  {{ < sponsor
+      title="European Research Council"
+      text="ALEX is the name of the academic project sponsored, and is host in the University of Amsterdam"
+      subtitle="Our goal is to stabilize the analysis, offer a product for researchers and skilled users, the privacy preserving access logic to the database."
+      href="https://erc.europa.eu/news/erc-proof-concept-grant-examples-research-projects-2-round"
+      linked="The official announcement"
+      picture="/images/sponsors/ERC-bianco.jpg" > }}
+</div>
+
+```
+
+<div class="card-deck">
+  {{< sponsor
+      title="European Research Council"
+      text="ALEX is the name of the academic project sponsored, and is host in the University of Amsterdam"
+      subtitle="Our goal is to stabilize the analysis, offer a product for researchers and skilled users, the privacy preserving access logic to the database."
+      href="https://erc.europa.eu/news/erc-proof-concept-grant-examples-research-projects-2-round"
+      linked="The official announcement"
+      picture="/images/sponsors/ERC-bianco.jpg" >}}
+</div>
+
+
 ## trexproj.html
+
+Another card used in a card-deck:
+
+<div class="card-deck">
+  {{<trexproj
+      href="https://facebook.tracking.exposed"
+      desc="Analyze the Facebook algorithm by compare your informative experience; Reuse the data in creative ways"
+      suffix="facebook.svg"
+      bgcolor="#3b5898" >}}
+  {{<trexproj
+      href="https://youtube.tracking.exposed"
+      desc="Anyone has a unique list of recommended videos. Compare with your friends or join experiment group"
+      suffix="youtube.svg" >}}
+  {{<trexproj
+      href="https://pornhub.tracking.exposed"
+      desc="The biggest Adult content portal! what they do to raise engagement? We don't know yet"
+      bgcolor="#1b1b1b"
+      suffix="pornhub.svg" >}}
+</div>
+
+
+## ytbox isn't reported yet
