@@ -92,6 +92,8 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
                 .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(entry.searchTerms));
             $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
+            $(idname + " > .sunnylink > .linkwrapper > .comparelink")
+                .attr('href', '/chiaro/v/#' + encodeURIComponent(entry.searchTerms));
 
             stats.totalvideos += entry.total;
             stats.searches += _.size(entry.searches);
@@ -106,6 +108,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").text("do first search⏵");
             $(idname + " > .sunnylink > .linkwrapper > .query").text(searchTerms);
             $(idname + " > .sunnylink > .linkwrapper").css('width', '100%');
+            $(idname + " > .sunnylink > .linkwrapper > .comparelink").remove();
             $(idname + " > .sunnylink > .searchtimes").remove();
             $(idname + " > .sunnylink > .totalvideos").remove();
             $(idname + " > .sunnylink > .downloadCSV").remove();
@@ -119,4 +122,64 @@ function appendLinkList(retrieved, copyFrom, dest) {
 
 function manageError(data, dest) {
     $(dest).html('<h4>Error: ' + data.message +'</h4')
+}
+
+function appendSearchResult(sourceId, destColumn, data) {
+    // sourceId is very often (always?) '#master'
+    // destColumn is the CSS selector to append the cloned source feed with 'data'
+    _.map(data, function(sr) {
+        const newe = $(sourceId).clone();
+        const idname = '#' + sr.id;
+
+        newe.removeAttr('hidden');
+        newe.attr('id', sr.id);
+        newe.appendTo(destColumn);
+
+        /* to modify this keep open ytbox.html */
+        $(idname + " > div > div > h5 > span").text(sr.title);
+        $(idname + " > div > div > h5 > a").attr('href', `https://www.youtube.com/watch?v=${sr.videoId}`);
+        $(idname + " > div > div > img").attr('src', `https://i.ytimg.com/vi/${sr.videoId}/hq720.jpg`);
+        $(idname + " > div > div > p > .producer").text(sr.selectedAuthor);
+        $(idname + " > div > div > p > .duration").text(sr.displayLength);
+        $(idname + " > div > small").text(
+            `UX in [${sr.clang.toUpperCase()}], picked when: ${sr.ttl} old, views ${sr.currentViews}, position ${sr.priorityOrder +1}`
+        );
+    });
+}
+
+async function reproduceSearchesOutput(terms, source, destList) {
+    console.log(terms, source, destList); // potentially manage paging 
+    const url = buildApiUrl('searches', encodeURIComponent(terms), 2);
+    try {
+        const data = await $.getJSON(url);
+        const gd = _.groupBy(data, 'metadataId');
+        const selected = _.map(destList, function(column, i) {
+            const dbcount = _.size(_.nth(_.values(gd), i));
+            console.log("List", column, "should have", dbcount, "search results");
+            return _.nth(_.values(gd), i);
+        });
+
+        if(_.size(destList) < _.size(_.keys(gd)))
+            console.log("Size of returned amount had more search-results than we have list in the HTML",
+                _.size(_.keys(gd)));
+
+        $("#listOf").removeAttr('hidden');
+        _.map(selected, function(listOfResults, i) {
+            const target = _.nth(destList, i);
+            appendSearchResult(source, target, listOfResults);
+        });
+
+        _.map($("input"), function(node, i) {
+            let text = node.getAttribute('placeholder');
+            text = terms + text;
+            node.setAttribute('placeholder', text);
+            node.setAttribute('metadataId', _.nth(selected, i)[0].metadataId);
+
+            let textnode = _.nth( $(".details"), i);
+            textnode.textContent = _.nth(selected, i)[0].savingTime;
+        });
+
+    } catch(e) {
+        console.error("Unable to fetch data", e);
+    }
 }

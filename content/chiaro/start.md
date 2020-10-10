@@ -99,12 +99,11 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
 
 <script src="/js/sunnyhack.js"></script>
 <script type="text/javascript">
-
-    async function m() /* main */ {
-        const url = "http://localhost:9000/api/v2/searchid/d21595ef2a6492881bed5e60e16a6f6f323d6831,0ba13479a0fc78e1b19a01b3f465d266123abd95";
+// this function was helpful to produce the queries pasted above
+/*  async function m() {
+        const url = "http://localhost:9000/api/v2/searchid/d2,0ba";
         const response = await fetch(url);
         const d = await response.json();
-
         const computed = _.flatten(_.map(d.structured, function(searches, metadataId) {
             const info = d.info[metadataId];
             return _.compact(_.map(searches, function(s) {
@@ -122,13 +121,11 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
                 };
             }));
         }));
-
         _.each(computed, function(o) {
             console.log(`
                 {{ < ytbox thumbnail="${o.thumbnail}" description="${o.description}" duration="${o.displayLength}" title="${o.title}" producer="${o.selectedAuthor}" href="https://www.youtube.com/watch?v=${o.videoId}" >}}
             `);
         });
     }
-
-    // m();
+    m(); */
 </script>

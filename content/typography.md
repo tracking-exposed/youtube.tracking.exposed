@@ -27,7 +27,7 @@ draft: false
 
 --- 
 
-## bord-img.html
+## 1. bord-img.html
 
 It return a picture with a small red border. The code is:
 ```
@@ -35,7 +35,7 @@ It return a picture with a small red border. The code is:
 ```
 {{<bord-img href="/images/ytws20-method.png">}}
 
-## boxes.html
+## 2. boxes.html
 
 Write a box with one of the color theme. 
 ```
@@ -45,14 +45,14 @@ Write a box with one of the color theme.
 {{<boxes text="this is a simple lorem ipsum but in poor English" color="primary">}}
 {{<boxes text="this is the same of above but as color is 'secondary'" color="secondary">}}
 
-## colorblock.html
+## 3. colorblock.html
 
 This is the same as above, but with `<h3 text-align="center">` instead of `<p>`.
 
 {{<colorblock text="this is a simple lorem ipsum but in poor English" color="primary">}}
 {{<colorblock text="this is the same of above but as color is 'secondary'" color="secondary">}}
 
-## entry.html
+## 4. entry.html
 
 ```
 {{ <entry
@@ -70,7 +70,7 @@ This is the same as above, but with `<h3 text-align="center">` instead of `<p>`.
     type="left"
     legend-image-url="/images/yt-results/fixed-legend-1,2.svg">}}
 
-## fb-extension.html
+## 5. fb-extension.html
 
 Doesn't take any argument!
 
@@ -80,7 +80,7 @@ Doesn't take any argument!
 
 {{<fb-extension>}}
 
-## po-extension.html
+## 6. po-extension.html
 
 Same for PH
 ```
@@ -89,7 +89,7 @@ Same for PH
 
 {{<po-extension>}}
 
-## yt-extension.html
+## 7. yt-extension.html
 
 Same for YT
 ```
@@ -98,9 +98,9 @@ Same for YT
 
 {{<yt-extension>}}
 
-## filterbox.html
+## 8. filterbox.html
 
-## halfentry.html
+## 9. halfentry.html
 
 ```
 {{ < halfentry
@@ -115,8 +115,8 @@ Same for YT
 
 {{<halfentry title="The secret algorithm behind the related videos is a method to maximize engagement; that's our target." content="Algorithms are a known problem since a while, but it might look like we are not doing much against surveillance capitalism. Tracking Exposed has an actionable plan, and experiences built on testing Facebook algorithm black-box." picture="/images/yt-results/lead_art_algorithm_VOX.jpg" type="right" link="https://www.vox.com/technology/2018/10/1/17882340/how-algorithms-control-your-life-hannah-fry" description="“How algorithms are controlling your life”." credit="Christina Animashaun/Vox">}}
 
-## researchCard.html
-## resource.html
+## A. researchCard.html
+## B. resource.html
 
 The `resource` is used in [analysis and publication](/analysis-and-publication) and originally comes from [fbtrex analysis and publication](https://facebook.tracking.exposed/analysis-and-publication). Here is the option list:
 
@@ -149,11 +149,11 @@ The `resource` is used in [analysis and publication](/analysis-and-publication) 
   resource1="Tutorial slides"
   resource1href="https://prezi.com/view/KqmfljOsE8HYvyT7TqGE">}}
 
-## shared-yt-services.html
+## C. shared-yt-services.html
 
 {{<shared-yt-services>}}
 
-## simplepict.html
+## D. simplepict.html
 
 This simply embed at maximumg width a picture in the page 
 ```
@@ -162,7 +162,7 @@ This simply embed at maximumg width a picture in the page
 
 {{<simplepict href="/images/wetest-youtrust.jpg">}}
 
-## sponsor.html
+## E. sponsor.html
 
 this might be rendered as a bootstrap card, but expand to 100% when used alone.
 
@@ -187,10 +187,27 @@ this might be rendered as a bootstrap card, but expand to 100% when used alone.
       href="https://erc.europa.eu/news/erc-proof-concept-grant-examples-research-projects-2-round"
       linked="The official announcement"
       picture="/images/sponsors/ERC-bianco.jpg" >}}
+  {{< sponsor
+      title="European Research Council"
+      text="ALEX is the name of the academic project sponsored, and is host in the University of Amsterdam"
+      subtitle="Our goal is to stabilize the analysis, offer a product for researchers and skilled users, the privacy preserving access logic to the database."
+      href="https://erc.europa.eu/news/erc-proof-concept-grant-examples-research-projects-2-round"
+      linked="The official announcement"
+      picture="/images/sponsors/ERC-bianco.jpg" >}}
+  {{< sponsor
+      title="European Research Council"
+      text="ALEX is the name of the academic project sponsored, and is host in the University of Amsterdam"
+      subtitle="Our goal is to stabilize the analysis, offer a product for researchers and skilled users, the privacy preserving access logic to the database."
+      href="https://erc.europa.eu/news/erc-proof-concept-grant-examples-research-projects-2-round"
+      linked="The official announcement"
+      picture="/images/sponsors/ERC-bianco.jpg" >}}
 </div>
 
 
-## trexproj.html
+<br />
+They are repeated three times otherwise it scale up to width 100%.
+
+## F. trexproj.html
 
 Another card used in a card-deck:
 
@@ -212,4 +229,4 @@ Another card used in a card-deck:
 </div>
 
 
-## ytbox isn't reported yet
+## 10. ytbox isn't reported yet
