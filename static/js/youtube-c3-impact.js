@@ -31,17 +31,17 @@ const clist = [{
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'total', 'foryou', 'verified', 'isLive' ], x: 'day' },
+        keys: { value : [ 'total', 'foryou' /*, 'verified' */, 'isLive' ], x: 'day' },
         type: 'bar',
         axes: {
             'foryou': 'y',
-            'verified': 'y',
+            // 'verified': 'y',
             'isLive': 'y',
             'total': 'y',
         },
         colors: {
             'foryou': _.last(palette),
-            'verified': palette[4],
+            // 'verified': palette[4],
             'isLive': palette[1],
             'total': palette[3],
         },
@@ -279,6 +279,7 @@ const clist = [{
                 format: '%Y-%m-%d',
             },
         },
+        y: { max: 100, min: 0 }
     }
 }, {
     API: '/bin/foryou-evidences-deeper-40.json',
@@ -286,18 +287,18 @@ const clist = [{
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'foryou', 'isLive', 'verified', 'total'], x: 'day' },
+        keys: { value : [ 'foryou', 'isLive' /*, 'verified' */, 'total'], x: 'day' },
         type: 'bar',
         axes: {
             'foryou': 'y',
             'isLive': 'y',
-            'verified': 'y',
+            // 'verified': 'y',
             'total': 'y',
         },
         colors: {
             'foryou': _.last(palette),
             'isLive': palette[2],
-            'verified': palette[5],
+            // 'verified': palette[5],
             'total': palette[0],
         },
         labels: { show: true },
@@ -323,7 +324,7 @@ function detailAnalysisTooltip(d) {
         return `<code>No data</code>`;
 
     const total = _.find(d, {id: 'total'}).value;
-    const info = _.join(_.compact(_.map(['isLive', 'foryou', 'verified'], function(k) {
+    const info = _.join(_.compact(_.map(['isLive', 'foryou' /*, 'verified' */], function(k) {
         const amount = _.find(d, {id: k}).value;
         if(amount && total) {
             const percent = _.round( ((amount / total ) * 100), 1);
