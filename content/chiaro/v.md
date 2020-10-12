@@ -8,7 +8,12 @@ type: app
 extraCSS: "/css/sunnyhack.css"
 ---
 
-<span><a href="/chiaro/start">CHIARO</a>.</span>
+<p>
+    <a href="/chiaro/start">CHIARO</a> HOME
+    <span id="CSVdownload" hidden> ― 
+        <a href="#">DOWNLOAD CSV</a>
+    </span>
+</p>
 
 <div id="error--lack--of" hidden>
     {{<halfentry
@@ -50,6 +55,10 @@ extraCSS: "/css/sunnyhack.css"
             '#leftList',
             '#rightList'
         ]);
+        $("#CSVdownload").removeAttr('hidden');
+        const csvlink = buildApiUrl('searches', encodeURIComponent(urlterms) + '/CSV', 2);
+        $("#CSVdownload > a").attr('href', csvlink);
+
     }
     /* this function generate a number of list equal to the number of target IDs */
 </script>

@@ -92,7 +92,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube")
                 .attr('href', 'https://www.youtube.com/results?search_query=' + encodeURIComponent(entry.searchTerms));
             $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
-            $(idname + " > .sunnylink > .linkwrapper > .comparelink")
+            $(idname + " > .sunnylink > .comparebutton")
                 .attr('href', '/chiaro/v/#' + encodeURIComponent(entry.searchTerms));
 
             stats.totalvideos += entry.total;
@@ -108,7 +108,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .linkwrapper > .linktoyoutube").text("do first search⏵");
             $(idname + " > .sunnylink > .linkwrapper > .query").text(searchTerms);
             $(idname + " > .sunnylink > .linkwrapper").css('width', '100%');
-            $(idname + " > .sunnylink > .linkwrapper > .comparelink").remove();
+            $(idname + " > .sunnylink > .comparebutton").remove();
             $(idname + " > .sunnylink > .searchtimes").remove();
             $(idname + " > .sunnylink > .totalvideos").remove();
             $(idname + " > .sunnylink > .downloadCSV").remove();

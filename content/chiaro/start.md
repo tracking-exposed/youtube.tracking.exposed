@@ -1,6 +1,6 @@
 ---
-title: "CHIARO ― a tool to measure shadowban"
-subtitle: By merging our individual observation we can understand how our personalized and partial is our perception
+title: "CHIARO ― a tool to collect evidence of shadowban and other algorithmic abuses"
+subtitle: By comparing individuals observation, we can understand how personalized and partial our perception is forced to be.
 description: CHIARO of tracking.exposed works by collecting personalized search results from YouTube; check out the campaigns
 date: 2020-10-01T15:01:21+01:00
 draft: false
@@ -68,20 +68,26 @@ extraCSS: "/css/sunnyhack.css"
 <div class="row">
     <div class="col-6" id="leftQuery">
         <div class="search_example">
-            <h5>This is my computer:</h5>
+            <h5>This happens on my computer:</h5>
             <input class="search_fake_input" type="text" placeholder="Monkey 🔍 " disabled>
         </div>
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/q0hyYWKXF0Q/maxresdefault.jpg" description="UX in [EN], picked when: 1 year old, views 1312101209, position 1" duration="3:57" title="TONES AND I - DANCE MONKEY (OFFICIAL VIDEO)" producer="Tones And I" href="https://www.youtube.com/watch?v=q0hyYWKXF0Q" >}}
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/opyPkipNNhE/maxresdefault.jpg" description="UX in [EN], picked when: 3 months old, views 562579, position 2" duration="16:57" title="Best Monkey Moments | BBC Earth" producer="BBC Earth" href="https://www.youtube.com/watch?v=opyPkipNNhE" >}}
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/Lpo1hl5Ngh4/maxresdefault.jpg" description="UX in [EN], picked when: 7 months old, views 58460, position 3" duration="6:32" title="Cute Baby Monkey Drinking Milk With Big Milk Bottle| Good Health Lyly Sleep Milk" producer="MONKEY LYLY" href="https://www.youtube.com/watch?v=Lpo1hl5Ngh4" >}}
     </div>
     <div class="col-6" id="rightQuery">
         <div class="search_example">
-            <h5>This is the computer used to show cartoons to my 5 yo nephew:</h5>
+            <h5>This from computer used by 5 y.o. kid to watch cartoons:</h5>
             <input class="search_fake_input" type="text" placeholder="Monkey 🔍 " disabled>
         </div>
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/q0hyYWKXF0Q/maxresdefault.jpg" description="UX in [EN], picked when: 1 year old, views 1312109774 position 1" duration="3:57" title="TONES AND I - DANCE MONKEY (OFFICIAL VIDEO)" producer="Tones And I" href="https://www.youtube.com/watch?v=q0hyYWKXF0Q" >}}
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/N9h2sg-PGRk/maxresdefault.jpg" description="UX in [EN], picked when: 8 months old, views 6183423, position 2" duration="24:32" title="Curious George 🐵Maple Monkey Madness | Cartoons For Kids | WildBrain Cartoons" producer="WildBrain – Kids Videos" href="https://www.youtube.com/watch?v=N9h2sg-PGRk" >}}
+        {{<ytbox thumbnail="https://i.ytimg.com/vi/7RJ8PMmSYxk/maxresdefault.jpg" description="UX in [IT], picked when: 2 years old, views 2478533, position 3" duration="28:12" title="Cartoons For Children - Alien Monkeys - Animation For Kids" producer="For Kids TV" href="https://www.youtube.com/watch?v=7RJ8PMmSYxk" >}}
     </div>
 </div>
 
-*Monkey* and a few other animals are [part of the example experiment](/chiaro/example) you can reach below and partecipate with your browser(s). Of course, with CHIARO, you can compare your own research results and develop your criticism.
-
+**Takeaway**: there is personalization on search results even if non of the above browser is logged in youtube.
+            
 # Because nor we or anyone else can't say what is the best algorithm for you. We are here to remind you that *your agency* is *not the one of Google*.
 
 {{<colorblock
@@ -95,13 +101,19 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
 * [US election](/chiaro/us1), please note the search terms are picked by non-expert in the subject, you might have more insightful terms to test.
 * [**How To Create** your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
 
+## More info?
 
+1. [Tracking Exposed manifesto](https://tracking.exposed/manifesto) might explain what moves us.
+2. [Past analysis and publications](https://facebook.tracking.exposed/analysis-and-publications), since 2016 we run a methodology to independently assess impact of algorithmic personalization.
+3. [Youtube collaborative analysis in time of COVID-19](/wetest/1), our last experiment covid related
+4. [Workshop and talks](https://tracking.exposed/news/disruption-lab-workshop-smash-the-filter-bubble/), in Berlin, DisruptionLab, we experimented the search analysis comparisin and since the CHIARO concept was born. This is a quick prototype and, because all of our software is free software with AGPL-3 license, please consider contribute.
 
 <script src="/js/sunnyhack.js"></script>
 <script type="text/javascript">
 // this function was helpful to produce the queries pasted above
-/*  async function m() {
-        const url = "http://localhost:9000/api/v2/searchid/d2,0ba";
+/*
+    async function m() {
+        const url = "https://youtube.tracking.exposed/api/v2/searchid/e21b8831f1d5049d4445524db0f871d303b2fc7e,0b6390efe2d2bb4f0be86ed927233d7f63ecc5b2";
         const response = await fetch(url);
         const d = await response.json();
         const computed = _.flatten(_.map(d.structured, function(searches, metadataId) {
@@ -111,7 +123,7 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
                 if(!s.currentViews || !s.relativeSeconds || !s.publicationTime)
                     return null;
                 return {
-                    thumbnail: `https://i.ytimg.com/vi/${s.videoId}/hq720.jpg`,
+                    thumbnail: `https://i.ytimg.com/vi/${s.videoId}/maxresdefault.jpg`,
                     videoId: s.videoId,
                     title: s.title,
                     selectedAuthor: s.selectedAuthor,
