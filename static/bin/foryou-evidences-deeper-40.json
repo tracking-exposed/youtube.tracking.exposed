@@ -1,0 +1,318 @@
+[
+    {
+        "dayId": "a16de5ffc4ee53ee42fc347eb064b542c3ecb37f",
+        "day": "2020-10-04T22:00:00.000Z",
+        "foryou": 79,
+        "isLive": 123,
+        "verified": 3152,
+        "total": 3152
+    },
+    {
+        "dayId": "e4cc7cb37bcc70dff38e4907584c491a9a82ec50",
+        "day": "2020-10-03T22:00:00.000Z",
+        "foryou": 184,
+        "isLive": 232,
+        "verified": 3342,
+        "total": 3342
+    },
+    {
+        "dayId": "071b50aefaee97aba81f52dd92570b6df24d6440",
+        "day": "2020-10-02T22:00:00.000Z",
+        "isLive": 253,
+        "verified": 4233,
+        "total": 4233
+    },
+    {
+        "dayId": "b2ce6c9d6e5f63db24ed1261a1850d8c82d451f4",
+        "day": "2020-10-01T22:00:00.000Z",
+        "foryou": 126,
+        "isLive": 181,
+        "verified": 2338,
+        "total": 2338
+    },
+    {
+        "dayId": "02c76cd6f12cdd3efb0a71242b3afc6cc75072b0",
+        "day": "2020-09-30T22:00:00.000Z",
+        "foryou": 85,
+        "isLive": 144,
+        "verified": 2471,
+        "total": 2471
+    },
+    {
+        "dayId": "d9bf4590866d4716f54b7c2085f23e87a1425470",
+        "day": "2020-09-29T22:00:00.000Z",
+        "foryou": 43,
+        "isLive": 130,
+        "verified": 2617,
+        "total": 2617
+    },
+    {
+        "dayId": "2da1dfee1650d629b0d9d9731fb70724792eb53a",
+        "day": "2020-09-28T22:00:00.000Z",
+        "foryou": 105,
+        "isLive": 82,
+        "verified": 2150,
+        "total": 2150
+    },
+    {
+        "dayId": "90c2c8e215696dc6b57fff791ace267a8ab2ccce",
+        "day": "2020-09-27T22:00:00.000Z",
+        "foryou": 545,
+        "isLive": 104,
+        "verified": 3126,
+        "total": 3126
+    },
+    {
+        "dayId": "1d28df99bbfe4707986160d9d678bc86b16a0ac8",
+        "day": "2020-09-26T22:00:00.000Z",
+        "foryou": 1039,
+        "isLive": 109,
+        "verified": 2613,
+        "total": 2613
+    },
+    {
+        "dayId": "35739393bf377f8fbe4ae5374049b51078a36e1d",
+        "day": "2020-09-25T22:00:00.000Z",
+        "foryou": 515,
+        "isLive": 89,
+        "verified": 1722,
+        "total": 1722
+    },
+    {
+        "dayId": "6551afb958c2c4eeb86098b2aff0bc32b2f3364d",
+        "day": "2020-09-24T22:00:00.000Z",
+        "foryou": 306,
+        "isLive": 128,
+        "verified": 1282,
+        "total": 1282
+    },
+    {
+        "dayId": "b96637238f9851628dc54e4150ca1e858af9f0df",
+        "day": "2020-09-23T22:00:00.000Z",
+        "foryou": 206,
+        "isLive": 32,
+        "verified": 850,
+        "total": 850
+    },
+    {
+        "dayId": "cbf1f9fd6ffc63d9599b345b17aa2fbf6b3f2d91",
+        "day": "2020-09-22T22:00:00.000Z",
+        "foryou": 627,
+        "isLive": 62,
+        "verified": 2179,
+        "total": 2179
+    },
+    {
+        "dayId": "fb27d0994784bdda8d4c1179386563492138a90a",
+        "day": "2020-09-21T22:00:00.000Z",
+        "foryou": 295,
+        "isLive": 91,
+        "verified": 1632,
+        "total": 1632
+    },
+    {
+        "dayId": "c870b145d7c1b728d94312bae4df660d31e935c3",
+        "day": "2020-09-20T22:00:00.000Z",
+        "foryou": 332,
+        "isLive": 50,
+        "verified": 1449,
+        "total": 1449
+    },
+    {
+        "dayId": "4464ef9699cb400e20135c817ac546af509e55a4",
+        "day": "2020-09-19T22:00:00.000Z",
+        "foryou": 396,
+        "isLive": 74,
+        "verified": 2090,
+        "total": 2090
+    },
+    {
+        "dayId": "e2c2edb35f67292cf167ed6af48b8ab8050772fb",
+        "day": "2020-09-18T22:00:00.000Z",
+        "foryou": 246,
+        "isLive": 75,
+        "verified": 1810,
+        "total": 1810
+    },
+    {
+        "dayId": "574eccf1427782ec2d7f967a14c4a10972117df0",
+        "day": "2020-09-17T22:00:00.000Z",
+        "foryou": 771,
+        "isLive": 82,
+        "verified": 2270,
+        "total": 2270
+    },
+    {
+        "dayId": "753c13937b15cafa7535cea269ac038d3dece50e",
+        "day": "2020-09-16T22:00:00.000Z",
+        "foryou": 365,
+        "isLive": 73,
+        "verified": 1392,
+        "total": 1392
+    },
+    {
+        "dayId": "b55c8f32937b341c09d37afb7bdacba264bd1f03",
+        "day": "2020-09-15T22:00:00.000Z",
+        "foryou": 1260,
+        "isLive": 78,
+        "verified": 3102,
+        "total": 3102
+    },
+    {
+        "dayId": "d1932bfdcd2acc4bbda69ef82f342ee38f0adcd8",
+        "day": "2020-09-14T22:00:00.000Z",
+        "foryou": 385,
+        "isLive": 45,
+        "verified": 1190,
+        "total": 1190
+    },
+    {
+        "dayId": "28ae1de40554d43d42e5cf93eb54fe8a3ea21f2e",
+        "day": "2020-09-13T22:00:00.000Z",
+        "foryou": 489,
+        "isLive": 41,
+        "verified": 1450,
+        "total": 1450
+    },
+    {
+        "dayId": "e320a1493393c674dee4252d51948fec16ff1a75",
+        "day": "2020-09-12T22:00:00.000Z",
+        "foryou": 206,
+        "isLive": 40,
+        "verified": 677,
+        "total": 677
+    },
+    {
+        "dayId": "ce00bd74f0715a91b297efc7ee6225199ad53d90",
+        "day": "2020-09-11T22:00:00.000Z",
+        "foryou": 503,
+        "isLive": 28,
+        "verified": 1358,
+        "total": 1358
+    },
+    {
+        "dayId": "972fcbe5015f98ebc0714857d6ae289f563aceca",
+        "day": "2020-09-10T22:00:00.000Z",
+        "foryou": 708,
+        "isLive": 49,
+        "verified": 1750,
+        "total": 1750
+    },
+    {
+        "dayId": "19b3355aec2507612643fe445b2a094a6963a466",
+        "day": "2020-09-09T22:00:00.000Z",
+        "foryou": 224,
+        "isLive": 54,
+        "verified": 943,
+        "total": 943
+    },
+    {
+        "dayId": "72cb3eaf209f597315f7c93274503f31d6f44b40",
+        "day": "2020-09-08T22:00:00.000Z",
+        "foryou": 1196,
+        "isLive": 96,
+        "verified": 2967,
+        "total": 2967
+    },
+    {
+        "dayId": "071c6fc032ba469636ceb3b3a05c754a5abc89c2",
+        "day": "2020-09-07T22:00:00.000Z",
+        "foryou": 316,
+        "isLive": 136,
+        "verified": 1160,
+        "total": 1160
+    },
+    {
+        "dayId": "7bdac896f6346942a499cfbdcadbda067bf36239",
+        "day": "2020-09-06T22:00:00.000Z",
+        "foryou": 631,
+        "isLive": 169,
+        "verified": 2370,
+        "total": 2370
+    },
+    {
+        "dayId": "0afb87228e1e808dfe2a179784efdfe8c5e94d70",
+        "day": "2020-09-05T22:00:00.000Z",
+        "foryou": 423,
+        "isLive": 126,
+        "verified": 1478,
+        "total": 1478
+    },
+    {
+        "dayId": "620c0f249a13204f8bedc4cf7aa4d1dcf9a7b8c3",
+        "day": "2020-09-04T22:00:00.000Z",
+        "foryou": 822,
+        "isLive": 90,
+        "verified": 2334,
+        "total": 2334
+    },
+    {
+        "dayId": "e96615ea73b3e5423a490bbb26b2f502b9849bc9",
+        "day": "2020-09-03T22:00:00.000Z",
+        "foryou": 870,
+        "isLive": 435,
+        "verified": 2378,
+        "total": 2378
+    },
+    {
+        "dayId": "79ae0d50336d82a677a6f7929f4f963ebe523064",
+        "day": "2020-09-02T22:00:00.000Z",
+        "foryou": 473,
+        "isLive": 52,
+        "verified": 1542,
+        "total": 1542
+    },
+    {
+        "dayId": "f23d3ffd25a04c89b7d6888fe061a7b4d3a85775",
+        "day": "2020-09-01T22:00:00.000Z",
+        "foryou": 1053,
+        "isLive": 56,
+        "verified": 2342,
+        "total": 2342
+    },
+    {
+        "dayId": "902b1bb18a0904b2bc15413bfb403444eb1b34d6",
+        "day": "2020-10-05T22:00:00.000Z",
+        "foryou": 59,
+        "isLive": 96,
+        "verified": 2630,
+        "total": 2630
+    },
+    {
+        "dayId": "f4bfd976ba705e1de34928e0e83fc175cc264d89",
+        "day": "2020-10-06T22:00:00.000Z",
+        "foryou": 42,
+        "total": 3165,
+        "verified": 3165,
+        "isLive": 20
+    },
+    {
+        "dayId": "f188663f7a8251ebb5bfac0a2c43a9c0629e6793",
+        "day": "2020-10-07T22:00:00.000Z",
+        "total": 2955,
+        "verified": 2955,
+        "foryou": 203
+    },
+    {
+        "dayId": "9ca19a01861263d4f89ce301cdb4e5dc50f0e43a",
+        "day": "2020-10-08T22:00:00.000Z",
+        "total": 2958,
+        "verified": 2958,
+        "foryou": 30
+    },
+    {
+        "dayId": "614753d2e572546e19f36ce686b50d1d797fd3a4",
+        "day": "2020-10-09T22:00:00.000Z",
+        "foryou": 110,
+        "total": 2861,
+        "verified": 2861
+    },
+    {
+        "dayId": "471caf18c8133085052c9b0d86d8a6559962387b",
+        "day": "2020-10-10T22:00:00.000Z",
+        "foryou": 105,
+        "total": 2722,
+        "verified": 2722,
+        "isLive": 1
+    }
+]

@@ -57,22 +57,7 @@ const clist = [{
         }
     },
     tooltip: {
-        contents: function(d) {
-            if(!d || !_.isObject(d[0]) )
-                return `<code>No data</code>`;
-
-            const total = _.find(d, {id: 'total'}).value;
-            const info = _.join(_.compact(_.map(['isLive', 'foryou', 'verified'], function(k) {
-                const amount = _.find(d, {id: k}).value;
-                if(amount && total) {
-                    const percent = _.round( ((amount / total ) * 100), 1);
-                    return `<code><b>${k} ${percent}</b>%</code>`;
-                } else {
-                    return // `<code>${k} n/a</code>`;
-                }
-            })), '  ');
-            return `<code>${d[0].x}</code><br>${info}`;
-        }
+        contents: detailAnalysisTooltip,
     }
 }, {
     API: buildApiUrl('statistics/active/day', DAYSAGO, 2),
@@ -259,7 +244,96 @@ const clist = [{
             },
         },
     }
+}, {
+    API: '/bin/foryou-percentage-40.json',
+    bindto: '#october-2020-percentage-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'percent' ], x: 'day' },
+        type: 'spline',
+        colors: {
+            'percent': palette[2]
+        },
+    },
+    regions: [{ 
+        axis: 'x',
+        start: new Date('2020-09-29'),
+        end: new Date('2020-10-11'),
+        class: 'foryoudown' 
+    }],
+    grid: {
+        x: {
+            lines: [{
+                value: new Date('2020-09-29'),
+                text: 'Recommended for You reduced',
+                position: 'end',
+                class: 'foryoudown'
+            }]
+        },
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        },
+    }
+}, {
+    API: '/bin/foryou-evidences-deeper-40.json',
+    bindto: '#october-2020-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'foryou', 'isLive', 'verified', 'total'], x: 'day' },
+        type: 'bar',
+        axes: {
+            'foryou': 'y',
+            'isLive': 'y',
+            'verified': 'y',
+            'total': 'y',
+        },
+        colors: {
+            'foryou': _.last(palette),
+            'isLive': palette[2],
+            'verified': palette[5],
+            'total': palette[0],
+        },
+        labels: { show: true },
+    },
+    legend: { show: true },
+    size: { height: 2100 },
+    axis: {
+        rotated: true,
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        }
+    },
+    tooltip: {
+        contents: detailAnalysisTooltip
+    }
 } ];
+
+function detailAnalysisTooltip(d) {
+    if(!d || !_.isObject(d[0]) )
+        return `<code>No data</code>`;
+
+    const total = _.find(d, {id: 'total'}).value;
+    const info = _.join(_.compact(_.map(['isLive', 'foryou', 'verified'], function(k) {
+        const amount = _.find(d, {id: k}).value;
+        if(amount && total) {
+            const percent = _.round( ((amount / total ) * 100), 1);
+            return `<code style="font-size:1.3em;"><b>${k} ${percent}</b>%</code>`;
+        } else {
+            return // `<code>${k} n/a</code>`;
+        }
+    })), '  ');
+    return `<code>${d[0].x}</code><br>${info}`;
+}
 
 $(document).ready(async function() {
 
