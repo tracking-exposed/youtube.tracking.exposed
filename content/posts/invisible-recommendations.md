@@ -6,9 +6,9 @@ date: 2020-10-10
 description: By passively scraping the recommendation for reseaerch pourposes, we can release an original analysis.
 og_title: "Youtube recommendation become even more sneaky"
 og_type: "website"
-og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
-og_url: "https://youtube.tracking.exposed/"
-og_description: "impact analysis, active users, collected content. Open-data as long as is privacy preserving"
+og_image: "http://youtube.tracking.exposed/images/wetest-youtrust.jpg"
+og_url: "https://youtube.tracking.exposed/what-youtube-just-did-before-us-election-less-transparency/"
+og_description: "At the end of sept'2020 the label of personalized recommendation began to disapper. graphs from the last 40 days"
 draft: false
 ---
 
