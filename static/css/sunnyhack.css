@@ -4,6 +4,18 @@
     font-size: 1.1em;
 }
 
+.thumbnail {
+    max-width: 40%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 976px) {
+    .thumbnail {
+        display: none;
+    }
+}
+
 .searchtimes {
     border-bottom: 1px solid #D9230F;
     display: inline-block;

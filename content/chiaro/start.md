@@ -9,8 +9,8 @@ extraCSS: "/css/sunnyhack.css"
 
 og_title: "CHIARO ― a tool to collect evidence of shadowban and other algorithmic abuses"
 og_type: "website"
-og_image: "http://youtube.tracking.exposed/images/wetest-youtrust.jpg"
-og_url: "https://youtube.tracking.exposed/chiaro/start"
+og_image: "https://youtube.tracking.exposed/images/wetest-youtrust.jpg"
+og_url: "/chiaro/start"
 og_description: "By comparing individuals observation, we can understand how personalized and partial our perception is forced to be."
 ---
 
