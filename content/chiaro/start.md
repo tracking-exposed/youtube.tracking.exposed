@@ -106,6 +106,8 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
 
 ## List of active CHIAROs (they can be infinite, imagine to add your own)
 
+This list can be updated by opening a **pull request**  in [this config file](https://github.com/tracking-exposed/yttrex/blame/master/backend/config/campaigns.json#L2).
+
 * [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
 * [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
 

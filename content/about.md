@@ -41,7 +41,7 @@ youtube.tracking.exposed takes its inspiration, methods, experience, and code fr
 
 This project start as part of [ALEX](https://algorithms.exposed) research initiative, lead by DATACTIVE, in University of Amsterdam. The grant covered Tracking Exposed improvement since November '18 till February '20. After since the project is unfunded and contributions happens via personal volunteering capacity.
 
-#### Want more more? Check out the [data processing and privacy policy](/privacy) and [weTest#1](/wetest/1).
+#### Want more more? Check out the [data processing and privacy policy](/privacy), [weTest#1](/wetest/1), our [very rare blogposts](/posts), and [CHIARO](/chiaro/start).
 
 ---
 

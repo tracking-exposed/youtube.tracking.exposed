@@ -4,6 +4,8 @@ subtitle: test tool for shadow-ban detection, algorithmic filtering, personaliza
 date: 2020-10-02T15:01:21+01:00
 draft: false
 type: ytSearchCampaign
+
+og_title: "How to setup your CHIARO, a small exaperiment to compare YT personalizations"
 ---
 
 {{<entry
@@ -14,7 +16,6 @@ type: ytSearchCampaign
 
 ---
 # what CHIARO can solve?
-
 
 #### 1. Showing the complexity of Artificial Intelligene and personalization in human terms
 #### 2. Display how divergent might become our perception 
