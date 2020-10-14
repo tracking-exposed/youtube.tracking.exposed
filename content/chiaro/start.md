@@ -8,12 +8,7 @@ type: app
 extraCSS: "/css/sunnyhack.css"
 ---
 
-{{<halfentry
-    title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
-    type="right"
->}}
-
-{{<colorblock text="Let's see Youtube search service with more eyes than your individual broweser...">}}
+{{<colorblock text="YouTube search answers is NEVER the same between users!">}}
 
 <div class="row">
     <div class="col-6" id="leftQuery">
@@ -87,6 +82,12 @@ extraCSS: "/css/sunnyhack.css"
 </div>
 
 **Takeaway**: there is personalization on search results even if non of the above browser is logged in youtube.
+
+{{<halfentry
+    title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
+    type="right"
+>}}
+
             
 # Because nor we or anyone else can't say what is the best algorithm for you. We are here to remind you that *your agency* is *not the one of Google*.
 
@@ -96,14 +97,16 @@ extraCSS: "/css/sunnyhack.css"
 
 CHIARO is about all of this: We though your list of queries might cover aspects we couldn’t figure out as significant. For us, **algorithmic transparency is pointless if we do not enable individuals** and digitally organized research groups. We don’t pursue a victory in having platforms accountable only by teams of experts. These companies affect us all; we urge to reach a broader understanding of this phenomenon.
 
-## List of active CHIAROs
+## List of active CHIAROs (they can be infinite, imagine to add your own)
 
-* [US election](/chiaro/us1), please note the search terms are picked by non-expert in the subject, you might have more insightful terms to test.
-* [**How To Create** your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
+* [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
+* [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
 
-## More info?
+---
 
-1. [Tracking Exposed manifesto](https://tracking.exposed/manifesto) might explain what moves us.
+## About us 
+
+1. [Tracking Exposed manifesto](https://tracking.exposed/manifesto).
 2. [Past analysis and publications](https://facebook.tracking.exposed/analysis-and-publications), since 2016 we run a methodology to independently assess impact of algorithmic personalization.
 3. [Youtube collaborative analysis in time of COVID-19](/wetest/1), our last experiment covid related
 4. [Workshop and talks](https://tracking.exposed/news/disruption-lab-workshop-smash-the-filter-bubble/), in Berlin, DisruptionLab, we experimented the search analysis comparisin and since the CHIARO concept was born. This is a quick prototype and, because all of our software is free software with AGPL-3 license, please consider contribute.
