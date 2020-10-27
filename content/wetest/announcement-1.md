@@ -13,6 +13,21 @@ og_description: "The first collaborative experiment investigating biases in Yout
 extraCSS: "/css/wetest.css"
 ---
 
+## 25 October 2020 - Updated dataset v8
+
+<br>
+<div class="row">
+  <div class="col-6">
+    <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1" target=_blank>
+      {{<colorblock color="secondary" text="Checkout dataset v.8">}}
+    </a>
+  </div>
+  <div class="col-6">
+    <p>Fixed bugs in natural number parsing. It affects the number of seconds of life of the video recommended, and the number of views.</p>
+  </div>
+</div>
+<br>
+
 ## 14 October 2020 - Definitive version of our publication.
 
 [YTTREX-crowdsourced analysis of YouTube’s recommender system during COVID-19 pandemic](https://github.com/tracking-exposed/experiments-data/blob/master/wetest1/YTTREX-crowdsourced%20analysis%20of%20YouTube%E2%80%99s%20recommender%20system%20during%20COVID-19%20pandemic.pdf).

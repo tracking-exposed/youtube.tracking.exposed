@@ -3,21 +3,24 @@ title: "1a Observação Global do Algoritmo do Youtube"
 subtitle: "Apenas comparandno como a Inteligência Artificial maltrata você e outras pessoas que nós podemos lidar com isso de uma maneira coletiva"
 draft: false
 date: 2020-03-23T10:26:08Z
-
+extraCSS: "/css/wetest.css"
 og_title: "1a Análise Global colaborativa do Algoritmo do Youtubem"
+og_description: "Apenas comparandno como a Inteligência Artificial maltrata você e outras pessoas que nós podemos lidar com isso de uma maneira coletiva"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/images/compare.jpeg"
 og_url: "https://youtube.tracking.exposed/wetest/1"
-
-extraCSS: "/css/wetest.css"
 ---
 
 <script src="/js/collaborative-tests.js"></script>
 
 <div class="container col-12 justify-content-center">
-  <h1 style="text-align:center;">Experimento — 25 de Março de 2020 — em
-    <span class="project-color"> <span id="demo"></span> </span>
-   </h1>
+  <h1 style="text-align:center;"> 
+    Experimento concluído! a análise quantitativa produziu <a href="https://github.com/tracking-exposed/experiments-data/blob/master/wetest1/YTTREX-crowdsourced%20analysis%20of%20YouTube%E2%80%99s%20recommender%20system%20during%20COVID-19%20pandemic.pdf" target=_blanck>este artigo</a>, a análise de conteúdo não teve continuidade no momento
+  <small>
+    <a href="/wetest/announcement-1">seguir atualizações</a>, 
+    <a href="https://github.com/tracking-exposed/experiments-data/tree/master/wetest1">open data</a>, 
+    <a href="/wetest/1">a campanha em ingles</a>
+  </small>.</h1>
 </div>
 
 <div class="container row" id="clickToEnglish" style="cursor:pointer;">
