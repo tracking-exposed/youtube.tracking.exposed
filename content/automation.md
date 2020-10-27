@@ -3,7 +3,6 @@ title: Tools and commands for automated youtube testing
 date: 2020-02-22T22:22:22+00:00
 draft: false
 description: technical references for researcher using selenium and other automation tool
-
 og_title: "ytTREX - automation and testing" 
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
@@ -11,30 +10,31 @@ og_url: "https://youtube.tracking.exposed/methodology"
 og_description: "When testing youtube you might want to mix actual people with synthetic access, here is provided our script and method"
 ---
 
-### Install selenium for python3 in your system:
-
+### Install selenium for python3 in your system
 
     sudo pip3 install -U selenium 
+
+Then you need chromedriver, in Ubuntu or Debian the name is different,
+
+    sudo apt search chromedriver
+
+Would make you find the right package name. In Ubuntu this is:
+
     sudo apt install firefox-geckodriver chromium-chromedriver
 
-### Browser extension
+Here is suggested (but not necessary) also firefox-geckodriver in the case you want to modify the script 'experiment1.py' to use Firefox.
 
-Clone the yttrex development package. This is our [repository](https://github.com/tracking-exposed/yttrex), please fetch latest version and then 
+### Launch the browser
 
-    cd yttrex/extension
-    npm i
-    npm run build:dist
-
-You should have the file `dist/extension.zip` at the end of this process.
-
-    cd ../..
-    cd yttrex/methodology
-
-Here you can find our scripts for automatic execution:
+Execute the scripts for automatic connection:
 
     python3 src/experiment1.py config/example.txt
 
-Would run the initial experiment. This should save a few evidence in:
+Optionally, if your chrome has a different pathname (chromium, google-chrome), you can use the environment variable:
+
+    CHROME=/usr/bin/google-chrome python3 src/experiment1.py config/example.txt
+
+This run the initial experiment, and save a few evidence in:
 
   * directory `snaps/` it is a small screenshot took from the video player. Each 4 seconds a new snap is taken, it might help in rebuild the video in a low res animated gif.
   * directory `profiles/` would initialize a profile with the same name of the config file (**example**, in the test case).
