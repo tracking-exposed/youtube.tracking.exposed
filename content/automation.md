@@ -22,17 +22,24 @@ Would make you find the right package name. In Ubuntu this is:
 
     sudo apt install firefox-geckodriver chromium-chromedriver
 
-Here is suggested (but not necessary) also firefox-geckodriver in the case you want to modify the script 'experiment1.py' to use Firefox.
+Here is suggested (but not necessary) also firefox-geckodriver in the case you want to modify the script 'autowatcher.py' to use Firefox.
 
-### Launch the browser
+## The two scripts: autowatcher.py and opener.py
+
+#### Differences
+
+* autowatcher.py open a video and watch till the end; takes screenshot of the video every five seconds
+* opener.py open a youtube URL and close it after 20 seconds
+
+#### Execution
 
 Execute the scripts for automatic connection:
 
-    python3 src/experiment1.py config/example.txt
+    python3 bin/autowatcher.py config/example.txt
 
 Optionally, if your chrome has a different pathname (chromium, google-chrome), you can use the environment variable:
 
-    CHROME=/usr/bin/google-chrome python3 src/experiment1.py config/example.txt
+    CHROME=/usr/bin/google-chrome python3 bin/autowatcher.py config/example.txt
 
 This run the initial experiment, and save a few evidence in:
 
@@ -100,7 +107,7 @@ As shared in the [github pull request](https://github.com/tracking-exposed/yttre
 
 The first execution might often fail this way:
 
-    20167 ۞  ~/Dev/yttrex/methodology$ python3 src/experiment1.py config/fqdn.txt 
+    20167 ۞  ~/Dev/yttrex/methodology$ python3 bin/autowatcher.py config/fqdn.txt 
     You should copy the master directory in yttrex/methodology/profiles/fqdn
 
 The master directory is located in `profiles/MASTER`
@@ -111,11 +118,11 @@ The master directory is located in `profiles/MASTER`
 
 Then you can run the command:
 
-    20171 ۞  ~/Dev/yttrex/methodology$ python3 src/experiment1.py config/fqdn.tx
+    20171 ۞  ~/Dev/yttrex/methodology$ python3 bin/autowatcher.py config/fqdn.tx
 
 To open more than one directory in parallel run the command:
 
-    20171 ۞  ~/Dev/yttrex/methodology$ ((python3 src/experiment1.py config/fqdn.txt & );(python3 src/experiment1.py config/repubblica.txt & );
+    20171 ۞  ~/Dev/yttrex/methodology$ (python3 bin/autowatcher.py config/fqdn.txt & );(python3 bin/autowatcher.py config/repubblica.txt & );
 
 This should:
 
