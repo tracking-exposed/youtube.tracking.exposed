@@ -4,6 +4,12 @@ subtitle: test tool for shadow-ban detection, algorithmic filtering, personaliza
 date: 2020-09-22T15:01:21+01:00
 draft: false
 type: ytSearchCampaign
+
+og_title: "CHIARO ― YT personalization comparison! US Election 2020"
+og_type: "website"
+og_image: "https://youtube.tracking.exposed/images/wetest-youtrust.jpg"
+og_url: "/chiaro/us1"
+og_description: "By comparing individuals observation, we can understand how personalized and partial our perception is forced to be."
 ---
 
 
