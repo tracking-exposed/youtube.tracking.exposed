@@ -14,7 +14,7 @@ og_description: "By comparing individuals observation, we can understand how per
 
 
 {{<halfentry
-    title="CHIARO is helpful tool disigned to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
+    title="CHIARO is a helpful tool designed to spotlight and list queries from many groups of people so we can see which content is algorithmicly promoted or shadowly banned"
     type="right"
     picture="/images/youtube-us-election-NBC.jpg"
     credit="NBC"
