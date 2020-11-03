@@ -1,5 +1,5 @@
 ---
-title: "Example of US election 2020 Search comparison"
+title: "Collection on Youtube personalize search results: US election experiment!"
 subtitle: test tool for shadow-ban detection, algorithmic filtering, personalization in searches 
 date: 2020-09-22T15:01:21+01:00
 draft: false
