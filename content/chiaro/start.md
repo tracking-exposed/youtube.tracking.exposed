@@ -14,6 +14,15 @@ og_url: "/chiaro/start"
 og_description: "By comparing individuals observation, we can understand how personalized and partial our perception is forced to be."
 ---
 
+## List of active CHIAROs (they can be many, imagine add your own if you've a research question)
+
+This list can be updated by opening a **pull request**  in [this config file](https://github.com/tracking-exposed/yttrex/blame/master/backend/config/campaigns.json#L2).
+
+* [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
+* [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
+
+Why we did it?...
+
 {{<colorblock text="YouTube search answers is NEVER the same between users!">}}
 
 <div class="row">
@@ -104,12 +113,6 @@ og_description: "By comparing individuals observation, we can understand how per
 
 CHIARO is about all of this: We though your list of queries might cover aspects we couldn’t figure out as significant. For us, **algorithmic transparency is pointless if we do not enable individuals** and digitally organized research groups. We don’t pursue a victory in having platforms accountable only by teams of experts. These companies affect us all; we urge to reach a broader understanding of this phenomenon.
 
-## List of active CHIAROs (they can be infinite, imagine to add your own)
-
-This list can be updated by opening a **pull request**  in [this config file](https://github.com/tracking-exposed/yttrex/blame/master/backend/config/campaigns.json#L2).
-
-* [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
-* [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
 
 ---
 
