@@ -4,12 +4,20 @@ title = "YouTube Tracking Exposed"
 theme = "trex"
 enableRobotsTXT = true
 canonifyURLs = true
+ourvision = false
 [params]
-    subtitle = "YouTube"
-    subsite = "youtube"
-    openGraphSiteName = "YouTube Tracking Exposed"
-    description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
-    tagline = "A data-activism project; We develop tech to dissect & expose Youtube influence."
+   subtitle = "YouTube"
+   subsite = "youtube"
+   openGraphSiteName = "YouTube Tracking Exposed"
+   description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
+   tagline = "A data-activism project; We develop tech to dissect & expose Youtube influence."
+
+   # this impact only the third box if subsite is 'youtube'
+   boxcolor = "#d9230d"
+   titlecolor = "white"
+   ourvision = false
+   before = "UPDATE!"
+   after = "AUTODELETE in 90 days"
 
 [markup]
   [markup.goldmark]
@@ -70,10 +78,8 @@ canonifyURLs = true
  [[menu.featured]]
     name = "How it works"
     url = "/preview/"
-    boxcolor = "#d9230d"
-    titlecolor = "white"
-    pre = "/images/compare.svg"
-    post = "UPDATE!: You should also enable the collection from the popup (then disable when you want it, or you can delete data later. autodelete enabled)"
+    pre = "/images/popup-opt-in.png"
+    post = "You should also enable the collection from the popup ― Disable when you want it ― Access your data to delete them"
     weight = -160
 
  [[menu.footer]]
