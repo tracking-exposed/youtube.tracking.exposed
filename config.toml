@@ -56,11 +56,11 @@ canonifyURLs = true
     weight = 170
 
  [[menu.featured]]
-    name = "How to join the experiment"
-    url = "/preview"
+    name = "CHIARO"
+    url = "/chiaro/start"
     pre = "/images/related.svg"
     weight = -180
-    post = "Installation, functionalities, and offered services"
+    post = "Coordinated collection of yt search results; to spot tendencies, bubbles, and biases. real time psedonymized open data feed."
  [[menu.featured]]
     name= "weTEST#1 ― 25 March 2020"
     url = "/wetest/announcement-1"
@@ -68,10 +68,12 @@ canonifyURLs = true
     post = "We coordinated the first global observation of the Youtube personalization algorithm; See the results!"
     weight = -170
  [[menu.featured]]
-    name = "Algorithm analysis methodologies"
-    url = "/data/"
+    name = "How it works"
+    url = "/preview/"
+    boxcolor = "#d9230d"
+    titlecolor = "white"
     pre = "/images/compare.svg"
-    post = "The lastest videos we have collected with our monitoring tools"
+    post = "UPDATE!: You should also enable the collection from the popup (then disable when you want it, or you can delete data later. autodelete enabled)"
     weight = -160
 
  [[menu.footer]]
