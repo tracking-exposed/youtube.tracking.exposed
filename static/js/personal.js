@@ -286,7 +286,7 @@ function manageTag(action) {
 /* CSV related functions, the first two of them are for 'personal', last is on specific 'videoId' */
 function downloadSearchCSV() {
     const queryTerms = $(this).attr('yttrex-search-terms');
-    const csvurl = buildApiUrl("searches", queryTerms);
+    const csvurl = buildApiUrl("searches", queryTerms + "/csv", 2);
     console.log("Search CSV in opening is: ", csvurl);
     window.open(csvurl);
 }
