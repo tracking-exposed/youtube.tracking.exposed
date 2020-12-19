@@ -17,3 +17,16 @@
     background-color: blueviolet; 
     color: red;
 }
+
+.repeat {
+    font-style: italic;
+}
+
+.relatedN {
+    font-weight: 900;
+    font-size: 1.4em;
+}
+
+.expandrelated {
+    cursor: zoom-in !important;
+}

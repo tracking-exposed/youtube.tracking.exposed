@@ -2,11 +2,28 @@
 const c3__graph = [ null, null, null ];
 const c3__config = [{
     bindto: '.chart1',
+    size: {
+        height: 500,
+        width: 900
+    },
     data: {
-        type: 'pie',
+        type: 'donut',
+        onclick: function (d, element) {
+            const authorId = encodeURIComponent(d.id).replace(/\W/g, '');
+            _.each( $('.ventry'), function(n) {
+                let ismatch = Array.from(n.classList).indexOf(authorId) !== -1;
+                if(!ismatch)
+                    n.remove();
+            })
+        }
+    },
+    donut: {
+        expand: true,
+        title: "Evidence collected by watched author"
     },
     legend: { show: false }
-}, {
+}, { /* this charts is not actually rendered because youtube 
+      * removed silently the 'recommended for you' */
     bindto: '.chart2',
     data: {
         type: 'pie',
@@ -53,13 +70,15 @@ function renderC3Graph(graphInfo) {
     } catch(error) {
         console.error("In generating graph 0", error.message);
     }
+    /* do not render this graph because youtube silenly removed the
+       'recommended for you' label 
 
     c3__config[1].data.json = graphInfo.reason;
     try {
         c3__graph[1] = c3.generate(c3__config[1]);
     } catch(error) {
         console.error("In generating graph 1", error.message);
-    }
+    } */
 
     if(_.size(graphInfo.view) <2 ) {
         console.log("Rendering only the piechars! Can't render views with small dataset", graphInfo);
@@ -89,7 +108,10 @@ function renderC3Graph(graphInfo) {
 
 function reportError(info) {
     $("section").hide();
-    $(".container").html('<h4>Fatal error: ' + info.message + '</h4>');
+    $(".container").html('<h4>Fatal error: ' +
+        info.message + '</h4>' +
+        "<p>If this is your first access, you should perform some activity on Youtube before accessing here</p>"
+    );
 }
 
 function getPubKey() {
@@ -99,22 +121,12 @@ function getPubKey() {
 }
 
 /* -- EXECUTION STARTS HERE */
-function personal(pages, profile) {
+function personal(profile) {
 
-    if(!pages) pagestr = '10-0'; // not appropriate pagination management
-    else {
-        c3__graph[0].destroy();
-        c3__graph[1].destroy();
-        c3__graph[2].destroy();
-        $(".recommended-once").html();
-
-        $("#report").empty();
-        var pagesDecimal = pages + '0';
-        var pagesNumber = Number(pagesDecimal);
-        var pagestr = '10' + '-' + ( pagesNumber - 10 );
-    }
+    $(".recommended-once").html();
+    // $("#report").empty();
     const pk = getPubKey();
-    const url = buildApiUrl('personal', pk + '/' + pagestr);
+    const url = buildApiUrl('personal', pk);
     $.getJSON(url, (data) => {
 
         if(data.error) 
@@ -123,7 +135,6 @@ function personal(pages, profile) {
             _.each(data.recent, addVideoRow);
             _.each(data.searches, addSearchRow)
             renderC3Graph(data.graphs);
-            addPages(data.total, pagestr);
             if(!profile)
                 updateProfileInfo(data.supporter);
         }
@@ -317,26 +328,6 @@ function between(x, min, max) {
     return x >= min && x <= max;
 }
 
-function addPages(total, pages) {
-    const ul = $('#pagination').find('ul');
-    const pageString = pages.split('-').pop();
-    const actualPage = Number(pageString.slice(0, -1));
-    ul.empty();
-    if(total > 10) {
-        var page;
-        const pagesNumber = _.round(total / 10);
-        const description = `There are <i>${total}</i> evidences. Page <b>${actualPage +1}</b> of <b>${pagesNumber +1}</b>`;
-        $('#total-evidence').html(description);
-
-        for (page = 0; page < pagesNumber + 1; page++) {
-            let pageValue = page;
-            let liStyle = '';
-            if (pageValue == actualPage) liStyle = ' red';
-            if (between(page, actualPage-3, actualPage+3)) ul.append('<li class="page-item"><a class="page-link' + liStyle + '" onclick="personal(' + (pageValue +1 ) + ', true)">'+ (page +1) +'</a></li>');
-        }
-    }
-}
-
 function addSearchRow(searche, i) {
     // console.log(searche); 
     /* clang: "en"
@@ -355,7 +346,7 @@ function addSearchRow(searche, i) {
 
     const ytlink = "https://www.youtube.com/results?search_query=" + encodeURIComponent(searche.searchTerms);
     $("#" + computedId + " .repeat").attr('href', ytlink);
-    $("#" + computedId + " .repeat").text('repeat YT query');
+    $("#" + computedId + " .repeat").text('repeat search');
 
     $("#" + computedId + " .csv").on('click', downloadSearchCSV);
     $("#" + computedId + " .csv").attr('yttrex-search-terms', `${searche.searchTerms}`);
@@ -378,6 +369,7 @@ function addVideoRow(video, i) {
 
     const entry = $("#master").clone();
     const computedId = `video-${video.id}`;
+    const authorId = encodeURIComponent(video.authorName).replace(/\W/g, '');
     entry.attr("id", computedId);
     $("#report").append(entry);
 
@@ -403,6 +395,11 @@ function addVideoRow(video, i) {
         $("#" + computedId + " .csv").attr('yttrex-videoId', `${video.videoId}`);
         title = $("#" + computedId + " .csv").attr('title')  + "«" + video.title + "»";
         $("#" + computedId + " .csv").attr('title', title);
+
+        $("#" + computedId + " .relatedN").text(video.relatedN);
+
+        $("#" + computedId + " .expandrelated").attr('yttrex-id', `${video.id}`);
+        $("#" + computedId + " .expandrelated").on('click', renderRelatedTimeseries);
     } else {
         disableClick("#" + computedId + " .csv", "This evidence has not related video");
     }
@@ -419,8 +416,23 @@ function addVideoRow(video, i) {
     }
 
     $("#" + computedId + " .title").text(video.title);
+    $("#" + computedId + " .repeat").attr('href', `https://www.youtube.com/watch?v=${video.videoId}`);
 
+    entry.addClass(authorId);
     entry.removeAttr('hidden');
+}
+
+async function renderRelatedTimeseries(e) {
+    const id = $(this).attr('yttrex-id');
+    const pk = getPubKey();
+    const specificEvidenceURL = buildApiUrl(`personal/${pk}/selector/id/${id}`, null, 2);
+    const x = await fetch(specificEvidenceURL, {
+        method: 'GET'
+    });
+    const content = await x.json()
+    const evi = _.first(content);
+    const fmt = _.map(evi.related, 'recommendedTitle');
+    $(this).parent().parent().parent().html('<pre>' + JSON.stringify(fmt, null, 2) + '</pre>');
 }
 
 function removeEvidence(e) {
@@ -452,29 +464,6 @@ function disableClick(targetId, reason) {
 function showPassword(status) {
     if( status == 'private') $('#group-password-wrapper').show();
     else $('#group-password-wrapper').hide();
-}
-
-function simplept(data) {
-    /* simple personal timeseries, because the first 
-     * hours of usage you can't compare among days */
-    const listentries = _.map(data.aggregated.authors, function(amount, name) {
-        return amount +") " + name + " [" + + "] ";
-    });
-
-    _.each(data.aggregated, function(dayntry) {
-        const entry = $("#fallback").clone();
-        const computedId = "fallback-id-" + dayntry.dayStr;
-        entry.attr("id", computedId);
-        $("#series").append(entry);
-
-        $("#" + computedId + " .dayString").text(dayntry.dayStr);
-        let infotxt = JSON.stringify(dayntry.type);
-        infotxt = infotxt.replace('{', '(').replace('}',') ').replace(/\"/g, '');
-        if(_.size(dayntry.advertiser)) 
-            infotxt = "adverts: " + _.map(dayntry.advertiser, 'name').join(", ");
-        $("#" + computedId + " .genericInfo").text(infotxt);
-        entry.removeAttr('hidden');
-    });
 }
 
 const ptiserie_config = {
@@ -525,20 +514,14 @@ const ptiserie_config = {
     }
 };
 
+// THIS IS invoked from the HTML page. produce the timeserises 
 function personalTimeseries() {
-    // timeserises is the c3 name, timeline the generic API name
-    // supports paging if become too heavy!
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk + '/timeline');
 
     $.getJSON(url, (data) => {
-        if(_.size(data.aggregated) < 3) {
-            /* this condition is managed separately becauae we can't display a timeserie
-             * with only one day */
-            $(".fallback-listing").removeAttr('hidden');
-            console.log("simpleviz because of", data.aggregated, "reduced size. eventually we can support hourly or minutes differences in backend");
-            simplept(data);
-        } else {
+        /* when three day or more is available a new graph appears on top */
+        if(_.size(data.aggregated) >= 3) {
             $(".timesavail").removeAttr('hidden');
             console.log(data);
             ptiserie_config.grid.x.lines[0].value = new Date(data.oneWeekAgoDateString);

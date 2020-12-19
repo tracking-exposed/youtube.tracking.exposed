@@ -10,8 +10,7 @@ type: app
 
 <div class="container">
 
-    <section>
-        <!-- this fallback appear if a few days of recording exists -->
+    <!-- Fallback is not really useful 
         <div id="fallback" hidden class="row border-bottom p-2 mb-3 align-middle">
           <div class="col-3">
             <small class="dayString">dayStringFiller</small>
@@ -21,10 +20,13 @@ type: app
           </div>
         </div>
 
-        <!-- this start when more data is avail -->
+        the function 'simplept' have been removed from personal.js the 19th of Dec 2020,
+        last seen commit-ID: aa91e83a12944469793e152b27e8161fb9f56292
+        <p hidden class="fallback-listing">Welcome, you just start! <b>at the third day</b> of using youtube.tracking.exposed, you'll find here a time graph; Now there are only few <b>counters</b>:</p>
+    -->
+    <section>
         <div class="mb-11">
             <p hidden class="timesavail">Last two months of activities recorded:</p>
-            <p hidden class="fallback-listing">Welcome, you just start! <b>at the third day</b> of using youtube.tracking.exposed, you'll find here a time graph; Now there are only few <b>counters</b>:</p>
             <div id="series"></div>
         </div>
     </section>
@@ -32,19 +34,17 @@ type: app
     <section>
         <div class="mb-11">
             <p id="total-evidence" class="mb-2"></p>
-            <nav id="pagination" aria-label="navigation" class="mb-4">
-                <ul class="pagination centered"></ul>
-            </nav>
         </div>
 
-        <div class="col-5" style="display:inline-block">
-            <p>Watched video from:</p>
+        <div class="col-12" style="display:inline-block">
             <div class="chart1"></div>
         </div>
+        <!--
         <div class="col-6" style="display:inline-block">
             <p>Recommendation reasons (as declared by YouTube)</p>
             <div class="chart2"></div>
         </div> 
+        -->
         <div id="optionalChart3" class="col-12" style="display:inline-block">
             <p>Recommended videos count by producer:</p>
             <div class="chart3"></div>
@@ -55,7 +55,7 @@ type: app
 
     <section>
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
-        <div id="master" hidden class="row border-bottom p-2 mb-3 align-middle">
+        <div id="master" hidden class="ventry row border-bottom p-2 mb-3 align-middle">
           <div class="col-8">
             <span class="logged" title="Logged in youtube" hidden>👤</span> 
             <span class="mb-0">
@@ -65,10 +65,15 @@ type: app
                         class="author icon-small mb-1"
                         title="Compare all the evidences from ">
                         producerFiller
+                    </a> ― <a title="Expand recommended" class="expandrelated">
+                        <span class="relatedN">relatedNfiller</span>
+                        collected recommended
                     </a>
                 </small><br />
               </span>
               <b class="title">titleFiller</b>
+              <span>   </span>
+              <a class="repeat" target=_blank href="#">replay</span>
             </span>
           </div>
           <nav class="col-4">
