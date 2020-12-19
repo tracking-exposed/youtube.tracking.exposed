@@ -1,0 +1,26 @@
+.tutorial-text {
+    margin-left: 10px;
+}
+
+iframe{
+    width: 48vw;
+    height: calc(48vw/1.77);
+}
+
+h1, h2, h3 {
+    color: darkred;
+}
+
+p, ol, ul {
+    font-size: 1.4em;
+}
+
+.scroller {
+    height: 100vmax;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroller section {
+    scroll-snap-align: start;
+}
