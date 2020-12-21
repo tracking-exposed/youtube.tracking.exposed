@@ -80,16 +80,10 @@ function buildCardsFromLast(containerId) {
     console.log("buildCardsFromLast", url);
     $.getJSON(url, function (results) {
         // these are not really 'cards'
-        _.each(results.content, function(video, i) {
-            console.log(video);
+        _.each(results.content, function(video) {
             const appended =`
-                    <a class="linked" href="/compare/#${video.videoId}">
-                        ${video.title}
-                    </a>
-                    <smaller>
-                        ${video.authorName} — ${video.timeago} ago
-                    </smaller>
-                <br/>`;
+                    <a class="linked" href="/compare/#${video.videoId}">${video.title}</a>
+                    — ${video.occurrencies} evidences (from: ${video.authorName}) — last update ${video.timeago} ago <br/>`;
             $(containerId).append(appended);
         });
         $(".linked").click(function(e) {
@@ -250,11 +244,11 @@ function initCompare() {
                 // too long.
                 let tableHeader = $("#" + tableId + '> thead');
                 // The text printed on top
-                let printed = "Reccomended " + (currentRepetition > 1 ? currentRepetition + " times" : "once");
+                let printed = "Recommended " + (currentRepetition > 1 ? currentRepetition + " times" : "once");
                 tableHeader.html(`<tr>
-                    <th><h2>${printed}</h2></th>
-                    <th>Channel</th>
-                    <th>Position</th>
+                    <th class="col-md-3">${printed}</th>
+                    <th class="col-md-2">Channel</th>
+                    <th class="col-md-7">Position</th>
                 </tr>`);
 
                 $("#" + tableId).append(tableHeader);
@@ -265,16 +259,16 @@ function initCompare() {
             lastH = currentRepetition;
 
             // this might or might not be useful: 1,2,11,5,15 what does it gives??
-            const positions = _.join(_.map(relatedList, 'index'), ', ');
+            const positions = _.join(_.orderBy(_.map(relatedList, 'index')), ', ');
             const relatedVideo = _.first(relatedList);
             const videoEntry = `
                 <tr id="${relatedVideo.videoId}" class="step">
                      <td class="video">
-                         ${relatedVideo.recommendedTitle} <br/>
-                         <span class="displayLength">&lt;${relatedVideo.recommendedDisplayL}&gt;</span>
-                         <a class="linked" href="/related/#${relatedVideo.videoId}">related</a><span> — </span>
-                         <a class="linked" href="/compare/#${relatedVideo.videoId}">compare</a><span> — </span>
-                         <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">video</a>
+                        ${relatedVideo.recommendedTitle} <br/>
+                        <span class="displayLength">&lt;${relatedVideo.recommendedDisplayL ? relatedVideo.recommendedDisplayL : "live"}&gt;</span>
+                        <a class="linked" href="/related/#${relatedVideo.videoId}">related</a><span> — </span>
+                        <a class="linked" href="/compare/#${relatedVideo.videoId}">compare</a><span> — </span>
+                        <a target=_blank href="https://www.youtube.com/watch?v=${relatedVideo.videoId}">watch it</a>
                     </td>
                     <td class="author">
                         ${relatedVideo.recommendedSource}
