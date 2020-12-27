@@ -151,7 +151,7 @@ function initRelated() {
         _.each(results, function (watched) {
             const match = _.find(watched.related, {videoId: relatedId});
             let videoEntry = `
-                <tr id="${watched.videoId}" class="step">
+                <tr id="${watched.videoId}">
                         <td class="video">
                             <b>${watched.title}</b>
                             <a class="primary" href="/compare/#${watched.videoId}">(compare)</a>
@@ -262,7 +262,7 @@ function initCompare() {
             const positions = _.join(_.orderBy(_.map(relatedList, 'index')), ', ');
             const relatedVideo = _.first(relatedList);
             const videoEntry = `
-                <tr id="${relatedVideo.videoId}" class="step">
+                <tr id="${relatedVideo.videoId}">
                      <td class="video">
                         ${relatedVideo.recommendedTitle} <br/>
                         <span class="displayLength">&lt;${relatedVideo.recommendedDisplayL ? relatedVideo.recommendedDisplayL : "live"}&gt;</span>
