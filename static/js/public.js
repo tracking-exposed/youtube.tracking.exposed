@@ -198,10 +198,9 @@ function produceCompareGraph(grouped) {
         data: {
             type: 'bar',
             labels: { show: true },
-            // colors: { 'occurrencies': palette[0] },
+            colors: { 'occurrencies': palette[0] },
             columns: [
                 _.concat(['occurrencies'], _.map(rebuilt, 'occurrencies')),
-                _.concat(['videoId'], _.map(rebuilt,'videoId')),
             ]
         },
         axis: {
@@ -210,7 +209,19 @@ function produceCompareGraph(grouped) {
                 categories: _.map(rebuilt, 'videoId')
             }
         },
-        legend: { show: false }
+        legend: { show: false },
+        tooltip: { 
+            contents: function (d) {
+                let v = rebuilt[d[0].x];
+                return `<div style="background-color:white"><small>
+                    ${ (v.occurrencies == 1) ?
+                        "Seen once" : "Seen " + v.occurrencies + " times" }
+                    <br/><small/>
+                    <h5>${v.recommendedTitle}</h5><p>
+                    ${v.recommendedDisplayL} ${v.recommendedSource}</p></div>
+                `;
+            }
+        }
     };
     console.log( 
         _.concat(['occurrencies'], _.map(rebuilt, 'occurrencies')),
