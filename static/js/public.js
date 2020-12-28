@@ -186,7 +186,7 @@ function initRelated() {
     });
 }
 
-function produceCompareGraph(grouped) {
+function produceCompareGraph(grouped, recommendationAverage) {
     const rebuilt = _.map(grouped, function(videos) {
         const r = _.first(videos);
         r.occurrencies = _.size(videos);
@@ -205,9 +205,10 @@ function produceCompareGraph(grouped) {
         },
         axis: {
             x: {
+                show: false,
                 type: 'category',
                 categories: _.map(rebuilt, 'videoId')
-            }
+            },
         },
         legend: { show: false },
         tooltip: { 
@@ -221,12 +222,17 @@ function produceCompareGraph(grouped) {
                     ${v.recommendedDisplayL} ${v.recommendedSource}</p></div>
                 `;
             }
+        },
+        grid: {
+            y: {
+                lines: [ {
+                        value: recommendationAverage,
+                        text: 'Personalization Factor ' + recommendationAverage,
+                    }
+                ]
+            }
         }
     };
-    console.log( 
-        _.concat(['occurrencies'], _.map(rebuilt, 'occurrencies')),
-        _.map(rebuilt, 'videoId')
-    );
     c3.generate(c3cfg);
 }
 
@@ -256,6 +262,11 @@ function initCompare() {
 
         const allrelated = _.flatten(_.map(results, 'related'));
         const csvVideoURL = buildApiUrl("videoCSV", results[0].videoId);
+        const x = _.reverse(_.orderBy(_.groupBy(allrelated, 'videoId'), _.size));
+
+        /* total recommandation / unique recommendation  = Personalization Factor */
+        const recommendationAverage = _.round(_.size(allrelated) / _.size(x), 1);
+        console.log(recommendationAverage, _.size(allrelated),  _.size(x) );
 
         $("#ifVideoExists").show();
         $("#title").text(results[0].title);
@@ -266,8 +277,7 @@ function initCompare() {
         $("#author").text(results[0].authorName);
         $("#ytLink").attr('href', `https://www.youtube.com/watch?v=${results[0].videoId}`);
         $("#csvLink").attr('href', csvVideoURL);
-
-        const x = _.reverse(_.orderBy(_.groupBy(allrelated, 'videoId'), _.size));
+        $("#perfac").text(recommendationAverage);
 
         let lastH = null;
         let tableBodyElement = null;
@@ -324,12 +334,14 @@ function initCompare() {
             `;
             tableBodyElement.append(videoEntry);
         });
+
+        produceCompareGraph(x, recommendationAverage);
+
         $(".linked").click(function(e) {
             let x = $(this).attr('href');
             window.location.href = x;
             window.location.reload();
         });
-        produceCompareGraph(x);
     });
 
 }
