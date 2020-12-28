@@ -76,10 +76,10 @@ ourvision = false
     post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
     weight = -170
  [[menu.featured]]
-    name = "How it works"
-    url = "/preview/"
+    name = "How it works ― Tutorial"
+    url = "/tutorial/1"
     pre = "/images/popup-opt-in.png"
-    post = "You should also enable the collection from the popup ― Disable when you want it ― Access your data to delete them"
+    post = "Video and textual tutorial, on the basic usage, the evidence page, and everything a researcher need to start analyzing YT!"
     weight = -160
 
  [[menu.footer]]
