@@ -186,6 +186,39 @@ function initRelated() {
     });
 }
 
+function produceCompareGraph(grouped) {
+    const rebuilt = _.map(grouped, function(videos) {
+        const r = _.first(videos);
+        r.occurrencies = _.size(videos);
+        return r;
+    })
+    console.log(rebuilt);
+    const c3cfg =  {
+        bindto: '#barGraphCompare',
+        data: {
+            type: 'bar',
+            labels: { show: true },
+            // colors: { 'occurrencies': palette[0] },
+            columns: [
+                _.concat(['occurrencies'], _.map(rebuilt, 'occurrencies')),
+                _.concat(['videoId'], _.map(rebuilt,'videoId')),
+            ]
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: _.map(rebuilt, 'videoId')
+            }
+        },
+        legend: { show: false }
+    };
+    console.log( 
+        _.concat(['occurrencies'], _.map(rebuilt, 'occurrencies')),
+        _.map(rebuilt, 'videoId')
+    );
+    c3.generate(c3cfg);
+}
+
 // #recent and #comparison
 // with 'last' we populate some snippet
 // with 'getVideoId' we get the videos, it is display the different comparison
@@ -285,6 +318,7 @@ function initCompare() {
             window.location.href = x;
             window.location.reload();
         });
+        produceCompareGraph(x);
     });
 
 }
