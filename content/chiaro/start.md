@@ -20,6 +20,7 @@ This list can be updated by opening a **pull request**  in [this config file](ht
 
 * [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
 * [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
+* [Amsterdam Winter School](/chiaro/ws2021), an experiment among studends. [Final presentation](https://docs.google.com/presentation/d/1o__Fw_YyhcsD1-lk14jp8phwGxAaA0SgUnFpjiUba1E/edit].
 
 Why we did it?...
 
