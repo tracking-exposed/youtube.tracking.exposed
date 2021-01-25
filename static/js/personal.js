@@ -110,7 +110,7 @@ function reportError(info) {
     $("section").hide();
     $(".container").html('<h4>Fatal error: ' +
         info.message + '</h4>' +
-        "<p>If this is your first access, you should perform some activity on Youtube before accessing here</p>"
+        "<p>If this is your first access, you should perform some activity on Youtube before accessing here; <br/>and be sure extension is enabled from the switch in the popup (click on the icon). </p>"
     );
 }
 

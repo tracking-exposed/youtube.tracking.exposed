@@ -12,13 +12,6 @@ ourvision = false
    description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
    tagline = "A data-activism project; We develop tech to dissect & expose Youtube influence."
 
-   # this impact only the third box if subsite is 'youtube'
-   boxcolor = "#d9230d"
-   titlecolor = "white"
-   ourvision = false
-   before = "UPDATE!"
-   after = "AUTODELETE in 90 days"
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
