@@ -57,23 +57,25 @@ ourvision = false
     weight = 170
 
  [[menu.featured]]
-    name = "CHIARO"
-    url = "/chiaro/start"
-    pre = "/images/related.svg"
-    weight = -180
-    post = "Coordinated collection of yt search results; to spot tendencies, bubbles, and biases. real time psedonymized open data feed."
- [[menu.featured]]
-    name= "weTEST#1 ― 25 March 2020"
-    url = "/wetest/announcement-1"
-    pre = "/images/data.svg"
-    post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
-    weight = -170
- [[menu.featured]]
-    name = "How it works ― Tutorial"
+    name = "Tutorial ― Learn how to use our tool"
     url = "/tutorial/1"
     pre = "/images/popup-opt-in.png"
     post = "Video and textual tutorial, on the basic usage, the evidence page, and everything a researcher need to start analyzing YT!"
-    weight = -160
+    weight = -180
+ [[menu.featured]]
+    name= "WeTest ― 1° Collective observation"
+    url = "/wetest/announcement-1"
+    pre = "/images/data.svg"
+    post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
+    weight = -180
+ [[menu.featured]]
+    name = "CHIARO ― The Ranking Algorithm	"
+    url = "/chiaro/start"
+    pre = "/images/related.svg"
+    weight = -170
+    post = "Coordinated collection of yt search results; to spot tendencies, bubbles, and biases. real time psedonymized open data feed."
+
+
 
  [[menu.footer]]
     name = "Initial project analysis (2018)"

@@ -38,7 +38,7 @@ layout: home
             href="/results"
             picture="/images/compare.jpeg" >}}
     </div>
-    <div class="col-8">
+    <div class="raw">
         <h1> What we have done, year by year: </h1>
         <h5>2020</h5>
         <ul style="font-size:1.4em;">
