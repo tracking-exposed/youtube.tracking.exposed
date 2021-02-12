@@ -21,10 +21,9 @@ og_description: "content produced about youtube.tracking.exposed on the interweb
   when="January 2021" 
   title="Youtube Tracking Exposed — DMI UvA Winter School project pitch"
   description=" FIlterTube:Investigating echo chambers, filter bubbles and polarization on YouTube. Project coordinated by Salvatore Romano and Davide Beraldo, Giovanni Rossetti, Leonardo Sanna"
-  resource1="Final project report"
-  resource1href="https://wiki.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
+  href="https://wiki.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
   resource3="Final presentation slides"
-  resource3href="https://docs.google.com/presentation/d/1o__Fw_YyhcsD1-lk14jp8phwGxAaA0SgUnFpjiUba1E/edit#slide=id.p">}}
+  resource3href="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf">}}
 
 
 {{<resource
