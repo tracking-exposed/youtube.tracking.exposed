@@ -10,11 +10,19 @@ layout: home
 ---
 
 <div class="row container">
-    <div class="col-4">
-        <h5>The first two experiments</h5>
+    <div class="row">
+        <h1> Our last experiments: </h1>
+         {{<researchCard
+            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization on Youtube."
+            text="Collective project made during the Digital Methods Winter School 2021. This paper studies the construction of filter bubbles and political polarization under YouTube 's algorithmic personalization, in a time where the political division runs deep in the US and the 2020 election reaffirms the polarization. "
+            when="January 2021"
+            reportLink="https://www.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
+            slidesLink="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf"
+            href="/filtertube"
+            picture="/images/filtertube-title.png" >}}
         {{<researchCard
             title="Polarization and Reinforcement"
-            text="Three days analysis with ten researchers. The research aim to split the group in two and see how different activities are considered by YT to personalize the next recommendation."
+            text="Three days analysis with ten researchers. The research aim to split the group in two and see how different activities are considered by YT to personalize the next recommendation."	
             when="January 2020"
             reportLink="https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/TREXIT_finalslides.pdf"
@@ -31,7 +39,8 @@ layout: home
             picture="/images/compare.jpeg" >}}
     </div>
     <div class="col-8">
-        <h5>2020 At the beginning</h5>
+        <h1> What we have done, year by year: </h1>
+        <h5>2020</h5>
         <ul style="font-size:1.4em;">
             <li>The year begun with <a href="https://www.cjr.org/the_media_today/youtube-radicalization.php">heated</a> <a href="https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html">debate</a> and <a href="https://ffwd.medium.com/youtubes-deradicalization-argument-is-really-a-fight-about-transparency-fe27af2f3963">articles</a> on academic research using API or non-logged profiles. <b>We were happy!</b> because, someone acknowledges that you can't investigate algorithms without a passive scraper, which is precisely what we do, and we hope to be used by researchers.</li>
             <li>Keep improving visualization in personal page.</li>
@@ -42,7 +51,7 @@ layout: home
             </li>
         </ul>
         <br>
-        <h5>2019 Completed components</h5>
+        <h5>2019</h5>
         <ul style="font-size:1.4em;">
             <li>Released working browser extension, good enough for researchers and running workshops. A good high level description is in our <a href="/initial-analysis">project analysis</a>.</li>
             <li>Released a page with a summary of our <a href="/results">first experiments</a>.</li>
