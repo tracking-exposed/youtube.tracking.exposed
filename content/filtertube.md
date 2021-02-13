@@ -1,7 +1,7 @@
 ---
 title: " FIlterTube:Investigating echo chambers, filter bubbles and polarization on YouTube" 
 subtitle: "Workshop at the Digital Methods Winter School and Data Sprint 2021"
-date: 2021-02-22T15:01:21+01:00
+date: 2021-01-22T15:01:21+01:00
 draft: false
 description: "Winter School workshop's Final Report, extended version"
 
@@ -12,15 +12,16 @@ og_url: "https://youtube.tracking.exposed/filtertube"
 og_description: "A group of researcher using our tool to investigate in personalization algorithm, researched how media in USA post-election debate polarize the discussion"
 ---
 
-{{< colorblock text="TREXIT: can we observe UK's news media polarization around Brexit?">}}
 
-##### Facilitator: Salvatore Romano, Davide Beraldo, Giovanni Rossetti, Leonardo Sanna.
-
-##### Group members: Bruno Sotic, Nilton Da Rosa, Paul Grua, Armand Bazin, Maxime Bertaux, Youcef Taiati, Antonella Autuori, Andrea Elena Febres Medina, Wen Li, Inga Luchs, Annelien Smets, Lynge Asbjørn Møller, Alexandra Elliott, Matthieu Comoy, Ali El Amrani, Eirini Nikopoulou, Nicolas Pogeant, Yamina Boubekeur, Arthur Lezer, Mehdi Bessalah, Andrea Angulo Granda, Tcheutga Corine, Lisa Lan, Kaothar Zehar, Dong Pha Pham, Josue Charles, June Camille Ménard, Minhee Kyoung, Hangchen Liu, Yiran Zhao.
-
-Winterschool presentation slides: [link slides](https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf)
-
+Beside this textual report, you can enjoy the [presentation](https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf).
 — _Students and researchers worked on this research for four days in January 2021_.
+
+---
+
+##### Students: Bruno Sotic, Nilton Da Rosa, Paul Grua, Armand Bazin, Maxime Bertaux, Youcef Taiati, Antonella Autuori, Andrea Elena Febres Medina, Wen Li, Inga Luchs, Annelien Smets, Lynge Asbjørn Møller, Alexandra Elliott, Matthieu Comoy, Ali El Amrani, Eirini Nikopoulou, Nicolas Pogeant, Yamina Boubekeur, Arthur Lezer, Mehdi Bessalah, Andrea Angulo Granda, Tcheutga Corine, Lisa Lan, Kaothar Zehar, Dong Pha Pham, Josue Charles, June Camille Ménard, Minhee Kyoung, Hangchen Liu, Yiran Zhao.
+
+##### Facilitators: Salvatore Romano, Davide Beraldo, Giovanni Rossetti, Leonardo Sanna.
+
 
 --- 
 
@@ -43,10 +44,9 @@ This project aims to create a mixed methodology to investigate echo chambers, fi
 
 ## 2) Research Questions
 
-RQ: Does YouTube ’s algorithm enforce a filter bubble and polarization pattern based on an (artificially generated) echo chamber?
-
-    Sub-RQ1: Are there differences in the videos suggested as search results across different user types?
-    Sub-RQ2: Are there differences in comments to the videos suggested as search results across different user types? 
+* Does YouTube ’s algorithm enforce a filter bubble and polarization pattern based on an (artificially generated) echo chamber?
+  * Sub-RQ1: Are there differences in the videos suggested as search results across different user types?
+  * Sub-RQ2: Are there differences in comments to the videos suggested as search results across different user types? 
 
 ## 3) Methodology
 
@@ -82,6 +82,7 @@ When it comes for the election queries for Progressives browser : Trump, like an
 
 <img src='/images/ws20/winter_cake.png' />
 <img src='/images/ws20/winter_cake.png' />
+
 Fig 0: Progressives’ WordCloud on the left in blue, Conservatives’ WordCloud on the right in red. 
 
 We have noticed that Conservatives’ cloud fit perfectly the Conservatives narrative elaborated around religious value and Republicanism and the Progressives one reflects more a speech on unity and inclusivity which are again, the core content of their narrative.
@@ -98,13 +99,14 @@ We computed the Toxicity Index and the Automated Integrative Complexity - AutoIC
 
 
 ## 4) Findings 
-### 4.1) Network Analysis and Statistical Analysis Results: Personalization/Polarization of Search Results .
 
+### 4.1) Network Analysis and Statistical Analysis Results: Personalization/Polarization of Search Results .
 
 
 **Finding 1**: The results for the search "american elections" according to media type indicate polarization, as progressive users are recommended mostly mainstream media, while conservative users are recommended a lot of YouTube -native news media.
 
 <img src='/images/ws20/winter_cake.png' />
+
 _Figure 1: Top 20 search results of "american elections" across conservative (Trump pseudo) and progressive (Biden pseudo) user groups in terms of media types._
 
 Figure 1 illustrates clusters of recommended videos in the search results for "american elections" in terms of media types. It shows that a large cluster of mainstream media videos in the center of the graph, meaning that videos from mainstream media are suggested to most users. However, we can also see some clusters of videos recommended to the specific user groups. Indeed, progressive users are recommended mostly videos from mainstream media channels, while conservative users are recommended a lot of YouTube -native media channels. Nevertheless, most of YouTube -native videos come from the same channels that the conservative users watched in the personalization process, which means that YouTube is simply recommending conservative users more of the same channels that they have already watched. Overall, the results show personalized results for both progressive and conservative user groups.
