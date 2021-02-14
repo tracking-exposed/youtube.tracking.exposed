@@ -62,7 +62,7 @@ To visualize clusters of recommended videos according to user type, network diag
 
 We used a Python script to retrieve the comment threads (comments and their replies if existing) for each of the videos recommended as a result of our queries. Our intent was to be as close as possible to exhaustivity allowed by the Google API. We found that getting the top 100 threads by relevance, as defined by the YouTube platform, was sufficient. This yielded approximately 400 000 comments for each query result, which were split between videos suggested to the “progressive” browsers and “conservative” browsers. In order to highlight the difference between them, we excluded comments from videos recommended to both sides. For the “American election” query, this amounted to approximately 65 000 comments for the “progressive” suggestions and 130 000 for the “conservative” suggestions.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/method.png'/>
 
 The unequal number of comments is due to variance in our original experiment. Conservative browsers scrolled further on the query result pages and thus collected more recommendations. The same was found for the “Coronavirus” query, which led us to collect 75 000 comments from the “progressive” suggestions and 150 000 for the “conservative” ones.
 
@@ -80,8 +80,8 @@ As for the Word clouds that we performed, using all the methods previously expla
 
 When it comes for the election queries for Progressives browser : Trump, like and Biden, and for the Conservatives: President ,Trump, like, Biden and God (Fig 0).
 
-<img src='/images/ws20/winter_cake.png' />
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/semUS.png' />
+<img src='/images/ws21/semUS2.png' />
 
 Fig 0: Progressives’ WordCloud on the left in blue, Conservatives’ WordCloud on the right in red. 
 
@@ -89,8 +89,9 @@ We have noticed that Conservatives’ cloud fit perfectly the Conservatives narr
 
 As for the CoronaVirus queries, we can say that the narratives on both sides are somehow either polluted by the election queries or the election subject has been deeply entangled with it because the dominant words are mostly the same, at the exception of few minor words.
 
-<img src='/images/ws20/winter_cake.png' />
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/semUS3.png' />
+<img src='/images/ws21/semUS4.png' />
+
 Fig 0.1: Progressives’ WordCloud on the left in blue, Conservatives’ WordCloud on the right in red.
 
 We aimed to compare the topics that were discussed in the comments of each selection of videos. We modeled these topics using Latent Dirichlet Allocation (Blei et al., 2001). This generative algorithm finds k collections of words (topics) that would best recreate the original document if they were “mixed” in proportions according to a specific probability distribution. This being an unsupervised technique, we ran it several times with different values of k and computed a Topic Coherence measure (Röder et al.) to choose the optimal number of topics. We used the open-source library pyLDAvis to visualize these topics. After lemmatization, conservative and progressive corpora were reduced to a similar size. We modeled the topics twice for each query: we first looked at the comments from side-specific suggestions only, then included comments from videos that were offered to both sides.
@@ -105,7 +106,7 @@ We computed the Toxicity Index and the Automated Integrative Complexity - AutoIC
 
 **Finding 1**: The results for the search "american elections" according to media type indicate polarization, as progressive users are recommended mostly mainstream media, while conservative users are recommended a lot of YouTube -native news media.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/net1.jpg' />
 
 _Figure 1: Top 20 search results of "american elections" across conservative (Trump pseudo) and progressive (Biden pseudo) user groups in terms of media types._
 
@@ -113,55 +114,63 @@ Figure 1 illustrates clusters of recommended videos in the search results for "a
 
 This result is replicated in the quantitative statistical analysis of all the results (figure 2) appearing following the particular query.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/cake.png' />
+
 _Figure 2. Statistical Analysis. Proportion of media type per category of users for the “american elections” query._
 
 
 In the graph for the “american elections” query (figure 3), which represents all results retrieved, we can observe a slim overlap of videos offered to both groups by mainstream media ranging from Sky News, CNN, CBC News Streamed, the Economist etc. Outlets such as “Now This News”, “Democracy Now” and channels by individuals such as Evan Edinger are offered to Biden supporters only, while niche digital media outlets such as “Thinkr”, “Motivation Madness”, “RoTenDO” are offered as results only to Trump supporters.
 
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/rawg.png' />
+
 _Figure 3. Visualisation of data flows for the “american elections” query._
 
 **Finding 2**: The search results for "american elections" in terms of the political orientation of the YouTube channels similarly indicate polarization, as conservative users are recommended more right-leaning channels, while the progressive users are recommended more left-leaning channels.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/net2.jpg' />
+
 _Figure 4: Top 20 search results of "american elections" across conservative (Trump pseudo) and progressive (Biden pseudo) user groups in terms of political orientations._
 
 Figure 4 shows the clusters of recommended videos in the search results for "american elections" in terms of political orientation of the Youtube channel. It is worth noting that the cluster of videos in the center of the graph is mostly left-leaning and center channels, meaning that many left-leaning and center channels are recommended to all users. Moreover, we can clearly see that conservative users are recommended more right-leaning channels, while the progressive users are recommended more left-leaning channels. Therefore, the results indicate that polarization is happening in the search results for "american elections" on YouTube.
 
 This is also evident in the charts representing the quantitative statistical analysis (figure 5)
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/cake2.png' />
+
 _Figure 5. Channel orientation of recommended videos per group of users for the “american elections” query._
 
 **Finding 3**: The search results for "Coronavirus" indicate less polarization in terms of the media type than the previous query for “American Elections”, as mostly mainstream media channels are recommended to both user groups.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/net3.jpg' />
+
 _Figure 6: Top 20 search results of "Coronavirus" across conservative (Trump pseudo) and progressive (Biden pseudo) user groups in terms of media types_
 
 Figure 6 illustrates clusters of recommended videos in the search results of "Coronavirus" coded in terms of media type. The graph shows that mainstream media channels dominate the results for both user groups, as both user groups are recommended almost only mainstream media and almost no youtube-native channels. The progressive user group share a number of same recommendations to mainstream videos among them - the concentrated cluster on the right of the figure - while the conservative user groups are provided with more fragmented search results beyond the ones recommended to all the users from the center cluster, indicating more personalization for this specific group. Based on these results, it can be assumed that YouTube has intentionally made sure that mostly verified information from mainstream channels are recommended to users searching for information on the coronavirus.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/rawg1.png' />
+
 _Figure 7. Visualization of data flows for the “coronavirus” query._
 
 In the graph visualizing all results following the “coronavirus” query (figure 7) the channel overlap seems to be much larger in comparison to “american elections”, ranging from domain-specific channels such as the John Hopkins Institute for Public Health to news outlets ranging from VOX News to BBC News and Deutsche Welle. At the same time, Biden supporters are offered content by YouTube natives such as Evan Endiger, as well as conventional, mainstream outlets such as “The Economist”. Trump supporters are offered content by outlets such as the “Child Mind Institute”, “News Now from FOX” and “The Sun”.
 
 A quantitative statistical analysis of the data sets for the “Coronavirus” query (figure 8), replicates the tendency observed in the previous query “american elections”, showing that personalisation in content retrieval occurs through niche media outlets or native YouTube channels for the majority of users affiliated to Trump and mainstream media outlets for users affiliated to Biden.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/cake2.png' />
+
 _Figure 8. Statistical Analysis. Proportion of media type per category of users for the “Coronavirus” query._
 
 **Finding 4**: The search results for “Coronavirus” also indicate less polarization in terms of political orientation of the YouTube channels, as both user groups are recommended mostly left-leaning channels
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/net4.jpg' />
+
 _Figure 9: Top 20 search results of "Coronavirus" across conservative (Trump pseudo) and progressive (Biden pseudo) user groups in terms of political orientations._
 
 When looking at the search results of “Coronavirus" in terms of the political orientation of the YouTube channels recommended, a lopsided recommendation emerges of left-leaning media content to both the conservative and progressive user groups. No right-leaning channels are recommended to the progressive user groups and only a few conservative users get personalized recommendations from the right-leaning channels. Thus, the results also indicate that conservative users get recommended videos with more diverse political orientations than the progressive users, when we focus on each user individually.
 
 Nevertheless, the quantitative statistical analysis of all results following the “coronavirus” query (figure 10), indicate that personalization of results which was observed in the previous query “american elections”, is also replicated here. Republican supporters are offered predominantly right leaning channels, while Democrats are offered mainly left leaning outlets.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/cake3.png' />
 
 _Figure 10, Channel orientation of recommended videos per group of users for the “coronavirus” query._
 
@@ -169,8 +178,9 @@ _Figure 10, Channel orientation of recommended videos per group of users for the
 
 In the “Coronavirus” search results, there are quite a lot of personalized results for individual users related to the American election. These results indicate that the previous search for “american election” has influenced the next search, indicating a “carry-over effect” (Hannák et al, 2017). The same carry-over effect is evident in the search results for the control query “new year” performed last. Here, coronavirus-related suggestions appear for both user groups. The results are illustrated in the graphs below and indicate that neutral queries will get a lot of channels recommended that are not categorized in terms of media type and political orientation, as they are not news channels. 
 
-<img src='/images/ws20/winter_cake.png' />
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/net5.png' />
+<img src='/images/ws21/net6.png' />
+
 _Figure 11: Top 20 search results of "new year" in terms of media type (left) and political orientation (right)_
 
 **Finding 6**: There are instances of unique search results for particular users within groups:
@@ -181,7 +191,8 @@ b) Individual users are offered unique results in videos ranking beyond the 12th
 
 **Finding 6a**: Channels such as La NACION (n=1 user), 9 News Australia (n=1 user), India Today (n=2 users), the AFP News Agency (n=3 users) and The Sun (n=2 users) appear for the American Elections (figure 1). Similarly, ITV News (n=1 user), DW Deutsch (n=1 user), FRANCE (n=1 user) and 11 Alive Streamed Georgia (n=1 user), appear as unique results for the Coronavirus query (figure, 2). This could be a potential indication that personalisation processes are in progress which relate to variables linked to geo-location data and videos created in a non-English language. The YouTube ranking algorithm is reportedly drawing on geo-location data, among other variables, in order to infer the possibility of users to engage with similar content in the future (Covington et al, 2016).
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/rawg2.png' />
+
 _Figure 12. Visualisation of data flows for the “New Year” query_
 
 **Finding 6b**: In the “New Year” query (figure 12) channel overlaps for both groups include traditional media outlets, such as the Washington Post Streamed, The Telegraph streamed, and Global News (Canada). However, if we look into the data flows after the 12th result, we have instances of the same channel offering different videos to individual users. The NBC News Channel appears as a result only to four users, two from each group. Interestingly, within the groups individual users are offered different videos.
@@ -192,13 +203,15 @@ For the “american elections” (figure 3) and “coronavirus” (figure 7) que
 
 The sentiment analysis only revealed a proximity in the language on comments from both personalized selections. Negative and positive comments consistently outnumber neutral ones, but their distribution is almost equal across all queries and both personalized selections of videos. This offers no clue as to polarization.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/cake4.png' />
+
 _Figure 13 : sentiment is the same for ‘conservative’ and ‘progressive’ personalized selections, and equally distributed for all queries_
 
 **Finding 7**: the personalization of search results leads to topics of discussion closely related to the previous activity of the user, regardless of the search itself. This indicates polarization in the case of a ‘conservative’ or ‘progressive’ user through the amplification of political views.
 
-<img src='/images/ws20/winter_cake.png' />
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/semtop.png' />
+<img src='/images/ws21/semtop1.png' />
+
 _Figure 14 : Topics in the comments for the “American election” query results, as presented to the Conservative (14a) and Progressive (14b) user group.On the left hand side, the size of the bubbles reflect the importance of each topic. Their position is defined by the content (intertwined bubbles are topics closely related to one another). On the right, the details of a highlighted topic. Interactive version can be found [here](https://drive.google.com/drive/folders/17nazTOa1Qn5ryp-o5VgXsOrfTbfZIcO5)._
 
 Figure 14 illustrates the main topics within the comments of the “American Election” videos. The graph shows significant differences in weight distribution and diversity of these topics, between progressive and conservative sides. Videos recommended to the progressive user group (figure 14a) present a larger number of different relevant topics (20 vs 14), and more variety within those topics. The main debate is about the election (bubbles 1 and 2) and displays an international world view with a number of country names being relevant to the topic. Smaller topics include the nobel peace prize (bubble n°13), space technology and a number of smaller international issues clustered around bubble n°9.
@@ -207,8 +220,9 @@ The selection for the conservative browsers, on the other hand, leads to a more 
 
 However, we find that political comments are even more prevalent and partisan within the “Coronavirus” videos, and even those of the supposedly neutral “New Year” query, as illustrated in figure 15.
 
-<img src='/images/ws20/winter_cake.png' />
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/semtop2.png' />
+<img src='/images/ws21/semtop3.png' />
+
 _Figure 15: Topics in the comments for the “New Year” query results, as offered to the progressive (15a) and conservative user group (15b). On the right-hand side we see the content of highlighted topics, related to the presidential candidates. Interactive version can be found [here](https://drive.google.com/drive/folders/17nazTOa1Qn5ryp-o5VgXsOrfTbfZIcO5)._
 
 On figure 15b, signs of polarization first show through the content of the main topics. After the pandemic (bubble n°1) the most discussed subjects in the “New Year” conservative selection are the Trump presidency (bubble n°2), other political issues (n°3), and the democrats (n°4) - far outshining well-wishes for the new year (bubble n°7). Various democrat personalities are discussed, with the words “senile” and “dementia” being associated to Joe Biden.
@@ -219,7 +233,8 @@ Across all queries, it is extremely rare that a topic be brought up on both side
 
 **Finding 8**: query results that were personalized for users having previously searched for, and consumed ‘‘conservative” media, contain a higher degree of toxicity within the comment section.
 
-<img src='/images/ws20/winter_cake.png' />
+<img src='/images/ws21/semtox.png' />
+
 _Figure 16 : Toxicity indices of the “Election” and “Coronavirus” query for both personalized selections_
 
 Fig. 16 shows that half of the comments are considered toxic across queries and personalized selections. For that half, comments in the videos suggested for the “conservative” browsers are considered toxic to a higher degree.
