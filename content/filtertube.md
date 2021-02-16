@@ -1,15 +1,15 @@
 ---
-title: " FIlterTube:Investigating echo chambers, filter bubbles and polarization on YouTube" 
-subtitle: "Workshop at the Digital Methods Winter School and Data Sprint 2021"
+title: "FilterTube: Investigating echo chambers, filter bubbles and polarization on YouTube" 
+subtitle: "An experimental research on how personalization influence search results."
 date: 2021-01-22T15:01:21+01:00
 draft: false
-description: "Winter School workshop's Final Report, extended version"
+description: "Winter School 2021 workshop's Final Report, extended version"
 
-og_title: "TREXIT - Winter School focus group on youtube+brexit"
+og_title: "FilterTube — How Youtube personalize search results"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
-og_url: "https://youtube.tracking.exposed/filtertube"
-og_description: "A group of researcher using our tool to investigate in personalization algorithm, researched how media in USA post-election debate polarize the discussion"
+og_url: "/filtertube"
+og_description: "In a few reproducible steps, you can see how much youtube personalize search result beased on precedent personal activities"
 ---
 
 {{<colorblock text="FIlterTube:Investigating echo chambers, filter bubbles and polarization on YouTube" color="secondary">}}
