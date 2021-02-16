@@ -393,4 +393,4 @@ Zuiderveen Borgesius, F. J., Trilling, D., Möller, J., Bodó, B., Vreese, C. H.
 
 ## Appendix
 
-Please refer to [original document](https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube).
+Please refer to [original document](https://wiki.digitalmethods.net/Dmi/WinterSchool2021FIterTube).
