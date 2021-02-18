@@ -15,8 +15,7 @@ og_description: "When testing youtube you might want to mix actual people with s
 # Copy the git repository locally
 
 * download: https://github.com/tracking-exposed/yttrex/archive/master.zip
-* unpack
-* enter in `methodology` directory
+* unpack the .zip in the `methodology/extension` directory. _You should see manifest.json in the extension directory_.
 
 # Things to know about the script `src/guardoni.js`
 
