@@ -46,10 +46,15 @@ ourvision = false
     url = "/about/"
     weight = 140
  [[menu.main]]
+    name = "Automation"
+    parent = "More"
+    url = "/automation/"
+    weight = 150
+ [[menu.main]]
     name = "Privacy"
     parent = "More"
     url = "/privacy/"
-    weight = 150
+    weight = 160
  [[menu.main]]
     parent = "More"
     name = "Youtuber Labor union"
