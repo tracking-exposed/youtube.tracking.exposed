@@ -1,7 +1,7 @@
-[ 
-    { "name":"OAN network", "url":"https://www.youtube.com/watch?v=Ko3kXAm4xtc", "specialwatch":"end" },
-    { "url":"https://www.youtube.com/watch?v=5Yl0IBiDAYY", "specialwatch": "end" },
-    { "url":"https://www.youtube.com/watch?v=m__kyAgn1Ng", "specialwatch": "end" },
-    { "url":"https://www.youtube.com/watch?v=IabvJwmMwog", "specialwatch": "end" },
-    { "url":"https://www.youtube.com/watch?v=pltZb27fxwE", "specialwatch": "end" },
-    { "url":"https://www.youtube.com/watch?v=Cdyin9ltg90", "specialwatch": "end" } ]
+[
+    { "name":"OAN network", "url":"https://www.youtube.com/watch?v=Ko3kXAm4xtc", "watchFor":"end" },
+    { "name":"OAN network", "url":"https://www.youtube.com/watch?v=5Yl0IBiDAYY", "watchFor": "end" },
+    { "name":"Newsmax tv", "url":"https://www.youtube.com/watch?v=m__kyAgn1Ng", "watchFor": "end" },
+    { "name":"Newsmax tv", "url":"https://www.youtube.com/watch?v=IabvJwmMwog", "watchFor": "end" },
+    { "name":"The next news Network", "url":"https://www.youtube.com/watch?v=pltZb27fxwE", "watchFor": "end" },
+    { "name":"The next news Network", "url":"https://www.youtube.com/watch?v=Cdyin9ltg90", "watchFor": "end" } ]

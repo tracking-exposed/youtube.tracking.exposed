@@ -1,7 +1,7 @@
 [
-    {"url":"https://www.youtube.com/watch?v=OjD54qVUFms", "specialwatch":"end" },
-    {"url":"https://www.youtube.com/watch?v=SpdOINehZF0", "specialwatch":"end" },
-    {"url":"https://www.youtube.com/watch?v=1CotcFOZ2mY", "specialwatch":"end" },
-    {"url":"https://www.youtube.com/watch?v=jAiwaqI1YYs", "specialwatch":"end" },
-    {"url":"https://www.youtube.com/watch?v=W9vOH6hSRQY", "specialwatch":"end" },
-    {"url":"https://www.youtube.com/watch?v=oVj0eJRQriY", "specialwatch":"end" } ]
+    {"name":"The Young Turks", "url":"https://www.youtube.com/watch?v=OjD54qVUFms", "watchFor":"end" },
+    {"name":"The Young Turks", "url":"https://www.youtube.com/watch?v=SpdOINehZF0", "watchFor":"end" },
+    {"name":"Now This", "url":"https://www.youtube.com/watch?v=1CotcFOZ2mY", "watchFor":"end" },
+    {"name":"Now This", "url":"https://www.youtube.com/watch?v=jAiwaqI1YYs", "watchFor":"end" },
+    {"name":"vice News", "url":"https://www.youtube.com/watch?v=W9vOH6hSRQY", "watchFor":"end" },
+    {"name":"vice News", "url":"https://www.youtube.com/watch?v=oVj0eJRQriY", "watchFor":"end" } ]
