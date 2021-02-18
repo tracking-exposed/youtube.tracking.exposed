@@ -18,9 +18,11 @@ og_description: "By comparing individuals observation, we can understand how per
 
 This list can be updated by opening a **pull request**  in [this config file](https://github.com/tracking-exposed/yttrex/blame/master/backend/config/campaigns.json#L2).
 
+* [Draghi](/chiaro/draghi1), Italian specific experiment about the new government lead from Mario Draghi — of course we would love to do less national-popular topic but that's the cost of aiming mainstream.
+* [Amsterdam Winter School](/chiaro/ws21), an experiment among students. [Final presentation](https://docs.google.com/presentation/d/1o__Fw_YyhcsD1-lk14jp8phwGxAaA0SgUnFpjiUba1E/edit).
 * [US election simple example](/chiaro/us1), a small selection of election related term selected by non-experts.
 * [**Four animals**, our small example on how to create your own CHIARO](/chiaro/example): open a tutorial with a large room for improvement.
-* [Amsterdam Winter School](/chiaro/ws2021), an experiment among studends. [Final presentation](https://docs.google.com/presentation/d/1o__Fw_YyhcsD1-lk14jp8phwGxAaA0SgUnFpjiUba1E/edit].
+
 
 Why we did it?...
 
@@ -73,7 +75,7 @@ Why we did it?...
 </div>
 
 {{<colorblock
-    text="Profiling enable advanced form of content filtering, and distinguish from censorship it's complex" 
+    text="Profiling enable advanced form of content filtering, and distinguish from censorship it's complex"
     cranky="especially if it is an acceptable justification the ''personalized results for Users' interest'':" >}}
 
 <div class="row">
@@ -105,7 +107,7 @@ Why we did it?...
     picture="/images/wetest-youtrust.jpg"
 >}}
 
-            
+
 # Because nor we or anyone else can't say what is the best algorithm for you. We are here to remind you that *your agency* is *not the one of Google*.
 
 {{<colorblock
@@ -117,7 +119,7 @@ CHIARO is about all of this: We though your list of queries might cover aspects 
 
 ---
 
-## About us 
+## About us
 
 1. [Tracking Exposed manifesto](https://tracking.exposed/manifesto).
 2. [Past analysis and publications](https://facebook.tracking.exposed/analysis-and-publications), since 2016 we run a methodology to independently assess impact of algorithmic personalization.
