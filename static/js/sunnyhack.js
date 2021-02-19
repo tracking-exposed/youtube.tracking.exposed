@@ -63,6 +63,7 @@ async function getCampaignQueryStats(campaignName) {
 }
 
 function appendLinkList(retrieved, copyFrom, dest) {
+    console.log(retrieved);
     const data = _.orderBy(retrieved.selist, 'searchTerms');
     const campaign = retrieved.campaign;
     console.log(retrieved, campaign);
@@ -115,7 +116,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
         }
     });
     $("#stats").text(
-        `counters: keywords ${stats.keywords}, from ${retrieved.contributors}, searches ${stats.searches}, videos ${stats.totalvideos}`
+        `counters: keywords ${stats.keywords}, from ${retrieved.contributors}, searches ${stats.searches}, videos ${stats.totalvideos}, overflow? ${retrieved.parameters.overflow}`
     );
     $("#stats").css('padding', '5px');
 }
