@@ -68,3 +68,14 @@
         
     color: #575756;
 }
+
+.urlo {
+    width: 100%;
+    border: 0;
+    cursor: copy;
+}
+
+code.searchmid {
+    padding: 3px;
+    cursor: cell;
+}

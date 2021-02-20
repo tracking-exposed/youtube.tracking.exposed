@@ -62,8 +62,45 @@ async function getCampaignQueryStats(campaignName) {
     }
 }
 
+async function doDump(termId, hashedidname, e) {
+    e.preventDefault();
+    const idname = hashedidname.replace(/#/,'');
+    let cinfo = null;
+    const url = buildApiUrl('searches', encodeURIComponent(termId), 2);
+    try {
+        cinfo = await $.getJSON(url);
+    } catch(e) {
+        console.error("Unable to fetch data", e);
+        $(hashedidname).append('<p><h1><code>Error' + e.message + '</code></h1></p>');
+        return;
+    }
+
+    const bym = _.groupBy(cinfo, 'metadataId');
+    const codeList = _.map(bym, function(videos, metadataId) {
+        return '<code class="searchmid" id="'+metadataId+'">' + _.first(videos).pseudo + '</code>';
+    }).join('');
+    $(hashedidname).append('<p><input type="text" class="urlo urlo-'+ idname +'"></p><p>'+ codeList +'</p>');
+    $(".searchmid").click(function(e) {
+        // this contain metadataId from <code>
+        updateHref(e.target.id, idname);
+    })
+}
+
+// keep a copy of selected metadataId to compose URL
+const listofid = [];
+function updateHref(newId, inputFormId) {
+    if(listofid.indexOf(newId) === -1)
+        listofid.push(newId);
+    const uri = '/api/v2/searches/' + listofid.join(',') + '/dot';
+    
+    const url = (window.location.origin === 'https://youtube.tracking.exposed') ?
+        window.location.href + uri : 'http://localhost:9000' + uri;
+
+    $("input.urlo-" + inputFormId).attr('value', url);
+    console.log("href updated", url);
+}
+
 function appendLinkList(retrieved, copyFrom, dest) {
-    console.log(retrieved);
     const data = _.orderBy(retrieved.selist, 'searchTerms');
     const campaign = retrieved.campaign;
     console.log(retrieved, campaign);
@@ -95,6 +132,8 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .linkwrapper > .query").text(entry.searchTerms);
             $(idname + " > .sunnylink > .comparebutton")
                 .attr('href', '/chiaro/v/#' + encodeURIComponent(entry.searchTerms));
+            $(idname + " > .sunnylink > .dumplist").attr('href', '#');
+            $(idname + " > .sunnylink > .dumplist").click(_.partial(doDump, searchTerms, idname));
 
             stats.totalvideos += entry.total;
             stats.searches += _.size(entry.searches);
@@ -113,6 +152,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .searchtimes").remove();
             $(idname + " > .sunnylink > .totalvideos").remove();
             $(idname + " > .sunnylink > .downloadCSV").remove();
+            $(idname + " > .sunnylink > .dumplist").remove();
         }
     });
     $("#stats").text(
