@@ -64,6 +64,7 @@ async function getCampaignQueryStats(campaignName) {
 
 async function doDotDump(termId, hashedidname, e) {
     e.preventDefault();
+    listofid = [];
     const idname = hashedidname.replace(/#/,'');
     let cinfo = null;
     const url = buildApiUrl('searches', encodeURIComponent(termId), 2);
@@ -92,11 +93,11 @@ async function doDotDump(termId, hashedidname, e) {
 }
 
 // keep a copy of selected metadataId to compose URL
-const listofid = [];
+let listofid = [];
 function updateHref(newId, inputFormId) {
     if(listofid.indexOf(newId) === -1)
         listofid.push(newId);
-    const url = buildApiUrl('searches', listofid.join(',') + '/dot', 2);
+    const url = window.location.origin + buildApiUrl('searches', listofid.join(',') + '/dot', 2);
     $("input.urlo-" + inputFormId).attr('value', url);
     console.log("href updated", url);
 }
