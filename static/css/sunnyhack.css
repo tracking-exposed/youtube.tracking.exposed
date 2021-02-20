@@ -79,3 +79,8 @@ code.searchmid {
     padding: 3px;
     cursor: cell;
 }
+
+code > small {
+    background-color: lightyellow;
+    margin: 2px;
+}

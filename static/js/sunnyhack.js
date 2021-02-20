@@ -62,22 +62,27 @@ async function getCampaignQueryStats(campaignName) {
     }
 }
 
-async function doDump(termId, hashedidname, e) {
+async function doDotDump(termId, hashedidname, e) {
     e.preventDefault();
     const idname = hashedidname.replace(/#/,'');
     let cinfo = null;
     const url = buildApiUrl('searches', encodeURIComponent(termId), 2);
     try {
         cinfo = await $.getJSON(url);
+        if(cinfo.overflow) 
+            $(hashedidname).append('<small><b>overflow<b></small>');
     } catch(e) {
         console.error("Unable to fetch data", e);
         $(hashedidname).append('<p><h1><code>Error' + e.message + '</code></h1></p>');
         return;
     }
 
-    const bym = _.groupBy(cinfo, 'metadataId');
+    const bym = _.groupBy(cinfo.data, 'metadataId');
     const codeList = _.map(bym, function(videos, metadataId) {
-        return '<code class="searchmid" id="'+metadataId+'">' + _.first(videos).pseudo + '</code>';
+        const availv = _.size(videos);
+        const when = moment.duration( moment() - moment(_.first(videos).savingTime) ).humanize();
+        return '<code class="searchmid" id="'+metadataId+'">' + _.first(videos).pseudo +
+            '<small>' + when + '—' + availv + '</small></code>';
     }).join('');
     $(hashedidname).append('<p><input type="text" class="urlo urlo-'+ idname +'"></p><p>'+ codeList +'</p>');
     $(".searchmid").click(function(e) {
@@ -91,11 +96,7 @@ const listofid = [];
 function updateHref(newId, inputFormId) {
     if(listofid.indexOf(newId) === -1)
         listofid.push(newId);
-    const uri = '/api/v2/searches/' + listofid.join(',') + '/dot';
-    
-    const url = (window.location.origin === 'https://youtube.tracking.exposed') ?
-        window.location.href + uri : 'http://localhost:9000' + uri;
-
+    const url = buildApiUrl('searches', listofid.join(',') + '/dot', 2);
     $("input.urlo-" + inputFormId).attr('value', url);
     console.log("href updated", url);
 }
@@ -133,7 +134,7 @@ function appendLinkList(retrieved, copyFrom, dest) {
             $(idname + " > .sunnylink > .comparebutton")
                 .attr('href', '/chiaro/v/#' + encodeURIComponent(entry.searchTerms));
             $(idname + " > .sunnylink > .dumplist").attr('href', '#');
-            $(idname + " > .sunnylink > .dumplist").click(_.partial(doDump, searchTerms, idname));
+            $(idname + " > .sunnylink > .dumplist").click(_.partial(doDotDump, searchTerms, idname));
 
             stats.totalvideos += entry.total;
             stats.searches += _.size(entry.searches);
@@ -193,7 +194,10 @@ async function reproduceSearchesOutput(terms, source, destList) {
     const url = buildApiUrl('searches', encodeURIComponent(terms), 2);
     try {
         const data = await $.getJSON(url);
-        const gd = _.groupBy(data, 'metadataId');
+        if(data.overflow)
+            console.log("Warning: data overflow, manage paging server side too", data.maxAmount);
+
+        const gd = _.groupBy(data.data, 'metadataId');
         const selected = _.map(destList, function(column, i) {
             const dbcount = _.size(_.nth(_.values(gd), i));
             console.log("List", column, "should have", dbcount, "search results");
