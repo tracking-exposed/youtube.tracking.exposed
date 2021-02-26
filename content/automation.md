@@ -10,14 +10,14 @@ og_url: "https://youtube.tracking.exposed/methodology"
 og_description: "When testing youtube you might want to mix actual people with synthetic access, here is provided our script and method"
 ---
 
-# [Install nodejs in your system](https://nodejs.org/en/download://nodejs.org/en/download/)
+### [Install nodejs in your system](https://nodejs.org/en/download://nodejs.org/en/download/)
 
-# Copy the git repository locally
+### Copy the git repository locally
 
 * download: https://github.com/tracking-exposed/yttrex/archive/master.zip
 * unpack the .zip in the `methodology/extension` directory. _You should see manifest.json in the extension directory_.
 
-# Things to know about the script `src/guardoni.js`
+### Things to know about the script `src/guardoni.js`
 
 1. it have to follow a list of URL retrieved from a JSON list reachable on the web. You can decide which URL, we offer two of them as default: [conservative](https://youtube.tracking.exposed/bin/conservative-filtertube.json), [progressive](https://youtube.tracking.exposed/bin/progressive-filtertube.json).
 2. you have to create a directory where the chrome-profile would live. we suggest to create a directory in `methodology/profiles/`
@@ -26,10 +26,15 @@ og_description: "When testing youtube you might want to mix actual people with s
 What you're ready, guardoni.js is a script that uses puppeteer and automate chrome.
 for our video we configured the method to watch them till the end. In other pages and other cases you might want to train your profile
 
-# Examples
+### Examples
 
-`node scr/guardoni.js --source https://youtube.tracking.exposed/bin/conservative-filtertube.json --profile profiles/conservative1`
+`node scr/guardoni.js --source https://youtube.tracking.exposed/json/conservative-filtertube.json --profile profiles/conservative1`
 
 or, if you enable debug:
 
-`DEBUG=*,-puppeteer:* node src/guardoni.js --source https://youtube.tracking.exposed/bin/progressive-filtertube.json --profile profiles/progressive1`
+`DEBUG=*,-puppeteer:* node src/guardoni.js --source https://youtube.tracking.exposed/json/progressive-filtertube.json --profile profiles/progressive1`
+
+### Last remarks: `guardoni` is in a preliminary stage and settings might change
+
+1. Please double check with the descriptive [README](https://github.com/tracking-exposed/yttrex/tree/master/methodology).
+2. Consider joining our [Mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed) and reach out if you need any help.
