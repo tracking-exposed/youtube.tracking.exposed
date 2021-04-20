@@ -15,12 +15,12 @@ og_description: "When testing youtube you might want to mix actual people with s
 
 * Be sure 'node -v' show you've installed node in a version bigger than 12.x, if not [install nodejs in your system](https://nodejs.org/en/download://nodejs.org/en/download/).
 * download: https://github.com/tracking-exposed/yttrex/archive/master.zip
-* enter 'yttrex-master/methodology' and run 'npm install'
-* check the output of 'node src/guardoni.js', does it show an error because you did't specify any config settings? that's good!
+* enter `yttrex-master/methodology` and run `npm install`
+* check the output of `node src/guardoni.js`, does it show an error because you did't specify any config settings? that's good!
 * download 
 * unpack the .zip in the `methodology/extension` directory. _You should see manifest.json in the extension directory_.
 
-### Things to know about the script `src/guardoni.js`
+### Options supported by the automation script (`src/guardoni.js`)
 
 1. it have to follow a list of URL retrieved from a JSON list reachable on the web. You can decide which URL, we offer two of them as default: [conservative](https://youtube.tracking.exposed/bin/conservative-filtertube.json), [progressive](https://youtube.tracking.exposed/bin/progressive-filtertube.json).
 2. you have to create a directory where the chrome-profile would live. we suggest to create a directory in `methodology/profiles/`
