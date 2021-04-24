@@ -13,31 +13,36 @@ og_description: "When testing youtube you might want to mix actual people with s
 
 ### How to install automation scripts 
 
-* Be sure 'node -v' show you've installed node in a version bigger than 12.x, if not [install nodejs in your system](https://nodejs.org/en/download://nodejs.org/en/download/).
-* download: https://github.com/tracking-exposed/yttrex/archive/master.zip
-* enter `yttrex-master/methodology` and run `npm install`
-* check the output of `node src/guardoni.js`, does it show an error because you did't specify any config settings? that's good!
-* download 
-* unpack the .zip in the `methodology/extension` directory. _You should see manifest.json in the extension directory_.
+* Be sure 'node -v' show you've installed node in a version bigger than 12.x, if not [install nodejs in your system](https://nodejs.org/en/download/).
+* Download: https://github.com/tracking-exposed/yttrex/archive/master.zip (or clone the git repository if you are used to)
+* Enter `yttrex-master/methodology` and run `npm install`
+* Check the output of `node src/guardoni.js`, does it show an error because you did't specify any config settings? that's good! Let's see which are the available settings:
 
-### Options supported by the automation script (`src/guardoni.js`)
+### Directives and options
+ 
+The configuration file for _guardoni_ specify what the browser would be instructed to do. Example:
 
-1. it have to follow a list of URL retrieved from a JSON list reachable on the web. You can decide which URL, we offer two of them as default: [conservative](https://youtube.tracking.exposed/bin/conservative-filtertube.json), [progressive](https://youtube.tracking.exposed/bin/progressive-filtertube.json).
-2. you have to create a directory where the chrome-profile would live. we suggest to create a directory in `methodology/profiles/`
-3. you have to download a .zip (the browser extension of [youtube.tracking.exposed](/)) and unpack it `methodology/extension/`
+```
+[{
+    "name": "Baby Shark Dance",
+    "url": "https://www.youtube.com/watch?v=XqZsoesa55w",
+    "watchFor": "end",
+    "loadFor": 1234
+}, {
+    "name": "Satanic - Official Trailer",
+    "url": "https://www.youtube.com/watch?v=T-bH1EeUhpQ",
+    "watchFor": 15000
+}]
+```
 
-What you're ready, guardoni.js is a script that uses puppeteer and automate chrome.
-for our video we configured the method to watch them till the end. In other pages and other cases you might want to train your profile
+* `watchFor` it is the variable that say how many milliseconds the video should be reproduced.
+* `loadFor` it is the time used to load the video before trying any interaction (guardoni would press play for you).
 
-### Examples
+### Know issues
 
-`node scr/guardoni.js --source https://youtube.tracking.exposed/json/conservative-filtertube.json --profile profiles/conservative1`
+Youtube might interrupt any interaction by displaying a few possible requests "Do you want to login?" "Do you want to try premium?". Despite this automation it is meant to be executed without human intervention, there actions should be solved by active clicks from the researcher.
 
-or, if you enable debug:
+### Conclusion
 
-`DEBUG=*,-puppeteer:* node src/guardoni.js --source https://youtube.tracking.exposed/json/progressive-filtertube.json --profile profiles/progressive1`
-
-### Last remarks: `guardoni` is in a preliminary stage and settings might change
-
-1. Please double check with the descriptive [README](https://github.com/tracking-exposed/yttrex/tree/master/methodology).
+1. Please double check with the descriptive [README](https://github.com/tracking-exposed/yttrex/tree/master/methodology) in the methodology directory; Also, despite the self explicatory name, it actually lie: there are no methodologies there yet.
 2. Consider joining our [Mattermost chat](https://chat.securitywithoutborders.org/community/channels/trackingexposed) and reach out if you need any help.
