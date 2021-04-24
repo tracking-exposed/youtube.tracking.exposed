@@ -24,14 +24,20 @@ The configuration file for _guardoni_ specify what the browser would be instruct
 
 ```
 [{
-    "name": "Baby Shark Dance",
-    "url": "https://www.youtube.com/watch?v=XqZsoesa55w",
-    "watchFor": "end",
-    "loadFor": 1234
+    "name": "Tracking Exposed intro video",
+    "url": "https://www.youtube.com/watch?v=SmYuYEhT81c",
+    "watchFor": 65000,
+    "loadFor": 2000
 }, {
-    "name": "Satanic - Official Trailer",
-    "url": "https://www.youtube.com/watch?v=T-bH1EeUhpQ",
-    "watchFor": 15000
+    "name": "Youtube Tracking Exposed first tutorial",
+    "url": "https://www.youtube.com/watch?v=igs24EeIWBU",
+    "watchFor": 65000,
+    "loadFor": 2000
+}, {
+    "name": "Youtube Tracking Exposed presentation in 2020",
+    "url": "https://www.youtube.com/watch?v=WheHKW_r_WM",
+    "watchFor": 65000,
+    "loadFor": 2000
 }]
 ```
 
