@@ -26,22 +26,22 @@ The configuration file for _guardoni_ specify what the browser would be instruct
 [{
     "name": "Tracking Exposed intro video",
     "url": "https://www.youtube.com/watch?v=SmYuYEhT81c",
-    "watchFor": 65000,
+    "watchFor": "end",
     "loadFor": 2000
 }, {
     "name": "Youtube Tracking Exposed first tutorial",
     "url": "https://www.youtube.com/watch?v=igs24EeIWBU",
-    "watchFor": 65000,
+    "watchFor": 165000,
     "loadFor": 2000
 }, {
     "name": "Youtube Tracking Exposed presentation in 2020",
     "url": "https://www.youtube.com/watch?v=WheHKW_r_WM",
-    "watchFor": 65000,
+    "watchFor": 15000,
     "loadFor": 2000
 }]
 ```
 
-* `watchFor` it is the variable that say how many milliseconds the video should be reproduced.
+* `watchFor` it is the variable that say how many milliseconds the video should be reproduced. You can specify "end" to watch it till the end.
 * `loadFor` it is the time used to load the video before trying any interaction (guardoni would press play for you).
 
 ### Know issues
