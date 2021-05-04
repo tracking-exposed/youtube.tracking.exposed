@@ -1,0 +1,192 @@
+---
+title: Experiment (n.2) personalization report
+draft: false
+layout: page
+date: 2021-04-29T18:11:24+02:00
+---
+
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<style>
+  .links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+  }
+
+  .nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+</style>
+<code>This small experiment works in conjunction with the automated watching tool.</code>
+<div hidden id="protoclone">
+  <hr />
+  <h3 class="videoName">videoname-filler-replaced-by-js</h3>
+  <svg id="svg--" width="960" height="600"></svg>
+</div>
+<div id="fuffa"></div>
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
+<script type="text/javascript">
+
+function mainpaint(idName, graph) {
+
+  // cribbed from: https://www.youtube.com/watch?v=y2-sgZh49dQ 
+  // Andrew Chen https://www.youtube.com/channel/UCdGYHVptzujcjK67pOnrcGQ 
+  var svg = d3.select(idName);
+  var width = svg.attr("width");
+  var height = svg.attr("height");
+
+  var simulation = d3
+    .forceSimulation(graph.nodes)
+    .force("link",
+      d3
+        .forceLink()
+        .id(function(d) {
+          return d.id;
+        })
+        .links(graph.links)
+    )
+    .force("charge", d3.forceManyBody().strength(-100))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .on("tick", ticked);
+
+  var link = svg
+    .append("g")
+    .attr("class", "links")
+    .selectAll("line")
+    .data(graph.links)
+    .enter()
+    .append("line")
+    .attr("stroke-width", function(d) {
+      return 2;
+    });
+
+  var node = svg
+    .append("g")
+    .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", function(d) {
+      return d.group == 2 ? 10 : 5;
+    })
+    .attr("fill", function(d) {
+      return d.group == 2 ? 'red' : 'black';
+    })
+    .call(
+      d3
+        .drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended)
+    );
+
+  function color() {
+    const scale = d3.scaleOrdinal(d3.schemeCategory10);
+    return d => scale(d.group);
+  }
+
+  function ticked() {
+    link
+      .attr("x1", function(d) {
+        return d.source.x;
+      })
+      .attr("y1", function(d) {
+        return d.source.y;
+      })
+      .attr("x2", function(d) {
+        return d.target.x;
+      })
+      .attr("y2", function(d) {
+        return d.target.y;
+      });
+
+    node
+      .attr("cx", function(d) {
+        return d.x;
+      })
+      .attr("cy", function(d) {
+        return d.y;
+      });
+  }
+
+  function dragstarted(d) {
+    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+  }
+
+  function dragged(d) {
+    d.fx = d3.event.x;
+    d.fy = d3.event.y;
+  }
+
+  function dragended(d) {
+    if (!d3.event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+  }
+}
+
+function axes() {
+    var data = [100, 150, 200, 250, 280, 300];
+    var width = 400, height = 400;
+    var xscale = d3.scaleLinear()
+        .domain([0, d3.max(data)])
+        .range([0, width - 100]);
+    var yscale = d3.scaleLinear()
+        .domain([0, d3.max(data)])
+        .range([height/2, 0]);
+    var x_axis = d3.axisBottom().scale(xscale);
+    var y_axis = d3.axisLeft().scale(yscale);
+
+    var svg = d3.select("svg");
+    svg.append("g")
+        .attr("transform", "translate(50, 10)")
+        .call(y_axis);
+    var xAxisTranslate = height/2 + 10;
+    svg.append("g")
+        .attr("transform", "translate(50, " + xAxisTranslate  +")")
+        .call(x_axis)
+}
+
+function pies() {
+    var svg = d3.select("svg");
+    svg.append("g").call(d3.pie());
+}
+
+function lines() {
+  // thanks to https://www.tutorialspoint.com/d3js/d3js_paths_api.htm 
+  let data = [ [20, 20], [20, 130], [21, 130], [21, 20], [20, 20] ];
+  const lineGenerator = d3.line();
+  const pathString = lineGenerator(data);
+  svg.append('path');
+  d3.select('path').attr('d', pathString);
+}
+
+async function main() {
+
+  const exname = window.location.hash.substr(1);
+  const url =  buildApiUrl('experiment', exname + '/dot', 2);
+  const dotconn = await fetch(url);
+  const dotformat = await dotconn.json();
+  for (videoinfo of dotformat) {
+    console.log(videoinfo.videoName);
+    const elem = $("#protoclone").clone();
+    elem.attr("id", videoinfo.videoName);
+    elem.html(elem.html().replace(/svg--/, 'svg--' + videoinfo.videoName))
+    $("#fuffa").prepend(elem);
+    // now should be accessible and we'll start to change params of the new div 
+    $("#" + videoinfo.videoName + ' > .videoName').text(videoinfo.videoName);
+    elem.removeAttr('hidden');
+    await mainpaint('#svg--' + videoinfo.videoName, videoinfo.dotted);
+  }
+  // axes();
+}
+
+main();
+
+</script>
