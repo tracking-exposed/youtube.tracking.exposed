@@ -23,10 +23,14 @@ date: 2021-04-29T18:11:24+02:00
   <hr />
   <h3 class="videoName">videoname-filler-replaced-by-js</h3>
   <svg id="svg--" width="960" height="600"></svg>
+  <p id="title--"></p>
+  <div id="pie--"></div>
 </div>
 <div id="fuffa"></div>
+<link href="/css/c3.min.css" rel="stylesheet">
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="/js/c3.min.js"></script>
 
 <script type="text/javascript">
 
@@ -167,22 +171,69 @@ function lines() {
   d3.select('path').attr('d', pathString);
 }
 
+function pieCharts(idName, videos, titleId) {
+
+  c3__config = {
+    bindto: idName,
+    size: {
+        height: 500,
+        width: 900
+    },
+    data: {
+        type: 'donut',
+    },
+    donut: {
+        expand: true,
+        title: "Recommended Authors"
+    },
+    legend: { show: false }
+  };
+ 
+  // _.each(_.groupBy(videos, 'profile'), function(vlist, profileName) {
+  const profileName = "all";
+  const vlist = videos;
+    c3__config.data.json =  _.countBy(vlist, 'recommendedAuthor');
+    info = { profileName };
+    info.title = "Variety " + _.sum(_.map(_.countBy(vlist, 'recommendedAuthor'), function(amount, name) { return amount; }));
+    try {
+      $(titleId).html('<code>'+JSON.stringify(info)+'</code>')
+      piegraph = c3.generate(c3__config);
+    } catch(error) {
+      console.error("In generating pie graph", error.message);
+    }
+  // })
+}
+
 async function main() {
 
   const exname = window.location.hash.substr(1);
-  const url =  buildApiUrl('experiment', exname + '/dot', 2);
-  const dotconn = await fetch(url);
+  const doturl = buildApiUrl('experiment', exname + '/dot', 2);
+  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/dot'; 
+  const dotconn = await fetch(doturl);
   const dotformat = await dotconn.json();
+  const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
+  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/json'; 
+  const jsonconn = await fetch(jsonurl);
+  const jsonfmt = await jsonconn.json();
   for (videoinfo of dotformat) {
     console.log(videoinfo.videoName);
     const elem = $("#protoclone").clone();
     elem.attr("id", videoinfo.videoName);
-    elem.html(elem.html().replace(/svg--/, 'svg--' + videoinfo.videoName))
+    // dirty and ugly but this is part of the pain jquery gave us, 
+    // in the quest for a full react replacement with VX!
+    elem.html(elem.html().replace(/svg--/, 'svg--' + videoinfo.videoName));
+    elem.html(elem.html().replace(/pie--/, 'pie--' + videoinfo.videoName));
+    elem.html(elem.html().replace(/title--/, 'title--' + videoinfo.videoName));
     $("#fuffa").prepend(elem);
     // now should be accessible and we'll start to change params of the new div 
     $("#" + videoinfo.videoName + ' > .videoName').text(videoinfo.videoName);
     elem.removeAttr('hidden');
     await mainpaint('#svg--' + videoinfo.videoName, videoinfo.dotted);
+    await pieCharts(
+      '#pie--' + videoinfo.videoName,
+      _.filter(jsonfmt, { videoName: videoinfo.videoName }),
+      '#title--' + videoinfo.videoName,
+    );
   }
   // axes();
 }

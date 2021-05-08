@@ -58,6 +58,7 @@ const c3__config = [{
 
 function renderC3Graph(graphInfo) {
 
+    /* pie chart first graph */
     c3__config[0].data.json = graphInfo.views;
     let counter = 1;
     c3__config[0].data.colors = _.reduce(graphInfo.views, function(memo, amount, name) {
