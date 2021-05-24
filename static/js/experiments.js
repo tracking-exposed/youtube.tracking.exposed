@@ -1,39 +1,3 @@
----
-title: Experiment (n.2) personalization report
-draft: false
-layout: page
-date: 2021-04-29T18:11:24+02:00
----
-
-<!DOCTYPE html>
-<meta charset="utf-8" />
-<style>
-  .links line {
-    stroke: #999;
-    stroke-opacity: 0.6;
-  }
-
-  .nodes circle {
-    stroke: #fff;
-    stroke-width: 1.5px;
-  }
-</style>
-<code>This small experiment works in conjunction with the automated watching tool.</code>
-<div hidden id="protoclone">
-  <hr />
-  <h3 class="videoName">videoname-filler-replaced-by-js</h3>
-  <svg id="svg--" width="960" height="600"></svg>
-  <p id="title--"></p>
-  <div id="pie--"></div>
-</div>
-<div id="fuffa"></div>
-<link href="/css/c3.min.css" rel="stylesheet">
-<script type="text/javascript" src="/js/global.js"></script>
-<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-<script type="text/javascript" src="/js/c3.min.js"></script>
-
-<script type="text/javascript">
-
 function mainpaint(idName, graph) {
 
   // cribbed from: https://www.youtube.com/watch?v=y2-sgZh49dQ 
@@ -204,7 +168,7 @@ function pieCharts(idName, videos, titleId) {
   // })
 }
 
-async function main() {
+async function experimentGradualRender() {
 
   const exname = window.location.hash.substr(1);
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
@@ -238,6 +202,24 @@ async function main() {
   // axes();
 }
 
-main();
+function liElements(amount, name) {
+  return `<li><a href="/experiment/#${name}">${name}</a> ${amount}</li>`
+}
 
-</script>
+async function reportAllTheExperiments() {
+  const listurl = buildApiUrl('guardoni', 'list', 2);
+  const jsonconn = await fetch(listurl);
+  const jsonfmt = await jsonconn.json();
+  const exname = window.location.hash.substr(1);
+
+  $("#experiment--list").html(_.map(jsonfmt.experiments, liElements).join('\n'))
+  if(jsonfmt.overflow)
+    $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered');
+
+  if(!jsonfmt.experiments[exname]) {
+    $("#error").html(`An experiment <code>${exname}</code> was not found among the available`);
+    return false;
+  }
+  // this 'true' would allow the page to query results
+  return true;
+}
