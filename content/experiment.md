@@ -5,15 +5,14 @@ layout: page
 date: 2021-04-29T18:11:24+02:00
 ---
 
-#### Existing experiments
+#### List of Existing experiments:
 
 <ul id="experiment--list"></ul>
-<p id="experinent--warning"></p>
+<p id="experiment--warning"></p>
 
 ---
-#### Queried content
-
 <h4 id="error"></h4>
+<h4 id="experinfo"></h4>
 
 <div hidden id="protoclone">
   <h3 class="videoName">videoname-filler-replaced-by-js</h3>
@@ -51,7 +50,7 @@ improve this visualization by looking at this HTML or the JS.
 <script type="text/javascript">
 
 async function code() {
-  const cont = await reportAllTheExperiments()
+  const cont = await reportAllTheExperiments();
   if(cont)
     await experimentGradualRender();
 }

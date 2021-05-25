@@ -203,7 +203,11 @@ async function experimentGradualRender() {
 }
 
 function liElements(amount, name) {
-  return `<li><a href="/experiment/#${name}">${name}</a> ${amount}</li>`
+  return `<li><a href="/experiment/#${name}"
+    onclick="window.location.reload()">${name}</a> ${amount} sessions —
+    <a href="/api/v2/experiment/${name}/csv">CSV</a>, 
+    <a href="/api/v2/experiment/${name}/json">JSON</a>.
+    </li>`
 }
 
 async function reportAllTheExperiments() {
@@ -216,10 +220,20 @@ async function reportAllTheExperiments() {
   if(jsonfmt.overflow)
     $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered');
 
-  if(!jsonfmt.experiments[exname]) {
-    $("#error").html(`An experiment <code>${exname}</code> was not found among the available`);
+  console.log(_.keys(jsonfmt.experiments).length)
+  if(0 === (_.keys(jsonfmt.experiments).length))
+    $("#experiment--warning").text('Unexpected error: zero experiments found');
+
+  if(!exname.length) {
+    $("#error").html(`Experiment name is missing in the request`);
     return false;
   }
+  if(!jsonfmt.experiments[exname]) {
+    $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
+    return false;
+  }
+
+  $("#experinfo").text(`Rendering results for ${exname}`)
   // this 'true' would allow the page to query results
   return true;
 }
