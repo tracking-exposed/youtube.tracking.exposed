@@ -229,4 +229,41 @@ Another card used in a card-deck:
 </div>
 
 
+## G. clickable-card.html
+Yet another card, where the image and the title is clickable
+
+```
+<div class="card-deck">
+  {{< clickable-card
+      title="Facebook"
+      text="Don't take Zuck's word for granted."
+      href="https://facebook.tracking.exposed"
+      picture="/images/marc.jpeg" >}}
+
+  {{< clickable-card
+      title="PornHub"
+      text="Expose what the heck is going on in porn algorithm"
+      href="https://pornhub.tracking.exposed"
+      picture="/images/claudio.jpeg" >}}
+      
+</div>
+```
+
+<div class="card-deck">
+  {{< clickable-card
+      title="Facebook"
+      text="Don't take Zuck's word for granted."
+      href="https://facebook.tracking.exposed"
+      picture="/images/marc.jpeg" >}}
+
+  {{< clickable-card
+      title="PornHub"
+      text="Expose what the heck is going on in porn algorithm"
+      href="https://pornhub.tracking.exposed"
+      picture="/images/claudio.jpeg" >}}
+      
+</div>
+
+
+
 ## 10. ytbox isn't reported yet
