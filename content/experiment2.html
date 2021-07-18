@@ -17,8 +17,35 @@ date: 2021-04-29T18:11:24+02:00
     stroke: #fff;
     stroke-width: 1.5px;
   }
+
+  .tooltip {
+    position: absolute;
+    background-color: white;
+    max-width: 200px;
+    height: auto;
+    padding: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  .video-title {
+    background-color: aliceblue;
+  }
+  .video-info {
+    background-color: aliceblue;
+  }
 </style>
 <code>This small experiment works in conjunction with the automated watching tool.</code>
+<div class="header">
+  <div id="watched"></div>
+  <div id="skeleton--watched">
+    <img src="" />
+    <p class="video-title"></p>
+    <p class="video-info"></p>
+  </div>
+</div>
 <div hidden id="protoclone">
   <hr />
   <h3 class="videoName">videoname-filler-replaced-by-js</h3>
@@ -41,6 +68,11 @@ function mainpaint(idName, graph) {
   var svg = d3.select(idName);
   var width = svg.attr("width");
   var height = svg.attr("height");
+
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 1);
 
   var simulation = d3
     .forceSimulation(graph.nodes)
@@ -87,6 +119,35 @@ function mainpaint(idName, graph) {
         .on("drag", dragged)
         .on("end", dragended)
     );
+
+  /*
+  node
+    .append("title")
+    .text(d => d.id); */
+
+  node
+    .append("svg:title")
+      .text(function(d){return "profile:"+d.id;});
+
+  node
+    .on('mouseover', function(d) {
+      /*  tooltip.transition()
+          .duration(300)
+          .style("opacity", 1); */
+        tooltip.html(d.id)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY + 10) + "px")
+          .style("background-color","white");
+    })
+    .on("mouseout", function() { /*
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 1);
+    */      })
+    .on("click", function(d) {
+    /*  d3.select(".tooltip")
+        .style("opacity", 1) */
+    });
 
   function color() {
     const scale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -208,11 +269,11 @@ async function main() {
 
   const exname = window.location.hash.substr(1);
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/dot'; 
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
   const dotconn = await fetch(doturl);
   const dotformat = await dotconn.json();
   const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/json'; 
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/json'; 
   const jsonconn = await fetch(jsonurl);
   const jsonfmt = await jsonconn.json();
   for (videoinfo of dotformat) {
