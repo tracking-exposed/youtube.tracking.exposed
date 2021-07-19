@@ -1,3 +1,69 @@
+<<<<<<< HEAD:static/js/experiments.js
+=======
+---
+title: Experiment (n.2) personalization report
+draft: false
+layout: page
+date: 2021-04-29T18:11:24+02:00
+---
+
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<style>
+  .links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+  }
+
+  .nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+  }
+
+  .tooltip {
+    position: absolute;
+    background-color: white;
+    max-width: 200px;
+    height: auto;
+    padding: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  .video-title {
+    background-color: aliceblue;
+  }
+  .video-info {
+    background-color: aliceblue;
+  }
+</style>
+<code>This small experiment works in conjunction with the automated watching tool.</code>
+<div class="header">
+  <div id="watched"></div>
+  <div id="skeleton--watched">
+    <img src="" />
+    <p class="video-title"></p>
+    <p class="video-info"></p>
+  </div>
+</div>
+<div hidden id="protoclone">
+  <hr />
+  <h3 class="videoName">videoname-filler-replaced-by-js</h3>
+  <svg id="svg--" width="960" height="600"></svg>
+  <p id="title--"></p>
+  <div id="pie--"></div>
+</div>
+<div id="fuffa"></div>
+<link href="/css/c3.min.css" rel="stylesheet">
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="/js/c3.min.js"></script>
+
+<script type="text/javascript">
+
+>>>>>>> b3ad930ec27dbf142f4bec69ca86128c4fbebf1e:content/experiment2.html
 function mainpaint(idName, graph) {
 
   // cribbed from: https://www.youtube.com/watch?v=y2-sgZh49dQ 
@@ -5,6 +71,11 @@ function mainpaint(idName, graph) {
   var svg = d3.select(idName);
   var width = svg.attr("width");
   var height = svg.attr("height");
+
+  var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 1);
 
   var simulation = d3
     .forceSimulation(graph.nodes)
@@ -51,6 +122,35 @@ function mainpaint(idName, graph) {
         .on("drag", dragged)
         .on("end", dragended)
     );
+
+  /*
+  node
+    .append("title")
+    .text(d => d.id); */
+
+  node
+    .append("svg:title")
+      .text(function(d){return "profile:"+d.id;});
+
+  node
+    .on('mouseover', function(d) {
+      /*  tooltip.transition()
+          .duration(300)
+          .style("opacity", 1); */
+        tooltip.html(d.id)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY + 10) + "px")
+          .style("background-color","white");
+    })
+    .on("mouseout", function() { /*
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 1);
+    */      })
+    .on("click", function(d) {
+    /*  d3.select(".tooltip")
+        .style("opacity", 1) */
+    });
 
   function color() {
     const scale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -172,11 +272,11 @@ async function experimentGradualRender() {
 
   const exname = window.location.hash.substr(1);
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/dot'; 
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
   const dotconn = await fetch(doturl);
   const dotformat = await dotconn.json();
   const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/meto8/json'; 
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/json'; 
   const jsonconn = await fetch(jsonurl);
   const jsonfmt = await jsonconn.json();
   for (videoinfo of dotformat) {
