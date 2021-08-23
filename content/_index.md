@@ -9,12 +9,13 @@ layout: home
 
 ---
  <h1> Our last collective observations: </h1>
+ <br>
 
 <div class="card-deck">
     <div class="row">
          {{<researchCard
-            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization during US elections."
-            text="Collective project made during the Digital Methods Winter School 2021. This paper studies the construction of filter bubbles and political polarization under YouTube 's algorithmic personalization. "
+            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization"
+            text=" During the US elections, we realized a collective project at the Digital Methods Winter School 2021. We simulated echo chambers, we studied the construction of filter bubbles and consequent political polarization of suggestions."
             when="Jan. 2021"
             reportLink="https://www.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf"
@@ -22,7 +23,7 @@ layout: home
             picture="/images/filtertube-title2.png" >}}
         {{<researchCard
             title="Trexit: Polarization and Reinforcement during Brexit"
-            text=" A three days analysis of the algorithm with ten researchers from all over the world. The research aims to split the group in two and see how YT considers different activities to personalize the following recommendation."	
+            text="During Brexit, we made a three days analysis of the algorithm with ten researchers from all over the world. The research aims to split the group in two and see how YT considers different activities to personalize the following recommendation."	
             when="Jan. 2020"
             reportLink="https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/TREXIT_finalslides.pdf"
@@ -30,14 +31,15 @@ layout: home
             href="/trexit"
             picture="/images/TREXIT-title2.jpeg" >}}
         {{<researchCard
-            title="Compare and Guess"
-            text="Our first research with a dozen of students: we began by mapping Youtube personalization differences and distances. Watching a video for a few seconds more is enough to get different recommendations."
+            title="Personalization: every second matters"
+            text="Our first research with a dozen of students: we began by mapping Youtube personalization differences and distances. Watching a video for a few seconds more is enough to get different recommendations. We tested the sperimental 'clean browser'."
             when="July 2019"
             reportLink="https://github.com/tracking-exposed/presentation/blob/master/ytTREX%20-%20final%20report%20-%20Summer%20School%2019.pdf"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/ALEX%20-%20ytTREX%20-%20Summer%20School%2019.pdf"
             href="/results"
             picture="/images/compare.png" >}}
     </div>
+    <br><br>
     <div class="raw">
         <h1> What we have done, year by year: </h1>
         <h5>2020</h5>
