@@ -8,10 +8,10 @@ layout: home
 {{< yt-extension >}}
 
 ---
+ <h1> Our last experiments: </h1>
 
-<div class="row container">
+<div class="card-deck">
     <div class="row">
-        <h1> Our last experiments: </h1>
          {{<researchCard
             title="FiterTUbe: Echo chambers, Filter Bubble and Polarization on Youtube."
             text="Collective project made during the Digital Methods Winter School 2021. This paper studies the construction of filter bubbles and political polarization under YouTube 's algorithmic personalization, in a time where the political division runs deep in the US and the 2020 election reaffirms the polarization. "
