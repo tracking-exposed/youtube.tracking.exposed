@@ -53,6 +53,17 @@ type: app
         </div>
     </section>
 
+    <section style="text-align: center;">
+        Download CSV
+        <button type="button" class="btn btn-outline-success" onclick="downloadHomeCSV()">
+            Homepage content
+        </button>
+        <button type="button" class="btn btn-outline-success" onclick="downloadVideoCSV()">
+            Recommended videos
+        </button>
+    </section>
+    <hr />
+
     <section>
         <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
         <div id="master" hidden class="ventry row border-bottom p-2 mb-3 align-middle">
@@ -169,21 +180,6 @@ type: app
                         </li>
                     </ul>
                     <br>
-                </div>
-                <div class="card p-3">
-                    <h3>CSV data Download</h3>
-                    <ul>
-                        <li class="mr-1 d-flex justify-content-between align-items-left">
-                            <button type="button" class="btn btn-success" onclick="downloadHomeCSV()">
-                                YT homepage videos 
-                            </button>
-                            <span class="align-right">
-                                <button type="button" class="btn btn-success" onclick="downloadVideoCSV()">
-                                    Recommended videos
-                                </button>
-                            </span>
-                        </li>
-                    </ul>
                 </div>
             </div>
 
