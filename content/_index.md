@@ -8,36 +8,38 @@ layout: home
 {{< yt-extension >}}
 
 ---
+ <h1> Our last collective observations: </h1>
+ <br>
 
-<div class="row container">
+<div class="card-deck">
     <div class="row">
-        <h1> Our last experiments: </h1>
          {{<researchCard
-            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization on Youtube."
-            text="Collective project made during the Digital Methods Winter School 2021. This paper studies the construction of filter bubbles and political polarization under YouTube 's algorithmic personalization, in a time where the political division runs deep in the US and the 2020 election reaffirms the polarization. "
-            when="January 2021"
+            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization"
+            text=" During the US elections, we realized a collective project at the Digital Methods Winter School 2021. We simulated echo chambers, we studied the construction of filter bubbles and consequent political polarization of suggestions."
+            when="Jan. 2021"
             reportLink="https://www.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf"
             href="/filtertube"
-            picture="/images/filtertube-title.png" >}}
+            picture="/images/filtertube-title2.png" >}}
         {{<researchCard
-            title="Polarization and Reinforcement"
-            text="Three days analysis with ten researchers. The research aim to split the group in two and see how different activities are considered by YT to personalize the next recommendation."	
-            when="January 2020"
+            title="Trexit: Polarization and Reinforcement during Brexit"
+            text="During Brexit, we made a three days analysis of the algorithm with ten researchers from all over the world. The research aims to split the group in two and see how YT considers different activities to personalize the following recommendation."	
+            when="Jan. 2020"
             reportLink="https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/TREXIT_finalslides.pdf"
             videoLink="https://www.youtube.com/watch?v=igs24EeIWBU"
             href="/trexit"
-            picture="/images/TREXIT-title.jpeg" >}}
+            picture="/images/TREXIT-title2.jpeg" >}}
         {{<researchCard
-            title="Compare and Guess"
-            text="Three days initial research with a dozen of students: we began by mapping Youtube personalization differences and distances."
+            title="Personalization: every second matters"
+            text="Our first research with a dozen of students: we began by mapping Youtube personalization differences and distances. Watching a video for a few seconds more is enough to get different recommendations. We tested the sperimental 'clean browser'."
             when="July 2019"
             reportLink="https://github.com/tracking-exposed/presentation/blob/master/ytTREX%20-%20final%20report%20-%20Summer%20School%2019.pdf"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/ALEX%20-%20ytTREX%20-%20Summer%20School%2019.pdf"
             href="/results"
-            picture="/images/compare.jpeg" >}}
+            picture="/images/compare.png" >}}
     </div>
+    <br><br>
     <div class="raw">
         <h1> What we have done, year by year: </h1>
         <h5>2020</h5>

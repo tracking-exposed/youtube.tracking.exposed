@@ -238,13 +238,13 @@ Yet another card, where the image and the title is clickable
       title="Facebook"
       text="Don't take Zuck's word for granted."
       href="https://facebook.tracking.exposed"
-      picture="/images/marc.jpeg" >}}
+      picture="/images/balck_box.png" >}}
 
   {{< clickable-card
       title="PornHub"
       text="Expose what the heck is going on in porn algorithm"
       href="https://pornhub.tracking.exposed"
-      picture="/images/claudio.jpeg" >}}
+      picture="/images/balck_box.png" >}}
       
 </div>
 ```
@@ -263,7 +263,6 @@ Yet another card, where the image and the title is clickable
       picture="/images/claudio.jpeg" >}}
       
 </div>
-
 
 
 ## 10. ytbox isn't reported yet
