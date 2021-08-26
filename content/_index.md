@@ -8,7 +8,7 @@ layout: home
 {{< yt-extension >}}
 
 ---
- <h1> Our last collective observations: </h1>
+ <h1>The last collective observations:</h1>
  <br>
 
 <div class="card-deck">
@@ -41,7 +41,13 @@ layout: home
     </div>
     <br><br>
     <div class="raw">
-        <h1> What we have done, year by year: </h1>
+        <h1>Researchers and releases:</h1>
+        <h5>2021</h5>
+        <ul style="font-size:1.4em;">
+            <li>(and nothing more?)</li>
+            <li>The research paper on wetest1 get's published</li>
+            <li>Do you know that <a href="/qualcosa">search results</a> is personalized?</li>
+        </ul>
         <h5>2020</h5>
         <ul style="font-size:1.4em;">
             <li>The year begun with <a href="https://www.cjr.org/the_media_today/youtube-radicalization.php">heated</a> <a href="https://www.cnbc.com/2019/12/30/critics-slam-youtube-study-showing-no-ties-to-radicalization.html">debate</a> and <a href="https://ffwd.medium.com/youtubes-deradicalization-argument-is-really-a-fight-about-transparency-fe27af2f3963">articles</a> on academic research using API or non-logged profiles. <b>We were happy!</b> because, someone acknowledges that you can't investigate algorithms without a passive scraper, which is precisely what we do, and we hope to be used by researchers.</li>
