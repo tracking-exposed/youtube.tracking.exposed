@@ -8,12 +8,119 @@ og_type: "website"
 og_image: "http://youtube.tracking.exposed/images/wetest-yt2.jpg"
 og_url: "https://youtube.tracking.exposed/docs"
 og_description: "The unique user-centric youtube algorithm analysis toolkit, join us as research or as curious netizen!"
+
+
+title: API and formats documentation
+subtitle: This is a work in progress, if you want to use us, it is worthy drop us an email!
+draft: false
+date: 2020-05-27T15:01:21+01:00
+description: 
+
+og_title: "youtube algorithm analysis"
+og_type: "website"
+og_image: "https://youtube.tracking.exposed/images/compare.jpeg"
+og_url: "https://youtube.tracking.exposed/get-involved"
+og_description: "API and format documentation"
 ---
 
+```
+$ DEBUG=* scripts/wetest1-basic.js --type video
+  wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
+  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0",null]}}: 152 objects retrived +2s
+  wetest-1-basic — Unnested the 'sections' return 7843 evidences. Saving JSON file +748ms
+  wetest-1-basic — Produced 4483380 bytes for text/csv, saving file +914ms
+  wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +26ms
+  wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 66.8% | false: 32.9% | null: 0.3% +0ms
+  wetest-1-basic — id,,,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — savingTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — clientTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — uxlang,,,,,,,,,,,,,,,,,,,,,,,string: 100% +0ms
+  wetest-1-basic — dataset,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — experiment,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — step,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — parameter,,,,,,,,,,,,,,,,,,,,undefined: 99.6% | string: 0.4% +0ms
+  wetest-1-basic — recommendedVideoId,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — recommendedAuthor,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — recommendedTitle,,,,,,,,,,,,,string: 100% +4ms
+  wetest-1-basic — recommendedLength,,,,,,,,,,,,int: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedDisplayL,,,,,,,,,,string: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedLengthText,,,,,,,,string: 86.7% | undefined: 13.3% +1ms
+  wetest-1-basic — recommendedPubTime,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — ptPrecision,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — recommendedRelativeS,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedViews,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedForYou,,,,,,,,,,,,false: 78.8% | true: 21.2% +1ms
+  wetest-1-basic — recommendedVerified,,,,,,,,,,true: 100% +0ms
+  wetest-1-basic — recommendationOrder,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — recommendedKind,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — watchedVideoId,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedAuthor,,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedPubtime,,,,,,,,,,,,,,,object: 100% +2ms
+  wetest-1-basic — watchedTitle,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — watchedViews,,,,,,,,,,,,,,,,,string: 100% +2ms
+  wetest-1-basic — watchedChannel,,,,,,,,,,,,,,,string: 100% +2ms
+
+$ DEBUG=* scripts/wetest1-basic.js --type home
+  wetest-1-basic — [home] is the target: starting wetest basic extractor… +0ms
+  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
+  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"home"}: 188 objects retrived +2s
+  wetest-1-basic — Unnested the 'sections' return 10537 evidences. Saving JSON file +810ms
+  wetest-1-basic — Produced 4132743 bytes for text/csv, saving file +884ms
+  wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +23ms
+  wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +2ms
+  wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 84.7% | false: 15.3% | null: 0% +1ms
+  wetest-1-basic — id,,,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — savingTime,,,,,,,,,,,,,,,,,,,object: 100% +2ms
+  wetest-1-basic — clientTime,,,,,,,,,,,,,,,,,,,object: 100% +1ms
+  wetest-1-basic — order,,,,,,,,,,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — uxlang,,,,,,,,,,,,,,,,,,,,,,,undefined: 100% +2ms
+  wetest-1-basic — dataset,,,,,,,,,,,,,,,,,,,,,,string: 100% +3ms
+  wetest-1-basic — experiment,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — step,,,,,,,,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — parameter,,,,,,,,,,,,,,,,,,,,undefined: 100% +1ms
+  wetest-1-basic — sectionName,,,,,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — selectedVideoId,,,,,,,,,,,,,,string: 100% +1ms
+  wetest-1-basic — selectedAuthor,,,,,,,,,,,,,,,string: 92.3% | undefined: 7.7% +1ms
+  wetest-1-basic — selectedChannel,,,,,,,,,,,,,,string: 93.6% | undefined: 6.4% +2ms
+  wetest-1-basic — selectedTitle,,,,,,,,,,,,,,,,string: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedLength,,,,,,,,,,,,,,,int: 100% +1ms
+  wetest-1-basic — selectedDisplayL,,,,,,,,,,,,,undefined: 100% +1ms
+  wetest-1-basic — selectedLengthText,,,,,,,,,,,undefined: 17.1% | string: 82.9% +2ms
+  wetest-1-basic — selectedPubTime,,,,,,,,,,,,,,object: 92.1% | null: 7.9% +2ms
+  wetest-1-basic — ptPrecision,,,,,,,,,,,,,,,,,,string: 100% +0ms
+  wetest-1-basic — selectedRelativeS,,,,,,,,,,,,int: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedViews,,,,,,,,,,,,,,,,int: 92.1% | undefined: 7.9% +1ms
+  wetest-1-basic — selectedKind,,,,,,,,,,,,,,,,,string: 100% +3ms
+```
 
 
+
+## CSV (aka the most basic format for data analysis)
+
+The *personal* CSV, by [using the browser extension](/preview), you collect the video selected by Youtube for you, and download these logs.
+
+#### PersonalVideo CSV
+
+*personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
+
+#### PersonalHome CSV
+
+*personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
+
+#### Compare CSV
+
+2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
+>>>>>>> wetest1:content/api-documentation.md
+
+# API Introduction
+
+<<<<<<< HEAD:content/docs.md
+=======
 The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/`.
 
+>>>>>>> wetest1:content/api-documentation.md
 `userToken` is an unique identifier for you YoutubeTrackingExposed user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.
 
 `videoId` is the identifier used for each video by Youtube. You can retrieve it by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.
