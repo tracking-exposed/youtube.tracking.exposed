@@ -8,6 +8,10 @@
     background-color: #030303;
 }
 
+.bg-standard {
+  background-color: #f7f9fb;
+}
+
 /* I wasn't able to take this out from html, 
    I used <span>, as indicated in the webslides.
 
@@ -32,26 +36,40 @@ h1 span {
 
 /* typography colors */
 
+[class*='bg-yt'] {
+  color: #030303;
+  text-shadow: 0 1px 0 #030303; 
+}
+
+[class*='bg-standard'] {
+  color: #030303;
+} 
+
+
+
+
 .primary {
   color: #030303;
 }
-
 .secondary {
   color: #D9230F;
 }
-
 .third {
   color: #fff;
 }
 
-/* other
+
+
+
+/* other */
 
 .hlight {
-  fill: red;
+  fill: black;
   font-size: 1.2em;
+  color: #fff;
 }
 
 .other {
   fill: green;
 }
- */
+ 

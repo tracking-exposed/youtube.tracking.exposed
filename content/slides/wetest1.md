@@ -15,36 +15,36 @@ extraCSS: "/css/slides.css"
 
   <section class="bg-yt">
     <div class="aligncenter">
-      <h1 class="primary"><b>WEtest YOUtube</b></h1>
+      <h1><b>WEtest YOUtube</b></h1>
       <br>
-      <p class="text-symbols">* * * </p>
+      <p class="text-symbols primary" >* * * </p>
       <p class="text-intro third">
           A collaborative observation of the Youtube algorithm during the Covid pandemic.
           <br>
-          (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank class="primary">Academic publication</a>)
-          (<a href="/wetest/1/" target=_blank class="primary">Call to action</a>)
-          (<a href="wetest/announcement-1/" target=_blank class="primary">Project updates</a>)
+          (<a style="color: #030303"  target="_blank" href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf"  >Academic publication</a>)
+          (<a style="color: #030303" target="_blank" href="/wetest/1/"  >Call to action</a>)
+          (<a style="color: #030303" target="_blank" href="wetest/announcement-1/"  >Project updates</a>)
       </p>
     </div>
   </section>
 
-<section>
+<section class="bg-standard">
   <div class="aligncenter">
-    <h2 class="primary"> March 25th 2020 we openly asked to: </h2> 
+    <h2> March 25th 2020 we openly asked to: </h2> 
     <br><br><br><br>
     <div class="row mb-5 mt-5">
       <div class="col-sm text-center">
-        <img src="/images/slides/slide1.png"><br><br>
+        <img  class="zoomIn" src="/images/slides/slide1.png"><br><br>
         <h4>Add the <a href="https://addons.mozilla.org/en-US/firefox/addon/yttrex/"> Youtube.tracking.exposed </a> browser extension. </h4>
         <h5> Go on Youtube.com, logged or not. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide2.png"><br><br>
+        <img class="zoomIn" src="/images/slides/slide2.png"><br><br>
         <h4> Watch five BBC videos about Covid-19 on Youtube. </h4>
         <h5> In five different languages. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide3.png"><br><br>
+        <img class="zoomIn" src="/images/slides/slide3.png"><br><br>
         <h4>All togheter, compare the algorithm suggestion.</h4>
         <h5>And learn how to wash hands.</h5>
       </div>
@@ -52,21 +52,29 @@ extraCSS: "/css/slides.css"
   </div>
 </section>
 
-<section>
-    <div class="card-40 bg-yt fadeInUp">
-      <figure> <img src="/images/covid.png"> </figure>
+<section class="standard">
+    <div class="card-50 bg-yt fadeInUp">
+      <figure class="zoomIn"> <img src="/images/covid.png"> </figure>
       <div class="flex-content">
         <h2>What we observe:</h2>
         <ul class="description">
-          <li><strong class="text-label third">Recommended videos:</strong> where the personalization algorithm takes action</li>
-          <li><strong class="text-label third">Comparing participants:</strong> where the personalization algorithm takes action</li>
-          <li><strong class="text-label third">Videos:</strong> we decided to compare one video uploaded 11 years ago with a 24 hours old one to see if there were any differences</li>
+          <li>
+            <b class="text-label third">Recommended videos:</b>
+            Where the personalization algorithm takes action</li>
+          <li>
+            <b class="text-label third">Participants comparison:</b>
+            Personalization can only be understood by comparing different users 
+          </li>
+          <li>
+            <b class="text-label third">Content moderation:</b> 
+            What about disinformation? Is there a worst curation on non-english lenguages? 
+          </li>
         </ul>
       </div>
   </div>
 </section>
 
-<section>
+<section class="bg-standard">
 <span class=background style="background-image:url('/images/smoke.jpeg'"></span>
   <div class="wrap">
    <h1 class="secondary">ANONYMIZATION PROCESS</h1>
@@ -91,6 +99,30 @@ extraCSS: "/css/slides.css"
   </div>
 </section>
 
+<section >
+  <div class="wrap">
+   <div class="grid vertical-align">
+    <div class="column">
+     <figure>
+      <img class="aligncenter " src="/images/slides/slide2.png">
+     <figure>
+    </div>
+    <div class="column">
+      <h1 class="secondary">Research Protocol</h1>
+      <p class="text-intro"> Navigate the website following our instructions to join the experiment. 
+        <ol>                
+          <li>Open the PornHub <a target="_blank" href="https://www.youtube.com/">homepage</a></li>
+          <li>Open the page generated by Pornhub containing the videos <a target="_blank"  href="https://www.pornhub.com/recommended">recommended for you</a>.</li>
+          <li>Open <a target="_blank"  href="https://www.pornhub.com/view_video.php?viewkey=e77c73d25861c37acea8">this video, it's been on Pornhub for 11 years</a>.</li>
+          <li>Open to <a target="_blank" href="https://www.pornhub.com/recommended">recommended for you</a>, let's see if and how they changed.</li>
+          <li>Open <a target="_blank" rel="noopener noreferrer" href="https://www.pornhub.com/view_video.php?viewkey=ph5e22e4f60abd6">this video, which has been published yesterday </a>. </li>
+          <li>Lastly, open the <a target="_blank" rel="noopener noreferrer" href="https://www.pornhub.com/">homepage</a>.</li>
+        </ol>
+      </p>
+    </div>
+   </div>
+  </div>
+</section>
 
 
 
@@ -130,7 +162,6 @@ Questo testo deve stare [sulla](/) estra perchè c'è image--left e quindi il te
 </div>
 </div>
 </section>
-
 -->
 
 <script>
