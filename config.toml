@@ -4,8 +4,9 @@ title = "YouTube Tracking Exposed"
 theme = "trex"
 enableRobotsTXT = true
 canonifyURLs = true
-ourvision = false
+
 [params]
+   ourvision = "not-display"
    subtitle = "YouTube"
    subsite = "youtube"
    openGraphSiteName = "YouTube Tracking Exposed"
