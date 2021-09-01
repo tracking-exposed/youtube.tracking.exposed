@@ -16,38 +16,34 @@ extraCSS: "/css/slides.css"
   <div class="aligncenter">
     <h1><b>WEtest YOUtube</b></h1>
     <br>
-    <p class="text-symbols">* * * </p>
-    <p class="text-intro" style="color: #fff">
+    <p class="text-symbols" >* * * </p>
+    <p class="text-intro third">
       A collaborative observation of the Youtube algorithm during the Covid pandemic.
       <br>
-      (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank style="color:#000">Academic publication</a>)
-      (<a href="/wetest/1/" target=_blank style="color:#000">Call to action</a>)
-      (<a href="/wetest/announcement-1/" target=_blank style="color:#000">Analysis log</a>)
+      (<a style="color: #030303"  target="_blank" href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf"  >Academic publication</a>)
+      (<a style="color: #030303" target="_blank" href="/wetest/1/"  >Call to action</a>)
+      (<a style="color: #030303" target="_blank" href="/wetest/announcement-1/"  >Analysis notes</a>)
     </p>
   </div>
 </section>
 
-<section>
-  <div class="wrap aligncenter fadeInUp">
-    <h2> March 25th 2020 we openly asked to: </h2>
-    <br><br>
-    <br><br>
+<section class="bg-standard">
+  <div class="aligncenter">
+    <h2> March 25th 2020 we openly asked to: </h2> 
+    <br><br><br><br>
     <div class="row mb-5 mt-5">
       <div class="col-sm text-center">
-        <img src="/images/slides/slide1.png">
-        <br><br>
+        <img  class="zoomIn" src="/images/slides/slide1.png"><br><br>
         <h4>Add the <a href="https://addons.mozilla.org/en-US/firefox/addon/yttrex/"> Youtube.tracking.exposed </a> browser extension. </h4>
         <h5> Go on Youtube.com, logged or not. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide2.png">
-        <br><br>
+        <img class="zoomIn" src="/images/slides/slide2.png"><br><br>
         <h4> Watch five BBC videos about Covid-19 on Youtube. </h4>
         <h5> In five different languages. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide3.png">
-        <br><br>
+        <img class="zoomIn" src="/images/slides/slide3.png"><br><br>
         <h4>All togheter, compare the algorithm suggestion.</h4>
         <h5>And learn how to wash hands.</h5>
       </div>
@@ -55,90 +51,78 @@ extraCSS: "/css/slides.css"
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="card-40 bg-yt">
-      <figure>
-        <img src="/images/covid.png">
-      </figure>
+<section class="standard">
+    <div class="card-50 bg-yt fadeInUp">
+      <figure class="zoomIn"> <img src="/images/covid.png"> </figure>
       <div class="flex-content">
-        <h2>Observations</h2>
+        <h2>What we observe:</h2>
         <ul class="description">
-          <li><strong class="text-label" style="color:#fff">Homepage:</strong> it keeps changing even for unlogged users, let's record evidence</li>
-          <li><strong class="text-label" style="color:#fff">Recommended:</strong> where the personalization algorithm takes action</li>
-          <li><strong class="text-label" style="color:#fff">Videos:</strong> we decided to compare one video uploaded 11 years ago with a 24 hours old one to see if there were any differences</li>
+          <li>
+            <b class="text-label third">Recommended videos:</b>
+            Where the personalization algorithm takes action</li>
+          <li>
+            <b class="text-label third">Participants comparison:</b>
+            Personalization can only be understood by comparing different users 
+          </li>
+          <li>
+            <b class="text-label third">Content moderation:</b> 
+            What about disinformation? Is there a worst curation on non-english lenguages? 
+          </li>
         </ul>
       </div>
-    </div>
   </div>
 </section>
 
-
-<section class="bg-stripes">
+<section class="bg-standard">
+<span class=background style="background-image:url('/images/smoke.jpeg'"></span>
   <div class="wrap">
-    <h1>ANONYMIZATION PROCESS</h1>
+   <h1 class="secondary">ANONYMIZATION PROCESS</h1>
     <ul class="flexblock metrics">
       <li>
-        <h2>01. Unique and secret token</h2>
-        <p>Every browser has a unique code attributed</p>
+        <h3>01. Unique and secret token</h3>
+        <p>Every participant has a unique code attributed to download his/her evidences</p>
       </li>
       <li>
         <h2>02. Your choice</h2>
-        <p>Total control managing the data provided: visualize, download or delete</p>
+        <p>With the token, participants can manage the data provided: visualize, download or delete</p>
       </li>
       <li>
-        <h2>03. No context</h2>
-        <p>No data about where you are coming from, who your friends are or what they are doing and such</p>
+        <h2>03. Not our customer</h2>
+        <p>We are not obsessed by you ;) We don't collect any data about your location, friends or similar</p>
       </li>
       <li>
-        <h2>04. Not our customer</h2>
-        <p>We are not obsessed by you ;)</p>
+        <h2>04. WEstudy YOUtube </h2>
+        <p>We collect evidence about the algorithm's suggestions, like recommended videos</p>
       </li>
     </ul>
   </div>
 </section>
 
-
-
-
-<!--
-<section class="">
-
-# Problem
-
-**Algorithms are the gatekeepers** of YouTube.
-
-The various search and recommendation engines select [more than 70%](https://www.journalism.org/wp-content/uploads/sites/8/2020/09/Many-Americans-Get-News-on-YouTube-Where-News-Organizations-and-Independent-Producers-Thrive-Side-by-Side.pdf) of the content viewed on the platform.
-
-Yet, these opaque systems have serious drawbacks:
-* They favor clickbaity and sensationalist content
-* They are not accountable and hardly customizable
-* Their results are confined within YouTube.com
-- - -
-### ➜ An AI with misaligned interest decides most of what people watch.
-
-</section><section>
-
-<div class="grid">
-<div class="column">
-
-# UN ACCA1
-
-</div><div class="column">
-
-Questo testo deve stare [sulla](/) estra perchè c'è image--left e quindi il testo è sulla destra
-
-</div><div class="column">
-
-* anche un elenco
-* puntato
-* [linkato](/).
-
-</div>
-</div>
+<section >
+  <div class="wrap">
+   <div class="grid vertical-align">
+    <div class="column">
+     <figure class="zoomIn">
+      <img class="aligncenter " src="/images/slides/slide2.png">
+     <figure>
+    </div>
+    <div class="column">
+      <h1 class="secondary"><b>Research Protocol</b></h1> <br><br>
+      <p class="text-intro"> We asked participants to follow our instructions to join the experiment. 
+        <ol>
+          <li>Open <a href="https://www.youtube.com" target="_blank">YouTube Homepage</a>, scroll down, close.</li>
+          <li>Open the <a href="https://www.youtube.com/watch?v=Lo_m_rKReyg" target="_blank">Chinese</a> video, scroll down, wait 10 seconds, close.</li>
+          <li> Open the <a href="https://www.youtube.com/watch?v=Zh_SVHJGVHw" target="_blank">Spanish</a> video, scroll down, wait 10 seconds, close.</li>
+          <li>Open the <a href="https://www.youtube.com/watch?v=A2kiXc5XEdU" target="_blank">English</a> video, scroll down, wait 10 seconds, close.</li>
+          <li>Open the <a href="https://www.youtube.com/watch?v=WEMpIQ30srI" target="_blank">Portuguese</a> video, scroll down, wait 10 seconds, close.</li>
+          <li>Open the <a href="https://www.youtube.com/watch?v=BNdW_6TgxH0" target="_blank">Arabic</a> video, scroll down, wait 10 seconds, close.</li>
+          <li>Open again <a href="https://www.youtube.com" target="_blank">YouTube Homepage</a>, scroll down, close.</li>
+        </ol>
+      </p>
+    </div>
+   </div>
+  </div>
 </section>
-
--->
 
 <script>
   removeHeaderFooter(1500)
