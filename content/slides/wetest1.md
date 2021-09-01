@@ -9,44 +9,45 @@ og_image: "http://youtube.tracking.exposed/images/compare.jpg"
 og_url: "https://youtube.tracking.exposed/slides/wetest1"
 og_description: "The 25th of March, the first collaborative observation of Youtube personalization algorithm regardless of Covid-19"
 type: "webslides"
-
 extraCSS: "/css/slides.css"
 ---
 
-
-  <section class="bg-yt">
-    <div class="aligncenter">
-      <h1><b>WEtest YOUtube</b></h1>
+<section class="bg-yt">
+  <div class="aligncenter">
+    <h1><b>WEtest YOUtube</b></h1>
+    <br>
+    <p class="text-symbols">* * * </p>
+    <p class="text-intro" style="color: #fff">
+      A collaborative observation of the Youtube algorithm during the Covid pandemic.
       <br>
-      <p class="text-symbols">* * * </p>
-      <p class="text-intro" style="color: #fff">
-          A collaborative observation of the Youtube algorithm during the Covid pandemic.
-          <br>
-          (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank style="color:#000">Academic publication</a>)
-          (<a href="/wetest/1/" target=_blank style="color:#000">Call to action</a>)
-          (<a href="/wetest/announcement-1/" target=_blank style="color:#000">Analysis log</a>)
-      </p>
-    </div>
-  </section>
-
-
+      (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank style="color:#000">Academic publication</a>)
+      (<a href="/wetest/1/" target=_blank style="color:#000">Call to action</a>)
+      (<a href="/wetest/announcement-1/" target=_blank style="color:#000">Analysis log</a>)
+    </p>
+  </div>
+</section>
 
 <section>
   <div class="wrap aligncenter fadeInUp">
-    <h2> March 25th 2020 we openly asked to: </h2> <br><br> <br><br>
+    <h2> March 25th 2020 we openly asked to: </h2>
+    <br><br>
+    <br><br>
     <div class="row mb-5 mt-5">
       <div class="col-sm text-center">
-        <img src="/images/slides/slide1.png"><br><br>
+        <img src="/images/slides/slide1.png">
+        <br><br>
         <h4>Add the <a href="https://addons.mozilla.org/en-US/firefox/addon/yttrex/"> Youtube.tracking.exposed </a> browser extension. </h4>
         <h5> Go on Youtube.com, logged or not. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide2.png"><br><br>
+        <img src="/images/slides/slide2.png">
+        <br><br>
         <h4> Watch five BBC videos about Covid-19 on Youtube. </h4>
         <h5> In five different languages. </h5>
       </div>
       <div class="col-sm text-center">
-        <img src="/images/slides/slide3.png"><br><br>
+        <img src="/images/slides/slide3.png">
+        <br><br>
         <h4>All togheter, compare the algorithm suggestion.</h4>
         <h5>And learn how to wash hands.</h5>
       </div>
@@ -57,7 +58,9 @@ extraCSS: "/css/slides.css"
 <section>
   <div class="wrap">
     <div class="card-40 bg-yt">
-      <figure> <img src="/images/covid.png"> </figure>
+      <figure>
+        <img src="/images/covid.png">
+      </figure>
       <div class="flex-content">
         <h2>Observations</h2>
         <ul class="description">
@@ -71,10 +74,9 @@ extraCSS: "/css/slides.css"
 </section>
 
 
-
 <section class="bg-stripes">
   <div class="wrap">
-    <h1 >ANONYMIZATION PROCESS</h1>
+    <h1>ANONYMIZATION PROCESS</h1>
     <ul class="flexblock metrics">
       <li>
         <h2>01. Unique and secret token</h2>

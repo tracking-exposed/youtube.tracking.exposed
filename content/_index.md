@@ -8,8 +8,9 @@ layout: home
 {{< yt-extension >}}
 
 ---
- <h1>The last collective observations:</h1>
- <br>
+
+<h2>Collective algorithm observations and workshop results</h2>
+<br>
 
 <div class="card-deck">
     <div class="row">
@@ -41,12 +42,12 @@ layout: home
     </div>
     <br><br>
     <div class="raw">
-        <h1>Researchers and releases:</h1>
+        <h2>Updates and releases</h2>
+        <br>
         <h5>2021</h5>
         <ul style="font-size:1.4em;">
-            <li>(and nothing more?)</li>
-            <li>The research paper on wetest1 get's published</li>
-            <li>Do you know that <a href="/qualcosa">search results</a> is personalized?</li>
+            <li>The research paper on <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">on weTest1 gots published</a>.</li>
+            <li>Do you know that <a href="/chiaro/start">search results</a> is personalized? You can test it with our experimental tool.</li>
         </ul>
         <h5>2020</h5>
         <ul style="font-size:1.4em;">
