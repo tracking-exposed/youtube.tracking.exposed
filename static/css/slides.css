@@ -44,6 +44,10 @@ h1 span {
   color: #030303;
 } 
 
+[class*='bg-black'] {
+  color: #D9230F;
+}
+
 
 
 .primary {

@@ -125,7 +125,17 @@ extraCSS: "/css/slides.css"
   </div>
 </section>
 
-
+<section class="bg-black">
+  <div class="wrap aligncenter fadeInUp">
+    <h2 >
+        <b>F I N D I N G S </b>
+    </h2>
+    <p class="text-symbols">* * * </p>
+    <p class="text-intro" style="color: #fff">
+        A small summary of the most interesting results
+    </p>
+  </div>
+</section>
 
 <!--
 <section class="">
