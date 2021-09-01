@@ -4,9 +4,6 @@
   background-color: #D9230F;
 }
 
-.bg-black{
-    background-color: #030303;
-}
 
 .bg-standard {
   background-color: #f7f9fb;
@@ -44,10 +41,10 @@ h1 span {
   color: #030303;
 } 
 
-[class*='bg-black'] {
-  color: #D9230F;
-}
-
+[class*='bg-black'],
+[class*='bg-gradient-'] {
+  color: #fff;
+  text-shadow: 0 1px 0 #D9230F; }
 
 
 .primary {
