@@ -1,11 +1,40 @@
-
 .ytbackground {
     background-color: #f0d6d3;
+}
+
+.bg-yt {
+  background-color: #D9230F;
+}
+
+.bg-black{
+    background-color: #1b1b1b;
+}
+
+.bg-stripes{
+  background-image:url('/images/smoke.jpeg');
 }
 
 h1 {
     font-weight: bold;
     text-align: center;
-    text-transform: uppercase;
+    color: #000;
+}
+h1 span {
+    width: 15.8rem;
+}
+  
+h4 {
+  color: #1b1b1b;
 }
 
+
+
+.hlight {
+  fill: red;
+  font-size: 1.2em;
+}
+
+.other {
+  fill: green;
+}
+  
