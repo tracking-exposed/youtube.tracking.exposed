@@ -1,33 +1,50 @@
-.ytbackground {
-    background-color: #f0d6d3;
-}
+/* background */
 
 .bg-yt {
   background-color: #D9230F;
 }
 
 .bg-black{
-    background-color: #1b1b1b;
+    background-color: #030303;
 }
 
-.bg-stripes{
+/* I wasn't able to take this out from html, 
+   I used <span>, as indicated in the webslides.
+
+.bg-stripes {
   background-image:url('/images/smoke.jpeg');
 }
+*/
+
+
+
+/* h1, h2 etc impagination */
 
 h1 {
     font-weight: bold;
     text-align: center;
-    color: #000;
 }
 h1 span {
     width: 15.8rem;
 }
-  
-h4 {
-  color: #1b1b1b;
+
+
+
+/* typography colors */
+
+.primary {
+  color: #030303;
 }
 
+.secondary {
+  color: #D9230F;
+}
 
+.third {
+  color: #fff;
+}
+
+/* other
 
 .hlight {
   fill: red;
@@ -37,4 +54,4 @@ h4 {
 .other {
   fill: green;
 }
-  
+ */

@@ -13,27 +13,25 @@ type: "webslides"
 extraCSS: "/css/slides.css"
 ---
 
-
   <section class="bg-yt">
     <div class="aligncenter">
-      <h1><b>WEtest YOUtube</b></h1>
+      <h1 class="primary"><b>WEtest YOUtube</b></h1>
       <br>
       <p class="text-symbols">* * * </p>
-      <p class="text-intro" style="color: #fff">
+      <p class="text-intro third">
           A collaborative observation of the Youtube algorithm during the Covid pandemic.
           <br>
-          (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank style="color:#000">Academic publication</a>)
-          (<a href="/wetest/1/" target=_blank style="color:#000">Call to action</a>)
-          (<a href="wetest/announcement-1/" target=_blank style="color:#000">Project updates</a>)
+          (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank class="primary">Academic publication</a>)
+          (<a href="/wetest/1/" target=_blank class="primary">Call to action</a>)
+          (<a href="wetest/announcement-1/" target=_blank class="primary">Project updates</a>)
       </p>
     </div>
   </section>
 
-
-
 <section>
-  <div class="wrap aligncenter fadeInUp">
-    <h2> March 25th 2020 we openly asked to: </h2> <br><br> <br><br>
+  <div class="aligncenter">
+    <h2 class="primary"> March 25th 2020 we openly asked to: </h2> 
+    <br><br><br><br>
     <div class="row mb-5 mt-5">
       <div class="col-sm text-center">
         <img src="/images/slides/slide1.png"><br><br>
@@ -55,42 +53,39 @@ extraCSS: "/css/slides.css"
 </section>
 
 <section>
-  <div class="wrap">
-    <div class="card-40 bg-yt">
+    <div class="card-40 bg-yt fadeInUp">
       <figure> <img src="/images/covid.png"> </figure>
       <div class="flex-content">
-        <h2>Observations</h2>
+        <h2>What we observe:</h2>
         <ul class="description">
-          <li><strong class="text-label" style="color:#fff">Homepage:</strong> it keeps changing even for unlogged users, let's record evidence</li>
-          <li><strong class="text-label" style="color:#fff">Recommended:</strong> where the personalization algorithm takes action</li>
-          <li><strong class="text-label" style="color:#fff">Videos:</strong> we decided to compare one video uploaded 11 years ago with a 24 hours old one to see if there were any differences</li>
+          <li><strong class="text-label third">Recommended videos:</strong> where the personalization algorithm takes action</li>
+          <li><strong class="text-label third">Comparing participants:</strong> where the personalization algorithm takes action</li>
+          <li><strong class="text-label third">Videos:</strong> we decided to compare one video uploaded 11 years ago with a 24 hours old one to see if there were any differences</li>
         </ul>
       </div>
-    </div>
   </div>
 </section>
 
-
-
-<section class="bg-stripes">
+<section>
+<span class=background style="background-image:url('/images/smoke.jpeg'"></span>
   <div class="wrap">
-    <h1 >ANONYMIZATION PROCESS</h1>
+   <h1 class="secondary">ANONYMIZATION PROCESS</h1>
     <ul class="flexblock metrics">
       <li>
-        <h2>01. Unique and secret token</h2>
-        <p>Every browser has a unique code attributed</p>
+        <h3>01. Unique and secret token</h3>
+        <p>Every participant has a unique code attributed to download his/her evidences</p>
       </li>
       <li>
         <h2>02. Your choice</h2>
-        <p>Total control managing the data provided: visualize, download or delete</p>
+        <p>With the token, participants can manage the data provided: visualize, download or delete</p>
       </li>
       <li>
-        <h2>03. No context</h2>
-        <p>No data about where you are coming from, who your friends are or what they are doing and such</p>
+        <h2>03. Not our customer</h2>
+        <p>We are not obsessed by you ;) We don't collect any data about your location, your friends and so on</p>
       </li>
       <li>
-        <h2>04. Not our customer</h2>
-        <p>We are not obsessed by you ;)</p>
+        <h2>04. WEstudy YOUtube </h2>
+        <p>We collect evidence about the suggestions made by the algorithm, like recommended videos</p>
       </li>
     </ul>
   </div>
