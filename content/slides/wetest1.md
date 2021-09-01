@@ -24,7 +24,7 @@ extraCSS: "/css/slides.css"
           <br>
           (<a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf" target=_blank style="color:#000">Academic publication</a>)
           (<a href="/wetest/1/" target=_blank style="color:#000">Call to action</a>)
-          (<a href="wetest/announcement-1/" target=_blank style="color:#000">Project updates</a>)
+          (<a href="/wetest/announcement-1/" target=_blank style="color:#000">Analysis log</a>)
       </p>
     </div>
   </section>

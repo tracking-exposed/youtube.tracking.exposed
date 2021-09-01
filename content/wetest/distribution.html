@@ -1,0 +1,101 @@
+---
+title: WeTest#1 — Recommendation distribution
+subtitle: Not the gaussian you might expected
+date: 2012-09-20T15:01:21+01:00
+draft: false
+type: c3app
+---
+
+<h4 style="text-align: center;">
+    👀 
+    <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">Academic publication</a>
+    — <a href="/wetest/1/">Wetest#1 call to action</a>
+    — <a href="/wetest/announcement-1/">Analysis log</a>
+    — <a href="/slides/wetest1">(web) Slides</a>
+</h4>
+
+<small>The graphs below are rendered by picking and splitting
+    <a href="https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json">This json open data</a> that weight 25Mb, and might be greatly optimized. If you want to see it happens, we can dedicate you a 10 minutes livestream, reach out at youtube-team at trackig dot exposed :)
+</small>
+
+{{<colorblock text="Chinese video recommendation distribution">}}
+<div id="graphc0"></div>
+{{<colorblock text="Spanish video recommendation distribution">}}
+<div id="graphc1"></div>
+{{<colorblock text="English video recommendation distribution">}}
+<div id="graphc2"></div>
+{{<colorblock text="Portuguese video recommendation distribution">}}
+<div id="graphc3"></div>
+{{<colorblock text="Arabic video recommendation distribution">}}
+<div id="graphc4"></div>
+
+
+<script type="text/javascript">
+
+function transformForWetest(sourcecoll) {
+    let counted = _.countBy(sourcecoll, 'recommendedVideoId')
+    // Object { sCVBHktfizc: 1, Kas0tIxDvrg: 2, "-PUT0hZiZEw": 4, XQ_LkR_zqgc: 1, iywaBOMvYLI: 1, "5FemcGdN3Xw&t=24s": 1, fRseMUZ2NOM: 1, 8nTFjVm9sTQ: 1, z5VyCp_1YnA: 1, 6Af6b_wyiwI: 18, … }
+    return _.reverse(_.orderBy(_.map(counted, function(amount, vid) {
+        return { amount, vid };
+    }), 'amount'));
+}
+
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function renderC3(index, collection, stepName) {
+    console.log("Rendering", index, stepName);
+    const chart = c3.generate({
+        bindto: '#graphc' + index,
+        data: {
+            columns: [
+                _.concat([ stepName ], _.map(collection, 'amount'))
+            ],
+            type: 'scatter',
+            color: function(c, d) { return '#D9230F'},
+        },
+        point: { show: false },
+        axis: {
+            x: {
+                type: 'category',
+                categories: _.map(collection, 'vid'),
+                show: false
+            },
+        },
+        legend: { show: false }
+    });
+}
+
+async function computething() {
+    // start  
+    const response = await fetch('https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json');
+    const content = await response.json(); 
+    const top20 = _.filter(content, { top20: true});
+    const stepNames = _.uniq(_.map(content, 'step'));
+    // Array(5) [ "Chinese", "Spanish", "English", "Porutuguese", "Arabic" ]
+    const filtered = _.map(stepNames, function(s) {
+        return _.filter(top20, { step: s });
+    });
+    // Array(5) [ (1360) […], (1360) […], (1358) […], (1360) […], (1360) […] ]
+
+    const readyContent0 = transformForWetest(filtered[0]);
+    renderC3(0, readyContent0, stepNames[0]);
+
+    const readyContent1 = transformForWetest(filtered[1]);
+    renderC3(1, readyContent1, stepNames[1]);
+
+    const readyContent2 = transformForWetest(filtered[2]);
+    renderC3(2, readyContent2, stepNames[2]);
+
+    const readyContent3 = transformForWetest(filtered[3]);
+    renderC3(3, readyContent3, stepNames[3]);
+
+    const readyContent4 = transformForWetest(filtered[4]);
+    renderC3(4, readyContent4, stepNames[4]);
+    // end
+}
+
+window.onload = computething;
+
+</script>
