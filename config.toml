@@ -70,7 +70,7 @@ canonifyURLs = true
     weight = -180
  [[menu.featured]]
     name= "WeTest ― 1° Collective observation"
-    url = "/wetest/announcement-1"
+    url = "/slides/wetest1/"
     pre = "/images/data.svg"
     post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
     weight = -180
