@@ -65,7 +65,7 @@ canonifyURLs = true
  [[menu.featured]]
     name = "Tutorial ― Learn how to use our tool"
     url = "/tutorial/1"
-    pre = "/images/popup-opt-in.png"
+    pre = "/images/wetest-yt3.jpg"
     post = "Video and textual tutorial, on the basic usage, the evidence page, and everything a researcher need to start analyzing YT!"
     weight = -180
  [[menu.featured]]
