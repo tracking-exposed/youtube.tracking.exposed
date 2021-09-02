@@ -2,7 +2,6 @@
   background-color: #D9230F;
 }
 
-
 .bg-standard {
   background-color: #f7f9fb;
 }
@@ -16,7 +15,6 @@
 */
 
 
-
 h1 {
     font-weight: bold;
     text-align: center;
@@ -24,7 +22,6 @@ h1 {
 h1 span {
     width: 15.8rem;
 }
-
 
 
 [class*='bg-yt'] {
@@ -38,7 +35,8 @@ h1 span {
 [class*='bg-black'],
 [class*='bg-gradient-'] {
   color: #fff;
-  text-shadow: 0 1px 0 #D9230F; }
+  text-shadow: 0 1px 0 #D9230F;
+}
 
 
 .primary {
@@ -50,7 +48,6 @@ h1 span {
 .third {
   color: #fff;
 }
-
 
 
 .hlight {
