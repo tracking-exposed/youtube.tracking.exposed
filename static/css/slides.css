@@ -2,6 +2,10 @@
   background-color: #D9230F;
 }
 
+.bgyt {
+  background-color: #D9230F !!important;
+}
+
 .bg-standard {
   background-color: #f7f9fb;
 }
