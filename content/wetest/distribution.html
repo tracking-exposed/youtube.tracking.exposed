@@ -1,29 +1,37 @@
 ---
 title: WeTest#1 — Recommendation distribution
-subtitle: Not the gaussian you might expected
+subtitle: Additional interactive graphs related to our WeTest expseriment 
 date: 2020-09-20T15:01:21+01:00
 draft: false
 type: c3app
 ---
 
 <h4 style="text-align: center;">
+    Find more information about our research here:
+</h4>
+<h4 style="text-align: center;">
     👀 
     <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">Academic publication</a>
     — <a href="/slides/wetest1">(web) Slides</a>
-    — <a href="/wetest/1/">Wetest#1 call to action</a>
+    — <a href="/wetest/1/">Call to action</a>
     — <a href="/wetest/announcement-1/">Analysis notes</a>
 </h4>
-
-<p>
-  The following graphs represent all the <b>videos recommended</b> by Youtube algortihm order by the number of users who recive the suggestion.
-  With <b>mouseover</b> you can read the title of each video.  
-</p>
-<p>
-  The graphs below are rendered by picking and splitting
-  <a href="https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json">This json open data</a> 
-  that weight 25Mb, and could be slow. If you want to help us improving this or other visualization, mail us <a href="mailto:info@tracking.exposed">info(@)tracking.exposed</a>!
-</p>
-
+<br></br>
+<div class="mx-auto col-md-8 ">
+    <p>
+     The following graphs represent all the <b>videos recommended</b> by Youtube algortihm order by the number of users who recive the suggestion.
+     With <b>mouseover</b> you can read the title of each video.  
+    </p>
+    <p>
+     It is important to notice that most of the videos are <b>recommended to just one participant</b> in the test (of 67).
+     A clear example of the <b>algorithmic fragmentation</b> and the consequent filter bubbles. 
+    </p>
+    <p>
+     The graphs below are rendered by picking and splitting
+     <a href="https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json">This json open data</a> 
+     that weight 25Mb, and could be slow. If you want to help us improving this or other visualization, mail us <a href="mailto:info@tracking.exposed">info(@)tracking.exposed</a>!
+    </p>
+</div>
 
 {{<colorblock text="Chinese video recommendation distribution">}}
 <div id="graphc0"></div>
