@@ -1,0 +1,73 @@
+---
+title: "slides for workshops"
+subtitle: "Let's observe the algorithm together!"
+draft: false
+date: "2021-09-02"
+og_title: "WeTest the algorithm togheter"
+og_type: "website"
+og_image: "http://youtube.tracking.exposed/images/compare.jpg" 
+og_url: "https://youtube.tracking.exposed/slides/workshop"
+og_description: "We explain how to install and use the tool during festivals, conferences, and public appointments, performing a basic collective observation. "
+type: "webslides"
+extraCSS: "/css/slides.css"
+---
+
+<section class="bg-yt">
+  <div class="aligncenter fadeIn slow">
+    <h1><b>WEtest YOUtube</b></h1>
+    <br>
+    <p class="text-symbols" >* * * </p>
+    <p class="text-intro third">
+      A workshop to learn how to install and use our browser extension
+      <br>
+      (<a style="color: #030303"  target="_blank" href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf"  >Academic publication</a>)
+      (<a style="color: #030303" target="_blank" href="/wetest/1/"  >Call to action</a>)
+      (<a style="color: #030303" target="_blank" href="/wetest/announcement-1/"  >Analysis notes</a>)
+    </p>
+  </div>
+</section>
+
+<section class="bg-yt">
+  <div class="wrap size-50 frame" style="border-color: #030303; border-style: dashed;">
+    <h1 class="aligncenter primary"> <b>Take Out Message </b> </h1>
+    <p class="text-symbols primary">* * *</p>
+      <ul class="third aligncenter">
+        <li>
+          <h4> Filter bubbles do exist, and we can measure them </h4>
+        </li>
+        <br>
+        <li>
+          <h4> Never trust offical API for indipendent research </h4>
+        </li>
+      </ul>
+  </div>
+</section>
+
+<section>
+  <figure class="zoomIn">
+    <img class="svg" src="/images/wetest-youralgo.svg" ></img>
+   </figure >   
+   <h1 class="aligncenter fadeIn slow">For new tests or any question, write us: <a href="mailto:info@tracking.exposed">info(@)tracking.exposed</a> </h1>
+</section>
+
+<!--HERE WE COULD ADD A SLIDE WITH THINGS TO BE FURTHER ANALYZED (HOMAPAGE, NON-ENG LANGUAGE)-->
+<!--HERE WE COULD ADD A SLIDE WITH WHAT'S NEXT? (PROPONE A NEW TEST, REPLICATE THE TEST, ANALYZE THE DATASET)-->
+
+<script>
+  removeHeaderFooter(1500)
+
+  $(document).ready(function() {
+      let visibleFooter = false;
+      /* if the mouse goes out, for four second leave the bar */
+      $(document).mouseleave(function() {
+        $('header').fadeIn(40);
+        window.setTimeout(function() {
+          $('header').fadeOut(40);
+        }, 4000);
+      });
+      $("#final-slide").on('mousemove', function() {
+        visibileFooter = !visibleFooter && restoreHeaderFooter(800);
+      });
+    }
+  );
+</script>
