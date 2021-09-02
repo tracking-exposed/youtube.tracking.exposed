@@ -9,14 +9,21 @@ type: c3app
 <h4 style="text-align: center;">
     👀 
     <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">Academic publication</a>
-    — <a href="/wetest/1/">Wetest#1 call to action</a>
-    — <a href="/wetest/announcement-1/">Analysis log</a>
     — <a href="/slides/wetest1">(web) Slides</a>
+    — <a href="/wetest/1/">Wetest#1 call to action</a>
+    — <a href="/wetest/announcement-1/">Analysis notes</a>
 </h4>
 
-<small>The graphs below are rendered by picking and splitting
-    <a href="https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json">This json open data</a> that weight 25Mb, and might be greatly optimized. If you want to see it happens, we can dedicate you a 10 minutes livestream, reach out at youtube-team at trackig dot exposed :)
-</small>
+<p>
+  The following graphs represent all the <b>videos recommended</b> by Youtube algortihm order by the number of users who recive the suggestion.
+  With <b>mouseover</b> you can read the title of each video.  
+</p>
+<p>
+  The graphs below are rendered by picking and splitting
+  <a href="https://raw.githubusercontent.com/tracking-exposed/experiments-data/master/wetest1/sessions-%CF%89%CF%841-v7.json">This json open data</a> 
+  that weight 25Mb, and could be slow. If you want to help us improving this or other visualization, mail us <a href="mailto:info@tracking.exposed">info(@)tracking.exposed</a>!
+</p>
+
 
 {{<colorblock text="Chinese video recommendation distribution">}}
 <div id="graphc0"></div>
@@ -33,7 +40,7 @@ type: c3app
 <script type="text/javascript">
 
 function transformForWetest(sourcecoll) {
-    let counted = _.countBy(sourcecoll, 'recommendedVideoId')
+    let counted = _.countBy(sourcecoll, 'recommendedTitle')
     // Object { sCVBHktfizc: 1, Kas0tIxDvrg: 2, "-PUT0hZiZEw": 4, XQ_LkR_zqgc: 1, iywaBOMvYLI: 1, "5FemcGdN3Xw&t=24s": 1, fRseMUZ2NOM: 1, 8nTFjVm9sTQ: 1, z5VyCp_1YnA: 1, 6Af6b_wyiwI: 18, … }
     return _.reverse(_.orderBy(_.map(counted, function(amount, vid) {
         return { amount, vid };
