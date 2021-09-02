@@ -1,12 +1,7 @@
-/* background */
-
 .bg-yt {
   background-color: #D9230F;
 }
 
-.bg-black{
-    background-color: #030303;
-}
 
 .bg-standard {
   background-color: #f7f9fb;
@@ -22,8 +17,6 @@
 
 
 
-/* h1, h2 etc impagination */
-
 h1 {
     font-weight: bold;
     text-align: center;
@@ -34,8 +27,6 @@ h1 span {
 
 
 
-/* typography colors */
-
 [class*='bg-yt'] {
   color: #030303;
 }
@@ -44,10 +35,10 @@ h1 span {
   color: #030303;
 } 
 
-[class*='bg-black'] {
-  color: #D9230F;
-}
-
+[class*='bg-black'],
+[class*='bg-gradient-'] {
+  color: #fff;
+  text-shadow: 0 1px 0 #D9230F; }
 
 
 .primary {
@@ -62,9 +53,6 @@ h1 span {
 
 
 
-
-/* other */
-
 .hlight {
   fill: black;
   font-size: 1.2em;
@@ -75,3 +63,11 @@ h1 span {
   fill: green;
 }
  
+
+/*
+ I can't define the href color for a specific bg-*
+ I can't define a specific span  width for a single bg-*
+ There are too many conflicts between the css working here,
+ neither using !important is enought, but how to do that 
+ without changing the theme css (webslides.css)?
+*/ 
