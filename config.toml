@@ -65,13 +65,13 @@ canonifyURLs = true
  [[menu.featured]]
     name = "Tutorial ― Learn how to use our tool"
     url = "/tutorial/1"
-    pre = "/images/popup-opt-in.png"
+    pre = "/images/wetest-yt3.jpg"
     post = "Video and textual tutorial, on the basic usage, the evidence page, and everything a researcher need to start analyzing YT!"
     weight = -180
  [[menu.featured]]
     name= "WeTest ― 1° Collective observation"
-    url = "/wetest/announcement-1"
-    pre = "/images/data.svg"
+    url = "/slides/wetest1/"
+    pre = "/images/covid.png"
     post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
     weight = -180
  [[menu.featured]]
