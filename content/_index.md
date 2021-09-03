@@ -15,9 +15,9 @@ layout: home
 <div class="card-deck">
     <div class="row">
          {{<researchCard
-            title="FiterTUbe: Echo chambers, Filter Bubble and Polarization"
+            title="FiterTube: Echo chambers, Filter Bubble and Polarization"
             text=" During the US elections, we realized a collective project at the Digital Methods Winter School 2021. We simulated echo chambers, we studied the construction of filter bubbles and consequent political polarization of suggestions."
-            when="Jan. 2021"
+            when="January 2021"
             reportLink="https://www.digitalmethods.net/Dmi/WinterSchool2021FIterTube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf"
             href="/filtertube"
@@ -25,7 +25,7 @@ layout: home
         {{<researchCard
             title="Trexit: Polarization and Reinforcement during Brexit"
             text="During Brexit, we made a three days analysis of the algorithm with ten researchers from all over the world. The research aims to split the group in two and see how YT considers different activities to personalize the following recommendation."	
-            when="Jan. 2020"
+            when="January 2020"
             reportLink="https://wiki.digitalmethods.net/Dmi/WinterSchool2020youtube"
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/TREXIT_finalslides.pdf"
             videoLink="https://www.youtube.com/watch?v=igs24EeIWBU"
@@ -46,7 +46,7 @@ layout: home
         <br>
         <h5>2021</h5>
         <ul style="font-size:1.4em;">
-            <li>The research paper on <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">on weTest1 gots published</a>.</li>
+            <li>The research paper on <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">on weTest1 gots published</a>, and for a quick summary you can checkout the <a href="/slides/wetest1">web slides</a>.</li>
             <li>Do you know that <a href="/chiaro/start">search results</a> is personalized? You can test it with our experimental tool.</li>
         </ul>
         <h5>2020</h5>
