@@ -46,7 +46,9 @@ layout: home
         <br>
         <h5>2021</h5>
         <ul style="font-size:1.4em;">
-            <li>The research paper on <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">on weTest1 gots published</a>, and for a quick summary you can checkout the <a href="/slides/wetest1">web slides</a>.</li>
+            <li>Webslides: <a href="/slides/wetestq.html">wetest#1 quick summary</a>.</li>
+            <li>Workshop: <a href="/slides/workshop.html">experimental introduction for groups and public events</a>.</li>
+            <li>The research paper on <a href="https://www.researchgate.net/profile/Leonardo-Sanna-2/publication/351285419_YTTREX_crowdsourced_analysis_of_YouTube's_recommender_system_during_COVID-19_pandemic/links/60900733a6fdccaebd057c0b/YTTREX-crowdsourced-analysis-of-YouTubes-recommender-system-during-COVID-19-pandemic.pdf">on weTest1 gots published</a>.</li>
             <li>Do you know that <a href="/chiaro/start">search results</a> is personalized? You can test it with our experimental tool.</li>
         </ul>
         <h5>2020</h5>
