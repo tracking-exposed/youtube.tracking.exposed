@@ -258,7 +258,7 @@ function initCompare() {
     const url = buildApiUrl('videoId', compareId);
     $.getJSON(url, function (results) {
         if (_.size(results) == 0)
-            return invalidVideoId(relatedId);
+            return invalidVideoId(compareId);
 
         const allrelated = _.flatten(_.map(results, 'related'));
         const csvVideoURL = buildApiUrl("videoCSV", results[0].videoId);
