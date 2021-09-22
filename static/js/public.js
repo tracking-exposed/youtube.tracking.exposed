@@ -6,28 +6,29 @@ function initAuthor() {
     const videoId = window.location.href.split('/#').pop();
 
     if(_.size(videoId) < 6) {
+        $("#loading").text("LOADING recent example from server...");
+        buildCardsFromLast("#recent", 'author');
+        $("#loading").hide(700)
         invalidVideoId(null, "URL should contain a valid-look-alike YouTube VideoId");
-        return console.log("error N#1 (validation)");
     }
-
-    buildCardsFromLast("#recent", 'author');
 
     const url = buildApiUrl('author', videoId);
 
+    $("#loading").text("LOADING from server...");
     $.getJSON(url, function (results) {
 
-        if (!results.content.length || results.error) {
-            console.log("error N#2 (API)");
-            return invalidVideoId(videoId);
+        if (!results.content || results.error) {
+            $("#loading").text("LOADING recent example from server...");
+            buildCardsFromLast("#recent", 'author');
+            $("#loading").hide(700);
+            return invalidVideoId(videoId, "This video didn't provide results");
         }
 
-        console.log(results)
         $("#authorName").text(results.authorName)
         $("#total").text(results.total);
         if(results.overflow)
             $("#total").text(results.total + '*');
         $("#recctotal").text(results.content.length);
-        $("#results").css('display', 'block');
 
         /* id: "c8f174dba00a94943f345MtvTVEkJKBI19"
            recommendedChannel: "ViVi Music"
@@ -55,6 +56,11 @@ function initAuthor() {
         $("#percentexternal").text( 
             _.round( (100 / _.size(results.content)) * _.size(_.flatten(trealist)), 1) + "%"
         )
+
+        $("#loading").hide(700)
+        $("#results").css('display', 'block');
+        console.log("Loading complete", selflist, stripone);
+        buildCardsFromLast("#recent", 'author');
     });
 }
 
@@ -62,7 +68,9 @@ function produceByAuthorHTML(samerecommendation) {
     // the are all the same recomemndation for every list,
     // just matters the length
     return `
-        <small st>${samerecommendation.length} — ${samerecommendation[0].recommendedTitle}</small>
+        <a href="/related/#${samerecommendation[0].recommendedVideoId}">
+            <small st>${samerecommendation.length} — ${samerecommendation[0].recommendedTitle}</small>
+        </a>
     `;
 }
 

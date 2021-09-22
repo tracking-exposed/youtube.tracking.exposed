@@ -25,8 +25,7 @@ og_description: "look at the suggested video organized by publisher"
         <span class="col-6" id="external">
             <p>External</p>
             <div style="font-size:10px" id="externallist"></div>
-            <span>Stripped videos with 1 recommendations:
-                <code id="stripped"></code>
+            <span style="color:darkblue;font-waight:700;">Stripped videos recommended only once: <code id="stripped"></code>
             </span>
         </span>
     </div>
@@ -36,8 +35,10 @@ og_description: "look at the suggested video organized by publisher"
     </div>
 </div>
 
-
+<div id="loading" style="font-size:40px">LOADING info from client</div>
 <div id="error"></div>
+
+---
 
 #### Video samples for your experiments:
 <div class="container" id="recent"></div>
