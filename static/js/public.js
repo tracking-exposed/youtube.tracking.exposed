@@ -4,62 +4,66 @@ it is named 'public.js' because implement the usage of public APIs */
 function initAuthor() {
 
     const videoId = window.location.href.split('/#').pop();
+
     if(_.size(videoId) < 6) {
-        invalidVideoId(videoId, "URL should contain a valid-look-alike YouTube VideoId");
-        $("#boring").hide();
+        invalidVideoId(null, "URL should contain a valid-look-alike YouTube VideoId");
         return console.log("error N#1 (validation)");
     }
 
+    buildCardsFromLast("#recent", 'author');
+
     const url = buildApiUrl('author', videoId);
-    console.log("using", videoId, "connecting to", url);
 
     $.getJSON(url, function (results) {
 
-        if (_.size(results) === 0) {
+        if (!results.content.length || results.error) {
             console.log("error N#2 (API)");
             return invalidVideoId(videoId);
         }
 
-        /* if we reach here: good! we've data and now the page will be populated */
-        $(".boring").hide();
-        $("#title").removeAttr('hidden');
-        $(".info").removeAttr('hidden');
+        console.log(results)
+        $("#authorName").text(results.authorName)
+        $("#total").text(results.total);
+        if(results.overflow)
+            $("#total").text(results.total + '*');
+        $("#recctotal").text(results.content.length);
+        $("#results").css('display', 'block');
 
-        $(".name").text(results.authorName);
-        $("#amount").text(results.total);
-        $("#treasure-count").text(_.size(results.content.treasure));
-        $("#foryou-count").text(_.size(results.content.foryou));
-        $("#sameauthor-count").text(_.size(results.content.sameAuthor));
+        /* id: "c8f174dba00a94943f345MtvTVEkJKBI19"
+           recommendedChannel: "ViVi Music"
+           recommendedTitle: "【Nightcore】ADAMAS"
+           recommendedVideoId: "MtvTVEkJKBI"
+           savingTime: "2020-03-26T18:12:34.134Z"
+           watchedTitle: "【Nightcore】千本桜(Senbonzakura)"
+           watchedVideoId: "mrxWkpWBoMI" */
+        
+        const self = _.filter(results.content, { recommendedChannel: results.authorName });
+        const selflist =_.reverse(_.sortBy(_.groupBy(self, 'recommendedTitle'), _.size));
+        const ht = `${_.map(selflist, produceByAuthorHTML).join("\n")}`;
+        $("#selflist").html(ht);
 
-        /* cards creation */
-        _.each(results.content.sameAuthor, _.partial(appendCard, "#sameauthor-cards"));
-        _.each(results.content.foryou, _.partial(appendCard, "#foryou-cards"));
-        _.each(results.content.treasure, _.partial(appendCard, "#treasure-cards"));
+        const treasure = _.reject(results.content, { recommendedChannel: results.authorName });
+        const trealist =_.reverse(_.sortBy(_.groupBy(treasure, 'recommendedTitle'), _.size));
+        const stripone = _.reject(trealist, function(o) { return o.length === 1 });
+        const recht = `${_.map(stripone, produceByAuthorHTML).join("\n")}`;
+        $("#externallist").html(recht);
+        $("#stripped").text(_.size(trealist) - _.size(stripone));
+
+        $("#percentself").text( 
+            _.round( (100 / _.size(results.content)) * _.size(_.flatten(selflist)), 1) + "%"
+        )
+        $("#percentexternal").text( 
+            _.round( (100 / _.size(results.content)) * _.size(_.flatten(trealist)), 1) + "%"
+        )
     });
 }
 
-function appendCard(targetId, video) {
-    /* this function is used in the compare by author broken experiment! */
-
-    if(_.size(video) != 1)
-        console.log("Condition not properly tested!", video);
-
-    video = _.first(video);
-    // console.log(video);
-
-    const entry = $("#master").clone();
-    const computedId = `video-${video.id.replace(/[\ \-&=]/g, '')}`
-
-    // TODO this regexp was to filter id with "&" which if they happen should not.
-
-    entry.attr("id", computedId);
-    $(targetId).append(entry);
-
-    const t = $("#" + computedId);
-    $("#" + computedId + " .card-title").text(video.relatedTitle);
-    $("#" + computedId + " .card-text").text(video.relatedAuthorName);
-    $("#" + computedId + " .text-muted").text(video.savingTime);
-    $("#" + computedId).removeAttr('hidden');
+function produceByAuthorHTML(samerecommendation) {
+    // the are all the same recomemndation for every list,
+    // just matters the length
+    return `
+        <small st>${samerecommendation.length} — ${samerecommendation[0].recommendedTitle}</small>
+    `;
 }
 
 function invalidVideoId(videoId, additionalInfo) {
@@ -75,14 +79,15 @@ function invalidVideoId(videoId, additionalInfo) {
     $("#error").append(nope);
 }
 
-function buildCardsFromLast(containerId) {
+function buildCardsFromLast(containerId, targetAPI) {
+    const route = targetAPI ? targetAPI : 'compare';
     const url = buildApiUrl('last');
     console.log("buildCardsFromLast", url);
     $.getJSON(url, function (results) {
         // these are not really 'cards'
         _.each(results.content, function(video) {
             const appended =`
-                    <a class="linked" href="/compare/#${video.videoId}">${video.title}</a>
+                    <a class="linked" href="/${route}/#${video.videoId}">${video.title}</a>
                     — ${video.occurrencies} evidences (from: ${video.authorName}) — last update ${video.timeago} ago <br/>`;
             $(containerId).append(appended);
         });
