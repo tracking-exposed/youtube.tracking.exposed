@@ -3,7 +3,9 @@ it is named 'public.js' because implement the usage of public APIs */
 
 function initAuthor() {
 
-    const videoId = window.location.href.split('/#').pop();
+    const videoId = 
+        window.location.href.split('/#').length > 1 ?
+        window.location.href.split('/#').pop() : "";
 
     if(_.size(videoId) < 6) {
         $("#loading").text("LOADING recent example from server...");
@@ -40,13 +42,13 @@ function initAuthor() {
         
         const self = _.filter(results.content, { recommendedChannel: results.authorName });
         const selflist =_.reverse(_.sortBy(_.groupBy(self, 'recommendedTitle'), _.size));
-        const ht = `${_.map(selflist, produceByAuthorHTML).join("\n")}`;
+        const ht = `${_.map(selflist, _.partial(produceByAuthorHTML, "strip")).join("\n")}`;
         $("#selflist").html(ht);
 
         const treasure = _.reject(results.content, { recommendedChannel: results.authorName });
         const trealist =_.reverse(_.sortBy(_.groupBy(treasure, 'recommendedTitle'), _.size));
         const stripone = _.reject(trealist, function(o) { return o.length === 1 });
-        const recht = `${_.map(stripone, produceByAuthorHTML).join("\n")}`;
+        const recht = `${_.map(stripone, _.partial(produceByAuthorHTML, "ok")).join("\n")}`;
         $("#externallist").html(recht);
         $("#stripped").text(_.size(trealist) - _.size(stripone));
 
@@ -64,13 +66,16 @@ function initAuthor() {
     });
 }
 
-function produceByAuthorHTML(samerecommendation) {
+function produceByAuthorHTML(suppress, samerecommendation) {
     // the are all the same recomemndation for every list,
     // just matters the length
     return `
+        ${samerecommendation.length} — 
+        ${suppress === 'strip' ? "" : samerecommendation[0].recommendedChannel}
         <a href="/related/#${samerecommendation[0].recommendedVideoId}">
-            <small st>${samerecommendation.length} — ${samerecommendation[0].recommendedTitle}</small>
+            <small>${samerecommendation[0].recommendedTitle}</small>
         </a>
+        <br/>
     `;
 }
 

@@ -20,11 +20,11 @@ og_description: "look at the suggested video organized by publisher"
     <div class="row">
         <span class="col-6" id="self">
             <p>Self Recommendations</p>
-            <div style="font-size:10px" id="selflist"></div>
+            <div style="font-size:9px" id="selflist"></div>
         </span>
         <span class="col-6" id="external">
             <p>External</p>
-            <div style="font-size:10px" id="externallist"></div>
+            <div style="font-size:9px" id="externallist"></div>
             <span style="color:darkblue;font-waight:700;">Stripped videos recommended only once: <code id="stripped"></code>
             </span>
         </span>
