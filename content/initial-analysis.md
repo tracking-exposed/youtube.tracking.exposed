@@ -5,7 +5,7 @@ date: 2019-05-20T15:01:21+01:00
 draft: false
 layout: page
 
-og_title: "ytTREX - initial project analysis"
+og_title: "ytTREX - project pitch"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/yttrex-logo.jpg"
 og_url: "https://youtube.tracking.exposed/initial-analysis"

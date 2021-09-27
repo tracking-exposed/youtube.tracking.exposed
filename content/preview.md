@@ -1,5 +1,5 @@
 ---
-title: "How to use and install ytTREX"
+title: "How to install and use Youtube.Tracking.Exposed"
 subtitle: "youtube.tracking.exposed, browser extension and basic functionalities"
 draft: false
 
