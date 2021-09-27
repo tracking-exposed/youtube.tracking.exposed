@@ -85,7 +85,7 @@ canonifyURLs = true
 
 
  [[menu.main]]
-    name = "Play with data"
+    name = "Explore data"
     url = "#"
     weight = 1000
  [[menu.main]]
