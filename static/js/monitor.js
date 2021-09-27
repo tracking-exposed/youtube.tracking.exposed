@@ -74,11 +74,15 @@ function existingId(entry) {
 
 function monitorUpdate() {
 
-    const url = lastUpdate ?
-        buildApiUrl('monitor', "1", 2) : 
-        buildApiUrl('monitor', null, 2);
-    // at the first execution the server has a 5 minutes default,
-    // further iteration consider the last 60 seconds.
+    const key = window.location.href.split('#');
+    if(key.length === 1) {
+        $("div").text("Missing key!");
+        return;
+    }
+    const url = buildApiUrl('monitor', key[1], 2);
+    // every execution look for the last 5 minutes, but potentially
+    // the API was supporting a DateTime parameters and returning only
+    // the most recent pkgs.
     // duplication are stripped here: client-side
 
     $("#loader").finish();
