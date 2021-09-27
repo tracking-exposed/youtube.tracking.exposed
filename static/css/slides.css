@@ -2,8 +2,8 @@
   background-color: #D9230F;
 }
 
-.bgyt {
-  background-color: #D9230F !!important;
+.bg-clima {
+  background-color: #1da64a;
 }
 
 .bg-standard {
@@ -52,7 +52,9 @@ h1 span {
 .third {
   color: #fff;
 }
-
+.fourth {
+  color: green;
+}
 
 .hlight {
   fill: black;

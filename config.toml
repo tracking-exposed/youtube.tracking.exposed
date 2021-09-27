@@ -78,7 +78,7 @@ canonifyURLs = true
     weight = 130
  [[menu.main]]
     parent = "Technology"
-    name = "API Documentation"
+    name = "API documentation"
     url = "/docs/"
     weight = 140
 
@@ -115,7 +115,7 @@ canonifyURLs = true
     weight = 1500
  [[menu.main]]
     parent = "Explore data"
-    name = "Hompages"
+    name = "Hompages (beta)"
     url = "/hompare/"
     weight = 1600
 
