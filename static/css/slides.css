@@ -3,7 +3,7 @@
 }
 
 .bg-clima {
-  background-color: #1da64a;
+  background-color: #0C8346;
 }
 
 .bg-standard {
@@ -53,13 +53,13 @@ h1 span {
   color: #fff;
 }
 .fourth {
-  color: green;
+  color: #0C8346;
 }
 
 .hlight {
   fill: black;
   font-size: 1.2em;
-  color: #fff;
+  color: #0C8346;
 }
 
 .other {
