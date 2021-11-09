@@ -1,19 +1,16 @@
 ---
-title: Experiment report
+title: Experiment renderer
 draft: false
 layout: page
-date: 2021-04-29T18:11:24+02:00
+date: 2021-11-09T08:11:24
 ---
 
-#### List of Existing experiments:
+## Experiment render, here visualization or preview of result should appear
 
-<ul id="experiment--list"></ul>
-<p id="experiment--warning"></p>
-
----
 <h4 id="error"></h4>
 <h4 id="experinfo"></h4>
 
+<!-- 
 <div hidden id="protoclone">
   <h3 class="videoName">videoname-filler-replaced-by-js</h3>
   <svg id="svg--" width="960" height="600"></svg>
@@ -21,10 +18,6 @@ date: 2021-04-29T18:11:24+02:00
   <div id="pie--"></div>
 </div>
 <div id="fuffa"></div>
-
----
-
-improve this visualization by looking at this HTML or the JS.
 
 <style>
   .videoName {
@@ -42,9 +35,10 @@ improve this visualization by looking at this HTML or the JS.
   }
 </style>
 <link href="/css/c3.min.css" rel="stylesheet">
+
+-->
+
 <script type="text/javascript" src="/js/global.js"></script>
-<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-<script type="text/javascript" src="/js/c3.min.js"></script>
 <script type="text/javascript" src="/js/experiments.js"></script>
 
 <script type="text/javascript">

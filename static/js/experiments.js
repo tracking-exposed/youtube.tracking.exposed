@@ -236,33 +236,40 @@ async function experimentGradualRender() {
   // axes();
 }
 
-function liElements(amount, name) {
-  return `<li><a href="/experiment/#${name}"
-    onclick="window.location.reload()">${name}</a> ${amount} sessions —
-    <a href="/api/v2/experiment/${name}/csv">CSV</a>, 
-    <a href="/api/v2/experiment/${name}/json">JSON</a>.
-    </li>`
+function liElements(directive) {
+  /* <a href="/experiment/render/#${directive.experimentId}">
+    </a> */
+  return `<li>
+      ${directive.humanizedWhen}
+    <b>urltag(s)</b>: ${_.map(directive.links, 'urltag')}
+    <span style="color:darkgreen"><b>DOWNLOAD EVIDENCES</b></span> —
+    <a href="/api/v2/experiment/${directive.experimentId}/csv">CSV</a>, 
+    <a href="/api/v2/experiment/${directive.experimentId}/json">JSON</a>.
+  </li>`;
 }
 
-async function reportAllTheExperiments() {
-  const listurl = buildApiUrl('guardoni', 'list', 2);
-  const jsonconn = await fetch(listurl);
-  const jsonfmt = await jsonconn.json();
-  const exname = window.location.hash.substr(1);
+async function reportAllTheExperiments(directiveType) {
+  const listurl = buildApiUrl('guardoni', 'list/' + directiveType, 2);
+  const response = await fetch(listurl);
+  const data = await response.json();
+  console.log(listurl, JSON.stringify(data));
 
-  $("#experiment--list").html(_.map(jsonfmt.experiments, liElements).join('\n'))
-  if(jsonfmt.overflow)
-    $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered');
+  $("#experiment--list")
+    .html(_.map(data, liElements)
+    .join('\n'));
 
-  console.log(_.keys(jsonfmt.experiments).length)
-  if(0 === (_.keys(jsonfmt.experiments).length))
+  /* if(data.overflow)
+    $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered'); */
+
+  console.log(_.keys(data.experiments).length)
+  if(0 === (_.keys(data.experiments).length))
     $("#experiment--warning").text('Unexpected error: zero experiments found');
 
   if(!exname.length) {
     $("#error").html(`Experiment name is missing in the request`);
     return false;
   }
-  if(!jsonfmt.experiments[exname]) {
+  if(!data.experiments[exname]) {
     $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
     return false;
   }
