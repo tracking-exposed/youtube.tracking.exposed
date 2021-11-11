@@ -256,3 +256,20 @@ const templates = {
     'metadata': appendMetadata,
     'supporters': appendSupporter,
 };
+
+/* one of the few other admin-only feature */
+async function performDelete() {
+    const password = $("#password").val();
+    const targetId = $("#targetId").val();
+    const collection = $("#collection").val();
+    const keyname = $("#keyname").val();
+    const durl = buildApiUrl("deleter", `${password}/${collection}/${keyname}/${targetId}`, 2);
+    const response = await fetch(durl, { method: 'DELETE' });
+    const result = await response.json();
+    if(result.error)
+        $("#results").html("<span style='color:red'>" +
+            result.message + "</span>");
+    else
+        $("#results").html("<p>Result: <code>" +
+            result.message + "</code></p>");
+}
