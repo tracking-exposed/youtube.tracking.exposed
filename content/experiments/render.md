@@ -5,7 +5,9 @@ layout: page
 date: 2021-11-09T08:11:24
 ---
 
-## Experiment render, here visualization or preview of result should appear
+#### Experiment can be selected from the [public list](/experiments/list), and created by using [Guardoni](/guardoni).
+
+---
 
 <h4 id="error"></h4>
 <h4 id="experinfo"></h4>
@@ -44,9 +46,7 @@ date: 2021-11-09T08:11:24
 <script type="text/javascript">
 
 async function code() {
-  const cont = await reportAllTheExperiments();
-  if(cont)
-    await experimentGradualRender();
+  await experimentGradualRender();
 }
 
 code();

@@ -205,6 +205,27 @@ function pieCharts(idName, videos, titleId) {
 async function experimentGradualRender() {
 
   const exname = window.location.hash.substr(1);
+  if(!exname) {
+    $("#error").html("<span style='color:red'>Error, not found an experimentId in the URL</span>");
+    return;
+  }
+
+
+  if(!exname.length) {
+    $("#error").html(`Experiment name is missing in the request`);
+    return false;
+  }
+  if(!data.experiments[exname]) {
+    $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
+    return false;
+  }
+
+  $("#experinfo").text(`Rendering results for ${exname}`)
+
+  // this 'false' is just to interrupt a flow of code that need to 
+  // be aligned with the v1.8.x updates
+  return false; 
+
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
   // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
   const dotconn = await fetch(doturl);
@@ -236,45 +257,67 @@ async function experimentGradualRender() {
   // axes();
 }
 
-function liElements(directive) {
-  /* <a href="/experiment/render/#${directive.experimentId}">
-    </a> */
+function directiveHTMLli(directive, recent) {
+
+  const jurl = buildApiUrl('experiment', directive.experimentId + "/json", 2);
+  const curl = buildApiUrl('experiment', directive.experimentId + "/csv", 2);
+  const homeid = `home-${directive.experimentId}`;
+  const videoid = `video-${directive.experimentId}`;
+  const searchid = `search-${directive.experimentId}`;
+  const advid = `adv-${directive.experimentId}`;
+  const experimentStats = (_.keys(recent).length) ? 
+    `<code>${JSON.stringify(recent)}</code>`:
+    `<span style="color:red">NO data</span>`;
+
   return `<li>
-      ${directive.humanizedWhen}
-    <b>urltag(s)</b>: ${_.map(directive.links, 'urltag')}
-    <span style="color:darkgreen"><b>DOWNLOAD EVIDENCES</b></span> —
-    <a href="/api/v2/experiment/${directive.experimentId}/csv">CSV</a>, 
-    <a href="/api/v2/experiment/${directive.experimentId}/json">JSON</a>.
+    <p>
+      <a href="/experiment/render/#${directive.experimentId}">
+        <b>${directive.humanizedWhen}</b> 
+      </a>
+      <br>
+      <small>${directive.experimentId}</small>
+      <br>
+      <b>urltag(s)</b>: ${_.map(directive.links, 'urltag')}
+      <br>
+      ${experimentStats}
+    </p>
+    <p>
+      <span style="color:darkgreen"><b>DOWNLOAD data</b></span>
+      <span id="${homeid}"><a href="${curl}/home">HOME</a> csv, </span>
+      <span id="${videoid}"><a href="${curl}/video">VIDEO</a> csv, </span>
+      <span id="${searchid}"><a href="${curl}/search">SEARCH</a> csv, </span>
+      <span id="${advid}"><a href="${curl}/adv">ADV</a> csv, </span>
+      — full <a href="${jurl}">JSON</a>.
+    </p>
   </li>`;
+}
+
+function activeHTMLli(active) {
+  return `<li><code>
+      ${JSON.stringify(active)}
+    </code></li>`
+
 }
 
 async function reportAllTheExperiments(directiveType) {
   const listurl = buildApiUrl('guardoni', 'list/' + directiveType, 2);
   const response = await fetch(listurl);
   const data = await response.json();
-  console.log(listurl, JSON.stringify(data));
 
-  $("#experiment--list")
-    .html(_.map(data, liElements)
+  const activeDetails = _.map(data.configured, function(directive) {
+    const recent = _.get(data.recent, directive.experimentId, []);
+    return directiveHTMLli(directive, recent);
+  });
+  $("#configured--list").html(activeDetails.join('\n'));
+
+  $("#active--list").html(_
+    .map(data.active, activeHTMLli)
     .join('\n'));
 
   /* if(data.overflow)
     $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered'); */
 
-  console.log(_.keys(data.experiments).length)
-  if(0 === (_.keys(data.experiments).length))
+  if(0 === (_.keys(data.recent).length))
     $("#experiment--warning").text('Unexpected error: zero experiments found');
 
-  if(!exname.length) {
-    $("#error").html(`Experiment name is missing in the request`);
-    return false;
-  }
-  if(!data.experiments[exname]) {
-    $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
-    return false;
-  }
-
-  $("#experinfo").text(`Rendering results for ${exname}`)
-  // this 'true' would allow the page to query results
-  return true;
 }
