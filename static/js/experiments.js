@@ -271,7 +271,7 @@ function directiveHTMLli(directive, recent) {
 
   return `<li>
     <p>
-      <a href="/experiment/render/#${directive.experimentId}">
+      <a href="render/#${directive.experimentId}">
         <b>${directive.humanizedWhen}</b> 
       </a>
       <br>
@@ -295,8 +295,7 @@ function directiveHTMLli(directive, recent) {
 function activeHTMLli(active) {
   return `<li><code>
       ${JSON.stringify(active)}
-    </code></li>`
-
+    </code></li>`;
 }
 
 async function reportAllTheExperiments(directiveType) {

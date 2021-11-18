@@ -1,16 +1,16 @@
 ---
-title: Experiment list
+title: Shadowban detector analysis toolkit
 draft: false
 layout: page
-date: 2021-11-09T08:11:24
+date: 2021-11-18T08:11:24
 ---
 
-#### List of Existing experiments [only <span style='color:#0b89dd'><i>comparison</i></span>]
+#### List of configured shadowban measurements
 ---
 
 <h4 id="#experiment--warning"></h4>
 
-#### Configured experiments (via Guardoni \-\-csv upload)
+#### Configured experiments (via Guardoni with options \-\-csv \-\-shadowban)
 <ol id="configured--list"></ol>
 
 ----
@@ -20,8 +20,8 @@ date: 2021-11-09T08:11:24
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/experiments.js"></script>
 <script type="text/javascript">
-  async function render() {
-    await reportAllTheExperiments('comparison');
+  async function display() {
+    await reportAllTheExperiments('chiaroscuro');
   }
-  render();
+  display();
 </script>
