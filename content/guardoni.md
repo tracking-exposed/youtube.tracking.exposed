@@ -16,21 +16,24 @@ og_description: "How to repeat experiments of algorithmic discrimination, person
   <div class="col-sm-6" style="font-size: 2rem">
   <ul style="font-size: 1.5rem">
     <li>
-    for <a href="#">Windows</a>, <code>guardoni-win.exe</code>
+    for <a href="/exes/guardoni-1.8.4.exe">Windows</a>, <code>guardoni-1.8.4.exe</code>
     </li>
     <li>
-    for <a href="#">MacOSX</a>, <code>guardoni-macos</code>
+    for <a href="/exes/guardoni-1.8.4-macos">MacOSX</a>, <code>guardoni-1.8.4-macos</code>
     </li>
     <li>
-    and for <a href="#">Linux</a>, <code>guardoni-linux</code>
+    and for <a href="/exes/guardoni-1.8.4-linux">Linux</a>, <code>guardoni-1.8.4-linux</code>
     </li>
   </ul>
-  <h4>As we release free software, you can also <a href="#">run it or build it from the nodejs source</a>.</h4>
+  <h4>As we release free software, you can also <a href="#build">run it or build it from the nodejs source</a>.</h4>
   </div>
   <div class="col-sm-6">
   <h1 class="text-right">
     key aspect of algorithm analysis is repeatable methodologies: <b>guardoni</b> do that for Youtube
   </h1>
+  <small>
+    <a href="/experiments/list" target=_blank>experiment backlog</a>, last release 2021-11-18
+  </small>
   </div>
 </div>
 
@@ -50,6 +53,18 @@ What you can do with Guardoni, is to be able to create a new profile and train i
 
 ### The effect of youtube's personalization algorithm has an impact on homepages, recommended videos, and search results.
 
+<br >
+## 💻 Quick command references:
+
+You need to open a terminal and execute the file downloaded:
+
+> guardoni-1.8.4.exe --auto
+
+If you give this command, and it doesn't give you any error, you should see a new browser window opened with an empty page. **with that browser** you should go to youtube.com and accept the cookie banner.
+
+After, comeback to the terminal, and press <code>Enter</code>.
+
+The tool would not reproduce automatically a few videos selected, they belong to an _experiment_. An experiment is a list of youtube URLs (homepage, search queries, video watching) and in the next chapters you'll understand how to build your own experiment, and how to download the results.
 
 <br >
 ## 💻 How to practically use it
@@ -212,3 +227,15 @@ Brasilian: _Toms de espreitar_.
 
 TL;DR: while we were working on an investigation on [the adult mainstream portal](https://pornhub.tracking.exposed) then become clear we need to program something that would watch that content for us; you know **mental health matter**. The tool later on become handy to repeat profiling methodologies, and thus have been generalized for youtube, tiktok, and other platform we support.
 Before this tool, most of our researches that include controlled profiling, were done by piloting the profiles manually.
+
+
+### Build
+
+If you want to build your own executables, this is the process:
+
+Clone this repository: https://github.com/tracking-exposed/yttrex/
+Entrer the directory: `cd yttrex/methodology`
+Run the node script: `bin/guardoni.js`
+Build exes with command: `npm run pkg`
+
+and check the `dist` directory
