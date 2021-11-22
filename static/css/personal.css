@@ -30,3 +30,10 @@
 .expandrelated {
     cursor: zoom-in !important;
 }
+
+section {
+    margin-top: 2rem;
+    border-top: red 1px solid;
+    border-right: red 1px solid;
+    border-radius: 20px;
+}

@@ -45,9 +45,21 @@ date: 2021-11-09T08:11:24
 
 <script type="text/javascript">
 
-async function code() {
-  await experimentGradualRender();
+async function code(exname) {
+  await comparisonRender(exname);
 }
 
-code();
+const exname = window.location.hash.substr(1);
+if(!exname) {
+  $("#error").html("<span style='color:red'>Error, not found an experimentId in the URL</span>");
+  return;
+}
+
+if(!exname.length) {
+  $("#error").html(`Experiment name is missing in the request`);
+  return false;
+}
+
+code(exname);
+
 </script>
