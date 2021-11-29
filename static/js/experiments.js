@@ -293,15 +293,25 @@ async function reportAllTheExperiments(directiveType) {
   const response = await fetch(listurl);
   const data = await response.json();
 
-  const activeDetails = _.map(data.configured, function(directive) {
-    const recent = _.get(data.recent, directive.experimentId, []);
-    return directiveHTMLli(directive, recent);
-  });
-  $("#configured--list").html(activeDetails.join('\n'));
+  if(!data.configured.length) {
+    $("#configured--list")
+      .html('<h4><code>No experiment configured!</code></h4>');
+  } else {
+    const activeDetails = _.map(data.configured, function(directive) {
+      const recent = _.get(data.recent, directive.experimentId, []);
+      return directiveHTMLli(directive, recent);
+    });
+    $("#configured--list").html(activeDetails.join('\n'));
+  }
 
-  $("#active--list").html(_
-    .map(data.active, activeHTMLli)
-    .join('\n'));
+  if(!data.active.length) {
+    $("#active--list")
+      .html('<h4><code>No experiment active at the moment.</code></h4>');
+  } else {
+    $("#active--list").html(_
+      .map(data.active, activeHTMLli)
+      .join('\n'));
+  }
 
   /* if(data.overflow)
     $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered'); */
