@@ -58,6 +58,28 @@ const c3__config = [{
 
 function renderC3Graph(graphInfo) {
 
+    throw new Error("Not supported anymore, removed this piece of code from automo:");
+
+    const listOfRelated = _.flatten(_.map(metadata, 'related'));
+
+    /* the pie chars are generated from these reduction and rendered with c3js.org */
+    graphs.views = _.countBy(metadata, 'authorName');
+
+    /* a pie chart by counting how many video is recommended for you */
+    graphs.reason = _.countBy(listOfRelated, 'foryou');
+    graphs.reason = _.reduce(graphs.reason, function(memo, value, key) {
+        _.set(memo, (key === 'true') ? 'for you' : 'organic', value);
+        return memo;
+    }, {});
+
+    graphs.related = _.countBy(listOfRelated, 'recommendedSource')
+    graphs.related = _.map(graphs.related, function(amount, name) {
+        return { name, 'recommended videos': amount };
+    });
+    graphs.related = _.reverse(_.orderBy(graphs.related, 'recommended videos'));
+
+    /* ^^^^ it was initially necessary for the piechart */
+
     /* pie chart first graph */
     c3__config[0].data.json = graphInfo.views;
     let counter = 1;
@@ -122,23 +144,20 @@ function getPubKey() {
 }
 
 /* -- EXECUTION STARTS HERE */
-function personal(profile) {
+function loadPersonal() {
 
-    $(".recommended-once").html();
-    // $("#report").empty();
     const pk = getPubKey();
     const url = buildApiUrl('personal', pk);
     $.getJSON(url, (data) => {
 
         if(data.error) 
-            reportError(data);
-        else {
-            _.each(data.recent, addVideoRow);
-            _.each(data.searches, addSearchRow)
-            renderC3Graph(data.graphs);
-            if(!profile)
-                updateProfileInfo(data.supporter);
-        }
+            return reportError(data);
+
+        $("#stats").html(JSON.stringify(data.stats));
+        // removed invoke of renderC3Graph, removed data.graphs
+        _.each(data.videos, addVideoRow);
+        _.each(data.searches, addSearchRow);
+        updateProfileInfo(data.supporter);
     });
 }
 
@@ -336,27 +355,27 @@ function addSearchRow(searche, i) {
         publicKey: "FxMy3C17AijcLhc3pD6gSwLbM16ZFcC9sdLgUJrQbUHJ"
         results: 40
         savingTime: "2020-09-30T17:34:40.125Z"
-        searchTerms: "trump biden face to face" */
+        query: "trump biden face to face" */
     const entry = $("#searchmaster").clone();
     const computedId = `search-${searche.id}`;
     entry.attr("id", computedId);
     $("#searchlog").append(entry);
 
-    $("#" + computedId + " .title").text(searche.searchTerms + " (" + searche.results + ")");
+    $("#" + computedId + " .title").text(searche.query + " (" + searche.results + ")");
     $("#" + computedId + " .when").text(searche.savingTime.substr(11, 5));
 
-    const ytlink = "https://www.youtube.com/results?search_query=" + encodeURIComponent(searche.searchTerms);
+    const ytlink = "https://www.youtube.com/results?search_query=" + encodeURIComponent(searche.query);
     $("#" + computedId + " .repeat").attr('href', ytlink);
     $("#" + computedId + " .repeat").text('repeat search');
 
     $("#" + computedId + " .csv").on('click', downloadSearchCSV);
-    $("#" + computedId + " .csv").attr('yttrex-search-terms', `${searche.searchTerms}`);
-    title = $("#" + computedId + " .csv").attr('title')  + "«" + searche.searchTerms + "»";
+    $("#" + computedId + " .csv").attr('yttrex-search-terms', `${searche.query}`);
+    title = $("#" + computedId + " .csv").attr('title')  + "«" + searche.query + "»";
     $("#" + computedId + " .csv").attr('title', title);
 
     $("#" + computedId + " .delete").on('click', removeEvidence);
     $("#" + computedId + " .delete").attr('yttrex-search-id', `${searche.id}`);
-    title = $("#" + computedId + " .delete").attr('title')  + "«" + searche.searchTerms + "»";
+    title = $("#" + computedId + " .delete").attr('title')  + "«" + searche.query + "»";
     $("#" + computedId + " .delete").attr('title', title);
 
     entry.removeAttr('hidden');

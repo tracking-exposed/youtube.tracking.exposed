@@ -1,250 +1,181 @@
 ---
-title: Evidence collection page
+title: "How do Youtube personalize the experience? evidence log page"
 subtitle: Do not share this link! Only you have access to it.
 date: 2019-05-22T15:01:21+01:00
 draft: false
 extraCSS: "/css/personal.css"
 description: Personal interface, your evidence and settings. The link is know to you only; keep it private
-type: app 
+layout: "app"
+og_title: This link should not be shared (personal yttrex page)
+og_description: Interface to download recommendations, homepage and search results CSV.
 ---
 
 <div class="container">
 
-    <!-- Fallback is not really useful 
-        <div id="fallback" hidden class="row border-bottom p-2 mb-3 align-middle">
-          <div class="col-3">
-            <small class="dayString">dayStringFiller</small>
-          </div>
-          <div class="col-9">
-            <small class="genericInfo">InfoFiller</small>
-          </div>
-        </div>
+  <div class="row">
+    <div class="col-6">
+      <h4>Videos and Recommendations</h4>
+    </div>
+    <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-outline-success" onclick="downloadVideoCSV()">
+        Videos CSV
+      </button>
+    </div>
+  </div>
 
-        the function 'simplept' have been removed from personal.js the 19th of Dec 2020,
-        last seen commit-ID: aa91e83a12944469793e152b27e8161fb9f56292
-        <p hidden class="fallback-listing">Welcome, you just start! <b>at the third day</b> of using youtube.tracking.exposed, you'll find here a time graph; Now there are only few <b>counters</b>:</p>
-    -->
-    <section>
-        <div class="mb-11">
-            <p hidden class="timesavail">A timeline from last two months activities:</p>
-            <div id="series"></div>
-        </div>
-    </section>
-
-    <section>
-        <div class="mb-11">
-            <p id="total-evidence" class="mb-2"></p>
-        </div>
-
-        <div class="col-12" style="display:inline-block">
-            <div class="chart1"></div>
-        </div>
-        <!--
-        <div class="col-6" style="display:inline-block">
-            <p>Recommendation reasons (as declared by YouTube)</p>
-            <div class="chart2"></div>
-        </div> 
-        -->
-        <div id="optionalChart3" class="col-12" style="display:inline-block">
-            <p>Recommended videos count by producer:</p>
-            <div class="chart3"></div>
-            <span id="recommended-once-title">Recommended once:<br> </span>
-            <span class="recommended-once"></span>
-        </div>
-    </section>
-
-    <section style="text-align: center;">
-        Download CSV
-        <button type="button" class="btn btn-outline-success" onclick="downloadHomeCSV()">
-            Homepage content
-        </button>
-        <button type="button" class="btn btn-outline-success" onclick="downloadVideoCSV()">
-            Recommended videos
-        </button>
-    </section>
-    <hr />
-
-    <section>
-        <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
-        <div id="master" hidden class="ventry row border-bottom p-2 mb-3 align-middle">
-          <div class="col-8">
-            <span class="logged" title="Logged in youtube" hidden>👤</span> 
-            <span class="mb-0">
-              <span class="extendable">
-                <small class="relative">relativeFiller</small> ― <small>
-                    <a
-                        class="author icon-small mb-1"
-                        title="Compare all the evidences from ">
-                        producerFiller
-                    </a> ― <a title="Expand recommended" class="expandrelated">
-                        <span class="relatedN">relatedNfiller</span>
-                        collected recommended
-                    </a>
-                </small><br />
-              </span>
-              <b class="title">titleFiller</b>
-              <span>   </span>
-              <a class="repeat" target=_blank href="#">replay</span>
-            </span>
-          </div>
-          <nav class="col-4">
-              <a
-                class="compare icon-small mb-1"
-                title="Compare all the related suggestions selected for ">
-                  <!-- string is completed in JS so the HTML can be translated -->
-                  <small>Compare</small>
-              </a>
-              <a
-                class="related icon-small mb-1"
-                title="all times in the related was selected ">
-                  <!-- string is completed in JS so the HTML can be translated -->
-                  <small>Related</small>
-              </a>
-              <a
-                style="cursor: pointer"
-                class="csv icon-small mb-1"
-                title="CSV with all the observations of ">
-                  <!-- string is completed in JS so the HTML can be translated -->
-                  <span style="color:#ff0000;">⇓</span>
-                  <small>CSV</small>
-              </a>
-              <a
-                style="cursor: pointer"
-                class="delete icon-small mb-1"
-                title="Remove this evidence about">
-                  <small>Remove</small>
-              </a>
-          </nav>
-        </div>
-
-        <div id="report" class="mb-5">
-          <!-- Here are appended the clones of #master, by jQuery -->
-        </div>
-    </section>
-
-    <section>
-      <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
-      <div id="searchmaster" hidden class="row border-bottom p-2 mb-3 align-middle">
-        <div class="col-8">
-          <span class="mb-0">
-            <small class="when">whenFiller</small> ― 
-            <b class="title">titleFiller</b>
-            <a class="repeat" target=_blank>linkFiller</a>
-          </span>
-        </div>
-        <nav class="col-4">
+  <section>
+    <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
+    <div id="master" hidden class="ventry row border-bottom p-2 mb-3 align-middle">
+      <div class="col-8">
+      <span class="logged" title="Logged in youtube" hidden>👤</span> 
+      <span class="mb-0">
+        <span class="extendable">
+        <small class="relative">relativeFiller</small> ― <small>
           <a
-            style="cursor: pointer"
-            class="csv icon-small mb-1"
-            title="CSV with all the observations of ">
-            <!-- string is completed in JS so the HTML can be translated -->
-            <span style="color:#ff0000;">⇓</span>
-            <small>CSV</small>
+            class="author icon-small mb-1"
+            title="Compare all the evidences from ">
+            producerFiller
+          </a> ― <a title="Expand recommended" class="expandrelated">
+            <span class="relatedN">relatedNfiller</span>
+            collected recommended
           </a>
-          <a
-            style="cursor: pointer"
-            class="delete icon-small mb-1"
-            title="Remove (only) this query about ">
-            <small>Remove</small>
-          </a>
-        </nav>
+        </small><br />
+        </span>
+        <b class="title">titleFiller</b>
+        <span>   </span>
+        <a class="repeat" target=_blank href="#">replay</span>
+      </span>
       </div>
+      <nav class="col-4">
+        <a
+        class="compare icon-small mb-1"
+        title="Compare all the related suggestions selected for ">
+          <!-- string is completed in JS so the HTML can be translated -->
+          <small>Compare</small>
+        </a>
+        <a
+        class="related icon-small mb-1"
+        title="all times in the related was selected ">
+          <!-- string is completed in JS so the HTML can be translated -->
+          <small>Related</small>
+        </a>
+        <a
+        style="cursor: pointer"
+        class="csv icon-small mb-1"
+        title="CSV with all the observations of ">
+          <!-- string is completed in JS so the HTML can be translated -->
+          <span style="color:#ff0000;">⇓</span>
+          <small>CSV</small>
+        </a>
+        <a
+        style="cursor: pointer"
+        class="delete icon-small mb-1"
+        title="Remove this evidence about">
+          <small>Remove</small>
+        </a>
+      </nav>
+    </div>
 
-      <p>Collected Search results</p>
-      <div id="searchlog" class="mb-5">
-        <!-- Here are appended the clones of #master, by jQuery -->
-      </div>
-    </section>
+    <div id="report" class="mb-5">
+      <!-- Here are appended the clones of #master, by jQuery -->
+    </div>
+  </section>
 
-    <section>
-        <div class="row mb-5">
-            <div class="col-sm">
-                <div class="card p-3">
-                    <h3>Settings</h3>
-                    <ul class="mb-4 list-group">
-                        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Pseudonym
-                            <span class="badge badge-primary badge-light align-right" id="user-name"></span>
-                        </li>
-                        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">First access
-                            <span class="badge badge-primary badge-light align-right" id="createdAtFormatted"></span>
-                        </li>
-                        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Last activity
-                            <span class="badge badge-primary badge-light align-right" id="lastActivityFormatted"></span>
-                        </li>
-                        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Here since
-                            <span class="badge badge-primary badge-light align-right" id="hereSince"></span>
-                        </li>
-                        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center" id="tag-badge" style="display:none">
-                            Group tagging
-                            <span class="badge italic align-right" id="tag-name">&lt; loading... &gt;</span>
-                        </li>
-                    </ul>
-                    <br>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-6">
+      <h4>Searches</h4>
+    </div>
+    <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-outline-success" onclick="downloadSearchesCSV()">
+        Searches CSV
+      </button>
+    </div>
+  </div>
 
-            <div class="col-sm" id="informative">
-                <div class="card p-3">
-                    <h3>Do it with a group of friends!</h3>
-                    <small class="mb-3 pb-3 border-bottom">
-                        By tagging your evidence, you can more easily compare with the other people tagging in the same way. A person in a group share evidences collected with the others, as this tag works as a shared access code.
-                    </small>
-                    <div>
+  <section>
 
-                    <div id="error"></div>
-                    <div class="mb-4">
-                        <label for="tag">Tag as: </label>
-                        <input name="tag" class="form-control" id="tag" type="text" value="" placeholder="">
-                    </div>
-                    <!--
-                    <div class="mb-3">
-                        <label class="mr-2">Tag type: </label>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input onchange="showPassword('public')" checked type="radio" id="public" name="public-private" class="custom-control-input">
-                            <label class="group-type custom-control-label" for="public">public</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input onchange="showPassword('private')" type="radio" id="private" name="public-private" class="custom-control-input">
-                            <label class="group-type custom-control-label" for="private">private</label>
-                        </div>
-                    </div>
-                    <div id="group-password-wrapper" class="mb-4" style="display: none;">
-                        <label>Set up a password for private tag</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <div class="mb-4" id="description-block" style="display: none">
-                        <label for="description">Description</label>
-                        <input name="description" class="form-control" id="description" type="text" value="" placeholder="">
-                    </div>
-                    -->
-                    <div id="result"></div>
-                    <button 
-                        class="btn btn-lg float-left btn-success" 
-                        style="min-width: 100px" 
-                        id="joinTagButton"
-                        onclick="joinTag()">Join +</button>
+    <!-- NOTE: this is hidden, and it is cloned from javascript, each time a new entry is present -->
+    <div id="searchmaster" hidden class="row border-bottom p-2 mb-3 align-middle">
+    <div class="col-8">
+      <span class="mb-0">
+      <small class="when">whenFiller</small> ― 
+      <b class="title">titleFiller</b>
+      <a class="repeat" target=_blank>linkFiller</a>
+      </span>
+    </div>
+    <nav class="col-4">
+      <a
+      style="cursor: pointer"
+      class="csv icon-small mb-1"
+      title="CSV with all the observations of ">
+      <!-- string is completed in JS so the HTML can be translated -->
+      <span style="color:#ff0000;">⇓</span>
+      <small>CSV</small>
+      </a>
+      <a
+      style="cursor: pointer"
+      class="delete icon-small mb-1"
+      title="Remove (only) this query about ">
+      <small>Remove</small>
+      </a>
+    </nav>
+    </div>
 
-                    <a class="btn btn-lg float-right" id="removeButton"
-                        style="min-width: 100px" onclick="removeTag()"
-                        >Remove tag</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="searchlog" class="mb-5">
+    <!-- Here are appended the clones of #master, by jQuery -->
+    </div>
+  </section>
+
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Homepages? <span style="font-size: 0.8rem;">not yet!</span></h4>
+    </div>
+    <div class="col-6">
+      <button
+        type="button"
+        class="btn btn-outline-success" onclick="downloadHomeCSV()">
+        Homepage CSV
+      </button>
+    </div>
+  </div>
+
+  <hr />
+
+  <pre id="stats"></pre>
+
+  <div class="col-sm">
+    <div class="card p-3">
+      <h3>Settings</h3>
+      <ul class="mb-4 list-group">
+        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Pseudonym
+          <span class="badge badge-primary badge-light align-right" id="user-name"></span>
+        </li>
+        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">First access
+          <span class="badge badge-primary badge-light align-right" id="createdAtFormatted"></span>
+        </li>
+        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Last activity
+          <span class="badge badge-primary badge-light align-right" id="lastActivityFormatted"></span>
+        </li>
+        <li class="mr-1 list-group-item d-flex justify-content-between align-items-center">Here since
+          <span class="badge badge-primary badge-light align-right" id="hereSince"></span>
+        </li>
+      </ul>
+      <br>
+    </div>
+  </div>
+
 </div>
 
-<link href="/css/c3.min.css" rel="stylesheet">
-<script src="/js/d3.min.js"></script>
-<script src="/js/c3.min.js"></script>
 <script src="/js/global.js"></script>
 <script src="/js/personal.js"></script>
+
 <script type="text/javascript">
-
-    $( document ).ready(function() {
-        $("#description").val("");
-        personal();
-        personalTimeseries();
-    });
-
+  $( document ).ready(function() {
+    loadPersonal();
+  });
 </script>

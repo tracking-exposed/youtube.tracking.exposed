@@ -202,38 +202,28 @@ function pieCharts(idName, videos, titleId) {
   // })
 }
 
-async function experimentGradualRender() {
+async function comparisonRenderer(exname) {
 
-  const exname = window.location.hash.substr(1);
-  if(!exname) {
-    $("#error").html("<span style='color:red'>Error, not found an experimentId in the URL</span>");
-    return;
-  }
+  const doturl = buildApiUrl('experiment', exname + '/dot', 2);
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
+  const dotconn = await fetch(doturl);
+  const dotformat = await dotconn.json();
 
+  console.log(dotformat);
 
-  if(!exname.length) {
-    $("#error").html(`Experiment name is missing in the request`);
-    return false;
-  }
+  const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
+  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/json'; 
+  const jsonconn = await fetch(jsonurl);
+  const jsonfmt = await jsonconn.json();
+
+  console.log(jsonfmt);
+
   if(!data.experiments[exname]) {
     $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
     return false;
   }
 
   $("#experinfo").text(`Rendering results for ${exname}`)
-
-  // this 'false' is just to interrupt a flow of code that need to 
-  // be aligned with the v1.8.x updates
-  return false; 
-
-  const doturl = buildApiUrl('experiment', exname + '/dot', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
-  const dotconn = await fetch(doturl);
-  const dotformat = await dotconn.json();
-  const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
-  // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/json'; 
-  const jsonconn = await fetch(jsonurl);
-  const jsonfmt = await jsonconn.json();
   for (videoinfo of dotformat) {
     console.log(videoinfo.videoName);
     const elem = $("#protoclone").clone();
