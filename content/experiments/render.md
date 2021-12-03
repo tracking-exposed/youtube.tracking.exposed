@@ -5,7 +5,7 @@ layout: page
 date: 2021-11-09T08:11:24
 ---
 
-#### Experiment can be selected from the [public list](/experiments/list), and created by using [Guardoni](/guardoni).
+#### Experiment can be accessed once you execute Guardoni, follow the [example](/experiments/example); they are build by using [Guardoni](/guardoni).
 
 ---
 
@@ -20,7 +20,6 @@ date: 2021-11-09T08:11:24
   <div id="pie--"></div>
 </div>
 <div id="fuffa"></div>
-
 <style>
   .videoName {
     background-color: #fff6f6;
@@ -37,7 +36,6 @@ date: 2021-11-09T08:11:24
   }
 </style>
 <link href="/css/c3.min.css" rel="stylesheet">
-
 -->
 
 <script type="text/javascript" src="/js/global.js"></script>

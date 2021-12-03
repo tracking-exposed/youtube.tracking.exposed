@@ -21,7 +21,8 @@ date: 2021-11-18T08:11:24
 <script type="text/javascript" src="/js/experiments.js"></script>
 <script type="text/javascript">
   async function display() {
-    await reportAllTheExperiments('chiaroscuro');
+    const data = await reportAllTheExperiments('chiaroscuro');
+    console.log(data);
   }
   display();
 </script>

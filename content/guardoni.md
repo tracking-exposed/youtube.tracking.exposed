@@ -16,13 +16,13 @@ og_description: "How to repeat experiments of algorithmic discrimination, person
   <div class="col-sm-6" style="font-size: 2rem">
   <ul style="font-size: 1.5rem">
     <li>
-    for <a href="/exes/guardoni-1.8.4.exe">Windows</a>, <code>guardoni-1.8.4.exe</code>
+    for <a href="/exes/guardoni-1.8.6.exe">Windows</a>, <code>guardoni-1.8.6.exe</code>
     </li>
     <li>
-    for <a href="/exes/guardoni-1.8.4-macos">MacOSX</a>, <code>guardoni-1.8.4-macos</code>
+    for <a href="/exes/guardoni-1.8.6-macos">MacOSX</a>, <code>guardoni-1.8.6-macos</code>
     </li>
     <li>
-    and for <a href="/exes/guardoni-1.8.4-linux">Linux</a>, <code>guardoni-1.8.4-linux</code>
+    and for <a href="/exes/guardoni-1.8.6-linux">Linux</a>, <code>guardoni-1.8.6-linux</code>
     </li>
   </ul>
   <h4>As we release free software, you can also <a href="#build">run it or build it from the nodejs source</a>.</h4>
@@ -32,7 +32,7 @@ og_description: "How to repeat experiments of algorithmic discrimination, person
     key aspect of algorithm analysis is repeatable methodologies: <b>guardoni</b> do that for Youtube
   </h1>
   <small>
-    <a href="/experiments/list" target=_blank>experiment backlog</a>, last release 2021-11-18
+    <a href="/experiments/example" target=_blank>experiment example</a>, last release 2021-12-02
   </small>
   </div>
 </div>

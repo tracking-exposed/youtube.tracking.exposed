@@ -283,13 +283,27 @@ function directiveHTMLli(directive, recent) {
 }
 
 function activeHTMLli(active) {
-  return `<li><code>
-      ${JSON.stringify(active)}
-    </code></li>`;
+  /* "publicKey":"HRr3mbGR",
+     "href":"https://www.youtube.com/results?search_query=2uPoWfSHalk",
+     "experimentId":"4751040c3c6206b7daa358658f",
+     "evidencetag":"sblt-berlin-2",
+     "execount":1,
+     "newProfile":true,
+     "testTime":"2021-11-30T11:31:48.668Z",
+     "directiveType":"comparison",
+     "status":"active"                              */
+  return `
+    <li>
+      <a href="/render/#${active.experimentId}">${active.testTime}</a>
+      evidencetag: <code>${active.evidencetag}</code>
+      profile executed: <code>${active.execount}</code>
+    </li>`;
 }
 
-async function reportAllTheExperiments(directiveType) {
-  const listurl = buildApiUrl('guardoni', 'list/' + directiveType, 2);
+async function reportAllTheExperiments(directiveType, password) {
+  let variableAPI = password?.length ?
+    `list/${directiveType}/${password}` : `list/${directiveType}`;
+  const listurl = buildApiUrl('guardoni', variableAPI, 2);
   const response = await fetch(listurl);
   const data = await response.json();
 
@@ -319,4 +333,5 @@ async function reportAllTheExperiments(directiveType) {
   if(0 === (_.keys(data.recent).length))
     $("#experiment--warning").text('Unexpected error: zero experiments found');
 
+  return data;
 }
