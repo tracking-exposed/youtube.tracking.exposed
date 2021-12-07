@@ -134,21 +134,47 @@ og_description: Interface to download recommendations, homepage and search resul
     </div>
   </section>
 
-
   <div class="row">
     <div class="col-6">
-      <h4>Homepages? <span style="font-size: 0.8rem;">not yet!</span></h4>
+      <h4>Homepages</h4>
     </div>
     <div class="col-6">
       <button
         type="button"
+        id="homes--download"
         class="btn btn-outline-success" onclick="downloadHomeCSV()">
         Homepage CSV
       </button>
     </div>
   </div>
 
+  <section>
+    <div id="homelogs">
+      <ol id="homelist"></ol>
+    </div>
+  </section>
+
   <hr />
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Advertising</h4>
+    </div>
+    <div class="col-6">
+      <button
+        type="button"
+        id="ads--download"
+        class="btn btn-outline-success" onclick="downloadAdsCSV()">
+        Advertising CSV
+      </button>
+    </div>
+  </div>
+
+  <section>
+    <div id="adlogs">
+      <ol id="adlist"></ol>
+    </div>
+  </section>
 
   <pre id="stats"></pre>
 

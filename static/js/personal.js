@@ -164,10 +164,17 @@ function loadPersonal(authToken) {
         }
 
         if(!data.homes.length) {
-            $("#homelog").html("<h5>No homepage accessed</h5>");
+            $("#homelogs").html("<h5>No homepage accessed</h5>");
             $("#homes--download").addClass('disabled');
         } else {
             _.each(data.homes, addHomeRow);
+        }
+
+        if(!data.ads.length) {
+            $("#adlogs").html("<h5>No Advertisement collected! (Lucky you!)</h5>");
+            $("#ads--download").addClass('disabled');
+        } else {
+            _.each(data.ads, addAdvRow);
         }
 
         updateProfileInfo(data.supporter);
@@ -263,15 +270,39 @@ function downloadCSVByVideoId(e) {
 }
 /* end of the CSV related functions */
 
-function between(x, min, max) {
-    return x >= min && x <= max;
+function addHomeRow(entry) {
+    const spans = _.map(entry.selected, function(title) {
+        /* same style as search result amount */
+        return `<span class="amount">${title}</span>`;
+    });
+    $("#homelist").append(`<li>
+        ${entry.savingTime} <code>${entry.id}</code><br>
+        ${spans.join("\n")}
+    </li>`);
+}
+
+function addAdvRow(entry) {
+    /* href: "https://www.youtube.com/watch?v=xaQJbozY_Is"
+       metadataId: "1c80e3c1b33c2dbb6fcbbfe944d4aaf6b"
+       savingTime: "2021-11-08T23:30:40.454Z"
+       sponsoredName: "Audiolibri"
+       sponsoredSite: "www.storytel.com/it/it/c/yt-kobane-calling" */
+    $("#adlist").append(`<li>
+        ${entry.savingTime} + ${entry.metadataId.substr(0, 4)} 
+        <b>${entry.sponsoredName || ""}</b>
+        <a href="${entry.sponsoredSite}">
+            <code>${entry.sponsoredSite}</code>
+        </a>
+        <br>
+        <small><a href="${entry.href}">${entry.href}</a>.
+    </li>`);
 }
 
 function addSearchRow(searche, i) {
     // console.log(i, searche); 
     /* clang: "en"
         id: "a217a2259295bedd777681ff4f57c9a33a48e338"
-        publicKey: "FxMy3C17AijcLhc3pD6gSwLbM16ZFcC9sdLgUJrQbUHJ"
+        publicKey: "FxMy3C17AijcLhc3pD6gSwLbM16ZFcC9sdLgUJ"
         results: 40
         savingTime: "2020-09-30T17:34:40.125Z"
         query: "trump biden face to face" */
