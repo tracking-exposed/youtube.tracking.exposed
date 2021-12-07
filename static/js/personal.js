@@ -147,7 +147,6 @@ function loadPersonal(authToken) {
             return reportError(data);
 
         console.log(data);
-        $("#stats").html(JSON.stringify(data.stats));
 
         if(!data.videos.length) {
             $("#report").html("<h5>No video collected and therefore no recommendations</h5>");

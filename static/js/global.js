@@ -4,8 +4,8 @@ const palette = [ "#c136b3", "#f22a92", "#ff416d", "#ff6a46",
 
 function buildApiUrl(apiName, option, apiv) {
 
-    const SERVER = 'https://youtube.tracking.exposed';
-    // const SERVER = 'http://localhost:9000';
+    // const SERVER = 'https://youtube.tracking.exposed';
+    const SERVER = 'http://localhost:9000';
     let rv = null;
     const api_path = apiv ? `/api/v${apiv}/` : "/api/v1/";
 
