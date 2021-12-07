@@ -137,26 +137,39 @@ function reportError(info) {
     );
 }
 
-function getPubKey() {
-    const t = window.location.href.split('/#').pop();
-    if(t.length != 44 ) console.log("Wrong token length in the URL", t.length);
-    return t;
-}
+function loadPersonal(authToken) {
+    /* this is the primary function invoked by personal page */
 
-/* -- EXECUTION STARTS HERE */
-function loadPersonal() {
-
-    const pk = getPubKey();
-    const url = buildApiUrl('personal', pk);
+    const url = buildApiUrl('personal', authToken);
     $.getJSON(url, (data) => {
 
         if(data.error) 
             return reportError(data);
 
+        console.log(data);
         $("#stats").html(JSON.stringify(data.stats));
-        // removed invoke of renderC3Graph, removed data.graphs
-        _.each(data.videos, addVideoRow);
-        _.each(data.searches, addSearchRow);
+
+        if(!data.videos.length) {
+            $("#report").html("<h5>No video collected and therefore no recommendations</h5>");
+            $("#video--download").addClass('disabled');
+        } else {
+            _.each(data.videos, addVideoRow);
+        }
+
+        if(!data.searches.length) {
+            $("#searchlog").html("<h5>No searches collected</h5>");
+            $("#search--download").addClass('disabled');
+        } else {
+            _.each(data.searches, addSearchRow);
+        }
+
+        if(!data.homes.length) {
+            $("#homelog").html("<h5>No homepage accessed</h5>");
+            $("#homes--download").addClass('disabled');
+        } else {
+            _.each(data.homes, addHomeRow);
+        }
+
         updateProfileInfo(data.supporter);
     });
 }
@@ -195,130 +208,29 @@ function printMessage(element, text, type) {
     element.html('<p class="alert alert-' + type + ' mb-3">' + text + '</p>');
 }
 
-function removeTag() { return manageTag('remove'); }
-function joinTag() { return manageTag('join'); }
-function manageTag(action) {
-    /* initially I desgined create and join as different operations.
-     * because it was less usability friendly, now there is also join and delete.
-     * the js sanity checks, requirements and the HTML form are commented but 
-     * preserved in case we need to expand this functionality, it should happen
-     * by supporting a link that automatically subscrive a watcher under a tag */
-    const pk = getPubKey();
-    const error = $('#error');
-    const resultDiv = $('#result');
-    error.empty();
-    resultDiv.empty();
-
-    console.log("manageTag", action);
-    /* this class is removed in printMessage because is the exit flow */
-    $("#joinTagButton").addClass('disabled');
-
-    const tag = $('#tag').val();
-    // const password = $("#password").val();
-    // const description = $("#description").val();
-    // const private = $("#private").is(':checked');
-
-    /* in data we add the tag info to be sent */
-    let data = {
-        tag,
-        password : '',
-        description: '',
-        accessibility: 'public' // private ? 'private': 'public'
-    };
-
-    /* validation */
-    if(_.size(tag) == 0) {
-        printMessage(error, 'Please, enter a tag name.');
-        return;
-    }
-
-    /*
-    if( _.size(password) > 0 && data.accessibility == 'private')
-        $("#group-password-wrapper").show();
-    if( _.size(description) >  0 && action == 'create' )
-        $("#description-block").show();
-
-    if(action == 'create') {
-        $("#description-block").show();
-        if(_.size(description) == 0) {
-            printMessage(error, 'Please add a description to the new tag');
-            return;
-        }
-    } else {
-        $("#description-block").hide();
-        _.unset(data, 'description');
-    } 
-
-    if(private) {
-        $("#group-password-wrapper").show();
-        if(_.size(password) < 8) {
-            printMessage(error, 'Private tag require a password longer than 8 keys.');
-            return;
-        }
-    } else {
-        data.password = "";
-        $("#group-password-wrapper").hide();
-    } */
-
-    /* XHR section towards tagging! */
-    let url = null, APIcall = null;
-    if(action == 'join') {
-        url = buildApiUrl(`profile/${pk}/tag`, null, 2);
-        console.log("Ready to ", action, tag, "via", url);
-        APIcall = fetch(url, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrer: 'no-referrer', // no-referrer, *client
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
-        });
-    }
-    else /* action == 'remove' */ {
-        $('#tag').attr('value', '');
-        $('#removeButton').text("Communicating...")
-        url = buildApiUrl(`profile/${pk}/tag/${tag}`, null, 2);
-        console.log("Ready to ", action, tag, "via", url);
-        APIcall = fetch(url, {
-            method: 'DELETE', 
-            mode: 'cors', // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            redirect: 'follow', // manual, *follow, error
-            referrer: 'no-referrer', // no-referrer, *client
-        });
-    }
-
-    return APIcall.then(function(response) {
-        $('#removeButton').text("Remove tag")
-        return response.json();
-    }).then(function(result) {
-        if(result.error == true) {
-            console.log("Server side error:", result);
-            printMessage(resultDiv, result.message);
-        }
-        else {
-            updateProfileInfo(result.profile);
-            console.log(result);
-            printMessage(resultDiv, 'Operation completed.', 'success');
-        } 
-        return result;
-    })
-    .catch(function(e) {
-        printMessage(error, "fail to communicate with the server");
-        console.log(e.message);
-    });
+function getPubKey() {
+  const t = window.location.hash.substr(1);
+  if(t.length != 44 ) {
+    console.log("Wrong token length in the URL", t.length);
+    $("h3").text("Wrong authentication token in the page?");
+  }
+  return t;
 }
 
-/* CSV related functions, the first two of them are for 'personal', last is on specific 'videoId' */
+/* CSV related functions, they are clicked by a button/link from personal page */
 function downloadSearchCSV() {
     const queryTerms = $(this).attr('yttrex-search-terms');
     const csvurl = buildApiUrl("searches", queryTerms + "/csv", 2);
-    console.log("Search CSV in opening is: ", csvurl);
+    console.log("Search CSV via pattern: ", queryTerms, "is:", csvurl);
+    window.open(csvurl);
+}
+/* Confused ?
+ - above is about all the search terms CSV
+ - below is about the personal searches */
+function downloadSearchesCSV() {
+    const pk = getPubKey();
+    const csvurl = buildApiUrl('personal', pk + '/search/csv', 2);
+    console.log("download personal searches CSV from: ", csvurl);
     window.open(csvurl);
 }
 
@@ -336,20 +248,27 @@ function downloadHomeCSV() {
     window.open(csvurl);
 }
 
+function downloadAdsCSV() {
+    const pk = getPubKey();
+    const csvurl = buildApiUrl('personal', pk + '/home/ads', 2);
+    console.log("download personal Ads CSV from: ", csvurl);
+    window.open(csvurl);
+}
+
 function downloadCSVByVideoId(e) {
     const videoId = $(this).attr('yttrex-videoId');
     const csvurl = buildApiUrl("videoCSV", videoId);
     console.log("videoCSV from: ", csvurl);
     window.open(csvurl);
 }
+/* end of the CSV related functions */
 
-/* ------------- */
 function between(x, min, max) {
     return x >= min && x <= max;
 }
 
 function addSearchRow(searche, i) {
-    // console.log(searche); 
+    // console.log(i, searche); 
     /* clang: "en"
         id: "a217a2259295bedd777681ff4f57c9a33a48e338"
         publicKey: "FxMy3C17AijcLhc3pD6gSwLbM16ZFcC9sdLgUJrQbUHJ"
@@ -361,7 +280,9 @@ function addSearchRow(searche, i) {
     entry.attr("id", computedId);
     $("#searchlog").append(entry);
 
-    $("#" + computedId + " .title").text(searche.query + " (" + searche.results + ")");
+    $("#" + computedId + " .title").text(searche.query);
+    $("#" + computedId + " .amount").text(searche.results);
+    /* below the most horrific datetime manipulation example */
     $("#" + computedId + " .when").text(searche.savingTime.substr(11, 5));
 
     const ytlink = "https://www.youtube.com/results?search_query=" + encodeURIComponent(searche.query);
@@ -382,10 +303,6 @@ function addSearchRow(searche, i) {
 }
 
 function addVideoRow(video, i) {
-    if(!video.videoId) {
-        console.log(i, "Nope!!", video);
-        return;
-    }
 
     const entry = $("#master").clone();
     const computedId = `video-${video.id}`;

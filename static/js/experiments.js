@@ -202,6 +202,16 @@ function pieCharts(idName, videos, titleId) {
   // })
 }
 
+async function chiaroScuroRender(exname) {
+  const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
+  console.log(jsonurl);
+  const jsonconn = await fetch(jsonurl);
+  const jsonfmt = await jsonconn.json();
+
+  // _.groupBy(jsonfmt, '')
+  console.log(jsonfmt);
+}
+
 async function comparisonRenderer(exname) {
 
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
@@ -247,7 +257,17 @@ async function comparisonRenderer(exname) {
   // axes();
 }
 
-function directiveHTMLli(directive, recent) {
+function chiaroScuroHTMLli(directive, recent) {
+  console.log(directive, recent);
+  return `<li>
+      <a href="/shadowban/render/#${directive.experimentId}">
+        <b>${directive.humanizedWhen}</b> ${directive.links.length} links
+      </a>
+      <code>${JSON.stringify(recent.contributions)}</code
+  </li>`;
+}
+
+function comparisonHTMLli(directive, recent) {
 
   const jurl = buildApiUrl('experiment', directive.experimentId + "/json", 2);
   const curl = buildApiUrl('experiment', directive.experimentId + "/csv", 2);
@@ -261,7 +281,7 @@ function directiveHTMLli(directive, recent) {
 
   return `<li>
     <p>
-      <a href="render/#${directive.experimentId}">
+      <a href="/experiments/render/#${directive.experimentId}">
         <b>${directive.humanizedWhen}</b> 
       </a>
       <br>
@@ -313,7 +333,10 @@ async function reportAllTheExperiments(directiveType, password) {
   } else {
     const activeDetails = _.map(data.configured, function(directive) {
       const recent = _.get(data.recent, directive.experimentId, []);
-      return directiveHTMLli(directive, recent);
+      if(directiveType === 'comparison')
+        return comparisonHTMLli(directive, recent);
+      else /* directiveType === 'chiaroscuro' */
+        return chiaroScuroHTMLli(directive, recent);
     });
     $("#configured--list").html(activeDetails.join('\n'));
   }

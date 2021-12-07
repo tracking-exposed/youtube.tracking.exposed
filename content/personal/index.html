@@ -19,6 +19,7 @@ og_description: Interface to download recommendations, homepage and search resul
     <div class="col-6">
       <button
         type="button"
+        id="video--download"
         class="btn btn-outline-success" onclick="downloadVideoCSV()">
         Videos CSV
       </button>
@@ -90,6 +91,7 @@ og_description: Interface to download recommendations, homepage and search resul
     <div class="col-6">
       <button
         type="button"
+        id="search--download"
         class="btn btn-outline-success" onclick="downloadSearchesCSV()">
         Searches CSV
       </button>
@@ -102,9 +104,11 @@ og_description: Interface to download recommendations, homepage and search resul
     <div id="searchmaster" hidden class="row border-bottom p-2 mb-3 align-middle">
     <div class="col-8">
       <span class="mb-0">
-      <small class="when">whenFiller</small> ― 
-      <b class="title">titleFiller</b>
-      <a class="repeat" target=_blank>linkFiller</a>
+        <small class="when">whenFiller</small> ― 
+        <b class="title">titleFiller</b>
+        <span class="amount">amountFiller</span>
+        <br>
+        <a class="repeat" target=_blank>linkFiller</a>
       </span>
     </div>
     <nav class="col-4">
@@ -176,6 +180,12 @@ og_description: Interface to download recommendations, homepage and search resul
 
 <script type="text/javascript">
   $( document ).ready(function() {
-    loadPersonal();
+    const t = window.location.hash.substr(1);
+    if(t.length != 44 ) {
+      console.log("Wrong token length in the URL", t.length);
+      $("h3").text("Wrong authentication token in the page?");
+    } else {
+      loadPersonal(t);
+    }
   });
 </script>

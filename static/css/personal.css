@@ -18,8 +18,12 @@
     color: red;
 }
 
-.repeat {
-    font-style: italic;
+.amount {
+    /* a made up lightgrey with more white and red components */
+    background-color: #f2e8e8; 
+    color: darkred;
+    padding: 3px;
+    border-radius: 2px;
 }
 
 .relatedN {
@@ -36,4 +40,10 @@ section {
     border-top: red 1px solid;
     border-right: red 1px solid;
     border-radius: 20px;
+}
+
+h5 {
+    padding-left: 2rem;
+    color: darkgray;
+    font-style: italic;
 }
