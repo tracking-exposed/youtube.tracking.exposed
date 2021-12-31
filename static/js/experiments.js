@@ -202,17 +202,38 @@ function pieCharts(idName, videos, titleId) {
   // })
 }
 
-async function experimentGradualRender() {
+async function chiaroScuroRender(exname) {
+  const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
+  console.log(jsonurl);
+  const jsonconn = await fetch(jsonurl);
+  const jsonfmt = await jsonconn.json();
 
-  const exname = window.location.hash.substr(1);
+  // _.groupBy(jsonfmt, '')
+  console.log(jsonfmt);
+}
+
+async function comparisonRenderer(exname) {
+
   const doturl = buildApiUrl('experiment', exname + '/dot', 2);
   // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/dot'; 
   const dotconn = await fetch(doturl);
   const dotformat = await dotconn.json();
+
+  console.log(dotformat);
+
   const jsonurl = buildApiUrl('experiment', exname + '/json', 2);
   // 'https://youtube.tracking.exposed/api/v2/experiment/'+exname+'/json'; 
   const jsonconn = await fetch(jsonurl);
   const jsonfmt = await jsonconn.json();
+
+  console.log(jsonfmt);
+
+  if(!data.experiments[exname]) {
+    $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
+    return false;
+  }
+
+  $("#experinfo").text(`Rendering results for ${exname}`)
   for (videoinfo of dotformat) {
     console.log(videoinfo.videoName);
     const elem = $("#protoclone").clone();
@@ -236,38 +257,104 @@ async function experimentGradualRender() {
   // axes();
 }
 
-function liElements(amount, name) {
-  return `<li><a href="/experiment/#${name}"
-    onclick="window.location.reload()">${name}</a> ${amount} sessions —
-    <a href="/api/v2/experiment/${name}/csv">CSV</a>, 
-    <a href="/api/v2/experiment/${name}/json">JSON</a>.
-    </li>`
+function chiaroScuroHTMLli(directive, recent) {
+  console.log(directive, recent);
+  return `<li>
+      <a href="/shadowban/render/#${directive.experimentId}">
+        <b>${directive.humanizedWhen}</b> ${directive.links.length} links
+      </a>
+      <code>${JSON.stringify(recent.contributions)}</code
+  </li>`;
 }
 
-async function reportAllTheExperiments() {
-  const listurl = buildApiUrl('guardoni', 'list', 2);
-  const jsonconn = await fetch(listurl);
-  const jsonfmt = await jsonconn.json();
-  const exname = window.location.hash.substr(1);
+function comparisonHTMLli(directive, recent) {
 
-  $("#experiment--list").html(_.map(jsonfmt.experiments, liElements).join('\n'))
-  if(jsonfmt.overflow)
-    $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered');
+  const jurl = buildApiUrl('experiment', directive.experimentId + "/json", 2);
+  const curl = buildApiUrl('experiment', directive.experimentId + "/csv", 2);
+  const homeid = `home-${directive.experimentId}`;
+  const videoid = `video-${directive.experimentId}`;
+  const searchid = `search-${directive.experimentId}`;
+  const advid = `adv-${directive.experimentId}`;
+  const experimentStats = (_.keys(recent).length) ? 
+    `<code>${JSON.stringify(recent)}</code>`:
+    `<span style="color:red">NO data</span>`;
 
-  console.log(_.keys(jsonfmt.experiments).length)
-  if(0 === (_.keys(jsonfmt.experiments).length))
+  return `<li>
+    <p>
+      <a href="/experiments/render/#${directive.experimentId}">
+        <b>${directive.humanizedWhen}</b> 
+      </a>
+      <br>
+      <small>${directive.experimentId}</small>
+      <br>
+      <b>urltag(s)</b>: ${_.map(directive.links, 'urltag')}
+      <br>
+      ${experimentStats}
+    </p>
+    <p>
+      <span style="color:darkgreen"><b>DOWNLOAD data</b></span>
+      <span id="${homeid}"><a href="${curl}/home">HOME</a> csv, </span>
+      <span id="${videoid}"><a href="${curl}/video">VIDEO</a> csv, </span>
+      <span id="${searchid}"><a href="${curl}/search">SEARCH</a> csv, </span>
+      <span id="${advid}"><a href="${curl}/adv">ADV</a> csv, </span>
+      — full <a href="${jurl}">JSON</a>.
+    </p>
+  </li>`;
+}
+
+function activeHTMLli(active) {
+  /* "publicKey":"HRr3mbGR",
+     "href":"https://www.youtube.com/results?search_query=2uPoWfSHalk",
+     "experimentId":"4751040c3c6206b7daa358658f",
+     "evidencetag":"sblt-berlin-2",
+     "execount":1,
+     "newProfile":true,
+     "testTime":"2021-11-30T11:31:48.668Z",
+     "directiveType":"comparison",
+     "status":"active"                              */
+  return `
+    <li>
+      <a href="/render/#${active.experimentId}">${active.testTime}</a>
+      evidencetag: <code>${active.evidencetag}</code>
+      profile executed: <code>${active.execount}</code>
+    </li>`;
+}
+
+async function reportAllTheExperiments(directiveType, password) {
+  let variableAPI = password?.length ?
+    `list/${directiveType}/${password}` : `list/${directiveType}`;
+  const listurl = buildApiUrl('guardoni', variableAPI, 2);
+  const response = await fetch(listurl);
+  const data = await response.json();
+
+  if(!data.configured.length) {
+    $("#configured--list")
+      .html('<h4><code>No experiment configured!</code></h4>');
+  } else {
+    const activeDetails = _.map(data.configured, function(directive) {
+      const recent = _.get(data.recent, directive.experimentId, []);
+      if(directiveType === 'comparison')
+        return comparisonHTMLli(directive, recent);
+      else /* directiveType === 'chiaroscuro' */
+        return chiaroScuroHTMLli(directive, recent);
+    });
+    $("#configured--list").html(activeDetails.join('\n'));
+  }
+
+  if(!data.active.length) {
+    $("#active--list")
+      .html('<h4><code>No experiment active at the moment.</code></h4>');
+  } else {
+    $("#active--list").html(_
+      .map(data.active, activeHTMLli)
+      .join('\n'));
+  }
+
+  /* if(data.overflow)
+    $("#experiment--warning").text('Warning, reached maximunt amount of experiments considered'); */
+
+  if(0 === (_.keys(data.recent).length))
     $("#experiment--warning").text('Unexpected error: zero experiments found');
 
-  if(!exname.length) {
-    $("#error").html(`Experiment name is missing in the request`);
-    return false;
-  }
-  if(!jsonfmt.experiments[exname]) {
-    $("#error").html(`The experiment <code>${exname}</code> is not present in the database`);
-    return false;
-  }
-
-  $("#experinfo").text(`Rendering results for ${exname}`)
-  // this 'true' would allow the page to query results
-  return true;
+  return data;
 }
