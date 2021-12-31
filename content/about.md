@@ -1,6 +1,6 @@
 ---
 title: About ytTREX and us
-subtitle: If you feel the project in your interest, we would love to expand our team ― FYI, we're all unfunded
+subtitle: Get in touch with us!
 draft: false
 date: 2020-05-20T15:01:21+01:00
 description: Who, Why, What, When. 
