@@ -13,7 +13,10 @@ og_description: "look at the suggested video organized by publisher"
 ---
 
 <div class="container" style="display:none" id="results">
-    <h2 id="authorName"></h2>
+    <h2>
+        Channel name: <code id="authorName"></code>
+        Id: <code id="channelId"></code>
+    </h2>
     <span>Total observation available: <code id="total"></code></span> —
     <span>Total recommendations: <code id="recctotal"></code></span>
     <hr />
@@ -49,7 +52,20 @@ og_description: "look at the suggested video organized by publisher"
 
 **How compose the request**
 
-https://youtube.tracking.exposed/api/v1/author/EwZRhQ4easE
+<ul>
+  <li>
+    Take as input a videoId, resolves the author, and count by recommended videos
+    <a id="author--example" target=_blank href="#">
+      /api/v1/author/:videoId/:amount?
+    </a> <i>(click to try!)</i>.
+  </li>
+  <li>
+    Take as input a channelId and count by recommended channels
+    <a id="channel--example" target=_blank href="#">
+      /api/v3/creator/:channelId/related/:amount?
+    </a> <i>(click to try!)</i>.
+  </li>
+</ul>
 
 **How to interpret the results**
 
@@ -77,13 +93,13 @@ total: 14
 
 The request need a youtube Video Id. The backend look in the database on who is the author of this video (we call it, O.A.) and then fetch all the video, recorded in yttrex, belonging to the same author.
 
-Then it aggregate the results in three groups: <i>sameAuthor</i> are the video recommended that belong to O.A, (also called self-recommendations), and <i>external</i>: the remaining videos, related, which lead recommending an external author.
+Then it aggregate the results in two groups: <i>sameAuthor</i> are the video recommended that belong to O.A., (also called self-recommendations), and <i>external</i>: the remaining videos, related, which lead recommending an external author.
 
-The API have been initially developed as part of the <a href="/seeyou">SeeYou</a>, an experiment on building a Youtube(r) labor union. (to better understand the addressed problem, please check out <a href="https://fairtube.com">FairTube</a>); since 2021 it is sustained by the <a href="https://youchoose.ai">YouChoose.AI</a> project.
+The API have been initially developed as part of the <a href="/seeyou">SeeYou</a>, a concept note for a Youtube(r) labor union. (to better understand the problem, please check out <a href="https://fairtube.com">FairTube</a>); In 2021 it has been expanded for the project/spinoff <a href="https://youchoose.ai">YouChoose.AI</a>.
 
-
+<br>
+<br>
 {{<shared-yt-services>}}
-
 
 <script src="/js/global.js"></script>
 <script src="/js/public.js"></script>
@@ -91,8 +107,8 @@ The API have been initially developed as part of the <a href="/seeyou">SeeYou</a
 
 <script type="text/javascript">
 
-    $( document ).ready(function() {
-        initAuthor();
-    });
+  $( document ).ready(function() {
+    initAuthor();
+  });
 
 </script>
