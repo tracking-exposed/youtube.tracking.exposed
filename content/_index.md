@@ -9,6 +9,14 @@ layout: home
 
 ---
 
+## 2021 development and expansion: [YouChoose.AI](https://youchoose.ai).
+
+Youtube.tracking.exposed as _backend_, have been sponsored by the Next Generation Internet program _[Ledger](https://github.com/LedgerProject/YouChoose.AI)_. The team has expanded, and we begin to move from _showing why an algorithm matter_ to _give back control_.
+
+It is in <b>alpha testing</b>, a few aspects still need to be addressed, check the website to get update.
+
+---
+
 <h2>Collective algorithm observations and workshop results</h2>
 <br>
 
@@ -73,4 +81,5 @@ layout: home
 </div>
 
 <br>
-<!-- {{<shared-yt-services>}} -->
+
+{{<shared-yt-services>}}
