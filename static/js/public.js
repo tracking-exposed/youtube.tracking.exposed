@@ -26,7 +26,8 @@ function initAuthor() {
             return invalidVideoId(videoId, "This video didn't provide results");
         }
 
-        $("#authorName").text(results.authorName)
+        $("#authorName").text(results.authorName);
+        $("#channelId").text(results.authorSource);
         $("#total").text(results.total);
         if(results.overflow)
             $("#total").text(results.total + '*');

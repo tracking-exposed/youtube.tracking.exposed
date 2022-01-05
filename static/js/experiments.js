@@ -209,7 +209,12 @@ async function chiaroScuroRender(exname) {
   const jsonfmt = await jsonconn.json();
 
   // _.groupBy(jsonfmt, '')
+  // this piece of code has to 
   console.log(jsonfmt);
+  const n = "<code>" + _.map(jsonfmt, function(metadata) {
+    return JSON.stringify(metadata) 
+  }).join("</code><code>") + "</code>";
+  $("#report").html(n);
 }
 
 async function comparisonRenderer(exname) {
@@ -327,6 +332,9 @@ async function reportAllTheExperiments(directiveType, password) {
   const response = await fetch(listurl);
   const data = await response.json();
 
+  console.log(data);
+  return;
+
   if(!data.configured.length) {
     $("#configured--list")
       .html('<h4><code>No experiment configured!</code></h4>');
@@ -335,7 +343,7 @@ async function reportAllTheExperiments(directiveType, password) {
       const recent = _.get(data.recent, directive.experimentId, []);
       if(directiveType === 'comparison')
         return comparisonHTMLli(directive, recent);
-      else /* directiveType === 'chiaroscuro' */
+      else  // directiveType === 'chiaroscuro'
         return chiaroScuroHTMLli(directive, recent);
     });
     $("#configured--list").html(activeDetails.join('\n'));

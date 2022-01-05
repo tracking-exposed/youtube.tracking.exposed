@@ -22,15 +22,25 @@ date: 2021-11-09T08:11:24
 
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/experiments.js"></script>
+<script type="text/javascript" src="/js/generated/taboule.js"></script>
 <script type="text/javascript">
-  async function render(password) {
-    await reportAllTheExperiments('comparison', password);
-  }
   const password = window.location.hash.substr(1);
   if(!password) {
     $("h4")
       .html("<span style='color:red'>Error, password missing in the URL</span>");
-  } else {
-    render(password);
   }
+
+  const baseURL = (window.location.origin.match(/localhost/)) ? 'http://localhost:9000/api' : "/api";
+
+  window.Taboule({
+    showInput: true,
+    node: document.getElementById('configured--list'),
+    baseURL,
+    query: "getExperimentList",
+    pageSize: 25,
+    initialParams: {
+      type: 'comparison',
+      key: password,
+    },
+  });
 </script>
