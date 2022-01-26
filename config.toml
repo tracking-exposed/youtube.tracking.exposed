@@ -133,7 +133,7 @@ canonifyURLs = true
     post = "A collective observation of the Youtube personalization algorithm; addressing COVID-19 and getting evidence on how recommendations works"
     weight = -180
  [[menu.featured]]
-    name = "CHIARO ― The Ranking Algorithm	"
+    name = "CHIARO ― The Ranking Algorithm"
     url = "/chiaro/start"
     pre = "/images/related.svg"
     weight = -170
@@ -143,11 +143,3 @@ canonifyURLs = true
     name = "Initial project analysis (2018)"
     url = "/initial-analysis/"
     weight = 100
- [[menu.footer]]
-    name = "Umbrella project: Tracking Exposed"
-    url = "https://tracking.exposed"
-    weight = 90
- [[menu.footer]]
-    name = "Built on top: YouChoose"
-    url = "https://youchoose.ai"
-    weight = 80

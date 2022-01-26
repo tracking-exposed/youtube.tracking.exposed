@@ -1,5 +1,5 @@
 ---
-title: "API documentation"
+title: "API and formats documentation — a work in progress we didn't completed"
 subtitle: "youtube.tracking.exposed, how to access JSON and CSV content for public of via personal access token"
 draft: false
 
@@ -7,29 +7,14 @@ og_title: "youtube tracking exposed API"
 og_type: "website"
 og_image: "http://youtube.tracking.exposed/images/wetest-yt2.jpg"
 og_url: "https://youtube.tracking.exposed/docs"
-og_description: "The unique user-centric youtube algorithm analysis toolkit, join us as research or as curious netizen!"
-
-
-title: API and formats documentation
-subtitle: This is a work in progress, if you want to use us, it is worthy drop us an email!
-draft: false
-date: 2020-05-27T15:01:21+01:00
-description: 
-
-og_title: "youtube algorithm analysis"
-og_type: "website"
-og_image: "https://youtube.tracking.exposed/images/compare.jpeg"
-og_url: "https://youtube.tracking.exposed/get-involved"
 og_description: "API and format documentation"
 ---
 
+
+### Metadata for type 'video'
 ```
-$ DEBUG=* scripts/wetest1-basic.js --type video
-  wetest-1-basic — [video] is the target: starting wetest basic extractor… +0ms
-  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
-  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"video","videoId":{"$in":["Lo_m_rKReyg","Zh_SVHJGVHw","A2kiXc5XEdU","WEMpIQ30srI","BNdW_6TgxH0",null]}}: 152 objects retrived +2s
-  wetest-1-basic — Unnested the 'sections' return 7843 evidences. Saving JSON file +748ms
   wetest-1-basic — Produced 4483380 bytes for text/csv, saving file +914ms
+
   wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +26ms
   wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +1ms
   wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 66.8% | false: 32.9% | null: 0.3% +0ms
@@ -61,13 +46,12 @@ $ DEBUG=* scripts/wetest1-basic.js --type video
   wetest-1-basic — watchedTitle,,,,,,,,,,,,,,,,,string: 100% +1ms
   wetest-1-basic — watchedViews,,,,,,,,,,,,,,,,,string: 100% +2ms
   wetest-1-basic — watchedChannel,,,,,,,,,,,,,,,string: 100% +2ms
+```
 
-$ DEBUG=* scripts/wetest1-basic.js --type home
-  wetest-1-basic — [home] is the target: starting wetest basic extractor… +0ms
-  lib:mongo3 Initializing mongoUri with mongodb://localhost:27017/yttrex +4ms
-  wetest-1-basic — Completed DB access to fetch: {"savingTime":{"$gte":"2020-03-24T23:00:00.000Z","$lte":"2020-03-26T23:00:00.000Z"},"type":"home"}: 188 objects retrived +2s
-  wetest-1-basic — Unnested the 'sections' return 10537 evidences. Saving JSON file +810ms
+### Metadata type 'home'
+```
   wetest-1-basic — Produced 4132743 bytes for text/csv, saving file +884ms
+
   wetest-1-basic — pseudonyn,,,,,,,,,,,,,,,,,,,,string: 100% +23ms
   wetest-1-basic — evidence,,,,,,,,,,,,,,,,,,,,,int: 100% +2ms
   wetest-1-basic — login,,,,,,,,,,,,,,,,,,,,,,,,true: 84.7% | false: 15.3% | null: 0% +1ms
@@ -95,94 +79,6 @@ $ DEBUG=* scripts/wetest1-basic.js --type home
   wetest-1-basic — selectedKind,,,,,,,,,,,,,,,,,string: 100% +3ms
 ```
 
-
-
-## CSV (aka the most basic format for data analysis)
-
-The *personal* CSV, by [using the browser extension](/preview), you collect the video selected by Youtube for you, and download these logs.
-
-#### PersonalVideo CSV
-
-*personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
-
-#### PersonalHome CSV
-
-*personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
-
-#### Compare CSV
-
-2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
->>>>>>> wetest1:content/api-documentation.md
-
-# API Introduction
-
-<<<<<<< HEAD:content/docs.md
-=======
-The main URL to access the ytTrex API is: `https://youtube.tracking.exposed/api/`.
-
->>>>>>> wetest1:content/api-documentation.md
-`userToken` is an unique identifier for you YoutubeTrackingExposed user. It's a 40-characters long hexadecimal string. You can retrieve it by clicking on the ytTrex logo when you click on the extension in the browser where you installed it. In the URL bar you will find the string. Just copy-paste it.
-
-`videoId` is the identifier used for each video by Youtube. You can retrieve it by separating the string that appears after `watch?v=`. For example the videoToken for `https://www.youtube.com/watch?v=BXB-PoihfYI` would be `BXB-PoihfYI`.
-
-`Paging` defines the number of entries that are retrieved by the API, as well as the number of entries to skip. For example, if you call `/10-5` at the end of a "Personal" query, you will get 10 entries and skip the 5 most recent ones. If you call `/20-0` you will just get the 20 most recent entries.
-
-#### Maintenaince -- last update 24 June 2020
-
-This software and this documentation are under open licese, AGPL and CC-BY. We maintain this documentation without a proper procedure, and it might be outdated. Reach out to us, analyze API format with some browser inspection, and remind all the API routes are here listed and linked: [server.js] Express app, [lib.js] routes and correspondend API name/function, [routes/] where the API are implemented.
-
-#### Data units
-
-The smalles data unit in this system is an object that descrive a video thumbnail from the youtube pages.
-A video thumbnail might not be played or watched, we report the mere *presence* of this video, because our goal is to allow analysis of youtube recommendation and personalization.
-
-Going forward, there are two fundamental **data units**: **video metadata** and **related videos**. 
-
-In _video metadata_, the unit is the watched video. There are informations such as the number of likes, publication Time of the video, number of views and the 20 or more recommended videos.
-Each row has a unique ID, and it represents an *evidence*. It is collected by the watchers, and allow watchers to compare how their recommendation differs.
-
-A video watched has a field named _related_, in other cases (homepages and search results) we call them _selected_ because they have been selectred by YT, not really recommended. It is always a personalization effects but here is in use this terminology.
-
-
----
-
-### CSV is the most knonw format for basic data analysis. We offer three kinds of CSV
-
-1. The *personal* CSV, by [using the browser extension](/preview), you can collect evidenced of personalization, and download them. 
-  * *personalVideo* CSV has one entry for **each related content** you got by side on each video you watch.
-  * *personalHome* CSV has one entry for **each video in homepage** you got when accessing to the Platform homepage https://youtube.com/
-2. The *compare* CSV: as the name say, this CSV is meant to compare how a video gets different related content. Has one entry for **each related content** seen by every supporter who watched the video requested. The entry it is anonymized. 
-
-#### PersonalVideo CSV
-
-_TBD_
-
-#### PersonalHome CSV
-
-_TBD_
-
-#### Compare CSV
-
-_To Be Done, and also To Be Determined: what really we have to explain here?_
-
-    recommendedVideoId
-    recommendedViews
-    recommendedDuration
-    recommendedPubtime
-    recommendedForYou
-    recommendedTitle
-    recommendedAuthor
-    recommendedVerified
-    recommendationOrder
-    watchedId
-    watchedAuthor
-    watchedPubtime
-    watchedTitle
-    watchedViews
-    watchedChannel
-
----
-
 ## API Index
 <table>
   <tr>
@@ -204,11 +100,6 @@ _To Be Done, and also To Be Determined: what really we have to explain here?_
     <td>Personal CSV</td>
     <td><a href=#personalcsv>see details</a></td>
     <td>/v1/personal/$userToken/csv</td>
-  </tr>
-  <tr>
-    <td>Research</td>
-    <td><a href=#research>see details</a></td>
-    <td>/v1/research/$researchToken</td>
   </tr>
   <tr>
     <td>VideoId</td>
@@ -246,8 +137,6 @@ _To Be Done, and also To Be Determined: what really we have to explain here?_
     <td>/v1/htmlId/$id</td>
   </tr>
 </table>
-
-****
 
 ## <a name="personal"></a>Personal
 
@@ -796,20 +685,6 @@ Request:
 Same as personal, but data is retrieved as comma-separated-values.
 
 **Data unit**: _related video_.
-****
-
-## <a name="research"></a>Research
-
-#### URL
-`https://youtube.tracking.exposed/api/v1/research/$token`
-<br>
-#### Description
-Users can join research groups in order to be able to retrieve data for all of their "accounts" with a single token. Joins various "Personal API" together for research purposes.
-
-**STILL TO BE IMPLEMENTED PROPERLY**
-**STILL TO BE IMPLEMENTED PROPERLY**
-**STILL TO BE IMPLEMENTED PROPERLY**
-
 ****
 
 ## <a name="videoid"></a>VideoId
