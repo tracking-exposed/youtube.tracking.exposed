@@ -26,46 +26,38 @@ _Newcomers is the number of people installing the extension. In every day the su
 _Here the graph displays the number of active supporters, for the last time, in the correspondent day._
 
 ---
-## Count of 'Related' videos 
-<div id="related-graph" class="c3graph"></div>
-
-_Related reports the number of suggested videos. Normally we observe 20 related suggestion, but for technical reason we catch a different number. This stats is meant at helping us in investigating how the collection is doing._
-
----
 ## Evidences successful analyzed by our pipeline
 <div id="processing-graph" class="c3graph"></div>
 
 _Below a graph on how our parsers are performing: how many HTMLs have been parsed successfully or not. The failures count might not be a failure from the parsers, but rather the collection of pages not yet supported (such as homepage, search results, channel, and others)._
 
 ---
-## Related video extracted 
-<div id="metadata-graph" class="c3graph"></div>
+## video metadata (recommendations)
+<div id="videos-related-graph" class="c3graph"></div>
 
-_We usually expect 20 videos suggested in the right column of YouTube. But if a watcher scroll down more would get more related videos. Also, sometimes we might not load or properly extract the associated videos, and if this happens, it is an error to investigate promptly._
-
----
-## Aggregated stats on usage
-<div id="usage-graph" class="c3graph"></div>
-
-_homepages and videos are the two kind of metadata we have. Logged/unlogged is the only information we might infer to assume the profile was more or less personalized. (personalization happens even without being logged, but in general seems less stronger)_
+_This reports the number of suggested videos. Normally we should expect circa 20 recommended content, but if any user scroll more, or youtube serve less, we'll spot from here._
 
 ---
-## Searches related stats 
+## video metadata (anything else)
+<div id="videos-metadata-graph" class="c3graph"></div>
+
+_How is the video parser working? how it is our usage of the platform? Consider a new language might not be supported, and here we should spot it_
+
+---
+## Nature of processed pages
+<div id="nature-graph" class="c3graph"></div>
+
+_which kind of pages are we processing the most?_
+
+---
+## Searches stats 
 <div id="searches-graph" class="c3graph"></div>
 
-_How many searches do we collect? and how many of them contains recent video (less than 24hours and less than 7 days) ?_
+_How many searches belongs to experiment and how many others to random partecipants?_
 
 ---
-## Labels collection stats 
-<div id="labels-graph" class="c3graph"></div>
-
-_How many labels we got? they are the fundamental resource used to mine searches_
-
----
-## Deeper look into recommended videos stats
-<div id="deeper-graph" class="c3graph"></div>
-
-_In the metadata collected we can count and see if new trends arise from the collective observations._
+## Leaves — the new collection method
+<div id="leaves-graph" class="c3graph"></div>
 
 ---
 ### Statistics and OpenData enable network effects, data reuse, and collaborative revision of our project. But they are tricky and can't be released carelessly:

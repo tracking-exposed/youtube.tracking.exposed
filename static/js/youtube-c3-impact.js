@@ -26,40 +26,6 @@ const clist = [{
         }
     }
 }, {
-    API: buildApiUrl('statistics/deeper/day', DAYSAGO, 2),
-    bindto: '#deeper-graph',
-    data : {
-        mimeType: 'json',
-        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'total', 'foryou' /*, 'verified' */, 'isLive' ], x: 'day' },
-        type: 'bar',
-        axes: {
-            'foryou': 'y',
-            // 'verified': 'y',
-            'isLive': 'y',
-            'total': 'y',
-        },
-        colors: {
-            'foryou': _.last(palette),
-            // 'verified': palette[4],
-            'isLive': palette[1],
-            'total': palette[3],
-        },
-        labels: { show: true },
-    },
-    legend: { show: true },
-    axis: {
-        x: {
-            type: 'timeseries',
-            tick: {
-                format: '%Y-%m-%d',
-            },
-        }
-    },
-    tooltip: {
-        contents: detailAnalysisTooltip,
-    }
-}, {
     API: buildApiUrl('statistics/active/day', DAYSAGO, 2),
     bindto: '#active-graph',
     data : {
@@ -85,50 +51,18 @@ const clist = [{
         }
     }
 }, {
-    API: buildApiUrl('statistics/related/day', DAYSAGO, 2),
-    bindto: '#related-graph',
-    data : {
-        mimeType: 'json',
-        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'total', 'related-20', 'others', 'more-than-20' ], x: 'day' },
-        types: {
-            'total': 'bar',
-            'related-20': 'bar',
-            'others': 'bar',
-            'more-than-20': 'bar',
-        },
-        colors: {
-            'total': palette[0],
-            'related-20': palette[1],
-            'others': palette[2],
-            'more-than-20': palette[3]
-        },
-        groups: [
-            [ 'related-20', 'others', 'more-than-20' ]
-        ],
-    },
-    axis: {
-        x: {
-            type: 'timeseries',
-            tick: {
-                format: '%Y-%m-%d',
-            },
-        }
-    }
-}, {
     API: buildApiUrl('statistics/processing/day', DAYSAGO, 2),
     bindto: '#processing-graph',
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'failure', 'successful', 'unprocessed', 'total', 'hasMetadata' ], x: 'day' },
+        keys: { value : [ 'failure', 'successful', 'unprocessed', 'total' ], x: 'day' },
         type: 'bar',
         colors: {
             'failure': palette[0],
             'unprocessed': palette[2],
             'successful': palette[4],
             'total': palette[1],
-            'hasMetadata': palette[3]
         },
         groups: [ [ 'successful', 'failure', 'unprocessed' ] ],
     },
@@ -141,18 +75,47 @@ const clist = [{
         },
     }
 }, {
-    API: buildApiUrl('statistics/metadata/day', DAYSAGO, 2),
-    bindto: '#metadata-graph',
+    API: buildApiUrl('statistics/videos-related/day', DAYSAGO, 2),
+    bindto: '#videos-related-graph',
+    data : {
+        mimeType: 'json',
+        xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
+        keys: { value : [ 'total', 'related-20', 'more-than-20' ], x: 'day' },
+        types: {
+            'total': 'bar',
+            'related-20': 'bar',
+            'more-than-20': 'bar',
+        },
+        colors: {
+            'total': palette[0],
+            'related-20': palette[1],
+            'more-than-20': palette[3]
+        },
+        groups: [
+            [ 'related-20', 'more-than-20' ]
+        ],
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d',
+            },
+        }
+    }
+}, {
+    API: buildApiUrl('statistics/videos-metadata/day', DAYSAGO, 2),
+    bindto: '#videos-metadata-graph',
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
         keys: {
-            value : [ 'hasTitle', 'hasAuthor', 'hasRelated', 'viewWorks', 'videos', 'total' ],
+            value : [ 'hasTitle', 'hasAuthor', 'viewWorks', 'experiment', 'total' ],
             x: 'day'
         },
         types: {
             'total': 'line',
-            'videos': 'area',
+            'experiment': 'area',
             'hasTitle': 'bar',
             'hasAuthor': 'bar',
             'hasRelated': 'bar',
@@ -176,42 +139,49 @@ const clist = [{
         },
     }
 }, {
-    API: buildApiUrl('statistics/usage/day', DAYSAGO, 2),
-    bindto: '#usage-graph',
+    API: buildApiUrl('statistics/nature/day', DAYSAGO, 2),
+    bindto: '#nature-graph',
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'logged', 'unlogged', 'homepages', 'videos', 'total' ], x: 'day' },
+        keys: { value : [ 'total', 'home', 'video', 'search' ], x: 'day' },
         type: 'bar',
-        colors: {
-            'logged': palette[0],
-            'unlogged': palette[1],
-            'homepages': palette[4],
-            'videos': palette[3],
-            'total': palette[6]
+        axes: {
+            'video': 'y',
+            'home': 'y',
+            'search': 'y',
+            'total': 'y',
         },
-        groups: [ [ 'logged', 'unlogged' ], [ 'videos', 'homepages' ] ],
+        colors: {
+            'video': palette[0],
+            'home': palette[1],
+            'search': palette[2],
+            'total': palette[3],
+        },
+        labels: { show: true },
     },
+    legend: { show: true },
     axis: {
         x: {
             type: 'timeseries',
             tick: {
                 format: '%Y-%m-%d',
             },
-        },
+        }
+    },
+    tooltip: {
+        contents: detailAnalysisTooltip,
     }
 }, {
-    API: buildApiUrl('statistics/searches/day', DAYSAGO, 2),
+    API: buildApiUrl('statistics/searches-metadata/day', DAYSAGO, 2),
     bindto: '#searches-graph',
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ '1month', '7days', '24hours', 'searches' ], x: 'day' },
+        keys: { value : [ 'searches', 'experiment' ], x: 'day' },
         type: 'bar',
         colors: {
-            '1month': palette[2],
-            '7days': palette[1],
-            '24hours': palette[3],
+            'experiment': palette[2],
             'searches': palette[6]
         },
     },
@@ -224,17 +194,24 @@ const clist = [{
         },
     }
 }, {
-    API: buildApiUrl('statistics/labels/day', DAYSAGO, 2),
-    bindto: '#labels-graph',
+    API: buildApiUrl('statistics/leaves/day', DAYSAGO, 2),
+    bindto: '#leaves-graph',
     data : {
         mimeType: 'json',
         xFormat: '%Y-%m-%dT%H:%M:%S.000Z',
-        keys: { value : [ 'labels', 'total' ], x: 'day' },
+        keys: { value : [ 'total', 'channel', 'home', 'search', 'video' ], x: 'day' },
         type: 'bar',
         colors: {
-            'labels': palette[2],
+            'experiment': palette[0],
+            'channel': palette[2],
+            'home': palette[3],
+            'search': palette[4],
+            'video': palette[5],
             'total': palette[6],
         },
+        groups: [
+            [ 'home', 'search', 'video', 'channel' ]
+        ],
     },
     axis: {
         x: {
@@ -244,7 +221,9 @@ const clist = [{
             },
         },
     }
-}, {
+},
+/* these below have been used in monthly visualization */
+{
     API: '/bin/foryou-percentage-40.json',
     bindto: '#october-2020-percentage-graph',
     data : {

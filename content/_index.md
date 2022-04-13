@@ -22,7 +22,7 @@ It is in <b>alpha testing</b>, a few aspects still need to be addressed, check t
 
 <div class="card-deck">
     <div class="row">
-         {{<researchCard
+         {{<ytResearchCard
             title="FiterTube: Echo chambers, Filter Bubble and Polarization"
             text=" During the US elections, we realized a collective project at the Digital Methods Winter School 2021. We simulated echo chambers, we studied the construction of filter bubbles and consequent political polarization of suggestions."
             when="January 2021"
@@ -30,7 +30,7 @@ It is in <b>alpha testing</b>, a few aspects still need to be addressed, check t
             slidesLink="https://github.com/tracking-exposed/presentation/blob/master/FilterTube-DMIWS21.pdf"
             href="/filtertube"
             picture="/images/filtertube-title2.png" >}}
-        {{<researchCard
+        {{<ytResearchCard
             title="Trexit: Polarization and Reinforcement during Brexit"
             text="During Brexit, we made a three days analysis of the algorithm with ten researchers from all over the world. The research aims to split the group in two and see how YT considers different activities to personalize the following recommendation."	
             when="January 2020"
@@ -39,7 +39,7 @@ It is in <b>alpha testing</b>, a few aspects still need to be addressed, check t
             videoLink="https://www.youtube.com/watch?v=igs24EeIWBU"
             href="/trexit"
             picture="/images/TREXIT-title2.jpeg" >}}
-        {{<researchCard
+        {{<ytResearchCard
             title="Personalization: every second matters"
             text="Our first research with a dozen of students: we began by mapping Youtube personalization differences and distances. Watching a video for a few seconds more is enough to get different recommendations. We tested the sperimental 'clean browser'."
             when="July 2019"
