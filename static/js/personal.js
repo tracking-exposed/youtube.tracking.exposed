@@ -216,9 +216,9 @@ function printMessage(element, text, type) {
 
 function getPubKey() {
   const t = window.location.hash.substr(1);
-  if(t.length != 44 ) {
+  if(t.length < 42 || t.length > 46 ) {
     console.log("Wrong token length in the URL", t.length);
-    $("h3").text("Wrong authentication token in the page?");
+    $("h1").text("Wrong authentication token in the page?");
   }
   return t;
 }
