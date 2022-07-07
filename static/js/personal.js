@@ -137,8 +137,9 @@ function reportError(info) {
     );
 }
 
-function loadPersonal(authToken) {
+function loadPersonal() {
     /* this is the primary function invoked by personal page */
+    const authToken = getPubKey();
 
     const url = buildApiUrl('personal', authToken);
     $.getJSON(url, (data) => {
