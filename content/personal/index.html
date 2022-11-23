@@ -13,6 +13,10 @@ og_description: Interface to download recommendations, homepage and search resul
 <div class="container">
 
   <div class="row">
+    <div id="personal-taboule" style="width: 100%;"></div>
+  </div>
+
+  <div class="row">
     <div class="col-6">
       <h4>Videos and Recommendations</h4>
     </div>
@@ -203,9 +207,39 @@ og_description: Interface to download recommendations, homepage and search resul
 
 <script src="/js/global.js"></script>
 <script src="/js/personal.js"></script>
+<script src="/js/generated/taboule.js"></script>
 
 <script type="text/javascript">
   $( document ).ready(function() {
     loadPersonal();
+
+    const baseURL = window.location.origin.match(/localhost/)
+        ? "http://localhost:9000/api"
+        : "/api";
+
+    console.log("Loading Taboule with URL", baseURL);
+      window.Taboule({
+        showInput: false,
+        node: document.getElementById("personal-taboule"),
+        baseURL,
+        pageSize: 25,
+        initialParams: {
+          publicKey: getPubKey(),
+        },
+        queries: [
+          {
+            value: "youtubePersonalHomes",
+            label: 'Homes'
+          },
+          {
+            value: "youtubePersonalSearches",
+            label: 'Searches'
+          },
+          {
+            value: "youtubePersonalVideos",
+            label: 'Videos'
+          }
+        ],
+      });
   });
 </script>

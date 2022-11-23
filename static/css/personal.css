@@ -1,3 +1,5 @@
+@import url(./taboule.css);
+
 .interaction-disabled {
     cursor: no-drop !important;
     color: grey !important;
