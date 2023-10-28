@@ -11,7 +11,7 @@ canonifyURLs = true
    subsite = "youtube"
    openGraphSiteName = "YouTube Tracking Exposed"
    description = "This is a collaborative project meant to let you take back control of your data. This approach do not follow corporate methods, but as an algorithm investigator let you passively records what Youtube algorithm pick for you, and let you play with the data."
-   tagline = "A data-activism project; We develop tech to dissect & expose Youtube influence."
+   tagline = "This tool to study YouTube personalization algorithm is now DISCONTINUED."
 
 [markup]
   [markup.goldmark]
@@ -25,7 +25,7 @@ canonifyURLs = true
 [menu]
  [[menu.main]]
     name = "About"
-    url = "/about/"
+    url = "https://tracking.exposed"
     weight = 1
  [[menu.main]]
     name = "How to"
@@ -71,11 +71,11 @@ canonifyURLs = true
     name = "Privacy"
     url = "/privacy/"
     weight = 120
- [[menu.main]]
-     parent = "Technology"
-    name = "Statistics"
-    url = "/impact/"
-    weight = 130
+# [[menu.main]]
+#     parent = "Technology"
+#    name = "Statistics"
+#    url = "/impact/"
+#    weight = 130
  [[menu.main]]
     parent = "Technology"
     name = "API documentation"
@@ -83,41 +83,40 @@ canonifyURLs = true
     weight = 140
 
 
-
- [[menu.main]]
-    name = "Explore data"
-    url = "#"
-    weight = 1000
- [[menu.main]]
-     parent = "Explore data"
-    name = "Search results"
-    url = "/chiaro/start/"
-    weight = 1100
- [[menu.main]]
-    parent = "Explore data"
-    name = "Suggestion for authors"
-    url = "/author/"
-    weight = 1200
- [[menu.main]]
-    parent = "Explore data"
-    name = "Suggestions for videos"
-    url = "/related/"
-    weight = 1300
- [[menu.main]]
-    parent = "Explore data"
-    name = "Videos as suggestions"
-    url = "/related/"
-    weight = 1400
- [[menu.main]]
-    parent = "Explore data"
-    name = "Experiments list"
-    url = "/experiment/"
-    weight = 1500
- [[menu.main]]
-    parent = "Explore data"
-    name = "Hompages (beta)"
-    url = "/hompare/"
-    weight = 1600
+# [[menu.main]]
+#    name = "Explore data"
+#    url = "#"
+#    weight = 1000
+# [[menu.main]]
+#     parent = "Explore data"
+#    name = "Search results"
+#    url = "/chiaro/start/"
+#    weight = 1100
+# [[menu.main]]
+#    parent = "Explore data"
+#    name = "Suggestion for authors"
+#    url = "/author/"
+#    weight = 1200
+# [[menu.main]]
+#    parent = "Explore data"
+#    name = "Suggestions for videos"
+#    url = "/related/"
+#    weight = 1300
+# [[menu.main]]
+#    parent = "Explore data"
+#    name = "Videos as suggestions"
+#    url = "/related/"
+#    weight = 1400
+# [[menu.main]]
+#    parent = "Explore data"
+#    name = "Experiments list"
+#    url = "/experiment/"
+#    weight = 1500
+# [[menu.main]]
+#    parent = "Explore data"
+#    name = "Hompages (beta)"
+#    url = "/hompare/"
+#    weight = 1600
 
 
  [[menu.featured]]
