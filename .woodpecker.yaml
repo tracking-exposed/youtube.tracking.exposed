@@ -1,4 +1,9 @@
-pipeline:
+when:
+  event: push
+  branch:
+    - master
+
+steps:
   build:
     image: klakegg/hugo:ext-alpine-ci
     commands:
@@ -7,6 +12,3 @@ pipeline:
       - mv -f public/* /site
     volumes:
       - /var/www/sites/youtube.tracking.exposed:/site
-
-branches: 
-  - master
